@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Image Captioning</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 50px; background-color: #f4f4f9; }
+        .container { background: white; padding: 40px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 600px; margin: auto; }
+        h1 { color: #333; }
+        input[type="file"] { margin: 20px 0; }
+        button { background-color: #007bff; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        img { max-width: 100%; border-radius: 5px; margin-top: 20px; }
+        .caption { margin-top: 20px; font-size: 1.2em; color: #28a745; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📸 AI Image Caption Generator</h1>
+        <p>Upload an image and the AI will describe it.</p>
+        
+        <form method="post" enctype="multipart/form-data">
+            <input type="file" name="image" required>
+            <br>
+            <button type="submit">Generate Caption</button>
+        </form>
+
+        {% if image_url %}
+            <img src="{{ image_url }}" alt="Uploaded Image">
+            <div class="caption">AI Says: "{{ caption }}"</div>
+        {% endif %}
+    </div>
+</body>
+</html>
