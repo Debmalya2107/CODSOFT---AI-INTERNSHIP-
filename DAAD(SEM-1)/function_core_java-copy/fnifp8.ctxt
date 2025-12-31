@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=fnifp8
-comment1.params=
-comment1.target=void\ input()
-comment2.params=clp
-comment2.target=double\ display1(double)
-comment3.params=clp
-comment3.target=double\ display2(double)
-numComments=4

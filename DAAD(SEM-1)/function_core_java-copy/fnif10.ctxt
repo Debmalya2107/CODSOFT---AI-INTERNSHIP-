@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=fnif10
-comment1.params=
-comment1.target=void\ input()
-comment2.params=a\ b\ c
-comment2.target=int\ display1(int,\ int,\ int)
-numComments=3

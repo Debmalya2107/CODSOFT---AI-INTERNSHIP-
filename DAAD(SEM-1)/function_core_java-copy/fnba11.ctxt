@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=fnba11
-comment1.params=
-comment1.target=void\ input()
-comment2.params=r
-comment2.target=void\ cal(int)
-comment3.params=ar\ cir
-comment3.target=void\ display(double,\ double)
-numComments=4

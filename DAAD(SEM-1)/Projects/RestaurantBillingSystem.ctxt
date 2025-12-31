@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=RestaurantBillingSystem
-comment1.params=args
-comment1.target=void\ main(java.lang.String[])
-comment2.params=category\ subCategory\ items\ prices
-comment2.target=void\ displayItems(java.lang.String,\ java.lang.String,\ java.lang.String[],\ double[])
-numComments=3

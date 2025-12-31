@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=p2
-comment1.params=
-comment1.target=void\ input()
-comment2.params=a\ b
-comment2.target=void\ cal(int,\ int)
-comment3.params=c
-comment3.target=void\ display(int)
-numComments=4
