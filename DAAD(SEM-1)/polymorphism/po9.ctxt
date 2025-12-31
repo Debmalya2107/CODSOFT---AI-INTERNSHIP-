@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=po9
+comment1.params=num1\ num2
+comment1.target=void\ compare(int,\ int)
+comment2.params=ch1\ ch2
+comment2.target=void\ compare(char,\ char)
+comment3.params=str1\ str2
+comment3.target=void\ compare(java.lang.String,\ java.lang.String)
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

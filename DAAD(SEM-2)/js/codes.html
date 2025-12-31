@@ -1,0 +1,4490 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Java Logic Playground</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --bg-primary: #1e1e1e;
+        --bg-secondary: #252526;
+        --bg-card: #2d2d30;
+        --bg-code: #1e1e1e;
+        --border-color: #3e3e42;
+        --text-primary: #d4d4d4;
+        --text-secondary: #9d9d9d;
+        --accent-blue: #007acc;
+        --accent-green: #4ec9b0;
+        --accent-orange: #ce9178;
+        --accent-red: #f48771;
+        --accent-purple: #c586c0;
+        --shadow: rgba(0, 0, 0, 0.4);
+      }
+
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background: linear-gradient(135deg, #1e1e1e 0%, #2d2d30 100%);
+        color: var(--text-primary);
+        line-height: 1.6;
+        min-height: 100vh;
+      }
+
+      header {
+        background: var(--bg-secondary);
+        border-bottom: 2px solid var(--accent-blue);
+        padding: 2rem 0;
+        box-shadow: 0 4px 6px var(--shadow);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      header h1 {
+        font-size: 2.5rem;
+        color: var(--accent-blue);
+        margin-bottom: 0.5rem;
+      }
+
+      .subtitle {
+        color: var(--text-secondary);
+        font-size: 1.1rem;
+      }
+
+      .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .filters {
+        display: flex;
+        gap: 1rem;
+        margin: 2rem 0;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--bg-card);
+        border: 2px solid var(--border-color);
+        color: var(--text-primary);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+
+      .filter-btn:hover {
+        border-color: var(--accent-blue);
+        background: var(--bg-secondary);
+      }
+
+      .filter-btn.active {
+        background: var(--accent-blue);
+        border-color: var(--accent-blue);
+        color: white;
+      }
+
+      #app {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .question-card {
+        background-image: url(./jk.png );
+        background-repeat: no-repeat;
+        background-size: cover;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        padding: 1.5rem;
+        box-shadow: 0 4px 6px var(--shadow);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .question-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 12px var(--shadow);
+        border-color: var(--accent-blue);
+      }
+
+      .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .question-id {
+        background: var(--accent-blue);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .category-tag {
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+      }
+
+      .category-tag.basic {
+        background: var(--accent-green);
+        color: #000;
+      }
+
+      .category-tag.conditional {
+        background: var(--accent-orange);
+        color: #000;
+      }
+
+      .category-tag.looping {
+        background: var(--accent-purple);
+        color: #fff;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        color: var(--accent-green);
+        margin-bottom: 0.5rem;
+      }
+
+      .card-description {
+        color: var(--text-secondary);
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+      }
+
+      .code-section {
+        background: var(--bg-code);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 1rem;
+        margin-bottom: 1rem;
+        max-height: 300px;
+        overflow-y: auto;
+      }
+
+      .code-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .code-label {
+        color: var(--accent-orange);
+        font-weight: 600;
+        font-size: 0.9rem;
+      }
+
+      .copy-btn {
+        background: transparent;
+        border: 1px solid var(--border-color);
+        color: var(--text-secondary);
+        padding: 0.3rem 0.8rem;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 0.8rem;
+        transition: all 0.2s;
+      }
+
+      .copy-btn:hover {
+        background: var(--accent-blue);
+        color: white;
+        border-color: var(--accent-blue);
+      }
+
+      .code-content {
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.9rem;
+        line-height: 1.5;
+        color: var(--text-primary);
+        white-space: pre-wrap;
+      }
+
+      .input-section {
+        margin-bottom: 1rem;
+      }
+
+      .input-group {
+        margin-bottom: 0.8rem;
+      }
+
+      .input-group label {
+        display: block;
+        color: var(--accent-green);
+        font-weight: 600;
+        margin-bottom: 0.3rem;
+        font-size: 0.9rem;
+      }
+
+      .input-group input,
+      .input-group textarea {
+        width: 100%;
+        padding: 0.7rem;
+        background: var(--bg-code);
+        border: 1px solid var(--border-color);
+        border-radius: 4px;
+        color: var(--text-primary);
+        font-size: 0.95rem;
+        font-family: inherit;
+        transition: border-color 0.3s;
+      }
+
+      .input-group input:focus,
+      .input-group textarea:focus {
+        outline: none;
+        border-color: var(--accent-blue);
+      }
+
+      .input-group textarea {
+        resize: vertical;
+        min-height: 60px;
+      }
+
+      .run-btn {
+        width: 100%;
+        padding: 0.9rem;
+        background: var(--accent-blue);
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 600;
+        transition: all 0.3s;
+        margin-bottom: 1rem;
+      }
+
+      .run-btn:hover {
+        background: #005a9e;
+        transform: scale(1.02);
+      }
+
+      .run-btn:active {
+        transform: scale(0.98);
+      }
+
+      .output-section {
+        background: var(--bg-code);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        padding: 1rem;
+        min-height: 60px;
+        display: none;
+      }
+
+      .output-section.show {
+        display: block;
+      }
+
+      .output-label {
+        color: var(--accent-purple);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+      }
+
+      .output-content {
+        color: var(--accent-green);
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        font-size: 0.95rem;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      footer {
+        background: var(--bg-secondary);
+        border-top: 2px solid var(--accent-blue);
+        padding: 1.5rem 0;
+        text-align: center;
+        color: var(--text-secondary);
+        margin-top: 3rem;
+      }
+
+      #total-count {
+        color: var(--accent-green);
+        font-weight: bold;
+      }
+
+      /* Scrollbar Styling */
+      ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: var(--bg-primary);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: var(--border-color);
+        border-radius: 5px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+        background: var(--accent-blue);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        #app {
+          grid-template-columns: 1fr;
+        }
+
+        header h1 {
+          font-size: 2rem;
+        }
+
+        .filters {
+          justify-content: center;
+        }
+      }
+
+      .java-banner {
+        background-color: #0d1117;
+        /* Dark Coding Background */
+        color: #c9d1d9;
+        padding: 2rem;
+        border-radius: 12px;
+        font-family: "Segoe UI", sans-serif;
+        display: flex;
+        align-items: center;
+        /* Vertically aligns logo and text */
+        gap: 20px;
+        /* Space between logo and text */
+        border: 1px solid #30363d;
+        max-width: 800px;
+        /* Optional width limit */
+      }
+
+      /* Text Styling */
+      .java-banner h1 {
+        margin: 0;
+        color: #fff;
+        font-size: 2rem;
+      }
+
+      .java-banner .highlight {
+        color: #f89820;
+      }
+
+      .java-banner .subtitle {
+        margin: 5px 0 0 0;
+        color: #8b949e;
+        font-family: monospace;
+      }
+
+      /* Logo Animation */
+      .java-logo {
+        width: 70px;
+        height: 70px;
+        animation: hoverCup 3s ease-in-out infinite;
+      }
+
+      @keyframes hoverCup {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* Container for the content */
+      .java-banner {
+        position: relative;
+        z-index: 10; /* Ensures text is above the animation */
+        background-color: rgba(13, 17, 23, 0.7); /* Semi-transparent dark bg */
+        backdrop-filter: blur(8px); /* Glass effect */
+        color: #c9d1d9;
+        padding: 2rem 3rem;
+        border-radius: 12px;
+        font-family: "Segoe UI", sans-serif;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        border: 1px solid rgba(48, 54, 61, 0.6);
+        max-width: 800px;
+        margin: 20px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Text Styling */
+      .java-banner h1 {
+        margin: 0;
+        color: #fff;
+        font-size: 2rem;
+      }
+      .java-banner .highlight {
+        color: #f89820;
+      }
+      .java-banner .subtitle {
+        margin: 5px 0 0 0;
+        color: #8b949e;
+        font-family: monospace;
+      }
+
+      /* Logo Animation */
+      .java-logo {
+        width: 70px;
+        height: 70px;
+        animation: hoverCup 3s ease-in-out infinite;
+      }
+
+      @keyframes hoverCup {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-8px);
+        }
+      }
+
+      /* Canvas Positioning */
+      #java-metaball-header canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1; /* Behind the content */
+      }
+      /* buttons  */
+      /* Base Variables */
+      .filter-btn {
+        --stone-50: #fafaf9;
+        --stone-800: #292524;
+        --yellow-400: #facc15;
+
+        /* Reset button defaults */
+        background: none;
+        border: none;
+        padding: 0;
+
+        font-family: "Rubik", sans-serif;
+        cursor: pointer;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        line-height: 1;
+        font-size: 1rem;
+        border-radius: 1rem;
+        outline: 2px solid transparent;
+        outline-offset: 6px;
+        color: var(--stone-50);
+      }
+
+      .filter-btn:active {
+        outline-color: var(--yellow-400);
+      }
+
+      .filter-btn:focus-visible {
+        outline-color: var(--yellow-400);
+        outline-style: dashed;
+      }
+
+      /* Rotating Star Background (Pseudo-element) */
+      .filter-btn::before {
+        content: "";
+        position: absolute;
+        z-index: 0;
+        height: 200%;
+        max-height: 100px;
+        aspect-ratio: 1;
+        margin: auto;
+        background: white;
+        clip-path: polygon(
+          100% 50%,
+          91.48% 56.57%,
+          97.55% 65.45%,
+          87.42% 69.07%,
+          90.45% 79.39%,
+          79.7% 79.7%,
+          79.39% 90.45%,
+          69.07% 87.42%,
+          65.45% 97.55%,
+          56.57% 91.48%,
+          50% 100%,
+          43.43% 91.48%,
+          34.55% 97.55%,
+          30.93% 87.42%,
+          20.61% 90.45%,
+          20.3% 79.7%,
+          9.55% 79.39%,
+          12.58% 69.07%,
+          2.45% 65.45%,
+          8.52% 56.57%,
+          0% 50%,
+          8.52% 43.43%,
+          2.45% 34.55%,
+          12.58% 30.93%,
+          9.55% 20.61%,
+          20.3% 20.3%,
+          20.61% 9.55%,
+          30.93% 12.58%,
+          34.55% 2.45%,
+          43.43% 8.52%,
+          50% 0%,
+          56.57% 8.52%,
+          65.45% 2.45%,
+          69.07% 12.58%,
+          79.39% 9.55%,
+          79.7% 20.3%,
+          90.45% 20.61%,
+          87.42% 30.93%,
+          97.55% 34.55%,
+          91.48% 43.43%
+        );
+        animation: star-rotate 4s linear infinite;
+        opacity: 0.1;
+        pointer-events: none; /* Allows clicking through */
+      }
+
+      .filter-btn:hover::before {
+        opacity: 1;
+      }
+
+      /* Layer 1: The Yellow Shadow Layer */
+      .filter-btn > div {
+        padding: 2px;
+        border-radius: 1rem;
+        background-color: var(--yellow-400);
+        transform: translate(-4px, -4px);
+        transition: all 150ms ease;
+        box-shadow: 0.5px 0.5px 0 0 var(--yellow-400),
+          1px 1px 0 0 var(--yellow-400), 1.5px 1.5px 0 0 var(--yellow-400),
+          2px 2px 0 0 var(--yellow-400), 2.5px 2.5px 0 0 var(--yellow-400),
+          3px 3px 0 0 var(--yellow-400), 0 0 0 2px var(--stone-800),
+          0.5px 0.5px 0 2px var(--stone-800), 1px 1px 0 2px var(--stone-800),
+          1.5px 1.5px 0 2px var(--stone-800), 2px 2px 0 2px var(--stone-800),
+          2.5px 2.5px 0 2px var(--stone-800), 3px 3px 0 2px var(--stone-800),
+          3.5px 3.5px 0 2px var(--stone-800), 4px 4px 0 2px var(--stone-800),
+          0 0 0 4px var(--stone-50), 0.5px 0.5px 0 4px var(--stone-50),
+          1px 1px 0 4px var(--stone-50), 1.5px 1.5px 0 4px var(--stone-50),
+          2px 2px 0 4px var(--stone-50), 2.5px 2.5px 0 4px var(--stone-50),
+          3px 3px 0 4px var(--stone-50), 3.5px 3.5px 0 4px var(--stone-50),
+          4px 4px 0 4px var(--stone-50);
+      }
+
+      /* Hover State for Layer 1 */
+      .filter-btn:hover > div {
+        transform: translate(0, 0);
+        box-shadow: 0 0 0 0 var(--yellow-400), 0 0 0 2px var(--stone-800),
+          0 0 0 4px var(--stone-50);
+      }
+
+      /* Optional: Keep it pressed if it has the "active" class */
+      .filter-btn.active > div {
+        transform: translate(0, 0);
+        box-shadow: 0 0 0 0 var(--yellow-400), 0 0 0 2px var(--stone-800),
+          0 0 0 4px var(--stone-50);
+      }
+
+      /* Layer 2: The Dark Background */
+      .filter-btn > div > div {
+        position: relative;
+        pointer-events: none;
+        border-radius: calc(1rem - 2px);
+        background-color: var(--stone-800);
+        overflow: hidden; /* Contains the dots */
+      }
+
+      /* Dots Background Pattern */
+      .filter-btn > div > div::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 1rem;
+        opacity: 0.1;
+        background-image: radial-gradient(
+            rgb(255 255 255 / 80%) 20%,
+            transparent 20%
+          ),
+          radial-gradient(rgb(255 255 255 / 100%) 20%, transparent 20%);
+        background-position: 0 0, 4px 4px;
+        background-size: 8px 8px;
+        mix-blend-mode: hard-light;
+        box-shadow: inset 0 0 0 1px var(--stone-800);
+        animation: dots 0.4s infinite linear;
+        transition: opacity 150ms ease;
+      }
+
+      /* Layer 3: Text Content */
+      .filter-btn > div > div > div {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1.25rem;
+        gap: 0.25rem;
+        filter: drop-shadow(0 -1px 0 var(--stone-800));
+        z-index: 1;
+      }
+
+      .filter-btn > div > div > div:hover {
+        filter: drop-shadow(0 -1px 0 rgba(255, 255, 255, 0.1));
+      }
+
+      .filter-btn > div > div > div:active {
+        transform: translateY(2px);
+      }
+
+      /* Keyframes */
+      @keyframes star-rotate {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes dots {
+        0% {
+          background-position: 0 0, 4px 4px;
+        }
+        100% {
+          background-position: 8px 0, 12px 4px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header
+      id="java-metaball-header"
+      style="
+        position: relative;
+        overflow: hidden;
+        background: #000;
+        min-height: 350px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      "
+    >
+      <div class="java-banner">
+        <svg viewBox="0 0 100 100" class="java-logo">
+          <path
+            fill="#5382a1"
+            d="M20 40 L25 85 Q 26 95, 50 95 T 75 85 L 80 40 Z"
+          />
+          <ellipse cx="50" cy="40" rx="30" ry="10" fill="#f89820" />
+          <path
+            fill="none"
+            stroke="#5382a1"
+            stroke-width="8"
+            d="M80 50 Q 95 50, 95 65 T 78 80"
+          />
+          <path
+            fill="none"
+            stroke="#fff"
+            stroke-width="3"
+            d="M50 10 Q 55 20, 50 30"
+            style="opacity: 0.6"
+          />
+        </svg>
+
+        <div>
+          <h1><span class="highlight">Java</span> Codes & Tests</h1>
+          <p class="subtitle">ICUBE - Java Programming Logic Playground</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <div class="filters">
+
+        <button class="filter-btn active" data-category="all">
+          <div>
+            <div>
+              <div>All Problems</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="filter-btn active" data-category="basic">
+          <div>
+            <div>
+              <div>Basic</div>
+            </div>
+          </div>
+        </button>
+
+         <button class="filter-btn active" data-category="conditional">
+          <div>
+            <div>
+              <div>Conditional</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="filter-btn active" data-category="looping">
+          <div>
+            <div>
+              <div>Looping</div>
+            </div>
+          </div>
+        </button>
+
+        <button class="filter-btn active" data-category="series">
+        <div>
+          <div>
+          <div>series</div>
+          </div>
+          </div>
+        </button>
+
+        <button class="filter-btn active" data-category="menu-driven">
+          <div>
+            <div>
+              <div>Menu-Driven</div>
+            </div>
+          </div>
+        </button>
+        <button class="filter-btn active" data-category="polymorphism">
+          <div>
+            <div>
+              <div>Polymorphism</div>
+            </div>
+          </div>
+        </button>   
+      </div>             
+
+      <div id="app"></div>
+    </main>
+
+    <footer>
+      <p>
+        Created for ICUBE DAAD Students | Total Problems:
+        <span id="total-count">0</span>
+      </p>
+    </footer>
+
+    <script>
+      const questionsDB = [
+        {
+          id: 1,
+          category: "basic",
+          title: "Display Your Name",
+          description: "Write a program to display your name.",
+          inputs: [{ label: "Enter Your Name", type: "text", id: "name" }],
+          javaCode: `public class DisplayName {
+    public static void main(String[] args) {
+        String name = "Your Name";
+        System.out.println(name);
+    }
+}`,
+          jsLogic: (inputs) => {
+            return inputs[0] || "No name provided";
+          },
+        },
+        {
+          id: 2,
+          category: "basic",
+          title: "Display First and Last Name",
+          description:
+            "Write a program to display your first name and last name in different lines.",
+          inputs: [
+            { label: "Enter First Name", type: "text", id: "firstName" },
+            { label: "Enter Last Name", type: "text", id: "lastName" },
+          ],
+          javaCode: `public class DisplayFullName {
+    public static void main(String[] args) {
+        String firstName = "John";
+        String lastName = "Doe";
+        System.out.println(firstName);
+        System.out.println(lastName);
+    }
+}`,
+          jsLogic: (inputs) => {
+            return inputs[0] + "\n" + inputs[1];
+          },
+        },
+        {
+          id: 3,
+          category: "basic",
+          title: "Display Name and Age",
+          description:
+            "Write a program to display your name and age in different lines using one output statement.",
+          inputs: [
+            { label: "Enter Your Name", type: "text", id: "name" },
+            { label: "Enter Your Age", type: "number", id: "age" },
+          ],
+          javaCode: `public class DisplayNameAge {
+    public static void main(String[] args) {
+        String name = "John";
+        int age = 20;
+        System.out.println("Name: " + name + "\\nAge: " + age);
+    }
+}`,
+          jsLogic: (inputs) => {
+            return `Name: ${inputs[0]}\nAge: ${inputs[1]}`;
+          },
+        },
+        {
+          id: 4,
+          category: "basic",
+          title: "Addition of Two Numbers",
+          description: "Write a program to find the addition of two numbers.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `public class Addition {
+    public static void main(String[] args) {
+        int num1 = 10;
+        int num2 = 20;
+        int sum = num1 + num2;
+        System.out.println("Sum = " + sum);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num1 = parseFloat(inputs[0]);
+            const num2 = parseFloat(inputs[1]);
+            const sum = num1 + num2;
+            return `Sum = ${sum}`;
+          },
+        },
+        {
+          id: 5,
+          category: "basic",
+          title: "Accept Two Numbers and Add",
+          description:
+            "Write a program to accept two numbers from user and find their addition.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class AcceptAndAdd {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int num1 = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int num2 = sc.nextInt();
+        int sum = num1 + num2;
+        System.out.println("Sum = " + sum);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num1 = parseFloat(inputs[0]);
+            const num2 = parseFloat(inputs[1]);
+            const sum = num1 + num2;
+            return `First Number: ${num1}\nSecond Number: ${num2}\nSum = ${sum}`;
+          },
+        },
+        {
+          id: 6,
+          category: "basic",
+          title: "Sum and Average of 5 Subjects",
+          description:
+            "Write a program to accept 5 subject marks and find their sum and average.",
+          inputs: [
+            { label: "Subject 1 Marks", type: "number", id: "sub1" },
+            { label: "Subject 2 Marks", type: "number", id: "sub2" },
+            { label: "Subject 3 Marks", type: "number", id: "sub3" },
+            { label: "Subject 4 Marks", type: "number", id: "sub4" },
+            { label: "Subject 5 Marks", type: "number", id: "sub5" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class SubjectsAverage {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int sum = 0;
+        for(int i = 1; i <= 5; i++) {
+            System.out.print("Enter marks for subject " + i + ": ");
+            sum += sc.nextInt();
+        }
+        double average = sum / 5.0;
+        System.out.println("Sum = " + sum);
+        System.out.println("Average = " + average);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const marks = inputs.map((m) => parseFloat(m));
+            const sum = marks.reduce((a, b) => a + b, 0);
+            const average = sum / 5;
+            return `Marks: ${marks.join(
+              ", "
+            )}\nSum = ${sum}\nAverage = ${average.toFixed(2)}`;
+          },
+        },
+        {
+          id: 7,
+          category: "basic",
+          title: "Swap Two Numbers (with third variable)",
+          description:
+            "Write a program to accept two numbers and swap them using third variable.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class SwapWithTemp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        
+        System.out.println("Before Swap: a = " + a + ", b = " + b);
+        
+        int temp = a;
+        a = b;
+        b = temp;
+        
+        System.out.println("After Swap: a = " + a + ", b = " + b);
+    }
+}`,
+          jsLogic: (inputs) => {
+            let a = parseFloat(inputs[0]);
+            let b = parseFloat(inputs[1]);
+            const beforeA = a,
+              beforeB = b;
+
+            let temp = a;
+            a = b;
+            b = temp;
+
+            return `Before Swap: a = ${beforeA}, b = ${beforeB}\nAfter Swap: a = ${a}, b = ${b}`;
+          },
+        },
+        {
+          id: 8,
+          category: "basic",
+          title: "Swap Two Numbers (without third variable)",
+          description:
+            "Write a program to accept two numbers and swap them without using third variable.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class SwapWithoutTemp {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        
+        System.out.println("Before Swap: a = " + a + ", b = " + b);
+        
+        a = a + b;
+        b = a - b;
+        a = a - b;
+        
+        System.out.println("After Swap: a = " + a + ", b = " + b);
+    }
+}`,
+          jsLogic: (inputs) => {
+            let a = parseFloat(inputs[0]);
+            let b = parseFloat(inputs[1]);
+            const beforeA = a,
+              beforeB = b;
+
+            a = a + b;
+            b = a - b;
+            a = a - b;
+
+            return `Before Swap: a = ${beforeA}, b = ${beforeB}\nAfter Swap: a = ${a}, b = ${b}`;
+          },
+        },
+        {
+          id: 9,
+          category: "basic",
+          title: "Swap Without Third Variable and +/- Operators",
+          description:
+            "Write a program to swap two numbers without using third variable and '+', '-' operators.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class SwapWithMultiply {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        
+        System.out.println("Before Swap: a = " + a + ", b = " + b);
+        
+        a = a * b;
+        b = a / b;
+        a = a / b;
+        
+        System.out.println("After Swap: a = " + a + ", b = " + b);
+    }
+}`,
+          jsLogic: (inputs) => {
+            let a = parseFloat(inputs[0]);
+            let b = parseFloat(inputs[1]);
+            const beforeA = a,
+              beforeB = b;
+
+            if (a === 0 || b === 0) {
+              return "Error: Cannot swap if any number is zero (division by zero)";
+            }
+
+            a = a * b;
+            b = a / b;
+            a = a / b;
+
+            return `Before Swap: a = ${beforeA}, b = ${beforeB}\nAfter Swap: a = ${a}, b = ${b}`;
+          },
+        },
+        {
+          id: 10,
+          category: "basic",
+          title: "Area and Perimeter of Rectangle",
+          description:
+            "Write a program to accept length and breadth of a rectangle and find the area and perimeter.",
+          inputs: [
+            { label: "Enter Length", type: "number", id: "length" },
+            { label: "Enter Breadth", type: "number", id: "breadth" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class RectangleCalculations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter length: ");
+        double length = sc.nextDouble();
+        System.out.print("Enter breadth: ");
+        double breadth = sc.nextDouble();
+        
+        double area = length * breadth;
+        double perimeter = 2 * (length + breadth);
+        
+        System.out.println("Area = " + area);
+        System.out.println("Perimeter = " + perimeter);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const length = parseFloat(inputs[0]);
+            const breadth = parseFloat(inputs[1]);
+            const area = length * breadth;
+            const perimeter = 2 * (length + breadth);
+
+            return `Length: ${length}\nBreadth: ${breadth}\nArea = ${area}\nPerimeter = ${perimeter}`;
+          },
+        },
+        {
+          id: 11,
+          category: "basic",
+          title: "Area and Circumference of Circle",
+          description:
+            "Write a program to accept radius of circle and find area and circumference.",
+          inputs: [{ label: "Enter Radius", type: "number", id: "radius" }],
+          javaCode: `import java.util.Scanner;
+public class CircleCalculations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter radius: ");
+        double radius = sc.nextDouble();
+        
+        double area = Math.PI * radius * radius;
+        double circumference = 2 * Math.PI * radius;
+        
+        System.out.println("Area = " + area);
+        System.out.println("Circumference = " + circumference);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const radius = parseFloat(inputs[0]);
+            const area = Math.PI * radius * radius;
+            const circumference = 2 * Math.PI * radius;
+            return `Radius: ${radius}\nArea = ${area.toFixed(
+              2
+            )}\nCircumference = ${circumference.toFixed(2)}`;
+          },
+        },
+        {
+          id: 12,
+          category: "basic",
+          title: "Area and Perimeter of Square",
+          description:
+            "Write a program to accept the value of one side of a square and find the area and perimeter.",
+          inputs: [{ label: "Enter Side", type: "number", id: "side" }],
+          javaCode: `import java.util.Scanner;
+public class SquareCalculations {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter side: ");
+        double side = sc.nextDouble();
+        
+        double area = side * side;
+        double perimeter = 4 * side;
+        
+        System.out.println("Area = " + area);
+        System.out.println("Perimeter = " + perimeter);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const side = parseFloat(inputs[0]);
+            const area = side * side;
+            const perimeter = 4 * side;
+            return `Side: ${side}\nArea = ${area}\nPerimeter = ${perimeter}`;
+          },
+        },
+        {
+          id: 13,
+          category: "basic",
+          title: "Celsius to Fahrenheit",
+          description:
+            "Write a program to accept temperature in Celsius and convert to Fahrenheit.",
+          inputs: [
+            { label: "Enter Temperature (°C)", type: "number", id: "celsius" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class CelsiusToFahrenheit {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter temperature in Celsius: ");
+        double celsius = sc.nextDouble();
+        
+        double fahrenheit = (celsius * 9/5) + 32;
+        
+        System.out.println(celsius + "°C = " + fahrenheit + "°F");
+    }
+}`,
+          jsLogic: (inputs) => {
+            const celsius = parseFloat(inputs[0]);
+            const fahrenheit = (celsius * 9) / 5 + 32;
+            return `${celsius}°C = ${fahrenheit.toFixed(2)}°F`;
+          },
+        },
+        {
+          id: 14,
+          category: "basic",
+          title: "Fahrenheit to Celsius",
+          description:
+            "Write a program to accept temperature in Fahrenheit and convert to Celsius.",
+          inputs: [
+            {
+              label: "Enter Temperature (°F)",
+              type: "number",
+              id: "fahrenheit",
+            },
+          ],
+          javaCode: `import java.util.Scanner;
+public class FahrenheitToCelsius {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter temperature in Fahrenheit: ");
+        double fahrenheit = sc.nextDouble();
+        
+        double celsius = (fahrenheit - 32) * 5/9;
+        
+        System.out.println(fahrenheit + "°F = " + celsius + "°C");
+    }
+}`,
+          jsLogic: (inputs) => {
+            const fahrenheit = parseFloat(inputs[0]);
+            const celsius = ((fahrenheit - 32) * 5) / 9;
+            return `${fahrenheit}°F = ${celsius.toFixed(2)}°C`;
+          },
+        },
+        {
+          id: 15,
+          category: "basic",
+          title: "Employee Salary Calculation",
+          description:
+            "Calculate HRA, DA, TA, PF, GS, NP from basic salary. HRA=10%, DA=5%, TA=15%, PF=20%, GS=HRA+DA+TA+Basic, NP=GS-PF",
+          inputs: [
+            { label: "Enter Basic Salary", type: "number", id: "basic" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class SalaryCalculation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter basic salary: ");
+        double basic = sc.nextDouble();
+        
+        double hra = basic * 0.10;
+        double da = basic * 0.05;
+        double ta = basic * 0.15;
+        double pf = basic * 0.20;
+        double gs = hra + da + ta + basic;
+        double np = gs - pf;
+        
+        System.out.println("Basic Salary: " + basic);
+        System.out.println("HRA (10%): " + hra);
+        System.out.println("DA (5%): " + da);
+        System.out.println("TA (15%): " + ta);
+        System.out.println("PF (20%): " + pf);
+        System.out.println("Gross Salary: " + gs);
+        System.out.println("Net Pay: " + np);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const basic = parseFloat(inputs[0]);
+            const hra = basic * 0.1;
+            const da = basic * 0.05;
+            const ta = basic * 0.15;
+            const pf = basic * 0.2;
+            const gs = hra + da + ta + basic;
+            const np = gs - pf;
+            return `Basic Salary: ${basic}\nHRA (10%): ${hra.toFixed(
+              2
+            )}\nDA (5%): ${da.toFixed(2)}\nTA (15%): ${ta.toFixed(
+              2
+            )}\nPF (20%): ${pf.toFixed(2)}\nGross Salary: ${gs.toFixed(
+              2
+            )}\nNet Pay: ${np.toFixed(2)}`;
+          },
+        },
+        {
+          id: 16,
+          category: "basic",
+          title: "Square and Cube of Number",
+          description:
+            "Write a program to accept any number and find their square and cube value.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class SquareAndCube {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        double num = sc.nextDouble();
+        
+        double square = num * num;
+        double cube = num * num * num;
+        
+        System.out.println("Number: " + num);
+        System.out.println("Square: " + square);
+        System.out.println("Cube: " + cube);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseFloat(inputs[0]);
+            const square = num * num;
+            const cube = num * num * num;
+            return `Number: ${num}\nSquare: ${square}\nCube: ${cube}`;
+          },
+        },
+        {
+          id: 17,
+          category: "basic",
+          title: "ASCII Code of Character",
+          description:
+            "Write a program to accept any character and find their ASCII code.",
+          inputs: [{ label: "Enter Character", type: "text", id: "char" }],
+          javaCode: `import java.util.Scanner;
+public class ASCIICode {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+        
+        int ascii = (int) ch;
+        
+        System.out.println("Character: " + ch);
+        System.out.println("ASCII Code: " + ascii);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const char = inputs[0].charAt(0);
+            const ascii = char.charCodeAt(0);
+            return `Character: ${char}\nASCII Code: ${ascii}`;
+          },
+        },
+        {
+          id: 18,
+          category: "basic",
+          title: "Simple Interest (User Input)",
+          description:
+            "Write a program to accept principal, rate, and time and calculate simple interest.",
+          inputs: [
+            {
+              label: "Enter Principal Amount",
+              type: "number",
+              id: "principal",
+            },
+            { label: "Enter Rate of Interest (%)", type: "number", id: "rate" },
+            { label: "Enter Time (years)", type: "number", id: "time" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class SimpleInterest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter principal: ");
+        double principal = sc.nextDouble();
+        System.out.print("Enter rate: ");
+        double rate = sc.nextDouble();
+        System.out.print("Enter time: ");
+        double time = sc.nextDouble();
+        
+        double si = (principal * rate * time) / 100;
+        
+        System.out.println("Simple Interest = " + si);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const principal = parseFloat(inputs[0]);
+            const rate = parseFloat(inputs[1]);
+            const time = parseFloat(inputs[2]);
+            const si = (principal * rate * time) / 100;
+            return `Principal: ${principal}\nRate: ${rate}%\nTime: ${time} years\nSimple Interest = ${si.toFixed(
+              2
+            )}`;
+          },
+        },
+        {
+          id: 19,
+          category: "basic",
+          title: "Simple Interest (Fixed Values)",
+          description:
+            "Calculate simple interest where principal=5000, rate=10, time=2.",
+          inputs: [],
+          javaCode: `public class SimpleInterestFixed {
+    public static void main(String[] args) {
+        double principal = 5000;
+        double rate = 10;
+        double time = 2;
+        
+        double si = (principal * rate * time) / 100;
+        
+        System.out.println("Principal: " + principal);
+        System.out.println("Rate: " + rate + "%");
+        System.out.println("Time: " + time + " years");
+        System.out.println("Simple Interest = " + si);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const principal = 5000;
+            const rate = 10;
+            const time = 2;
+            const si = (principal * rate * time) / 100;
+            return `Principal: ${principal}\nRate: ${rate}%\nTime: ${time} years\nSimple Interest = ${si}`;
+          },
+        },
+        {
+          id: 20,
+          category: "basic",
+          title: "Remainder of Two Numbers",
+          description:
+            "Initialize two integers 87 and 5 and print the remainder.",
+          inputs: [],
+          javaCode: `public class RemainderFixed {
+    public static void main(String[] args) {
+        int num1 = 87;
+        int num2 = 5;
+        int remainder = num1 % num2;
+        
+        System.out.println(num1 + " % " + num2 + " = " + remainder);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num1 = 87;
+            const num2 = 5;
+            const remainder = num1 % num2;
+            return `${num1} % ${num2} = ${remainder}`;
+          },
+        },
+        {
+          id: 21,
+          category: "basic",
+          title: "Print Name, Class, Section",
+          description:
+            "Initialize your name, class, section and print them in three lines.",
+          inputs: [
+            { label: "Enter Name", type: "text", id: "name" },
+            { label: "Enter Class", type: "text", id: "class" },
+            { label: "Enter Section", type: "text", id: "section" },
+          ],
+          javaCode: `public class StudentInfo {
+    public static void main(String[] args) {
+        String name = "John Doe";
+        String className = "10th";
+        String section = "A";
+        
+        System.out.println("Name: " + name);
+        System.out.println("Class: " + className);
+        System.out.println("Section: " + section);
+    }
+}`,
+          jsLogic: (inputs) => {
+            return `Name: ${inputs[0]}\nClass: ${inputs[1]}\nSection: ${inputs[2]}`;
+          },
+        },
+        {
+          id: 22,
+          category: "basic",
+          title: "Print City, Pincode, Phone",
+          description:
+            "Initialize city name, pincode, phone number and print them in three lines.",
+          inputs: [
+            { label: "Enter City", type: "text", id: "city" },
+            { label: "Enter Pincode", type: "text", id: "pincode" },
+            { label: "Enter Phone", type: "text", id: "phone" },
+          ],
+          javaCode: `public class ContactInfo {
+    public static void main(String[] args) {
+        String city = "New York";
+        String pincode = "10001";
+        String phone = "+1-555-1234";
+        
+        System.out.println("City: " + city);
+        System.out.println("Pincode: " + pincode);
+        System.out.println("Phone: " + phone);
+    }
+}`,
+          jsLogic: (inputs) => {
+            return `City: ${inputs[0]}\nPincode: ${inputs[1]}\nPhone: ${inputs[2]}`;
+          },
+        },
+        {
+          id: 23,
+          category: "basic",
+          title: "Product of Three Numbers",
+          description:
+            "Initialize three integers 15, 12 and 17 and print the product.",
+          inputs: [],
+          javaCode: `public class ProductThree {
+    public static void main(String[] args) {
+        int a = 15;
+        int b = 12;
+        int c = 17;
+        int product = a * b * c;
+        
+        System.out.println("Product of " + a + ", " + b + ", " + c + " = " + product);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = 15,
+              b = 12,
+              c = 17;
+            const product = a * b * c;
+            return `Product of ${a}, ${b}, ${c} = ${product}`;
+          },
+        },
+        {
+          id: 24,
+          category: "basic",
+          title: "Sum of Two Numbers (Fixed)",
+          description: "Initialize two integers 23 and 35 and print the sum.",
+          inputs: [],
+          javaCode: `public class SumFixed {
+    public static void main(String[] args) {
+        int a = 23;
+        int b = 35;
+        int sum = a + b;
+        
+        System.out.println("Sum of " + a + " and " + b + " = " + sum);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = 23,
+              b = 35;
+            const sum = a + b;
+            return `Sum of ${a} and ${b} = ${sum}`;
+          },
+        },
+        {
+          id: 25,
+          category: "basic",
+          title: "Rectangle Area/Perimeter (Fixed)",
+          description:
+            "Find area and perimeter of rectangle where length=24cm and breadth=10cm.",
+          inputs: [],
+          javaCode: `public class RectangleFixed {
+    public static void main(String[] args) {
+        double length = 24;
+        double breadth = 10;
+        
+        double area = length * breadth;
+        double perimeter = 2 * (length + breadth);
+        
+        System.out.println("Length: " + length + " cm");
+        System.out.println("Breadth: " + breadth + " cm");
+        System.out.println("Area = " + area + " sq cm");
+        System.out.println("Perimeter = " + perimeter + " cm");
+    }
+}`,
+          jsLogic: (inputs) => {
+            const length = 24,
+              breadth = 10;
+            const area = length * breadth;
+            const perimeter = 2 * (length + breadth);
+            return `Length: ${length} cm\nBreadth: ${breadth} cm\nArea = ${area} sq cm\nPerimeter = ${perimeter} cm`;
+          },
+        },
+        {
+          id: 26,
+          category: "basic",
+          title: "Difference of Two Numbers",
+          description:
+            "Initialize two integers 67 and 39 and print difference.",
+          inputs: [],
+          javaCode: `public class DifferenceFixed {
+    public static void main(String[] args) {
+        int a = 67;
+        int b = 39;
+        int difference = a - b;
+        
+        System.out.println("Difference of " + a + " and " + b + " = " + difference);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = 67,
+              b = 39;
+            const difference = a - b;
+            return `Difference of ${a} and ${b} = ${difference}`;
+          },
+        },
+        {
+          id: 27,
+          category: "basic",
+          title: "Remainder (87 and 5)",
+          description:
+            "Initialize two integers 87 and 5 and print the remainder.",
+          inputs: [],
+          javaCode: `public class RemainderFixed2 {
+    public static void main(String[] args) {
+        int a = 87;
+        int b = 5;
+        int remainder = a % b;
+        
+        System.out.println(a + " % " + b + " = " + remainder);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = 87,
+              b = 5;
+            const remainder = a % b;
+            return `${a} % ${b} = ${remainder}`;
+          },
+        },
+        {
+          id: 28,
+          category: "basic",
+          title: "Rectangle Area, Perimeter, Diagonal",
+          description: "Find the area, perimeter and diagonal of a rectangle.",
+          inputs: [
+            { label: "Enter Length", type: "number", id: "length" },
+            { label: "Enter Breadth", type: "number", id: "breadth" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class RectangleFull {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter length: ");
+        double length = sc.nextDouble();
+        System.out.print("Enter breadth: ");
+        double breadth = sc.nextDouble();
+        
+        double area = length * breadth;
+        double perimeter = 2 * (length + breadth);
+        double diagonal = Math.sqrt(length*length + breadth*breadth);
+        
+        System.out.println("Area = " + area);
+        System.out.println("Perimeter = " + perimeter);
+        System.out.println("Diagonal = " + diagonal);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const length = parseFloat(inputs[0]);
+            const breadth = parseFloat(inputs[1]);
+            const area = length * breadth;
+            const perimeter = 2 * (length + breadth);
+            const diagonal = Math.sqrt(length * length + breadth * breadth);
+            return `Length: ${length}\nBreadth: ${breadth}\nArea = ${area}\nPerimeter = ${perimeter}\nDiagonal = ${diagonal.toFixed(
+              2
+            )}`;
+          },
+        },
+        {
+          id: 29,
+          category: "basic",
+          title: "Circular Ring Area and Circumference",
+          description:
+            "Find area and circumference of circular ring, outer radius=21cm, inner radius=14cm.",
+          inputs: [
+            { label: "Enter Outer Radius", type: "number", id: "outer" },
+            { label: "Enter Inner Radius", type: "number", id: "inner" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class CircularRing {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter outer radius: ");
+        double R = sc.nextDouble();
+        System.out.print("Enter inner radius: ");
+        double r = sc.nextDouble();
+        
+        double area = Math.PI * (R*R - r*r);
+        double outerCircumference = 2 * Math.PI * R;
+        double innerCircumference = 2 * Math.PI * r;
+        
+        System.out.println("Area of ring = " + area);
+        System.out.println("Outer Circumference = " + outerCircumference);
+        System.out.println("Inner Circumference = " + innerCircumference);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const R = parseFloat(inputs[0]);
+            const r = parseFloat(inputs[1]);
+            const area = Math.PI * (R * R - r * r);
+            const outerCircumference = 2 * Math.PI * R;
+            const innerCircumference = 2 * Math.PI * r;
+            return `Outer Radius: ${R} cm\nInner Radius: ${r} cm\nArea of ring = ${area.toFixed(
+              2
+            )} sq cm\nOuter Circumference = ${outerCircumference.toFixed(
+              2
+            )} cm\nInner Circumference = ${innerCircumference.toFixed(2)} cm`;
+          },
+        },
+        {
+          id: 30,
+          category: "basic",
+          title: "Simple vs Compound Interest Difference",
+          description:
+            "Find the difference between simple interest and compound interest.",
+          inputs: [
+            { label: "Enter Principal", type: "number", id: "principal" },
+            { label: "Enter Rate (%)", type: "number", id: "rate" },
+            { label: "Enter Time (years)", type: "number", id: "time" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class InterestDifference {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter principal: ");
+        double P = sc.nextDouble();
+        System.out.print("Enter rate: ");
+        double R = sc.nextDouble();
+        System.out.print("Enter time: ");
+        double T = sc.nextDouble();
+        
+        double SI = (P * R * T) / 100;
+        double amount = P * Math.pow(1 + R/100, T);
+        double CI = amount - P;
+        double difference = CI - SI;
+        
+        System.out.println("Simple Interest = " + SI);
+        System.out.println("Compound Interest = " + CI);
+        System.out.println("Difference = " + difference);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const P = parseFloat(inputs[0]);
+            const R = parseFloat(inputs[1]);
+            const T = parseFloat(inputs[2]);
+            const SI = (P * R * T) / 100;
+            const amount = P * Math.pow(1 + R / 100, T);
+            const CI = amount - P;
+            const difference = CI - SI;
+            return `Principal: ${P}\nRate: ${R}%\nTime: ${T} years\nSimple Interest = ${SI.toFixed(
+              2
+            )}\nCompound Interest = ${CI.toFixed(
+              2
+            )}\nDifference = ${difference.toFixed(2)}`;
+          },
+        },
+        {
+          id: 31,
+          category: "basic",
+          title: "Laptop and Printer Discount",
+          description: "Calculate discount on Laptop (15%) and Printer (10%).",
+          inputs: [
+            { label: "Enter Laptop Price", type: "number", id: "laptop" },
+            { label: "Enter Printer Price", type: "number", id: "printer" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class DiscountCalculation {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter laptop price: ");
+        double laptopPrice = sc.nextDouble();
+        System.out.print("Enter printer price: ");
+        double printerPrice = sc.nextDouble();
+        
+        double laptopDiscount = laptopPrice * 0.15;
+        double printerDiscount = printerPrice * 0.10;
+        double totalDiscount = laptopDiscount + printerDiscount;
+        
+        double laptopFinal = laptopPrice - laptopDiscount;
+        double printerFinal = printerPrice - printerDiscount;
+        double totalFinal = laptopFinal + printerFinal;
+        
+        System.out.println("Laptop Discount (15%): " + laptopDiscount);
+        System.out.println("Printer Discount (10%): " + printerDiscount);
+        System.out.println("Total Discount: " + totalDiscount);
+        System.out.println("Final Amount to Pay: " + totalFinal);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const laptopPrice = parseFloat(inputs[0]);
+            const printerPrice = parseFloat(inputs[1]);
+            const laptopDiscount = laptopPrice * 0.15;
+            const printerDiscount = printerPrice * 0.1;
+            const totalDiscount = laptopDiscount + printerDiscount;
+            const laptopFinal = laptopPrice - laptopDiscount;
+            const printerFinal = printerPrice - printerDiscount;
+            const totalFinal = laptopFinal + printerFinal;
+            return `Laptop Price: ${laptopPrice}\nPrinter Price: ${printerPrice}\nLaptop Discount (15%): ${laptopDiscount.toFixed(
+              2
+            )}\nPrinter Discount (10%): ${printerDiscount.toFixed(
+              2
+            )}\nTotal Discount: ${totalDiscount.toFixed(
+              2
+            )}\nFinal Amount: ${totalFinal.toFixed(2)}`;
+          },
+        },
+        {
+          id: 32,
+          category: "basic",
+          title: "Days to Years, Months, Days",
+          description:
+            "Convert number of days to years, months and remaining days.",
+          inputs: [
+            { label: "Enter Number of Days", type: "number", id: "days" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class DaysConversion {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter number of days: ");
+        int totalDays = sc.nextInt();
+        
+        int years = totalDays / 365;
+        int remainingDays = totalDays % 365;
+        int months = remainingDays / 30;
+        int days = remainingDays % 30;
+        
+        System.out.println("Years: " + years);
+        System.out.println("Months: " + months);
+        System.out.println("Days: " + days);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const totalDays = parseInt(inputs[0]);
+            const years = Math.floor(totalDays / 365);
+            const remainingDays = totalDays % 365;
+            const months = Math.floor(remainingDays / 30);
+            const days = remainingDays % 30;
+            return `Total Days: ${totalDays}\nYears: ${years}\nMonths: ${months}\nDays: ${days}`;
+          },
+        },
+        {
+          id: 33,
+          category: "basic",
+          title: "Right Triangle Hypotenuse, Area, Perimeter",
+          description:
+            "Calculate hypotenuse, area and perimeter of right-angled triangle.",
+          inputs: [
+            {
+              label: "Enter Perpendicular",
+              type: "number",
+              id: "perpendicular",
+            },
+            { label: "Enter Base", type: "number", id: "base" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class RightTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter perpendicular: ");
+        double perpendicular = sc.nextDouble();
+        System.out.print("Enter base: ");
+        double base = sc.nextDouble();
+        
+        double hypotenuse = Math.sqrt(perpendicular*perpendicular + base*base);
+        double area = 0.5 * base * perpendicular;
+        double perimeter = perpendicular + base + hypotenuse;
+        
+        System.out.println("Hypotenuse = " + hypotenuse);
+        System.out.println("Area = " + area);
+        System.out.println("Perimeter = " + perimeter);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const perpendicular = parseFloat(inputs[0]);
+            const base = parseFloat(inputs[1]);
+            const hypotenuse = Math.sqrt(
+              perpendicular * perpendicular + base * base
+            );
+            const area = 0.5 * base * perpendicular;
+            const perimeter = perpendicular + base + hypotenuse;
+            return `Perpendicular: ${perpendicular}\nBase: ${base}\nHypotenuse = ${hypotenuse.toFixed(
+              2
+            )}\nArea = ${area.toFixed(2)}\nPerimeter = ${perimeter.toFixed(2)}`;
+          },
+        },
+        {
+          id: 34,
+          category: "basic",
+          title: "Compound Interest for 3 Years",
+          description:
+            "Calculate interest for first year, second year, and amount after three years at 5% compound interest.",
+          inputs: [
+            {
+              label: "Enter Principal Amount",
+              type: "number",
+              id: "principal",
+            },
+          ],
+          javaCode: `import java.util.Scanner;
+public class CompoundInterestThreeYears {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter principal: ");
+        double P = sc.nextDouble();
+        double rate = 5.0;
+        
+        double year1Interest = P * rate / 100;
+        double year1Amount = P + year1Interest;
+        
+        double year2Interest = year1Amount * rate / 100;
+        double year2Amount = year1Amount + year2Interest;
+        
+        double year3Interest = year2Amount * rate / 100;
+        double year3Amount = year2Amount + year3Interest;
+        
+        System.out.println("Interest for Year 1: " + year1Interest);
+        System.out.println("Interest for Year 2: " + year2Interest);
+        System.out.println("Amount after 3 years: " + year3Amount);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const P = parseFloat(inputs[0]);
+            const rate = 5.0;
+
+            const year1Interest = (P * rate) / 100;
+            const year1Amount = P + year1Interest;
+
+            const year2Interest = (year1Amount * rate) / 100;
+            const year2Amount = year1Amount + year2Interest;
+
+            const year3Interest = (year2Amount * rate) / 100;
+            const year3Amount = year2Amount + year3Interest;
+
+            return `Principal: ${P}\nRate: ${rate}%\nInterest for Year 1: ${year1Interest.toFixed(
+              2
+            )}\nInterest for Year 2: ${year2Interest.toFixed(
+              2
+            )}\nAmount after 3 years: ${year3Amount.toFixed(2)}`;
+          },
+        },
+        {
+          id: 35,
+          category: "basic",
+          title: "Camera Price with Discount and Sales Tax",
+          description:
+            "Calculate amount to pay with 10% discount and 6% sales tax on remaining amount.",
+          inputs: [
+            { label: "Enter Printed Price", type: "number", id: "price" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class CameraPrice {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter printed price: ");
+        double price = sc.nextDouble();
+        
+        double discount = price * 0.10;
+        double priceAfterDiscount = price - discount;
+        double salesTax = priceAfterDiscount * 0.06;
+        double finalAmount = priceAfterDiscount + salesTax;
+        
+        System.out.println("Printed Price: " + price);
+        System.out.println("Discount (10%): " + discount);
+        System.out.println("Price after discount: " + priceAfterDiscount);
+        System.out.println("Sales Tax (6%): " + salesTax);
+        System.out.println("Final Amount to Pay: " + finalAmount);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const price = parseFloat(inputs[0]);
+            const discount = price * 0.1;
+            const priceAfterDiscount = price - discount;
+            const salesTax = priceAfterDiscount * 0.06;
+            const finalAmount = priceAfterDiscount + salesTax;
+            return `Printed Price: ${price}\nDiscount (10%): ${discount.toFixed(
+              2
+            )}\nPrice after discount: ${priceAfterDiscount.toFixed(
+              2
+            )}\nSales Tax (6%): ${salesTax.toFixed(
+              2
+            )}\nFinal Amount to Pay: ${finalAmount.toFixed(2)}`;
+          },
+        },
+        {
+          id: 36,
+          category: "basic",
+          title: "Variable Compound Interest (5%, 8%, 10%)",
+          description:
+            "Calculate amount after 3 years with 5% for year 1, 8% for year 2, 10% for year 3.",
+          inputs: [
+            {
+              label: "Enter Principal Amount",
+              type: "number",
+              id: "principal",
+            },
+          ],
+          javaCode: `import java.util.Scanner;
+public class VariableCompoundInterest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter principal: ");
+        double P = sc.nextDouble();
+        
+        double year1Amount = P * (1 + 5.0/100);
+        double year2Amount = year1Amount * (1 + 8.0/100);
+        double year3Amount = year2Amount * (1 + 10.0/100);
+        
+        System.out.println("Amount after Year 1 (5%): " + year1Amount);
+        System.out.println("Amount after Year 2 (8%): " + year2Amount);
+        System.out.println("Amount after Year 3 (10%): " + year3Amount);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const P = parseFloat(inputs[0]);
+            const year1Amount = P * (1 + 5.0 / 100);
+            const year2Amount = year1Amount * (1 + 8.0 / 100);
+            const year3Amount = year2Amount * (1 + 10.0 / 100);
+            return `Principal: ${P}\nAmount after Year 1 (5%): ${year1Amount.toFixed(
+              2
+            )}\nAmount after Year 2 (8%): ${year2Amount.toFixed(
+              2
+            )}\nAmount after Year 3 (10%): ${year3Amount.toFixed(2)}`;
+          },
+        },
+        {
+          id: 37,
+          category: "basic",
+          title: "Compare Discount Offers",
+          description:
+            "Compare 30% single discount vs two successive discounts of 20% and 10%.",
+          inputs: [
+            { label: "Enter Article Price", type: "number", id: "price" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class CompareDiscounts {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter article price: ");
+        double price = sc.nextDouble();
+        
+        // Shop 1: 30% discount
+        double shop1Final = price * (1 - 0.30);
+        
+        // Shop 2: 20% then 10% discount
+        double afterFirst = price * (1 - 0.20);
+        double shop2Final = afterFirst * (1 - 0.10);
+        
+        System.out.println("Original Price: " + price);
+        System.out.println("Shop 1 (30% discount): " + shop1Final);
+        System.out.println("Shop 2 (20% + 10% discount): " + shop2Final);
+        
+        if(shop1Final < shop2Final) {
+            System.out.println("Shop 1 offers better deal!");
+        } else if(shop2Final < shop1Final) {
+            System.out.println("Shop 2 offers better deal!");
+        } else {
+            System.out.println("Both offers are equal!");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const price = parseFloat(inputs[0]);
+            const shop1Final = price * (1 - 0.3);
+            const afterFirst = price * (1 - 0.2);
+            const shop2Final = afterFirst * (1 - 0.1);
+
+            let result = `Original Price: ${price}\nShop 1 (30% discount): ${shop1Final.toFixed(
+              2
+            )}\nShop 2 (20% + 10% discount): ${shop2Final.toFixed(2)}\n\n`;
+
+            if (shop1Final < shop2Final) {
+              result += "Shop 1 offers better deal!";
+            } else if (shop2Final < shop1Final) {
+              result += "Shop 2 offers better deal!";
+            } else {
+              result += "Both offers are equal!";
+            }
+
+            return result;
+          },
+        },
+        {
+          id: 38,
+          category: "conditional",
+          title: "Check Positive or Negative",
+          description:
+            "Accept any number and check if it is positive or negative.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class PositiveNegative {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        if(num > 0) {
+            System.out.println(num + " is Positive");
+        } else if(num < 0) {
+            System.out.println(num + " is Negative");
+        } else {
+            System.out.println(num + " is Zero");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseFloat(inputs[0]);
+            if (num > 0) return `${num} is Positive`;
+            else if (num < 0) return `${num} is Negative`;
+            else return `${num} is Zero`;
+          },
+        },
+        {
+          id: 39,
+          category: "conditional",
+          title: "Check Odd or Even",
+          description: "Accept any number and check if it is odd or even.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class OddEven {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        if(num % 2 == 0) {
+            System.out.println(num + " is Even");
+        } else {
+            System.out.println(num + " is Odd");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            return num % 2 === 0 ? `${num} is Even` : `${num} is Odd`;
+          },
+        },
+        {
+          id: 40,
+          category: "conditional",
+          title: "Check Leap Year",
+          description: "Accept any year and check if it is a leap year.",
+          inputs: [{ label: "Enter Year", type: "number", id: "year" }],
+          javaCode: `import java.util.Scanner;
+public class LeapYear {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a year: ");
+        int year = sc.nextInt();
+        
+        if((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            System.out.println(year + " is a Leap Year");
+        } else {
+            System.out.println(year + " is not a Leap Year");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const year = parseInt(inputs[0]);
+            const isLeap =
+              (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+            return isLeap
+              ? `${year} is a Leap Year`
+              : `${year} is not a Leap Year`;
+          },
+        },
+        {
+          id: 41,
+          category: "conditional",
+          title: "Find Largest of Two Numbers",
+          description: "Accept two numbers and find the largest.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class LargestOfTwo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        
+        if(a > b) {
+            System.out.println(a + " is the largest");
+        } else if(b > a) {
+            System.out.println(b + " is the largest");
+        } else {
+            System.out.println("Both numbers are equal");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = parseFloat(inputs[0]);
+            const b = parseFloat(inputs[1]);
+            if (a > b) return `${a} is the largest`;
+            else if (b > a) return `${b} is the largest`;
+            else return "Both numbers are equal";
+          },
+        },
+        {
+          id: 42,
+          category: "conditional",
+          title: "Find Largest of Three Numbers",
+          description: "Accept three numbers and find the largest.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+            { label: "Enter Third Number", type: "number", id: "num3" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class LargestOfThree {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        System.out.print("Enter third number: ");
+        int c = sc.nextInt();
+        
+        if(a >= b && a >= c) {
+            System.out.println(a + " is the largest");
+        } else if(b >= a && b >= c) {
+            System.out.println(b + " is the largest");
+        } else {
+            System.out.println(c + " is the largest");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = parseFloat(inputs[0]);
+            const b = parseFloat(inputs[1]);
+            const c = parseFloat(inputs[2]);
+            if (a >= b && a >= c) return `${a} is the largest`;
+            else if (b >= a && b >= c) return `${b} is the largest`;
+            else return `${c} is the largest`;
+          },
+        },
+        {
+          id: 43,
+          category: "conditional",
+          title: "Check BUZZ Number",
+          description:
+            "Check if number is BUZZ (ends with 7 or divisible by 7).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class BuzzNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        if(num % 10 == 7 || num % 7 == 0) {
+            System.out.println(num + " is a BUZZ number");
+        } else {
+            System.out.println(num + " is not a BUZZ number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            const isBuzz = num % 10 === 7 || num % 7 === 0;
+            return isBuzz
+              ? `${num} is a BUZZ number`
+              : `${num} is not a BUZZ number`;
+          },
+        },
+        {
+          id: 44,
+          category: "conditional",
+          title: "Check Character Type",
+          description:
+            "Check if character is Upper case, Lower case, Digit, or Special Symbol.",
+          inputs: [{ label: "Enter Character", type: "text", id: "char" }],
+          javaCode: `import java.util.Scanner;
+public class CharacterType {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = sc.next().charAt(0);
+        
+        if(ch >= 'A' && ch <= 'Z') {
+            System.out.println(ch + " is an Uppercase letter");
+        } else if(ch >= 'a' && ch <= 'z') {
+            System.out.println(ch + " is a Lowercase letter");
+        } else if(ch >= '0' && ch <= '9') {
+            System.out.println(ch + " is a Digit");
+        } else {
+            System.out.println(ch + " is a Special Symbol");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const ch = inputs[0].charAt(0);
+            if (ch >= "A" && ch <= "Z") return `${ch} is an Uppercase letter`;
+            else if (ch >= "a" && ch <= "z")
+              return `${ch} is a Lowercase letter`;
+            else if (ch >= "0" && ch <= "9") return `${ch} is a Digit`;
+            else return `${ch} is a Special Symbol`;
+          },
+        },
+        {
+          id: 45,
+          category: "conditional",
+          title: "Employee Salary with Conditions",
+          description:
+            "If salary > 20000: HRA=20%, DA=15%. Otherwise: HRA=30%, DA=25%.",
+          inputs: [
+            { label: "Enter Basic Salary", type: "number", id: "salary" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class ConditionalSalary {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter basic salary: ");
+        double basic = sc.nextDouble();
+        
+        double hra, da;
+        
+        if(basic > 20000) {
+            hra = basic * 0.20;
+            da = basic * 0.15;
+        } else {
+            hra = basic * 0.30;
+            da = basic * 0.25;
+        }
+        
+        double grossSalary = basic + hra + da;
+        
+        System.out.println("Basic Salary: " + basic);
+        System.out.println("HRA: " + hra);
+        System.out.println("DA: " + da);
+        System.out.println("Gross Salary: " + grossSalary);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const basic = parseFloat(inputs[0]);
+            let hra, da;
+
+            if (basic > 20000) {
+              hra = basic * 0.2;
+              da = basic * 0.15;
+            } else {
+              hra = basic * 0.3;
+              da = basic * 0.25;
+            }
+
+            const grossSalary = basic + hra + da;
+            return `Basic Salary: ${basic}\nHRA: ${hra.toFixed(
+              2
+            )}\nDA: ${da.toFixed(2)}\nGross Salary: ${grossSalary.toFixed(2)}`;
+          },
+        },
+        {
+          id: 46,
+          category: "conditional",
+          title: "Validate Triangle",
+          description:
+            "Check if three angles form a valid triangle (sum = 180).",
+          inputs: [
+            { label: "Enter Angle 1", type: "number", id: "angle1" },
+            { label: "Enter Angle 2", type: "number", id: "angle2" },
+            { label: "Enter Angle 3", type: "number", id: "angle3" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class ValidateTriangle {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter angle 1: ");
+        int a1 = sc.nextInt();
+        System.out.print("Enter angle 2: ");
+        int a2 = sc.nextInt();
+        System.out.print("Enter angle 3: ");
+        int a3 = sc.nextInt();
+        
+        if(a1 + a2 + a3 == 180 && a1 > 0 && a2 > 0 && a3 > 0) {
+            System.out.println("Valid Triangle");
+        } else {
+            System.out.println("Invalid Triangle");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a1 = parseFloat(inputs[0]);
+            const a2 = parseFloat(inputs[1]);
+            const a3 = parseFloat(inputs[2]);
+            const sum = a1 + a2 + a3;
+            const isValid = sum === 180 && a1 > 0 && a2 > 0 && a3 > 0;
+            return `Angles: ${a1}°, ${a2}°, ${a3}°\nSum: ${sum}°\n${
+              isValid ? "Valid Triangle" : "Invalid Triangle"
+            }`;
+          },
+        },
+        {
+          id: 47,
+          category: "conditional",
+          title: "Triangle Type by Angles",
+          description:
+            "Check if triangle is Isosceles, Equilateral, or Scalene.",
+          inputs: [
+            { label: "Enter Angle 1", type: "number", id: "angle1" },
+            { label: "Enter Angle 2", type: "number", id: "angle2" },
+            { label: "Enter Angle 3", type: "number", id: "angle3" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class TriangleType {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter angle 1: ");
+        int a1 = sc.nextInt();
+        System.out.print("Enter angle 2: ");
+        int a2 = sc.nextInt();
+        System.out.print("Enter angle 3: ");
+        int a3 = sc.nextInt();
+        
+        if(a1 + a2 + a3 != 180) {
+            System.out.println("Invalid Triangle");
+        } else if(a1 == 60 && a2 == 60 && a3 == 60) {
+            System.out.println("Equilateral Triangle");
+        } else if(a1 == a2 || a2 == a3 || a1 == a3) {
+            System.out.println("Isosceles Triangle");
+        } else {
+            System.out.println("Scalene Triangle");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a1 = parseFloat(inputs[0]);
+            const a2 = parseFloat(inputs[1]);
+            const a3 = parseFloat(inputs[2]);
+
+            if (a1 + a2 + a3 !== 180) {
+              return "Invalid Triangle";
+            } else if (a1 === 60 && a2 === 60 && a3 === 60) {
+              return "Equilateral Triangle";
+            } else if (a1 === a2 || a2 === a3 || a1 === a3) {
+              return "Isosceles Triangle";
+            } else {
+              return "Scalene Triangle";
+            }
+          },
+        },
+        {
+          id: 48,
+          category: "conditional",
+          title: "Profit or Loss",
+          description:
+            "Determine profit or loss from cost price and selling price.",
+          inputs: [
+            { label: "Enter Cost Price", type: "number", id: "cp" },
+            { label: "Enter Selling Price", type: "number", id: "sp" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class ProfitLoss {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter cost price: ");
+        double cp = sc.nextDouble();
+        System.out.print("Enter selling price: ");
+        double sp = sc.nextDouble();
+        
+        if(sp > cp) {
+            double profit = sp - cp;
+            System.out.println("Profit = " + profit);
+        } else if(cp > sp) {
+            double loss = cp - sp;
+            System.out.println("Loss = " + loss);
+        } else {
+            System.out.println("No Profit No Loss");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const cp = parseFloat(inputs[0]);
+            const sp = parseFloat(inputs[1]);
+
+            if (sp > cp) {
+              const profit = sp - cp;
+              return `Cost Price: ${cp}\nSelling Price: ${sp}\nProfit = ${profit.toFixed(
+                2
+              )}`;
+            } else if (cp > sp) {
+              const loss = cp - sp;
+              return `Cost Price: ${cp}\nSelling Price: ${sp}\nLoss = ${loss.toFixed(
+                2
+              )}`;
+            } else {
+              return `Cost Price: ${cp}\nSelling Price: ${sp}\nNo Profit No Loss`;
+            }
+          },
+        },
+        {
+          id: 49,
+          category: "conditional",
+          title: "Grade Calculator",
+          description: "Calculate grade: >=90:A, >=80:B, >=60:C, >=40:D, <40:F",
+          inputs: [{ label: "Enter Marks", type: "number", id: "marks" }],
+          javaCode: `import java.util.Scanner;
+public class GradeCalculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter marks: ");
+        int marks = sc.nextInt();
+        
+        String grade;
+        
+        if(marks >= 90) {
+            grade = "A";
+        } else if(marks >= 80) {
+            grade = "B";
+        } else if(marks >= 60) {
+            grade = "C";
+        } else if(marks >= 40) {
+            grade = "D";
+        } else {
+            grade = "F";
+        }
+        
+        System.out.println("Marks: " + marks);
+        System.out.println("Grade: " + grade);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const marks = parseFloat(inputs[0]);
+            let grade;
+
+            if (marks >= 90) grade = "A";
+            else if (marks >= 80) grade = "B";
+            else if (marks >= 60) grade = "C";
+            else if (marks >= 40) grade = "D";
+            else grade = "F";
+
+            return `Marks: ${marks}\nGrade: ${grade}`;
+          },
+        },
+        {
+          id: 50,
+          category: "conditional",
+          title: "Simple Calculator",
+          description: "Create a calculator using switch case for +, -, *, /.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            {
+              label: "Enter Operator (+, -, *, /)",
+              type: "text",
+              id: "operator",
+            },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class Calculator {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        double num1 = sc.nextDouble();
+        System.out.print("Enter operator (+, -, *, /): ");
+        char operator = sc.next().charAt(0);
+        System.out.print("Enter second number: ");
+        double num2 = sc.nextDouble();
+        
+        double result;
+        
+        switch(operator) {
+            case '+':
+                result = num1 + num2;
+                System.out.println("Result: " + result);
+                break;
+            case '-':
+                result = num1 - num2;
+                System.out.println("Result: " + result);
+                break;
+            case '*':
+                result = num1 * num2;
+                System.out.println("Result: " + result);
+                break;
+            case '/':
+                if(num2 != 0) {
+                    result = num1 / num2;
+                    System.out.println("Result: " + result);
+                } else {
+                    System.out.println("Error: Division by zero");
+                }
+                break;
+            default:
+                System.out.println("Invalid operator");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num1 = parseFloat(inputs[0]);
+            const operator = inputs[1].trim();
+            const num2 = parseFloat(inputs[2]);
+            let result;
+
+            switch (operator) {
+              case "+":
+                result = num1 + num2;
+                return `${num1} + ${num2} = ${result}`;
+              case "-":
+                result = num1 - num2;
+                return `${num1} - ${num2} = ${result}`;
+              case "*":
+                result = num1 * num2;
+                return `${num1} * ${num2} = ${result}`;
+              case "/":
+                if (num2 !== 0) {
+                  result = num1 / num2;
+                  return `${num1} / ${num2} = ${result}`;
+                } else {
+                  return "Error: Division by zero";
+                }
+              default:
+                return "Invalid operator";
+            }
+          },
+        },
+        {
+          id: 51,
+          category: "conditional",
+          title: "Vowel or Consonant",
+          description: "Check whether a character is a vowel or consonant.",
+          inputs: [{ label: "Enter Character", type: "text", id: "char" }],
+          javaCode: `import java.util.Scanner;
+public class VowelConsonant {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a character: ");
+        char ch = sc.next().toLowerCase().charAt(0);
+        
+        if(ch >= 'a' && ch <= 'z') {
+            if(ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                System.out.println(ch + " is a Vowel");
+            } else {
+                System.out.println(ch + " is a Consonant");
+            }
+        } else {
+            System.out.println("Not a letter");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const ch = inputs[0].toLowerCase().charAt(0);
+
+            if (ch >= "a" && ch <= "z") {
+              if (
+                ch === "a" ||
+                ch === "e" ||
+                ch === "i" ||
+                ch === "o" ||
+                ch === "u"
+              ) {
+                return `${ch} is a Vowel`;
+              } else {
+                return `${ch} is a Consonant`;
+              }
+            } else {
+              return "Not a letter";
+            }
+          },
+        },
+        {
+          id: 52,
+          category: "conditional",
+          title: "Day Name from Number",
+          description:
+            "Accept day number (1-7) and print corresponding day name.",
+          inputs: [
+            { label: "Enter Day Number (1-7)", type: "number", id: "day" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class DayName {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter day number (1-7): ");
+        int day = sc.nextInt();
+        
+        switch(day) {
+            case 1: System.out.println("Monday"); break;
+            case 2: System.out.println("Tuesday"); break;
+            case 3: System.out.println("Wednesday"); break;
+            case 4: System.out.println("Thursday"); break;
+            case 5: System.out.println("Friday"); break;
+            case 6: System.out.println("Saturday"); break;
+            case 7: System.out.println("Sunday"); break;
+            default: System.out.println("Invalid day number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const day = parseInt(inputs[0]);
+            const days = [
+              "",
+              "Monday",
+              "Tuesday",
+              "Wednesday",
+              "Thursday",
+              "Friday",
+              "Saturday",
+              "Sunday",
+            ];
+
+            if (day >= 1 && day <= 7) {
+              return `Day ${day}: ${days[day]}`;
+            } else {
+              return "Invalid day number (must be 1-7)";
+            }
+          },
+        },
+        {
+          id: 53,
+          category: "looping",
+          title: "Display First 10 Natural Numbers",
+          description: "Display first 10 natural numbers using loop.",
+          inputs: [],
+          javaCode: `public class FirstTenNatural {
+    public static void main(String[] args) {
+        // Using for loop
+        for(int i = 1; i <= 10; i++) {
+            System.out.print(i + " ");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            let result = [];
+            for (let i = 1; i <= 10; i++) {
+              result.push(i);
+            }
+            return "First 10 Natural Numbers:\n" + result.join(" ");
+          },
+        },
+        {
+          id: 54,
+          category: "looping",
+          title: "Display N Even and Odd Numbers",
+          description: "Display n number of even and odd numbers.",
+          inputs: [{ label: "Enter N", type: "number", id: "n" }],
+          javaCode: `import java.util.Scanner;
+public class EvenOddNumbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        System.out.print("Even numbers: ");
+        for(int i = 0; i < n; i++) {
+            System.out.print((2 * i) + " ");
+        }
+        
+        System.out.print("\nOdd numbers: ");
+        for(int i = 0; i < n; i++) {
+            System.out.print((2 * i + 1) + " ");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const n = parseInt(inputs[0]);
+            let even = [],
+              odd = [];
+
+            for (let i = 0; i < n; i++) {
+              even.push(2 * i);
+              odd.push(2 * i + 1);
+            }
+
+            return `First ${n} Even Numbers:\n${even.join(
+              " "
+            )}\n\nFirst ${n} Odd Numbers:\n${odd.join(" ")}`;
+          },
+        },
+        {
+          id: 55,
+          category: "looping",
+          title: "Sum of Even and Odd Numbers (1-20)",
+          description:
+            "Display and find sum of all even and odd numbers from 1 to 20.",
+          inputs: [],
+          javaCode: `public class SumEvenOdd {
+    public static void main(String[] args) {
+        int evenSum = 0, oddSum = 0;
+        
+        System.out.print("Even numbers: ");
+        for(int i = 2; i <= 20; i += 2) {
+            System.out.print(i + " ");
+            evenSum += i;
+        }
+        
+        System.out.print("\nOdd numbers: ");
+        for(int i = 1; i <= 20; i += 2) {
+            System.out.print(i + " ");
+            oddSum += i;
+        }
+        
+        System.out.println("\nSum of even numbers: " + evenSum);
+        System.out.println("Sum of odd numbers: " + oddSum);
+    }
+}`,
+          jsLogic: (inputs) => {
+            let even = [],
+              odd = [];
+            let evenSum = 0,
+              oddSum = 0;
+
+            for (let i = 2; i <= 20; i += 2) {
+              even.push(i);
+              evenSum += i;
+            }
+
+            for (let i = 1; i <= 20; i += 2) {
+              odd.push(i);
+              oddSum += i;
+            }
+
+            return `Even Numbers (1-20):\n${even.join(
+              " "
+            )}\nSum = ${evenSum}\n\nOdd Numbers (1-20):\n${odd.join(
+              " "
+            )}\nSum = ${oddSum}`;
+          },
+        },
+        {
+          id: 56,
+          category: "looping",
+          title: "Multiplication Table",
+          description: "Accept a number and display its multiplication table.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class MultiplicationTable {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        for(int i = 0; i <= 10; i++) {
+            System.out.println(num + " * " + i + " = " + (num * i));
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let result = [];
+
+            for (let i = 0; i <= 10; i++) {
+              result.push(`${num} * ${i} = ${num * i}`);
+            }
+
+            return result.join("\n");
+          },
+        },
+        {
+          id: 57,
+          category: "looping",
+          title: "Display Factors",
+          description: "Accept a number and display all its factors.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class DisplayFactors {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        System.out.print("Factors of " + num + ": ");
+        for(int i = 1; i <= num; i++) {
+            if(num % i == 0) {
+                System.out.print(i + " ");
+            }
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let factors = [];
+
+            for (let i = 1; i <= num; i++) {
+              if (num % i === 0) {
+                factors.push(i);
+              }
+            }
+
+            return `Number: ${num}\nFactors: ${factors.join(", ")}`;
+          },
+        },
+        {
+          id: 58,
+          category: "looping",
+          title: "Calculate Factorial",
+          description: "Accept a number and display its factorial value.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        long factorial = 1;
+        for(int i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        
+        System.out.println("Factorial of " + num + " = " + factorial);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let factorial = 1;
+
+            for (let i = 1; i <= num; i++) {
+              factorial *= i;
+            }
+
+            return `Number: ${num}\nFactorial = ${factorial}`;
+          },
+        },
+        {
+          id: 59,
+          category: "looping",
+          title: "Reverse a Number",
+          description:
+            "Accept a number, reverse it and display the new number.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class ReverseNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int reverse = 0, temp = num;
+        while(temp > 0) {
+            int digit = temp % 10;
+            reverse = reverse * 10 + digit;
+            temp /= 10;
+        }
+        
+        System.out.println("Original Number: " + num);
+        System.out.println("Reversed Number: " + reverse);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let reverse = 0,
+              temp = num;
+
+            while (temp > 0) {
+              let digit = temp % 10;
+              reverse = reverse * 10 + digit;
+              temp = Math.floor(temp / 10);
+            }
+
+            return `Original Number: ${num}\nReversed Number: ${reverse}`;
+          },
+        },
+        {
+          id: 60,
+          category: "looping",
+          title: "Check Palindrome Number",
+          description: "Accept a number and check if it is a palindrome.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class PalindromeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int reverse = 0, temp = num;
+        while(temp > 0) {
+            int digit = temp % 10;
+            reverse = reverse * 10 + digit;
+            temp /= 10;
+        }
+        
+        if(num == reverse) {
+            System.out.println(num + " is a Palindrome");
+        } else {
+            System.out.println(num + " is not a Palindrome");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let reverse = 0,
+              temp = num;
+
+            while (temp > 0) {
+              let digit = temp % 10;
+              reverse = reverse * 10 + digit;
+              temp = Math.floor(temp / 10);
+            }
+
+            const isPalindrome = num === reverse;
+            return `Number: ${num}\nReversed: ${reverse}\n${
+              isPalindrome ? "Palindrome" : "Not a Palindrome"
+            }`;
+          },
+        },
+        {
+          id: 61,
+          category: "looping",
+          title: "Check Prime Number",
+          description: "Accept a number and check if it is prime.",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class PrimeNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        boolean isPrime = true;
+        
+        if(num <= 1) {
+            isPrime = false;
+        } else {
+            for(int i = 2; i <= Math.sqrt(num); i++) {
+                if(num % i == 0) {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+        
+        if(isPrime) {
+            System.out.println(num + " is a Prime number");
+        } else {
+            System.out.println(num + " is not a Prime number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let isPrime = true;
+
+            if (num <= 1) {
+              isPrime = false;
+            } else {
+              for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                  isPrime = false;
+                  break;
+                }
+              }
+            }
+
+            return `Number: ${num}\n${
+              isPrime ? "Prime Number" : "Not a Prime Number"
+            }`;
+          },
+        },
+        {
+          id: 62,
+          category: "looping",
+          title: "Check Armstrong Number",
+          description:
+            "Check if number is Armstrong (sum of cubes of digits equals number).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class ArmstrongNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int sum = 0, temp = num;
+        while(temp > 0) {
+            int digit = temp % 10;
+            sum += digit * digit * digit;
+            temp /= 10;
+        }
+        
+        if(sum == num) {
+            System.out.println(num + " is an Armstrong number");
+        } else {
+            System.out.println(num + " is not an Armstrong number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let sum = 0,
+              temp = num;
+
+            while (temp > 0) {
+              let digit = temp % 10;
+              sum += digit * digit * digit;
+              temp = Math.floor(temp / 10);
+            }
+
+            const isArmstrong = sum === num;
+            return `Number: ${num}\nSum of cubes: ${sum}\n${
+              isArmstrong ? "Armstrong Number" : "Not an Armstrong Number"
+            }`;
+          },
+        },
+        {
+          id: 63,
+          category: "looping",
+          title: "Check Neon Number",
+          description:
+            "Check if number is Neon (sum of digits of square equals number).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class NeonNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int square = num * num;
+        int sum = 0, temp = square;
+        
+        while(temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        
+        if(sum == num) {
+            System.out.println(num + " is a Neon number");
+        } else {
+            System.out.println(num + " is not a Neon number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            const square = num * num;
+            let sum = 0,
+              temp = square;
+
+            while (temp > 0) {
+              sum += temp % 10;
+              temp = Math.floor(temp / 10);
+            }
+
+            const isNeon = sum === num;
+            return `Number: ${num}\nSquare: ${square}\nSum of digits: ${sum}\n${
+              isNeon ? "Neon Number" : "Not a Neon Number"
+            }`;
+          },
+        },
+        {
+          id: 64,
+          category: "looping",
+          title: "Check Spy Number",
+          description:
+            "Check if number is Spy (sum of digits equals product of digits).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class SpyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int sum = 0, product = 1, temp = num;
+        
+        while(temp > 0) {
+            int digit = temp % 10;
+            sum += digit;
+            product *= digit;
+            temp /= 10;
+        }
+        
+        if(sum == product) {
+            System.out.println(num + " is a Spy number");
+        } else {
+            System.out.println(num + " is not a Spy number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let sum = 0,
+              product = 1,
+              temp = num;
+
+            while (temp > 0) {
+              let digit = temp % 10;
+              sum += digit;
+              product *= digit;
+              temp = Math.floor(temp / 10);
+            }
+
+            const isSpy = sum === product;
+            return `Number: ${num}\nSum of digits: ${sum}\nProduct of digits: ${product}\n${
+              isSpy ? "Spy Number" : "Not a Spy Number"
+            }`;
+          },
+        },
+        {
+          id: 65,
+          category: "looping",
+          title: "Check Krishnamurthy/Special Number",
+          description:
+            "Check if number is Krishnamurthy (sum of factorial of digits equals number).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class KrishnamurthyNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int sum = 0, temp = num;
+        
+        while(temp > 0) {
+            int digit = temp % 10;
+            int factorial = 1;
+            for(int i = 1; i <= digit; i++) {
+                factorial *= i;
+            }
+            sum += factorial;
+            temp /= 10;
+        }
+        
+        if(sum == num) {
+            System.out.println(num + " is a Krishnamurthy number");
+        } else {
+            System.out.println(num + " is not a Krishnamurthy number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let sum = 0,
+              temp = num;
+
+            while (temp > 0) {
+              let digit = temp % 10;
+              let factorial = 1;
+              for (let i = 1; i <= digit; i++) {
+                factorial *= i;
+              }
+              sum += factorial;
+              temp = Math.floor(temp / 10);
+            }
+
+            const isKrishnamurthy = sum === num;
+            return `Number: ${num}\nSum of factorials: ${sum}\n${
+              isKrishnamurthy
+                ? "Krishnamurthy Number"
+                : "Not a Krishnamurthy Number"
+            }`;
+          },
+        },
+        {
+          id: 66,
+          category: "looping",
+          title: "Check Automorphic Number",
+          description:
+            "Check if number is Automorphic (square ends with the number itself).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class AutomorphicNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int square = num * num;
+        String numStr = String.valueOf(num);
+        String squareStr = String.valueOf(square);
+        
+        if(squareStr.endsWith(numStr)) {
+            System.out.println(num + " is an Automorphic number");
+        } else {
+            System.out.println(num + " is not an Automorphic number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            const square = num * num;
+            const numStr = num.toString();
+            const squareStr = square.toString();
+
+            const isAutomorphic = squareStr.endsWith(numStr);
+            return `Number: ${num}\nSquare: ${square}\n${
+              isAutomorphic ? "Automorphic Number" : "Not an Automorphic Number"
+            }`;
+          },
+        },
+        {
+          id: 67,
+          category: "looping",
+          title: "Fibonacci Series",
+          description: "Display n numbers of Fibonacci series.",
+          inputs: [{ label: "Enter N", type: "number", id: "n" }],
+          javaCode: `import java.util.Scanner;
+public class FibonacciSeries {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        int a = 0, b = 1;
+        
+        System.out.println("Fibonacci Series:");
+        for(int i = 0; i < n; i++) {
+            System.out.println(a);
+            int next = a + b;
+            a = b;
+            b = next;
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const n = parseInt(inputs[0]);
+            let a = 0,
+              b = 1;
+            let series = [];
+
+            for (let i = 0; i < n; i++) {
+              series.push(a);
+              let next = a + b;
+              a = b;
+              b = next;
+            }
+
+            return `Fibonacci Series (first ${n} terms):\n${series.join("\n")}`;
+          },
+        },
+        {
+          id: 68,
+          category: "looping",
+          title: "Check Perfect Number",
+          description:
+            "Check if number is Perfect (sum of factors equals number).",
+          inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+          javaCode: `import java.util.Scanner;
+public class PerfectNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int sum = 0;
+        for(int i = 1; i < num; i++) {
+            if(num % i == 0) {
+                sum += i;
+            }
+        }
+        
+        if(sum == num) {
+            System.out.println(num + " is a Perfect number");
+        } else {
+            System.out.println(num + " is not a Perfect number");
+        }
+    }
+}`,
+          jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let sum = 0;
+            let factors = [];
+
+            for (let i = 1; i < num; i++) {
+              if (num % i === 0) {
+                sum += i;
+                factors.push(i);
+              }
+            }
+
+            const isPerfect = sum === num;
+            return `Number: ${num}\nFactors: ${factors.join(
+              ", "
+            )}\nSum: ${sum}\n${
+              isPerfect ? "Perfect Number" : "Not a Perfect Number"
+            }`;
+          },
+        },
+        {
+          id: 69,
+          category: "looping",
+          title: "GCD of Two Numbers",
+          description: "Find the Greatest Common Divisor (GCD) of two numbers.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class GCD {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        
+        int gcd = 1;
+        for(int i = 1; i <= Math.min(a, b); i++) {
+            if(a % i == 0 && b % i == 0) {
+                gcd = i;
+            }
+        }
+        
+        System.out.println("GCD of " + a + " and " + b + " = " + gcd);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = parseInt(inputs[0]);
+            const b = parseInt(inputs[1]);
+            let gcd = 1;
+
+            for (let i = 1; i <= Math.min(a, b); i++) {
+              if (a % i === 0 && b % i === 0) {
+                gcd = i;
+              }
+            }
+
+            return `Number 1: ${a}\nNumber 2: ${b}\nGCD = ${gcd}`;
+          },
+        },
+        {
+          id: 70,
+          category: "looping",
+          title: "Survey Count (50 persons)",
+          description:
+            "Count persons in favour (1), against (2), or no opinion (0). Enter 50 responses as comma-separated.",
+          inputs: [
+            {
+              label: "Enter 50 responses (comma-separated, e.g., 1,2,0,1,...)",
+              type: "text",
+              id: "responses",
+            },
+          ],
+          javaCode: `import java.util.Scanner;
+public class Survey {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int favour = 0, against = 0, noOpinion = 0;
+        
+        for(int i = 0; i < 50; i++) {
+            System.out.print("Person " + (i+1) + " (1=favour, 2=against, 0=no opinion): ");
+            int response = sc.nextInt();
+            
+            if(response == 1) favour++;
+            else if(response == 2) against++;
+            else if(response == 0) noOpinion++;
+        }
+        
+        System.out.println("In favour: " + favour);
+        System.out.println("Against: " + against);
+        System.out.println("No opinion: " + noOpinion);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const responses = inputs[0]
+              .split(",")
+              .map((x) => parseInt(x.trim()));
+            let favour = 0,
+              against = 0,
+              noOpinion = 0;
+
+            responses.forEach((response) => {
+              if (response === 1) favour++;
+              else if (response === 2) against++;
+              else if (response === 0) noOpinion++;
+            });
+
+            return `Total Responses: ${responses.length}\nIn Favour (1): ${favour}\nAgainst (2): ${against}\nNo Opinion (0): ${noOpinion}`;
+          },
+        },
+        {
+          id: 71,
+          category: "looping",
+          title: "Highest Common Factor (HCF)",
+          description: "Find the Highest Common Factor of two numbers.",
+          inputs: [
+            { label: "Enter First Number", type: "number", id: "num1" },
+            { label: "Enter Second Number", type: "number", id: "num2" },
+          ],
+          javaCode: `import java.util.Scanner;
+public class HCF {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter first number: ");
+        int a = sc.nextInt();
+        System.out.print("Enter second number: ");
+        int b = sc.nextInt();
+        
+        int hcf = 1;
+        for(int i = 1; i <= Math.min(a, b); i++) {
+            if(a % i == 0 && b % i == 0) {
+                hcf = i;
+            }
+        }
+        
+        System.out.println("HCF of " + a + " and " + b + " = " + hcf);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const a = parseInt(inputs[0]);
+            const b = parseInt(inputs[1]);
+            let hcf = 1;
+
+            for (let i = 1; i <= Math.min(a, b); i++) {
+              if (a % i === 0 && b % i === 0) {
+                hcf = i;
+              }
+            }
+
+            return `Number 1: ${a}\nNumber 2: ${b}\nHCF = ${hcf}`;
+          },
+        },
+        {
+          id: 72,
+          category: "looping",
+          title: "Count Positive, Negative, Zero",
+          description:
+            "Accept n numbers and count positive, negative, and zeroes. Enter as comma-separated.",
+          inputs: [
+            {
+              label: "Enter Numbers (comma-separated)",
+              type: "text",
+              id: "numbers",
+            },
+          ],
+          javaCode: `import java.util.Scanner;
+public class CountNumbers {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int positive = 0, negative = 0, zeros = 0;
+        
+        System.out.print("How many numbers? ");
+        int n = sc.nextInt();
+        
+        for(int i = 0; i < n; i++) {
+            System.out.print("Enter number: ");
+            int num = sc.nextInt();
+            
+            if(num > 0) positive++;
+            else if(num < 0) negative++;
+            else zeros++;
+        }
+        
+        System.out.println("Positive: " + positive);
+        System.out.println("Negative: " + negative);
+        System.out.println("Zeros: " + zeros);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const numbers = inputs[0]
+              .split(",")
+              .map((x) => parseFloat(x.trim()));
+            let positive = 0,
+              negative = 0,
+              zeros = 0;
+
+            numbers.forEach((num) => {
+              if (num > 0) positive++;
+              else if (num < 0) negative++;
+              else zeros++;
+            });
+
+            return `Total Numbers: ${numbers.length}\nPositive: ${positive}\nNegative: ${negative}\nZeros: ${zeros}`;
+          },
+        },
+        {
+          id: 73,
+          category: "looping",
+          title: "Count Letter 'O' in REVOLUTION",
+          description:
+            "Count occurrences of letter 'O' in the string REVOLUTION.",
+          inputs: [
+            {
+              label: "Enter String (default: REVOLUTION)",
+              type: "text",
+              id: "str",
+            },
+          ],
+          javaCode: `public class CountLetterO {
+    public static void main(String[] args) {
+        String str = "REVOLUTION";
+        int count = 0;
+        
+        for(int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == 'O') {
+                count++;
+            }
+        }
+        
+        System.out.println("String: " + str);
+        System.out.println("Letter 'O' appears: " + count + " times");
+    }
+}`,
+          jsLogic: (inputs) => {
+            const str = inputs[0] || "REVOLUTION";
+            let count = 0;
+
+            for (let i = 0; i < str.length; i++) {
+              if (str.charAt(i).toUpperCase() === "O") {
+                count++;
+              }
+            }
+
+            return `String: ${str}\nLetter 'O' appears: ${count} times`;
+          },
+        },
+        {
+          id: 74,
+          category: "looping",
+          title: "Count Spaces in String",
+          description: "Accept a string and count the number of spaces.",
+          inputs: [{ label: "Enter String", type: "text", id: "str" }],
+          javaCode: `import java.util.Scanner;
+public class CountSpaces {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String str = sc.nextLine();
+        
+        int count = 0;
+        for(int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == ' ') {
+                count++;
+            }
+        }
+        
+        System.out.println("Number of spaces: " + count);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const str = inputs[0];
+            let count = 0;
+
+            for (let i = 0; i < str.length; i++) {
+              if (str.charAt(i) === " ") {
+                count++;
+              }
+            }
+
+            return `String: "${str}"\nNumber of spaces: ${count}`;
+          },
+        },
+        {
+          id: 75,
+          category: "looping",
+          title: "Count Vowels in Text",
+          description:
+            "Count occurrences of each vowel (a, e, i, o, u) in text.",
+          inputs: [{ label: "Enter Text", type: "text", id: "text" }],
+          javaCode: `import java.util.Scanner;
+public class CountVowels {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter text: ");
+        String text = sc.nextLine().toLowerCase();
+        
+        int a = 0, e = 0, i = 0, o = 0, u = 0;
+        
+        for(int j = 0; j < text.length(); j++) {
+            char ch = text.charAt(j);
+            if(ch == 'a') a++;
+            else if(ch == 'e') e++;
+            else if(ch == 'i') i++;
+            else if(ch == 'o') o++;
+            else if(ch == 'u') u++;
+        }
+        
+        System.out.println("a: " + a);
+        System.out.println("e: " + e);
+        System.out.println("i: " + i);
+        System.out.println("o: " + o);
+        System.out.println("u: " + u);
+    }
+}`,
+          jsLogic: (inputs) => {
+            const text = inputs[0].toLowerCase();
+            let a = 0,
+              e = 0,
+              i = 0,
+              o = 0,
+              u = 0;
+
+            for (let j = 0; j < text.length; j++) {
+              const ch = text.charAt(j);
+              if (ch === "a") a++;
+              else if (ch === "e") e++;
+              else if (ch === "i") i++;
+              else if (ch === "o") o++;
+              else if (ch === "u") u++;
+            }
+
+            return `Text: "${
+              inputs[0]
+            }"\n\nVowel Count:\na: ${a}\ne: ${e}\ni: ${i}\no: ${o}\nu: ${u}\nTotal Vowels: ${
+              a + e + i + o + u
+            }`;
+          },
+        },
+            {
+        id: 76,
+        category: "series",
+        title: "Series: 1 + 2 + 3 + ... + n",
+        description: "Calculate sum of series: 1 + 2 + 3 + 4 + ... + n",
+        inputs: [{ label: "Enter n", type: "number", id: "n" }],
+        javaCode: `import java.util.Scanner;
+public class Series1 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        int sum = 0;
+        for(int i = 1; i <= n; i++) {
+            sum += i;
+        }
+        
+        System.out.println("Sum = " + sum);
+    }
+}`,
+        jsLogic: (inputs) => {
+            const n = parseInt(inputs[0]);
+            let sum = 0;
+            let series = [];
+            for(let i = 1; i <= n; i++) {
+                sum += i;
+                series.push(i);
+            }
+            return `Series: ${series.join(" + ")}\nSum = ${sum}`;
+        }
+    },
+    
+    {
+        id: 77,
+        category: "series",
+        title: "Series: 1/4 + 1/8 + 1/12 + ... n terms",
+        description: "Calculate sum of series: 1/4 + 1/8 + 1/12 + ... n terms",
+        inputs: [{ label: "Enter n (number of terms)", type: "number", id: "n" }],
+        javaCode: `import java.util.Scanner;
+public class Series2 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        double sum = 0;
+        for(int i = 1; i <= n; i++) {
+            sum += 1.0 / (4 * i);
+        }
+        
+        System.out.println("Sum = " + sum);
+    }
+}`,
+        jsLogic: (inputs) => {
+            const n = parseInt(inputs[0]);
+            let sum = 0;
+            let series = [];
+            for(let i = 1; i <= n; i++) {
+                const term = 1 / (4 * i);
+                sum += term;
+                series.push(`1/${4*i}`);
+            }
+            return `Series: ${series.join(" + ")}\nSum = ${sum.toFixed(6)}`;
+        }
+    },
+    
+    {
+        id: 78,
+        category: "series",
+        title: "Series: x^1/1! + x^2/2! + x^3/3! + ... x^n/n!",
+        description: "Calculate sum of exponential series",
+        inputs: [
+            { label: "Enter x", type: "number", id: "x" },
+            { label: "Enter n", type: "number", id: "n" }
+        ],
+        javaCode: `import java.util.Scanner;
+public class Series3 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter x: ");
+        double x = sc.nextDouble();
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        double sum = 0;
+        for(int i = 1; i <= n; i++) {
+            double power = Math.pow(x, i);
+            long factorial = 1;
+            for(int j = 1; j <= i; j++) {
+                factorial *= j;
+            }
+            sum += power / factorial;
+        }
+        
+        System.out.println("Sum = " + sum);
+    }
+}`,
+        jsLogic: (inputs) => {
+            const x = parseFloat(inputs[0]);
+            const n = parseInt(inputs[1]);
+            let sum = 0;
+            let series = [];
+            
+            for(let i = 1; i <= n; i++) {
+                let power = Math.pow(x, i);
+                let factorial = 1;
+                for(let j = 1; j <= i; j++) {
+                    factorial *= j;
+                }
+                sum += power / factorial;
+                series.push(`${x}^${i}/${i}!`);
+            }
+            return `Series: ${series.join(" + ")}\nSum = ${sum.toFixed(6)}`;
+        }
+    },
+    
+    {
+        id: 79,
+        category: "series",
+        title: "Series: (1+2) + (1+2+3) + ... + (1+2+...+n)",
+        description: "Calculate sum of cumulative series",
+        inputs: [{ label: "Enter n", type: "number", id: "n" }],
+        javaCode: `import java.util.Scanner;
+public class Series4 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        int totalSum = 0;
+        for(int i = 1; i <= n; i++) {
+            int groupSum = 0;
+            for(int j = 1; j <= i; j++) {
+                groupSum += j;
+            }
+            totalSum += groupSum;
+        }
+        
+        System.out.println("Sum = " + totalSum);
+    }
+}`,
+        jsLogic: (inputs) => {
+            const n = parseInt(inputs[0]);
+            let totalSum = 0;
+            let series = [];
+            
+            for(let i = 1; i <= n; i++) {
+                let groupSum = 0;
+                let group = [];
+                for(let j = 1; j <= i; j++) {
+                    groupSum += j;
+                    group.push(j);
+                }
+                totalSum += groupSum;
+                series.push(`(${group.join("+")})`);
+            }
+            return `Series: ${series.join(" + ")}\nSum = ${totalSum}`;
+        }
+    },
+    
+    {
+        id: 80,
+        category: "series",
+        title: "Series: x/1! - x²/2! + x³/3! - x⁴/4! + ...",
+        description: "Calculate alternating factorial series",
+        inputs: [
+            { label: "Enter x", type: "number", id: "x" },
+            { label: "Enter n", type: "number", id: "n" }
+        ],
+        javaCode: `import java.util.Scanner;
+public class Series5 {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter x: ");
+        double x = sc.nextDouble();
+        System.out.print("Enter n: ");
+        int n = sc.nextInt();
+        
+        double sum = 0;
+        for(int i = 1; i <= n; i++) {
+            double power = Math.pow(x, i);
+            long factorial = 1;
+            for(int j = 1; j <= i; j++) {
+                factorial *= j;
+            }
+            double term = power / factorial;
+            sum += (i % 2 == 0) ? -term : term;
+        }
+        
+        System.out.println("Sum = " + sum);
+    }
+}`,
+        jsLogic: (inputs) => {
+            const x = parseFloat(inputs[0]);
+            const n = parseInt(inputs[1]);
+            let sum = 0;
+            let series = [];
+            
+            for(let i = 1; i <= n; i++) {
+                let power = Math.pow(x, i);
+                let factorial = 1;
+                for(let j = 1; j <= i; j++) {
+                    factorial *= j;
+                }
+                let term = power / factorial;
+                sum += (i % 2 == 0) ? -term : term;
+                series.push(`${i % 2 == 0 ? '-' : '+'}${x}^${i}/${i}!`);
+            }
+            return `Series: ${series.join(" ")}\nSum = ${sum.toFixed(6)}`;
+        }
+    },
+    
+    // Continue with remaining Series programs 81-90...
+    
+    // ============== NEW: MENU-DRIVEN PROGRAMS (91-114) ==============
+    
+    {
+        id: 91,
+        category: "menu-driven",
+        title: "Duck Number Checker",
+        description: "A Duck number is a number which has zeroes present in it, but there should be no zero present in the beginning.",
+        inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+        javaCode: `import java.util.Scanner;
+public class DuckNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        String num = sc.next();
+        
+        boolean isDuck = false;
+        if(num.charAt(0) != '0') {
+            for(int i = 1; i < num.length(); i++) {
+                if(num.charAt(i) == '0') {
+                    isDuck = true;
+                    break;
+                }
+            }
+        }
+        
+        if(isDuck) {
+            System.out.println(num + " is a Duck number");
+        } else {
+            System.out.println(num + " is not a Duck number");
+        }
+    }
+}`,
+        jsLogic: (inputs) => {
+            const num = inputs[0].toString();
+            let isDuck = false;
+            
+            if(num.charAt(0) !== '0') {
+                for(let i = 1; i < num.length; i++) {
+                    if(num.charAt(i) === '0') {
+                        isDuck = true;
+                        break;
+                    }
+                }
+            }
+            
+            return `Number: ${num}\n${isDuck ? "Duck Number" : "Not a Duck Number"}\n\nExplanation: ${isDuck ? "Contains zero(s) but not at the start" : "Either starts with zero or doesn't contain any zero"}`;
+        }
+    },
+    
+    {
+        id: 92,
+        category: "menu-driven",
+        title: "Magic Number Checker (1729)",
+        description: "A number is magic if it can be expressed as sum of two cubes in two different ways. Example: 1729 = 1³+12³ = 9³+10³",
+        inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+        javaCode: `import java.util.Scanner;
+public class MagicNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int count = 0;
+        for(int i = 1; i * i * i < num; i++) {
+            for(int j = i; i*i*i + j*j*j <= num; j++) {
+                if(i*i*i + j*j*j == num) {
+                    System.out.println(num + " = " + i + "³ + " + j + "³");
+                    count++;
+                }
+            }
+        }
+        
+        if(count >= 2) {
+            System.out.println(num + " is a Magic number");
+        } else {
+            System.out.println(num + " is not a Magic number");
+        }
+    }
+}`,
+        jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let pairs = [];
+            
+            for(let i = 1; i * i * i < num; i++) {
+                for(let j = i; i*i*i + j*j*j <= num; j++) {
+                    if(i*i*i + j*j*j === num) {
+                        pairs.push(`${i}³ + ${j}³`);
+                    }
+                }
+            }
+            
+            const isMagic = pairs.length >= 2;
+            let result = `Number: ${num}\n`;
+            if(pairs.length > 0) {
+                result += `\nCube pair representations:\n`;
+                pairs.forEach(pair => result += `${num} = ${pair}\n`);
+            }
+            result += `\n${isMagic ? "Magic Number (Ramanujan Number)" : "Not a Magic Number"}`;
+            return result;
+        }
+    },
+    
+    {
+        id: 93,
+        category: "menu-driven",
+        title: "Niven/Harshad Number Checker",
+        description: "A number divisible by sum of its digits is a Niven/Harshad number",
+        inputs: [{ label: "Enter Number", type: "number", id: "num" }],
+        javaCode: `import java.util.Scanner;
+public class NivenNumber {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter a number: ");
+        int num = sc.nextInt();
+        
+        int sum = 0, temp = num;
+        while(temp > 0) {
+            sum += temp % 10;
+            temp /= 10;
+        }
+        
+        if(num % sum == 0) {
+            System.out.println(num + " is a Niven/Harshad number");
+        } else {
+            System.out.println(num + " is not a Niven/Harshad number");
+        }
+    }
+}`,
+        jsLogic: (inputs) => {
+            const num = parseInt(inputs[0]);
+            let sum = 0, temp = num;
+            
+            while(temp > 0) {
+                sum += temp % 10;
+                temp = Math.floor(temp / 10);
+            }
+            
+            const isNiven = num % sum === 0;
+            return `Number: ${num}\nSum of digits: ${sum}\n${num} % ${sum} = ${num % sum}\n\n${isNiven ? "Niven/Harshad Number" : "Not a Niven/Harshad Number"}`;
+        }
+    },
+    
+    // Continue with remaining Menu-Driven programs 94-114...
+    
+    // ============== NEW: POLYMORPHISM PROGRAMS (115-124) ==============
+    
+    {
+        id: 115,
+        category: "polymorphism",
+        title: "Overload series() - Three Variants",
+        description: "series(int x, int n): x¹+x²+...+xⁿ | series(int p): 0,7,26,63...p terms | series(): 1/2+1/3+...+1/10",
+        inputs: [
+            { label: "Choose Method (1/2/3)", type: "number", id: "method" },
+            { label: "Enter x (for method 1)", type: "number", id: "x" },
+            { label: "Enter n or p", type: "number", id: "n" }
+        ],
+        javaCode: `import java.util.Scanner;
+public class SeriesOverload {
+    // Method 1
+    void series(int x, int n) {
+        int sum = 0;
+        for(int i = 1; i <= n; i++) {
+            sum += Math.pow(x, i);
+        }
+        System.out.println("Sum = " + sum);
+    }
+    
+    // Method 2
+    void series(int p) {
+        for(int i = 1; i <= p; i++) {
+            int term = i*i*i - 1;
+            System.out.print(term + " ");
+        }
+    }
+    
+    // Method 3
+    void series() {
+        double sum = 0;
+        for(int i = 2; i <= 10; i++) {
+            sum += 1.0 / i;
+        }
+        System.out.println("Sum = " + sum);
+    }
+    
+    public static void main(String[] args) {
+        SeriesOverload obj = new SeriesOverload();
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("Choose method:");
+        System.out.println("1. series(int x, int n)");
+        System.out.println("2. series(int p)");
+        System.out.println("3. series()");
+        int choice = sc.nextInt();
+        
+        switch(choice) {
+            case 1:
+                System.out.print("Enter x and n: ");
+                int x = sc.nextInt();
+                int n = sc.nextInt();
+                obj.series(x, n);
+                break;
+            case 2:
+                System.out.print("Enter p: ");
+                int p = sc.nextInt();
+                obj.series(p);
+                break;
+            case 3:
+                obj.series();
+                break;
+        }
+    }
+}`,
+        jsLogic: (inputs) => {
+            const method = parseInt(inputs[0]);
+            const x = parseInt(inputs[1]) || 0;
+            const n = parseInt(inputs[2]) || 0;
+            
+            if(method === 1) {
+                let sum = 0;
+                let series = [];
+                for(let i = 1; i <= n; i++) {
+                    sum += Math.pow(x, i);
+                    series.push(`${x}^${i}`);
+                }
+                return `Method 1: series(${x}, ${n})\nSeries: ${series.join(" + ")}\nSum = ${sum}`;
+            } else if(method === 2) {
+                let series = [];
+                for(let i = 1; i <= n; i++) {
+                    let term = i*i*i - 1;
+                    series.push(term);
+                }
+                return `Method 2: series(${n})\nSeries (n³-1): ${series.join(", ")}`;
+            } else if(method === 3) {
+                let sum = 0;
+                let series = [];
+                for(let i = 2; i <= 10; i++) {
+                    sum += 1/i;
+                    series.push(`1/${i}`);
+                }
+                return `Method 3: series()\nSeries: ${series.join(" + ")}\nSum = ${sum.toFixed(6)}`;
+            }
+            return "Invalid method selection";
+        }
+    },
+    
+    {
+        id: 116,
+        category: "polymorphism",
+        title: "Overload volume() - Sphere, Cylinder, Cuboid",
+        description: "Calculate volume of different shapes using method overloading",
+        inputs: [
+            { label: "Choose Shape (1=Sphere/2=Cylinder/3=Cuboid)", type: "number", id: "shape" },
+            { label: "Enter dimensions (comma-separated)", type: "text", id: "dims" }
+        ],
+        javaCode: `import java.util.Scanner;
+public class VolumeOverload {
+    double volume(double r) {
+        return (4.0/3.0) * (22.0/7.0) * r * r * r;
+    }
+    
+    double volume(double h, double r) {
+        return (22.0/7.0) * r * r * h;
+    }
+    
+    double volume(double l, double b, double h) {
+        return l * b * h;
+    }
+    
+    public static void main(String[] args) {
+        VolumeOverload obj = new VolumeOverload();
+        Scanner sc = new Scanner(System.in);
+        
+        System.out.println("1. Sphere\n2. Cylinder\n3. Cuboid");
+        int choice = sc.nextInt();
+        
+        switch(choice) {
+            case 1:
+                System.out.print("Enter radius: ");
+                double r = sc.nextDouble();
+                System.out.println("Volume = " + obj.volume(r));
+                break;
+            case 2:
+                System.out.print("Enter height and radius: ");
+                double h = sc.nextDouble();
+                double r2 = sc.nextDouble();
+                System.out.println("Volume = " + obj.volume(h, r2));
+                break;
+            case 3:
+                System.out.print("Enter length, breadth, height: ");
+                double l = sc.nextDouble();
+                double b = sc.nextDouble();
+                double h3 = sc.nextDouble();
+                System.out.println("Volume = " + obj.volume(l, b, h3));
+                break;
+        }
+    }
+}`,
+        jsLogic: (inputs) => {
+            const shape = parseInt(inputs[0]);
+            const dims = inputs[1].split(',').map(x => parseFloat(x.trim()));
+            
+            if(shape === 1 && dims.length >= 1) {
+                const r = dims[0];
+                const volume = (4/3) * (22/7) * r * r * r;
+                return `Sphere\nRadius: ${r}\nVolume = ${volume.toFixed(2)} cubic units`;
+            } else if(shape === 2 && dims.length >= 2) {
+                const h = dims[0];
+                const r = dims[1];
+                const volume = (22/7) * r * r * h;
+                return `Cylinder\nHeight: ${h}, Radius: ${r}\nVolume = ${volume.toFixed(2)} cubic units`;
+            } else if(shape === 3 && dims.length >= 3) {
+                const l = dims[0];
+                const b = dims[1];
+                const h = dims[2];
+                const volume = l * b * h;
+                return `Cuboid\nLength: ${l}, Breadth: ${b}, Height: ${h}\nVolume = ${volume.toFixed(2)} cubic units`;
+            }
+            return "Invalid input or insufficient dimensions";
+        }
+    }
+      ];
+      function renderQuestions(filter = "all") {
+        const app = document.getElementById("app");
+        app.innerHTML = "";
+
+        const filteredQuestions =
+          filter === "all"
+            ? questionsDB
+            : questionsDB.filter((q) => q.category === filter);
+
+        filteredQuestions.forEach((question) => {
+          const card = document.createElement("div");
+          card.className = "question-card";
+          card.dataset.category = question.category;
+          const inputsHTML = question.inputs
+            .map(
+              (input) => `
+            <div class="input-group">
+                <label for="input-${question.id}-${input.id}">${
+                input.label
+              }:</label>
+                ${
+                  input.type === "textarea"
+                    ? `<textarea id="input-${question.id}-${input.id}" placeholder="${input.label}"></textarea>`
+                    : `<input type="${input.type}" id="input-${question.id}-${input.id}" placeholder="${input.label}">`
+                }
+            </div>
+        `
+            )
+            .join("");
+
+          card.innerHTML = `
+            <div class="card-header">
+                <span class="question-id">#${question.id}</span>
+                <span class="category-tag ${
+                  question.category
+                }">${question.category.toUpperCase()}</span>
+            </div>
+            <h2 class="card-title">${question.title}</h2>
+            <p class="card-description">${question.description}</p>
+            
+            <div class="code-section">
+                <div class="code-header">
+                    <span class="code-label">📝 Java Code:</span>
+                    <button class="copy-btn" onclick="copyCode(${
+                      question.id
+                    })">Copy</button>
+                </div>
+                <pre class="code-content" id="code-${question.id}">${
+            question.javaCode
+          }</pre>
+            </div>
+            
+            <div class="input-section">
+                ${inputsHTML}
+            </div>
+            
+            <button class="run-btn" onclick="runSimulation(${
+              question.id
+            })">▶ Run Simulation</button>
+            
+            <div class="output-section" id="output-${question.id}">
+                <div class="output-label">🖥️ Output:</div>
+                <div class="output-content" id="output-content-${
+                  question.id
+                }"></div>
+            </div>
+        `;
+
+          app.appendChild(card);
+        });
+
+        // Update total count
+        document.getElementById("total-count").textContent = questionsDB.length;
+      }
+
+      // ==========================================
+      // GENERIC RUN SIMULATION FUNCTION
+      // ==========================================
+      function runSimulation(id) {
+        const question = questionsDB.find((q) => q.id === id);
+        if (!question) return;
+
+        // Collect input values
+        const inputs = question.inputs.map((input) => {
+          const element = document.getElementById(`input-${id}-${input.id}`);
+          return element.value;
+        });
+
+        // Validate inputs
+        if (inputs.some((input) => input === "")) {
+          alert("Please fill all input fields!");
+          return;
+        }
+
+        try {
+          // Execute JavaScript logic
+          const result = question.jsLogic(inputs);
+
+          // Display output
+          const outputSection = document.getElementById(`output-${id}`);
+          const outputContent = document.getElementById(`output-content-${id}`);
+
+          outputContent.textContent = result;
+          outputSection.classList.add("show");
+
+          // Smooth scroll to output
+          outputSection.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          });
+        } catch (error) {
+          alert("Error executing code: " + error.message);
+        }
+      }
+
+      // ==========================================
+      // UTILITY FUNCTIONS
+      // ==========================================
+      function copyCode(id) {
+        const codeElement = document.getElementById(`code-${id}`);
+        const textArea = document.createElement("textarea");
+        textArea.value = codeElement.textContent;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textArea);
+
+        alert("Code copied to clipboard!");
+      }
+
+      // ==========================================
+      // FILTER FUNCTIONALITY
+      // ==========================================
+      document.addEventListener("DOMContentLoaded", () => {
+        // Initial render
+        renderQuestions();
+
+        // Filter buttons
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            // Add active class to clicked button
+            btn.classList.add("active");
+            // Render filtered questions
+            const category = btn.dataset.category;
+            renderQuestions(category);
+          });
+        });
+      });
+
+      //js for header
+      (function () {
+        var container = document.getElementById("java-metaball-header");
+        var canvas = document.createElement("canvas");
+
+        // Set canvas to full width/height of the header container
+        var width = (canvas.width = container.clientWidth);
+        var height = (canvas.height = container.clientHeight);
+
+        container.appendChild(canvas);
+        var gl = canvas.getContext("webgl");
+
+        var mouse = { x: 0, y: 0 };
+
+        var numMetaballs = 30;
+        var metaballs = [];
+
+        for (var i = 0; i < numMetaballs; i++) {
+          var radius = Math.random() * 60 + 10;
+          metaballs.push({
+            x: Math.random() * (width - 2 * radius) + radius,
+            y: Math.random() * (height - 2 * radius) + radius,
+            vx: (Math.random() - 0.5) * 3,
+            vy: (Math.random() - 0.5) * 3,
+            r: radius * 0.75,
+          });
+        }
+
+        var vertexShaderSrc = `
+            attribute vec2 position;
+            void main() {
+                gl_Position = vec4(position, 0.0, 1.0);
+            }
+            `;
+
+        var fragmentShaderSrc =
+          `
+            precision highp float;
+            const float WIDTH = ` +
+          (width >> 0) +
+          `.0;
+            const float HEIGHT = ` +
+          (height >> 0) +
+          `.0;
+            uniform vec3 metaballs[` +
+          numMetaballs +
+          `];
+
+            void main(){
+                float x = gl_FragCoord.x;
+                float y = gl_FragCoord.y;
+                float sum = 0.0;
+                for (int i = 0; i < ` +
+          numMetaballs +
+          `; i++) {
+                    vec3 metaball = metaballs[i];
+                    float dx = metaball.x - x;
+                    float dy = metaball.y - y;
+                    float radius = metaball.z;
+                    sum += (radius * radius) / (dx * dx + dy * dy);
+                }
+                if (sum >= 0.99) {
+                    gl_FragColor = vec4(mix(vec3(x / WIDTH, y / HEIGHT, 1.0), vec3(0, 0, 0), max(0.0, 1.0 - (sum - 0.99) * 100.0)), 1.0);
+                    return;
+                }
+                gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);
+            }
+            `;
+
+        var vertexShader = compileShader(vertexShaderSrc, gl.VERTEX_SHADER);
+        var fragmentShader = compileShader(
+          fragmentShaderSrc,
+          gl.FRAGMENT_SHADER
+        );
+
+        var program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+        gl.useProgram(program);
+
+        var vertexData = new Float32Array([
+          -1.0, 1.0, -1.0, -1.0, 1.0, 1.0, 1.0, -1.0,
+        ]);
+        var vertexDataBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vertexDataBuffer);
+        gl.bufferData(gl.ARRAY_BUFFER, vertexData, gl.STATIC_DRAW);
+
+        var positionHandle = getAttribLocation(program, "position");
+        gl.enableVertexAttribArray(positionHandle);
+        gl.vertexAttribPointer(positionHandle, 2, gl.FLOAT, gl.FALSE, 2 * 4, 0);
+
+        var metaballsHandle = getUniformLocation(program, "metaballs");
+
+        loop();
+        function loop() {
+          for (var i = 0; i < numMetaballs; i++) {
+            var metaball = metaballs[i];
+            metaball.x += metaball.vx;
+            metaball.y += metaball.vy;
+
+            if (metaball.x < metaball.r || metaball.x > width - metaball.r)
+              metaball.vx *= -1;
+            if (metaball.y < metaball.r || metaball.y > height - metaball.r)
+              metaball.vy *= -1;
+          }
+
+          var dataToSendToGPU = new Float32Array(3 * numMetaballs);
+          for (var i = 0; i < numMetaballs; i++) {
+            var baseIndex = 3 * i;
+            var mb = metaballs[i];
+            dataToSendToGPU[baseIndex + 0] = mb.x;
+            dataToSendToGPU[baseIndex + 1] = mb.y;
+            dataToSendToGPU[baseIndex + 2] = mb.r;
+          }
+          gl.uniform3fv(metaballsHandle, dataToSendToGPU);
+          gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+          requestAnimationFrame(loop);
+        }
+
+        function compileShader(shaderSource, shaderType) {
+          var shader = gl.createShader(shaderType);
+          gl.shaderSource(shader, shaderSource);
+          gl.compileShader(shader);
+          if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+            throw "Shader compile failed with: " + gl.getShaderInfoLog(shader);
+          }
+          return shader;
+        }
+
+        function getUniformLocation(program, name) {
+          var uniformLocation = gl.getUniformLocation(program, name);
+          if (uniformLocation === -1) {
+            throw "Can not find uniform " + name + ".";
+          }
+          return uniformLocation;
+        }
+
+        function getAttribLocation(program, name) {
+          var attributeLocation = gl.getAttribLocation(program, name);
+          if (attributeLocation === -1) {
+            throw "Can not find attribute " + name + ".";
+          }
+          return attributeLocation;
+        }
+
+        // Optional: Simple Resize handler to avoid stretching if window resizes drastically
+        window.addEventListener("resize", function () {
+          width = canvas.width = container.clientWidth;
+          height = canvas.height = container.clientHeight;
+          gl.viewport(0, 0, width, height);
+        });
+      })();
+    </script>
+  </body>
+</html>

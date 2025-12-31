@@ -1,0 +1,44 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="200" fill="#87CEEB"/>
+  
+  <!-- Ground -->
+  <rect y="150" width="300" height="50" fill="#90EE90"/>
+  
+  <!-- Clouds -->
+  <ellipse cx="50" cy="40" rx="25" ry="15" fill="white"/>
+  <ellipse cx="70" cy="40" rx="20" ry="12" fill="white"/>
+  <ellipse cx="250" cy="60" rx="30" ry="18" fill="white"/>
+  <ellipse cx="230" cy="60" rx="25" ry="15" fill="white"/>
+  
+  <!-- Mario Character -->
+  <rect x="100" y="100" width="40" height="50" fill="#E52521" rx="5"/>
+  <rect x="105" y="80" width="30" height="25" fill="#FDBCB4" rx="5"/>
+  <rect x="100" y="70" width="30" height="15" fill="#E52521" rx="3"/>
+  
+  <!-- Mario Details -->
+  <rect x="110" y="85" width="6" height="6" fill="white"/>
+  <rect x="124" y="85" width="6" height="6" fill="white"/>
+  <rect x="112" y="87" width="2" height="2" fill="black"/>
+  <rect x="126" y="87" width="2" height="2" fill="black"/>
+  <rect x="105" y="105" width="30" height="8" fill="#8B4513" rx="2"/>
+  
+  <!-- Blocks -->
+  <rect x="50" y="120" width="30" height="30" fill="#D2691E"/>
+  <rect x="55" y="125" width="20" height="20" fill="#8B4513"/>
+  <text x="65" y="140" font-family="Arial" font-size="12" fill="white" text-anchor="middle">?</text>
+  
+  <rect x="200" y="100" width="30" height="30" fill="#D2691E"/>
+  <rect x="205" y="105" width="20" height="20" fill="#8B4513"/>
+  <text x="215" y="120" font-family="Arial" font-size="12" fill="white" text-anchor="middle">?</text>
+  
+  <!-- Coins -->
+  <circle cx="150" cy="80" r="8" fill="#FFD700"/>
+  <text x="150" y="84" font-family="Arial" font-size="8" fill="#FFA500" text-anchor="middle">C</text>
+  
+  <circle cx="180" cy="60" r="8" fill="#FFD700"/>
+  <text x="180" y="64" font-family="Arial" font-size="8" fill="#FFA500" text-anchor="middle">C</text>
+  
+  <!-- Title -->
+  <text x="150" y="190" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Gameplay Screenshot</text>
+</svg>

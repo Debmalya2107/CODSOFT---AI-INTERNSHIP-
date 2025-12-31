@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mario & Luigi Gaming Universe</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Mario Luigi" height="40" class="d-inline-block align-text-top">
+                Mario & Luigi
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="characters.html">Characters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="game.html">Play Game</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container text-center text-white">
+            <div data-aos="fade-up">
+                <h1 class="display-1 fw-bold mb-4">Welcome to the Mushroom Kingdom</h1>
+                <p class="lead mb-5">Join Mario and Luigi on their epic adventures!</p>
+                <a href="game.html" class="btn btn-success btn-lg me-3" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="bi bi-play-fill"></i> Play Now
+                </a>
+                <a href="characters.html" class="btn btn-danger btn-lg" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="bi bi-people-fill"></i> Meet Characters
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h2 class="text-success mb-4">About the Game</h2>
+                    <p class="lead">Experience the classic platforming adventure that has captivated gamers for decades!</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Classic side-scrolling gameplay</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Power-ups and collectibles</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> Challenging enemies and obstacles</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-success"></i> High score tracking</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="img/gameplay.png" alt="Gameplay" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Preview -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Meet the Heroes</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 character-card">
+                        <img src="img/mario.png" class="card-img-top" alt="Mario">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-danger">Mario</h4>
+                            <p class="card-text">The brave plumber hero ready to save Princess Peach!</p>
+                            <a href="characters.html" class="btn btn-danger">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 character-card">
+                        <img src="img/luigi.png" class="card-img-top" alt="Luigi">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-success">Luigi</h4>
+                            <p class="card-text">Mario's loyal brother with amazing jumping skills!</p>
+                            <a href="characters.html" class="btn btn-success">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 character-card">
+                        <img src="img/peach.png" class="card-img-top" alt="Princess Peach">
+                        <div class="card-body text-center">
+                            <h4 class="card-title text-warning">Princess Peach</h4>
+                            <p class="card-text">The ruler of Mushroom Kingdom waiting to be rescued!</p>
+                            <a href="characters.html" class="btn btn-warning">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Game Gallery</h2>
+            <div class="row">
+                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/gallery/screenshot1.jpg" class="img-fluid rounded shadow gallery-preview" alt="Screenshot 1">
+                </div>
+                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/gallery/screenshot2.jpg" class="img-fluid rounded shadow gallery-preview" alt="Screenshot 2">
+                </div>
+                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/gallery/screenshot3.jpg" class="img-fluid rounded shadow gallery-preview" alt="Screenshot 3">
+                </div>
+                <div class="col-md-3 mb-3" data-aos="fade-up" data-aos-delay="400">
+                    <img src="img/gallery/screenshot4.jpg" class="img-fluid rounded shadow gallery-preview" alt="Screenshot 4">
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="gallery.html" class="btn btn-primary btn-lg">View Full Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Mario & Luigi Gaming Universe</h5>
+                    <p>&copy; 2024 All rights reserved. Classic gaming experience.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Follow Us</h5>
+                    <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-twitter"></i></a>
+                    <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+</body>
+</html>

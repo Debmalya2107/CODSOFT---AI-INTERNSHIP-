@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GAMETY</title>
+    <link rel="icon" type="image/x-icon" href="./images/logo.ico">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="INDEX.HTML" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.15);
+        ">Home</a>
+        <a href="about.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+
+
+    <div class="ban">
+        <div class="sear">
+            <input type="search" placeholder="Explore Gamety" id="search">
+        </div>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <img src="./images/ban2.jpg" alt="Banner Image 1">
+            </div>
+            <div class="mySlides">
+                <img src="./images/ban3.jpg" alt="Banner Image 2">
+            </div>
+            <div class="mySlides">
+                <img src="./images/ban4.jpg" alt="Banner Image 3">
+            </div>
+            <div class="mySlides">
+                <img src="./images/ban5.jpg" alt="Banner Image 4">
+            </div>
+            <div class="mySlides">
+                <img src="./images/ban6.jpg" alt="Banner Image 5">
+            </div>
+        </div>
+        <div class="banrap">
+
+        </div>
+    </div>
+
+    <!-- Game of the Week Section -->
+    <div class="game-of-week">
+        <div class="game-of-week-container">
+            <h2><i class="fas fa-star"></i> Game of the Week</h2>
+            <div class="spotlight-game">
+                <img src="./images/gow.jfif" alt="Valorant" class="spotlight-game-image"
+                    style="height: 330px; width: 270px;">
+                <h3>Valorant</h3>
+                <p>Step into the thrilling world of Valorant, where every round is a battle of wits, skill, and
+                    sheer nerve. This isn’t just a shooting game—it’s a mind game, where you never know what’s waiting
+                    around the next corner. Each agent you choose carries mysterious abilities that can change the fate
+                    of the match in seconds, making every encounter feel like an unpredictable adventure. With its mix
+                    of sharp gunplay and powerful powers, Valorant throws you into a world where danger lurks in the
+                    shadows and victory belongs only to the smartest and bravest. Every match feels like a story
+                    unfolding—full of suspense, strategy, and the rush of outsmarting your rivals. Dare to enter, and
+                    you’ll find yourself hooked in a battleground where every move could be your last… or your greatest
+                    triumph.
+                </p>
+                <a href="valorant.html" class="cta-button"><i class="fas fa-gamepad"></i> Explore Documentation</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="features">
+        <h1>Featured Games</h1>
+    </div>
+    <div class="mid">
+        <div class="midrap">
+            <div class="box">
+                <img src="./images/g1.png" alt="Description of image 1">
+                <h1>Valheim</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g2.webp" alt="Description of image 2">
+                <h1>Guild wars 2</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g3.jpg" alt="Description of image 3">
+                <h1>City of heros homecoming</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g4.jpg" alt="Description of image 4">
+                <h1>Dave the diver</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g5.png" alt="Description of image 5">
+                <h1>Vampire Bloodlines</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g6.png" alt="Description of image 5">
+                <h1>It Takes Two</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g7.png" alt="Description of image 5">
+                <h1>Alien Isolation</h1>
+            </div>
+            <div class="box">
+                <img src="./images/g8.jpg" alt="Description of image 5">
+                <h1>Rocket League</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Top Trending Games Section -->
+    <div class="trending-games">
+        <div class="trending-container">
+            <h2><i class="fas fa-fire"></i> Top Trending Games</h2>
+            <div class="trending-grid">
+                <div class="trending-card">
+                    <div class="trending-rank">1</div>
+                    <img src="./images/hades.webp" alt="Hades">
+                    <h3>Hades</h3>
+                    <div class="trending-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span>15.2K views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>234 comments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-rank">2</div>
+                    <img src="./images/halflife2.webp" alt="Half life 2" >
+                    <h3>Half Life 2</h3>
+                    <div class="trending-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span>12.8K views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>189 comments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-rank">3</div>
+                    <img src="./images/doometernal.jpg" alt="Doom eternal">
+                    <h3>Doom Eternal</h3>
+                    <div class="trending-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span>11.5K views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>156 comments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-rank">4</div>
+                    <img src="./images/godofwar.jpg" alt="God of War">
+                    <h3>God of War </h3>
+                    <div class="trending-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span>9.7K views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>142 comments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-rank">5</div>
+                    <img src="./images/tesv.png" alt="The Elder Scroll V: Skyrim">
+                    <h3>The Elder Scroll V: Skyrim</h3>
+                    <div class="trending-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span>8.9K views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>98 comments</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="trending-card">
+                    <div class="trending-rank">6</div>
+                    <img src="./images/cod6.png" alt="Call of Duty: Black Ops 6">
+                    <h3>Call of Duty: Black Ops 6</h3>
+                    <div class="trending-stats">
+                        <div class="stat-item">
+                            <i class="fas fa-eye"></i>
+                            <span>8.2K views</span>
+                        </div>
+                        <div class="stat-item">
+                            <i class="fas fa-comments"></i>
+                            <span>87 comments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Latest News & Updates Section -->
+    <div class="latest-news">
+        <div class="news-container">
+            <h2><i class="fas fa-newspaper"></i> Latest News & Updates</h2>
+            <div class="news-grid">
+                <div class="news-item">
+                    <div class="news-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>December 15, 2024</span>
+                    </div>
+                    <h3>Guild Wars 2 - Secrets of the Obscure Expansion Guide</h3>
+                    <p>Complete walkthrough and documentation for the latest expansion including new maps, elite
+                        specializations, and story content.</p>
+                    <a href="#" class="news-link">Read Full Guide <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>December 12, 2024</span>
+                    </div>
+                    <h3>Valheim Ashlands Update Documentation</h3>
+                    <p>New biome exploration guide, creatures, resources, and building techniques for the challenging
+                        Ashlands region.</p>
+                    <a href="#" class="news-link">Explore Documentation <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>December 10, 2024</span>
+                    </div>
+                    <h3>Dave the Diver: Sea People Campaign Guide</h3>
+                    <p>Updated documentation covering the new Sea People storyline, underwater vehicles, and advanced
+                        diving techniques.</p>
+                    <a href="#" class="news-link">Dive In <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>December 8, 2024</span>
+                    </div>
+                    <h3>Rocket League Season 12 Competitive Guide</h3>
+                    <p>Comprehensive ranking system breakdown, new arena analysis, and advanced gameplay mechanics
+                        documentation.</p>
+                    <a href="#" class="news-link">Level Up <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>December 5, 2024</span>
+                    </div>
+                    <h3>It Takes Two Co-op Achievement Guide</h3>
+                    <p>Complete achievement hunting guide for couples and friends playing through Cody and May's
+                        adventure together.</p>
+                    <a href="#" class="news-link">Team Up <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="news-item">
+                    <div class="news-date">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>December 3, 2024</span>
+                    </div>
+                    <h3>New Horror Game Documentation Added</h3>
+                    <p>Alien Isolation survival guide now available with stealth mechanics, alien behavior patterns, and
+                        safe room locations.</p>
+                    <a href="#" class="news-link">Survive <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Developer Spotlight Section -->
+    <div class="developer-spotlight">
+        <div class="spotlight-container">
+            <h2><i class="fas fa-code"></i> Developer Spotlight</h2>
+            <div class="developer-card">
+                <div class="developer-avatar">
+                    <i class="fas fa-hammer"></i>
+                </div>
+                <div class="developer-info">
+                    <h3><p>𐌃𐌄𐌁𐌔𐌕𐌵𐌃𐌉Ꝋ</p></h3>
+                    <div class="developer-role">Debmalya Game Testing & Rating department  </div>
+                    <div class="developer-bio">
+                        A small Swedish indie game studio founded by Henrik Törnqvist and Richard Svensson. Known for
+                        creating immersive survival experiences with deep crafting systems and cooperative gameplay.
+                        Their passion for Norse mythology and Viking culture shines through in their meticulously
+                        crafted game worlds.
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Gamety. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

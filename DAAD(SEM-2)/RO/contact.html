@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact AquaPure for water purification solutions, support, and inquiries. Multiple contact methods available including phone, email, live chat, and in-person consultations.">
+    <title>Contact — AquaPure</title>
+    <link rel="stylesheet" href="./css/contact.css">
+</head>
+<body>
+    <!-- HEADER / HERO SECTION -->
+    <header style="background:#0077b6; color:#fff; padding:15px 20px; position:sticky; top:0; z-index:1000;">
+  <nav style="display:flex; justify-content:space-between; align-items:center; max-width:1200px; margin:auto; position:relative;">
+    <h2 style="margin:0; font-weight:700; font-size:1.8rem;">AquaPure</h2>
+
+    <!-- Checkbox Hack for Mobile Menu -->
+    <input type="checkbox" id="menu-toggle" style="display:none;">
+    <label for="menu-toggle" class="hamburger" style="font-size:28px; cursor:pointer; user-select:none; color:#fff; display:none;">☰</label>
+
+    <!-- Navigation Menu -->
+    <ul class="nav-menu" style="display:flex; list-style:none; gap:20px; margin:0; padding:0;">
+      <li style="margin:0;">
+        <a href="index.html" style="color:#fff; text-decoration:none; font-weight:500; padding:8px 12px; border-radius:5px; transition: background-color 0.3s ease, color 0.3s ease;">Home</a>
+      </li>
+      <li style="margin:0;">
+        <a href="about.html" style="color:#fff; text-decoration:none; font-weight:500; padding:8px 12px; border-radius:5px; transition: background-color 0.3s ease, color 0.3s ease;">About</a>
+      </li>
+      <li style="margin:0;">
+        <a href="products.html" style="color:#fff; text-decoration:none; font-weight:500; padding:8px 12px; border-radius:5px; transition: background-color 0.3s ease, color 0.3s ease;">Products</a>
+      </li>
+      <li style="margin:0;">
+        <a href="contact.html" style="color:#fff; text-decoration:none; font-weight:500; padding:8px 12px; border-radius:5px; transition: background-color 0.3s ease, color 0.3s ease;">Contact</a>
+      </li>
+    </ul>
+  </nav>
+
+  <style>
+    /* Hover effect for links */
+    header nav ul.nav-menu li a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      color: #ffdd00 !important;
+    }
+
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      header nav ul.nav-menu {
+        display: none !important;
+        flex-direction: column;
+        background: #0077b6;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        z-index: 1001;
+      }
+      header nav ul.nav-menu li a {
+        display: block !important;
+        padding: 12px 20px !important;
+        border-radius: 0 !important;
+      }
+      label.hamburger {
+        display: block !important;
+      }
+      #menu-toggle:checked + label.hamburger + ul.nav-menu {
+        display: flex !important;
+      }
+    }
+  </style>
+</header>
+
+
+    <main>
+        <!-- PRIMARY CONTACT FORM SECTION -->
+        <section class="contact-form-section" id="contact-form">
+            <div class="container">
+                <h2>Send us a message</h2>
+                <p class="section-intro">
+                    Ready to transform your water quality? Fill out our comprehensive contact form below and one of our water purification experts will respond within 24 hours during business days. We're committed to understanding your unique requirements and providing personalized recommendations that ensure you get the perfect water treatment solution for your specific situation.
+                </p>
+                
+                <div class="form-container">
+                    <!-- NOTE: Set form action to your server endpoint. Server must validate input, sanitize data, send confirmation email, and return a 303/302 redirect or render success page. -->
+                    <form method="post" action="/your-server-endpoint" role="form" aria-labelledby="form-heading">
+                        <h3 id="form-heading" class="visually-hidden">Contact Form</h3>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="full-name">Full Name *</label>
+                                <input type="text" id="full-name" name="fullName" required aria-required="true" aria-describedby="name-hint">
+                                <small id="name-hint" class="field-hint">Enter your first and last name</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-hint">
+                                <small id="email-hint" class="field-hint">We'll use this to send you updates and confirmations</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required pattern="[0-9\s\-\+\(\)]{10,}" aria-required="true" aria-describedby="phone-hint">
+                                <small id="phone-hint" class="field-hint">Include country code (e.g., +1 555-123-4567)</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="company">Company (Optional)</label>
+                                <input type="text" id="company" name="company" aria-describedby="company-hint">
+                                <small id="company-hint" class="field-hint">If contacting on behalf of an organization</small>
+                            </div>
+                        </div>
+                        
+                        <fieldset class="contact-method-fieldset">
+                            <legend>Preferred Contact Method *</legend>
+                            <div class="radio-group">
+                                <div class="radio-item">
+                                    <input type="radio" id="contact-email" name="contactMethod" value="email" required>
+                                    <label for="contact-email">Email</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="contact-phone" name="contactMethod" value="phone" required>
+                                    <label for="contact-phone">Phone</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="contact-whatsapp" name="contactMethod" value="whatsapp" required>
+                                    <label for="contact-whatsapp">WhatsApp</label>
+                                </div>
+                                <div class="radio-item">
+                                    <input type="radio" id="contact-chat" name="contactMethod" value="chat" required>
+                                    <label for="contact-chat">Live Chat</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" name="subject" required aria-required="true" aria-describedby="subject-hint">
+                                <small id="subject-hint" class="field-hint">Brief description of your inquiry</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="product-interest">Product Interest</label>
+                                <select id="product-interest" name="productInterest" aria-describedby="product-hint">
+                                    <option value="">Select a product category</option>
+                                    <option value="home-purifier">Home Purifier</option>
+                                    <option value="commercial-purifier">Commercial Purifier</option>
+                                    <option value="replacement-filters">Replacement Filters</option>
+                                    <option value="maintenance">Maintenance Services</option>
+                                    <option value="other">Other</option>
+                                </select>
+                                <small id="product-hint" class="field-hint">Help us route your inquiry to the right specialist</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required aria-required="true" rows="6" aria-describedby="message-hint"></textarea>
+                            <small id="message-hint" class="field-hint">Please provide detailed information about your water purification needs, current setup, or specific questions</small>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="appointment-date">Preferred Appointment Date</label>
+                                <input type="date" id="appointment-date" name="appointmentDate" min="2024-01-01" aria-describedby="date-hint">
+                                <small id="date-hint" class="field-hint">Optional: Request a consultation or installation date</small>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="privacy-consent" name="privacyConsent" required aria-required="true" aria-describedby="privacy-description">
+                            <label for="privacy-consent">
+                                I agree to <a href="#privacy">AquaPure's privacy policy</a> and consent to the processing of my personal data for the purposes of this inquiry *
+                            </label>
+                            <small id="privacy-description" class="field-hint">We respect your privacy and will only use your information to respond to your inquiry</small>
+                        </div>
+                        
+                        <button type="submit" class="cta-button">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                        
+                        <p class="form-fallback">
+                            <strong>Form not working?</strong> You can also email us directly at 
+                            <a href="mailto:support@aquapure.example">support@aquapure.example</a> or 
+                            call <a href="tel:+15551234567">+1 (555) 123-4567</a>
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ALTERNATE CONTACT METHODS SECTION -->
+        <section class="contact-methods-section" id="contact-methods">
+            <div class="container">
+                <h2>Multiple ways to reach us</h2>
+                <p class="section-intro">
+                    We understand that different situations call for different communication methods. Whether you prefer traditional phone calls, modern messaging apps, or face-to-face consultations, AquaPure offers numerous convenient ways to connect with our team of water purification experts. Our multi-channel approach ensures that you can reach us through your preferred method, at times that work best for your schedule.
+                </p>
+                
+                <div class="contact-methods-grid">
+                    <!-- Phone & Hours -->
+                    <article class="contact-method-card">
+                        <h3>Phone & Business Hours</h3>
+                        
+                        
+                        <div class="phone-numbers">
+                            <div class="phone-item">
+                                <h4>Sales & New Customers</h4>
+                                <a href="tel:+15551234567" class="phone-link">+1 (555) 123-4567</a>
+                                <p>Get quotes, product information, and purchase assistance from our sales specialists.</p>
+                            </div>
+                            
+                            <div class="phone-item">
+                                <h4>Technical Support</h4>
+                                <a href="tel:+15551234568" class="phone-link">+1 (555) 123-4568</a>
+                                <p>Installation help, troubleshooting, maintenance questions, and repair services.</p>
+                            </div>
+                            
+                            <div class="phone-item">
+                                <h4>Dealer & Wholesale Inquiries</h4>
+                                <a href="tel:+15551234569" class="phone-link">+1 (555) 123-4569</a>
+                                <p>Partnership opportunities, bulk orders, and distributor support.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="business-hours">
+                            <h4>Operating Hours (EST)</h4>
+                            <ul>
+                                <li><strong>Monday - Friday:</strong> 8:00 AM - 8:00 PM</li>
+                                <li><strong>Saturday:</strong> 9:00 AM - 5:00 PM</li>
+                                <li><strong>Sunday:</strong> 12:00 PM - 4:00 PM</li>
+                                <li><strong>Emergency Support:</strong> 24/7 for critical issues</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <!-- Email Addresses -->
+                    <article class="contact-method-card">
+                        <h3>Email Communications</h3>
+                        <div class="email-addresses">
+                            <div class="email-item">
+                                <h4>General Support</h4>
+                                <a href="mailto:support@aquapure.example">support@aquapure.example</a>
+                                <p>Technical questions, warranty claims, general inquiries. Response within 24 hours.</p>
+                            </div>
+                            
+                            <div class="email-item">
+                                <h4>Sales & Quotes</h4>
+                                <a href="mailto:sales@aquapure.example">sales@aquapure.example</a>
+                                <p>Product pricing, custom solutions, purchase orders. Response within 4 hours during business days.</p>
+                            </div>
+                            
+                            <div class="email-item">
+                                <h4>Media & Press</h4>
+                                <a href="mailto:press@aquapure.example">press@aquapure.example</a>
+                                <p>Press releases, media kits, interview requests, partnership announcements.</p>
+                            </div>
+                            
+                            <div class="email-item">
+                                <h4>Corporate & Partnerships</h4>
+                                <a href="mailto:corporate@aquapure.example">corporate@aquapure.example</a>
+                                <p>B2B partnerships, enterprise solutions, strategic alliances.</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- WhatsApp & Telegram -->
+                    <article class="contact-method-card">
+                        <h3>Instant Messaging</h3>                        
+                        <div class="messaging-options">
+                            <div class="messaging-item">
+                                <h4>WhatsApp Business</h4>
+                                <a href="https://wa.me/15551234567" class="messaging-link">+1 (555) 123-4567</a>
+                                <p>Quick questions, photo sharing for troubleshooting, instant support. Available Monday-Friday 9:00 AM - 6:00 PM EST.</p>
+                                <p><strong>How to use:</strong> Save our number to your contacts, then send us a message on WhatsApp. Include photos of your current setup for faster assistance.</p>
+                            </div>
+                            
+                            <div class="messaging-item">
+                                <h4>Telegram Support</h4>
+                                <a href="https://t.me/aquapuresupport" class="messaging-link">@AquaPureSupport</a>
+                                <p>Alternative messaging platform for international customers, file sharing, and detailed technical discussions.</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Live Chat -->
+                    <article class="contact-method-card">
+                        <h3>Live Chat Support</h3>
+                        
+                        <div class="chat-info">
+                            <p><strong>Availability:</strong> Monday - Friday, 9:00 AM - 6:00 PM EST</p>
+                            <p>
+                                Our live chat feature connects you instantly with knowledgeable support representatives who can help with product selection, technical questions, and order assistance. During off-hours, you can leave a message and we'll respond first thing the next business day.
+                            </p>
+                            <p>
+                                <strong>What to expect:</strong> Average response time of under 2 minutes during business hours. Our chat agents have access to your account history and can provide personalized recommendations based on your previous purchases and preferences.
+                            </p>
+                            <button class="secondary-button">Start Live Chat</button>
+                        </div>
+                    </article>
+                    
+                    <!-- Social Media -->
+                    <article class="contact-method-card">
+                        <h3>Social Media Channels</h3>
+                      
+                        
+                        <div class="social-links">
+                            <div class="social-item">
+                   
+                                <div class="social-content">
+                                    <h4>Facebook</h4>
+                                    <a href="https://facebook.com/aquapureofficial">@AquaPureOfficial</a>
+                                    <p>Product updates, customer stories, water quality tips, and community discussions.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-item">
+                           
+                                <div class="social-content">
+                                    <h4>X (Twitter)</h4>
+                                    <a href="https://x.com/aquapure">@AquaPure</a>
+                                    <p>Real-time updates, quick tips, industry news, and customer service.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-item">
+                            
+                                <div class="social-content">
+                                    <h4>Instagram</h4>
+                                    <a href="https://instagram.com/aquapure">@AquaPure</a>
+                                    <p>Behind-the-scenes content, installation photos, water quality demonstrations.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="social-item">
+                              
+                                <div class="social-content">
+                                    <h4>LinkedIn</h4>
+                                    <a href="https://linkedin.com/company/aquapure">AquaPure Technologies</a>
+                                    <p>Industry insights, corporate updates, career opportunities, B2B connections.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <!-- Dealer & Service Network -->
+                    <article class="contact-method-card full-width">
+                        <h3>Dealer & Service Network</h3>
+                        <img src="./images/m1.jpg" alt="Dealer locator map placeholder showing AquaPure service locations across North America" class="map-placeholder">
+                        
+                        <div class="dealer-info">
+                            <p>
+                                AquaPure maintains an extensive network of authorized dealers and certified service technicians across North America, ensuring that professional installation, maintenance, and repair services are always available near you. Our dealer network consists of carefully selected partners who share our commitment to excellence and customer satisfaction.
+                            </p>
+                            
+                            <div class="dealer-features">
+                                <div class="feature-item">
+                                    <h4>Find a Local Dealer</h4>
+                                    <p>Use our dealer locator to find authorized retailers in your area. All dealers are trained on the latest AquaPure products and can provide expert advice, competitive pricing, and professional installation services.</p>
+                                    <button class="secondary-button">Locate Dealers</button>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Certified Service Technicians</h4>
+                                    <p>Our network includes over 500 certified service technicians who can perform installations, routine maintenance, emergency repairs, and system upgrades. All technicians receive ongoing training on the latest technologies and best practices.</p>
+                                    <button class="secondary-button">Find Service</button>
+                                </div>
+                                
+                                <div class="feature-item">
+                                    <h4>Become a Dealer</h4>
+                                    <p>Interested in joining our dealer network? We offer comprehensive training, marketing support, competitive wholesale pricing, and ongoing technical assistance to help you succeed in the water purification industry.</p>
+                                    <button class="secondary-button">Dealer Inquiry</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+                
+                <!-- Physical Addresses -->
+                <div class="addresses-section">
+                    <h3>Visit Our Locations</h3>
+                    <div class="addresses-grid">
+                        <address class="address-card" aria-label="AquaPure Head Office Address">
+                            <h4>Corporate Headquarters</h4>
+                            <p>
+                                AquaPure Technologies Inc.<br>
+                                1250 Water Solutions Blvd<br>
+                                Suite 300<br>
+                                Crystal City, CA 90210<br>
+                                United States
+                            </p>
+                            <p><strong>Reception Hours:</strong> Monday - Friday, 8:00 AM - 5:00 PM PST</p>
+                        </address>
+                        
+                        <address class="address-card" aria-label="AquaPure Distribution Center Address">
+                            <h4>Distribution & Service Center</h4>
+                            <p>
+                                AquaPure Warehouse<br>
+                                5500 Industrial Park Dr<br>
+                                Phoenix, AZ 85034<br>
+                                United States
+                            </p>
+                            <p><strong>Warehouse Hours:</strong> Monday - Friday, 7:00 AM - 6:00 PM MST</p>
+                        </address>
+                        
+                        <address class="address-card" aria-label="AquaPure Research Facility Address">
+                            <h4>Research & Development</h4>
+                            <p>
+                                AquaPure Innovation Center<br>
+                                200 Technology Way<br>
+                                Austin, TX 78758<br>
+                                United States
+                            </p>
+                            <p><strong>Facility Tours:</strong> By appointment only</p>
+                        </address>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REQUEST TYPES & QUICK LINKS SECTION -->
+        <section class="request-types-section" id="request-types">
+            <div class="container">
+                <h2>Common Request Types & What to Expect</h2>
+                <p class="section-intro">
+                    Every customer interaction is important to us, and we want to ensure you know exactly what to expect when you reach out. Below are our most common request types, along with detailed information about our process, typical response times, and what information you should have ready to help us serve you more efficiently.
+                </p>
+                
+                <div class="request-types-grid">
+                    <article class="request-type-card">
+                        <h3>Request a Quote</h3>
+                       
+                        <div class="request-content">
+                            <p><strong>What we need from you:</strong></p>
+                            <ul>
+                                <li>Property type (residential, commercial, industrial)</li>
+                                <li>Number of people/employees using the water system</li>
+                                <li>Current water source (municipal, well, etc.)</li>
+                                <li>Known water quality issues or test results</li>
+                                <li>Budget range and timeline for implementation</li>
+                            </ul>
+                            
+                            <p><strong>Our process:</strong></p>
+                            <ol>
+                                <li>Initial consultation within 24 hours of your request</li>
+                                <li>Water quality assessment (remote or on-site)</li>
+                                <li>Custom system design and product recommendations</li>
+                                <li>Detailed quote with pricing, installation timeline, and warranty information</li>
+                                <li>Follow-up consultation to answer questions and refine the proposal</li>
+                            </ol>
+                            
+                            <p><strong>Timeline:</strong> Most quotes are delivered within 48-72 hours for standard residential systems, 3-5 business days for complex commercial installations.</p>
+                            
+                            <a href="#contact-form" class="quick-link-button">Get Quote</a>
+                        </div>
+                    </article>
+                    
+                    <article class="request-type-card">
+                        <h3>Book Installation</h3>
+                     
+                        <div class="request-content">
+                            <p><strong>What we need from you:</strong></p>
+                            <ul>
+                                <li>Product model number or quote reference</li>
+                                <li>Property address and access information</li>
+                                <li>Preferred installation date and time windows</li>
+                                <li>Photos of installation area (plumbing connections, space constraints)</li>
+                                <li>Special requirements (weekend service, after-hours installation)</li>
+                            </ul>
+                            
+                            <p><strong>Our process:</strong></p>
+                            <ol>
+                                <li>Pre-installation site survey (virtual or in-person)</li>
+                                <li>Installation date confirmation with 48-hour advance notice</li>
+                                <li>Professional installation by certified technicians</li>
+                                <li>System testing, water quality verification, and customer training</li>
+                                <li>Completion documentation and warranty registration</li>
+                            </ol>
+                            
+                            <p><strong>Timeline:</strong> Standard installations typically take 2-4 hours. Complex systems may require multiple visits or full-day installations.</p>
+                            
+                            <a href="#contact-form" class="quick-link-button">Schedule Installation</a>
+                        </div>
+                    </article>
+                    
+                    <article class="request-type-card">
+                        <h3>Order Replacement Filters</h3>
+                     
+                        <div class="request-content">
+                            <p><strong>What we need from you:</strong></p>
+                            <ul>
+                                <li>System model number (usually on a label on your unit)</li>
+                                <li>Current filter part numbers (if available)</li>
+                                <li>Installation date or when filters were last changed</li>
+                                <li>Any changes in water quality or system performance</li>
+                                <li>Preferred delivery method and schedule</li>
+                            </ul>
+                            
+                            <p><strong>Our process:</strong></p>
+                            <ol>
+                                <li>Filter compatibility verification using your system information</li>
+                                <li>Recommendation of appropriate filters based on usage and water conditions</li>
+                                <li>Order processing and inventory confirmation</li>
+                                <li>Shipping with tracking information provided</li>
+                                <li>Installation instructions and video tutorials included</li>
+                            </ol>
+                            
+                            <p><strong>Timeline:</strong> In-stock filters ship within 24 hours. Most deliveries arrive within 2-3 business days via standard shipping, next-day delivery available for urgent needs.</p>
+                            
+                            <a href="#contact-form" class="quick-link-button">Order Filters</a>
+                        </div>
+                    </article>
+                    
+                    <article class="request-type-card">
+                        <h3>Report an Issue</h3>
+                      
+                        <div class="request-content">
+                            <p><strong>What we need from you:</strong></p>
+                            <ul>
+                                <li>Detailed description of the problem symptoms</li>
+                                <li>System model and installation date</li>
+                                <li>Photos or videos of the issue (if visible)</li>
+                                <li>Recent maintenance history and filter change dates</li>
+                                <li>Water quality changes or unusual taste/odor</li>
+                            </ul>
+                            
+                            <p><strong>Our process:</strong></p>
+                            <ol>
+                                <li>Immediate acknowledgment and ticket creation</li>
+                                <li>Remote troubleshooting with step-by-step guidance</li>
+                                <li>Warranty verification and coverage determination</li>
+                                <li>Service dispatch or replacement part ordering (if needed)</li>
+                                <li>Follow-up to ensure complete resolution</li>
+                            </ol>
+                            
+                            <p><strong>Timeline:</strong> Critical issues (no water flow, leaks) receive same-day response. Non-critical issues are typically resolved within 24-48 hours.</p>
+                            
+                            <a href="#contact-form" class="quick-link-button">Report Issue</a>
+                        </div>
+                    </article>
+                    
+                    <article class="request-type-card">
+                        <h3>Request Water Quality Test</h3>
+                    
+                        <div class="request-content">
+                            <p><strong>What we need from you:</strong></p>
+                            <ul>
+                                <li>Property address and water source information</li>
+                                <li>Specific concerns (taste, odor, cloudiness, health concerns)</li>
+                                <li>Previous test results or known contamination issues</li>
+                                <li>Preferred test type (basic, comprehensive, or specialized)</li>
+                                <li>Timeline for results (standard or expedited processing)</li>
+                            </ul>
+                            
+                            <p><strong>Our process:</strong></p>
+                            <ol>
+                                <li>Test kit selection based on your specific concerns and water source</li>
+                                <li>Sampling kit shipped with detailed collection instructions</li>
+                                <li>Laboratory analysis by certified water testing facilities</li>
+                                <li>Comprehensive results report with explanations and recommendations</li>
+                                <li>Consultation call to discuss findings and next steps</li>
+                            </ol>
+                            
+                            <p><strong>Timeline:</strong> Test kits ship within 24 hours. Results are typically available 5-7 business days after sample receipt (expedited 2-3 days available).</p>
+                            
+                            <a href="#contact-form" class="quick-link-button">Request Test Kit</a>
+                        </div>
+                    </article>
+                    
+                    <article class="request-type-card">
+                        <h3>Schedule Maintenance</h3>
+                   
+                        <div class="request-content">
+                            <p><strong>What we need from you:</strong></p>
+                            <ul>
+                                <li>System model, age, and maintenance history</li>
+                                <li>Current system performance and any concerns</li>
+                                <li>Preferred service date and time window</li>
+                                <li>Access information and special requirements</li>
+                                <li>Maintenance plan preferences (one-time or recurring service)</li>
+                            </ul>
+                            
+                            <p><strong>Our process:</strong></p>
+                            <ol>
+                                <li>Maintenance needs assessment based on system type and usage</li>
+                                <li>Service appointment scheduling with certified technician</li>
+                                <li>Comprehensive system inspection and cleaning</li>
+                                <li>Filter replacement, component testing, and calibration</li>
+                                <li>Service report with recommendations for optimal performance</li>
+                            </ol>
+                            
+                            <p><strong>Timeline:</strong> Routine maintenance appointments are typically available within 1-2 weeks. Emergency service available 24/7 with additional fees.</p>
+                            
+                            <a href="#contact-form" class="quick-link-button">Schedule Service</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ SECTION -->
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2>Frequently Asked Questions</h2>
+                <p class="section-intro">
+                    We've compiled answers to the most common questions our customers ask about contacting AquaPure, our support processes, and what to expect when working with our team. If you don't find the answer you're looking for here, please don't hesitate to reach out directly—our support team is always happy to help with any specific questions or concerns you may have.
+                </p>
+                
+                <div class="faq-list">
+                    <details class="faq-item">
+                        <summary>How quickly will AquaPure respond to my inquiry?</summary>
+                        <div class="faq-content">
+                            <p>Response times vary depending on the contact method and nature of your inquiry. Here are our standard response times:</p>
+                            <ul>
+                                <li><strong>Phone calls:</strong> Immediate during business hours, voicemail returned within 4 hours</li>
+                                <li><strong>Email inquiries:</strong> Within 24 hours on business days, urgent matters within 4 hours</li>
+                                <li><strong>Live chat:</strong> Under 2 minutes during business hours</li>
+                                <li><strong>WhatsApp/messaging:</strong> Within 1 hour during business hours</li>
+                                <li><strong>Contact form submissions:</strong> Within 24 hours, complex technical issues may take up to 48 hours</li>
+                            </ul>
+                            <p>For emergency situations involving water contamination or system failures affecting health and safety, we offer 24/7 emergency support with immediate response.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>What information should I include when contacting AquaPure for support?</summary>
+                        <div class="faq-content">
+                            <p>To help us provide the most accurate and efficient assistance, please include the following information when possible:</p>
+                            <ul>
+                                <li><strong>System Information:</strong> Model number, installation date, and any visible serial numbers</li>
+                                <li><strong>Problem Description:</strong> Detailed symptoms, when the issue started, and any recent changes</li>
+                                <li><strong>Contact Preferences:</strong> Best phone number, email, and preferred times to reach you</li>
+                                <li><strong>Photos/Videos:</strong> Visual documentation of issues, system setup, or error displays</li>
+                                <li><strong>Water Quality:</strong> Recent test results, noticeable changes in taste/odor/appearance</li>
+                                <li><strong>Maintenance History:</strong> When filters were last changed, recent service visits</li>
+                                <li><strong>Urgency Level:</strong> Whether this is an emergency, urgent, or routine inquiry</li>
+                            </ul>
+                            <p>Don't worry if you don't have all this information immediately—our team can help you locate model numbers and gather the necessary details during our conversation.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>How do I get replacement filters for my AquaPure system?</summary>
+                        <div class="faq-content">
+                            <p>Ordering replacement filters is simple and can be done through several convenient methods:</p>
+                            <ol>
+                                <li><strong>Online Ordering:</strong> Visit our website's filter replacement section, enter your system model, and order directly</li>
+                                <li><strong>Phone Orders:</strong> Call our sales line at +1 (555) 123-4567 with your model number</li>
+                                <li><strong>Automatic Delivery:</strong> Set up a subscription service based on your system's recommended filter change schedule</li>
+                                <li><strong>Through Dealers:</strong> Contact your local authorized AquaPure dealer for in-person service</li>
+                            </ol>
+                            <p><strong>Filter Replacement Schedule:</strong> Most residential systems need filter changes every 6-12 months, depending on usage and water quality. We'll send reminder notifications based on your installation date and system type.</p>
+                            <p><strong>Shipping:</strong> Standard shipping takes 2-3 business days, with next-day delivery available for urgent needs. All filters come with installation instructions and video tutorials.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Does AquaPure offer emergency support outside of business hours?</summary>
+                        <div class="faq-content">
+                            <p>Yes, AquaPure provides 24/7 emergency support for critical situations that affect health, safety, or property. Our emergency service covers:</p>
+                            <ul>
+                                <li><strong>Water contamination alerts:</strong> If your system detects harmful contaminants or fails safety protocols</li>
+                                <li><strong>System failures:</strong> Complete loss of water supply due to equipment malfunction</li>
+                                <li><strong>Leaks and flooding:</strong> Water damage prevention from system-related leaks</li>
+                                <li><strong>Health concerns:</strong> Sudden changes in water quality that may pose health risks</li>
+                            </ul>
+                            <p><strong>Emergency Contact:</strong> For after-hours emergencies, call our main number +1 (555) 123-4567 and press 1 for emergency support. You'll be connected to our emergency response team within minutes.</p>
+                            <p><strong>Non-Emergency Issues:</strong> For routine questions, filter replacements, or minor troubleshooting, please use our regular contact methods during business hours to ensure the most cost-effective service.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Can I schedule installation and service appointments online?</summary>
+                        <div class="faq-content">
+                            <p>Currently, installation and service appointments are scheduled through direct contact with our team to ensure we match you with the right technician and equipment for your specific needs. Here's how the process works:</p>
+                            <ol>
+                                <li><strong>Initial Contact:</strong> Call, email, or use our contact form to request an appointment</li>
+                                <li><strong>Needs Assessment:</strong> Our scheduler will discuss your requirements, system type, and any special considerations</li>
+                                <li><strong>Technician Matching:</strong> We'll assign a certified technician with experience in your system type</li>
+                                <li><strong>Appointment Confirmation:</strong> You'll receive confirmation with technician details, arrival window, and preparation instructions</li>
+                                <li><strong>Reminder Service:</strong> We'll send reminders 24 hours and 2 hours before your appointment</li>
+                            </ol>
+                            <p><strong>Scheduling Flexibility:</strong> We offer appointment windows during regular business hours, evenings, and weekends (additional fees may apply for premium scheduling).</p>
+                            <p>We're currently developing an online scheduling system that will be available in early 2024, allowing customers to book standard appointments directly through our website.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>What is AquaPure's warranty and return policy?</summary>
+                        <div class="faq-content">
+                            <p>AquaPure stands behind our products with comprehensive warranty coverage and flexible return policies:</p>
+                            
+                            <h4>Warranty Coverage:</h4>
+                            <ul>
+                                <li><strong>Residential Systems:</strong> 5-year comprehensive warranty on equipment, 1-year on filters and consumables</li>
+                                <li><strong>Commercial Systems:</strong> 3-year equipment warranty with optional extended coverage available</li>
+                                <li><strong>Components:</strong> Individual parts covered for 2-3 years depending on component type</li>
+                                <li><strong>Labor:</strong> First year includes free installation correction and adjustment visits</li>
+                            </ul>
+                            
+                            <h4>Return Policy:</h4>
+                            <ul>
+                                <li><strong>30-day satisfaction guarantee:</strong> Full refund if not completely satisfied (conditions apply)</li>
+                                <li><strong>Unused products:</strong> 90 days for return with original packaging</li>
+                                <li><strong>Custom systems:</strong> Special return terms apply for custom-designed installations</li>
+                            </ul>
+                            
+                            <p>To initiate a warranty claim or return, contact our support team with your purchase information and description of the issue. We'll guide you through the process and arrange for any necessary inspections or replacements.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>How do I find a certified AquaPure technician in my area?</summary>
+                        <div class="faq-content">
+                            <p>AquaPure maintains a network of over 500 certified technicians across North America. Here's how to find qualified service in your area:</p>
+                            
+                            <ol>
+                                <li><strong>Use our Dealer Locator:</strong> Visit our website and enter your ZIP code to find the nearest authorized dealers and service providers</li>
+                                <li><strong>Call our Service Dispatch:</strong> Phone +1 (555) 123-4568 and we'll connect you with the nearest available technician</li>
+                                <li><strong>Mobile Service Areas:</strong> Many technicians offer mobile service within a 50-mile radius of their base location</li>
+                                <li><strong>Schedule Through Dealers:</strong> Local dealers can often provide same-day or next-day service appointments</li>
+                            </ol>
+                            
+                            <h4>Technician Qualifications:</h4>
+                            <ul>
+                                <li>All technicians complete AquaPure's comprehensive certification program</li>
+                                <li>Ongoing training on new products and installation techniques</li>
+                                <li>Background checks and insurance verification</li>
+                                <li>Customer service training and quality standards adherence</li>
+                            </ul>
+                            
+                            <p><strong>Service Guarantee:</strong> All work performed by certified technicians is backed by our service guarantee. If you're not satisfied with the quality of work, we'll make it right at no additional cost.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>Can AquaPure help with water testing and quality analysis?</summary>
+                        <div class="faq-content">
+                            <p>Yes! Water testing is a crucial part of designing the right purification system for your needs. AquaPure offers comprehensive water testing services:</p>
+                            
+                            <h4>Testing Options:</h4>
+                            <ul>
+                                <li><strong>Basic Testing Kit:</strong> Tests for common contaminants like chlorine, hardness, pH, and bacterial presence</li>
+                                <li><strong>Comprehensive Analysis:</strong> Extended panel including heavy metals, pesticides, pharmaceuticals, and industrial chemicals</li>
+                                <li><strong>Specialized Testing:</strong> Focused tests for specific concerns like lead, nitrates, or microbial contamination</li>
+                                <li><strong>On-site Analysis:</strong> Immediate results for basic parameters using portable testing equipment</li>
+                            </ul>
+                            
+                            <h4>How It Works:</h4>
+                            <ol>
+                                <li><strong>Consultation:</strong> Discuss your concerns and determine the appropriate testing level</li>
+                                <li><strong>Sample Collection:</strong> We send detailed collection kits with instructions, or schedule on-site collection</li>
+                                <li><strong>Laboratory Analysis:</strong> Samples processed by EPA-certified laboratories</li>
+                                <li><strong>Results Review:</strong> Detailed report with explanations and treatment recommendations</li>
+                                <li><strong>System Design:</strong> Custom purification solution based on your specific water quality needs</li>
+                            </ol>
+                            
+                            <p><strong>Pricing:</strong> Basic testing starts at $89, comprehensive analysis ranges from $199-$399. Testing costs are often credited toward the purchase of a new system.</p>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>What makes AquaPure customer service different from other companies?</summary>
+                        <div class="faq-content">
+                            <p>AquaPure's customer service philosophy is built on expertise, accessibility, and long-term relationships. Here's what sets us apart:</p>
+                            
+                            <h4>Expertise and Training:</h4>
+                            <ul>
+                                <li><strong>Technical Knowledge:</strong> All customer service representatives receive extensive training on water chemistry and system operation</li>
+                                <li><strong>Problem-Solving:</strong> Our team can troubleshoot complex issues and provide detailed technical guidance</li>
+                                <li><strong>Continuous Education:</strong> Regular training updates on new products, technologies, and industry best practices</li>
+                            </ul>
+                            
+                            <h4>Accessibility and Convenience:</h4>
+                            <ul>
+                                <li><strong>Multiple Contact Options:</strong> Phone, email, chat, social media, and messaging apps</li>
+                                <li><strong>Extended Hours:</strong> Support available evenings and weekends, emergency service 24/7</li>
+                                <li><strong>Multilingual Support:</strong> Service available in English, Spanish, and French</li>
+                                <li><strong>Account History:</strong> Complete service records accessible to any representative</li>
+                            </ul>
+                            
+                            <h4>Relationship Focus:</h4>
+                            <ul>
+                                <li><strong>Proactive Communication:</strong> Maintenance reminders, product updates, and seasonal tips</li>
+                                <li><strong>Personal Attention:</strong> Assigned account managers for commercial customers</li>
+                                <li><strong>Long-term Support:</strong> We support products for their entire lifecycle, not just during warranty periods</li>
+                                <li><strong>Continuous Improvement:</strong> Regular customer feedback surveys and service quality monitoring</li>
+                            </ul>
+                        </div>
+                    </details>
+                    
+                    <details class="faq-item">
+                        <summary>How does AquaPure handle complaints and service issues?</summary>
+                        <div class="faq-content">
+                            <p>AquaPure takes all customer concerns seriously and has established a clear escalation process to ensure swift resolution:</p>
+                            
+                            <h4>Initial Response (24-48 hours):</h4>
+                            <ol>
+                                <li><strong>Issue Documentation:</strong> Complete details recorded in our customer management system</li>
+                                <li><strong>Immediate Assessment:</strong> Severity evaluation and initial response plan development</li>
+                                <li><strong>Direct Contact:</strong> Personal call from a customer service specialist to discuss the situation</li>
+                                <li><strong>Timeline Establishment:</strong> Clear expectations set for resolution steps and timeframes</li>
+                            </ol>
+                            
+                            <h4>Resolution Process:</h4>
+                            <ul>
+                                <li><strong>Root Cause Analysis:</strong> Thorough investigation to understand the underlying issue</li>
+                                <li><strong>Solution Development:</strong> Multiple resolution options presented when possible</li>
+                                <li><strong>Resource Allocation:</strong> Necessary personnel, parts, and services deployed promptly</li>
+                                <li><strong>Progress Updates:</strong> Regular communication throughout the resolution process</li>
+                            </ul>
+                            
+                            <h4>Escalation Path:</h4>
+                            <p>If initial resolution attempts are unsuccessful, issues are escalated through our management structure: Customer Service Manager → Regional Manager → Director of Customer Experience → VP of Operations. Executive-level involvement is available for complex situations.</p>
+                            
+                            <p><strong>Customer Satisfaction Guarantee:</strong> We're not satisfied until you are. Every complaint resolution includes follow-up contact to ensure your complete satisfaction with the outcome.</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section class="testimonials-section" id="testimonials">
+            <div class="container">
+                <h2>What Our Customers Say About AquaPure Support</h2>
+                <p class="section-intro">
+                    Don't just take our word for it—hear directly from customers who have experienced AquaPure's commitment to exceptional service, technical expertise, and ongoing support. These testimonials represent just a few of the thousands of satisfied customers who trust AquaPure for their water purification needs and have experienced our comprehensive customer care approach firsthand.
+                </p>
+                
+                <div class="testimonials-grid">
+                    <article class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                "When our commercial water purification system started showing irregular readings, I was worried about potential downtime affecting our restaurant operations. I called AquaPure's technical support line and was immediately impressed by their professionalism and expertise. The technician walked me through detailed troubleshooting steps over the phone, helped me identify the issue remotely, and had replacement parts delivered the same day. The follow-up service call ensured everything was working perfectly, and they even provided additional maintenance tips to prevent future issues. AquaPure's support team truly understands that our business depends on reliable water quality, and their rapid response saved us both time and money."
+                            </p>
+                            <div class="testimonial-rating">★★★★★</div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="./images/cus1.jpg" alt="Customer avatar placeholder for Maria Rodriguez" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Maria Rodriguez</h4>
+                                <p>Restaurant Owner, Chicago, IL</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                "As a first-time homeowner, I was overwhelmed by the complexity of choosing the right water purification system for our family. The AquaPure team made the entire process seamless from start to finish. They conducted a comprehensive water quality test, explained the results in terms I could understand, and recommended a system that perfectly fit our needs and budget. The installation was professional and efficient, and the technician took time to show me how everything worked and answer all my questions. What really impressed me was their follow-up service—they called a week later to check on the system performance and sent helpful maintenance reminders. Six months later, our water tastes amazing, and I feel confident that my family is drinking the purest water possible."
+                            </p>
+                            <div class="testimonial-rating">★★★★★</div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="./images/cus2.jpg" alt="Customer avatar placeholder for David Chen" class="author-avatar">
+                            <div class="author-info">
+                                <h4>David Chen</h4>
+                                <p>Homeowner, Austin, TX</p>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>
+                                "Our office building's water purification system required emergency service during a weekend when we had a critical client presentation scheduled for Monday morning. I honestly didn't expect to reach anyone, but AquaPure's emergency line connected me immediately with a knowledgeable technician who understood the urgency of our situation. They dispatched a certified service specialist who arrived within two hours, diagnosed a failed filter housing, and had us back online by Sunday evening. The technician even followed up on Monday to ensure everything was still functioning properly during our peak usage period. This level of commitment to customer service, especially during off-hours, demonstrates why AquaPure is the gold standard in the water purification industry. Their emergency response literally saved our important business meeting."
+                            </p>
+                            <div class="testimonial-rating">★★★★★</div>
+                        </div>
+                        <div class="testimonial-author">
+                            <img src="./images/cus3.jpg" alt="Customer avatar placeholder for Jennifer Thompson" class="author-avatar">
+                            <div class="author-info">
+                                <h4>Jennifer Thompson</h4>
+                                <p>Facilities Manager, Denver, CO</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCESSIBILITY & PRIVACY SECTION -->
+        <section class="privacy-accessibility-section" id="privacy">
+            <div class="container">
+                <h2>Privacy, Accessibility & Your Rights</h2>
+                <p class="section-intro">
+                    AquaPure is committed to protecting your privacy, ensuring accessible communication for all customers, and maintaining transparent practices in all our interactions. We believe that excellent customer service includes respecting your data privacy rights and providing accessible support options for customers with diverse needs and abilities.
+                </p>
+                
+                <div class="policy-sections">
+                    <article class="policy-section">
+                        <h3>Privacy & Data Protection</h3>
+                        <div class="policy-content">
+                            <p>
+                                When you contact AquaPure, we collect only the information necessary to provide you with excellent service and support. This includes your contact details, system information, service history, and communications with our team. We are committed to protecting your personal information and use it solely for the purposes of customer service, product support, warranty management, and improving our products and services.
+                            </p>
+                            
+                            <h4>How We Use Your Information:</h4>
+                            <ul>
+                                <li><strong>Service Delivery:</strong> Processing your requests, scheduling appointments, and providing technical support</li>
+                                <li><strong>Product Improvement:</strong> Analyzing service patterns to enhance our products and customer experience</li>
+                                <li><strong>Communication:</strong> Sending service updates, maintenance reminders, and important safety information</li>
+                                <li><strong>Warranty Management:</strong> Maintaining records for warranty claims and product lifecycle support</li>
+                            </ul>
+                            
+                            <h4>Data Retention & Your Rights:</h4>
+                            <p>
+                                We retain customer service records for seven years to support ongoing warranty obligations and service continuity. You have the right to request access to your personal information, request corrections to inaccurate data, or request deletion of your information (subject to warranty and legal obligations). To exercise these rights or for questions about our privacy practices, contact our Privacy Officer at privacy@aquapure.example or +1 (555) 123-4570.
+                            </p>
+                            
+                            <h4>Data Security:</h4>
+                            <p>
+                                AquaPure employs industry-standard security measures to protect your personal information, including encrypted data transmission, secure storage systems, and restricted access protocols. We regularly audit our security practices and provide ongoing training to all staff members who handle customer information.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="policy-section">
+                        <h3>Accessibility Commitment</h3>
+                        <div class="policy-content">
+                            <p>
+                                AquaPure is committed to ensuring that our customer support services are accessible to all customers, regardless of ability or disability. We strive to meet or exceed Web Content Accessibility Guidelines (WCAG) 2.1 AA standards in our digital communications and provide alternative communication methods to accommodate diverse needs.
+                            </p>
+                            
+                            <h4>Accessibility Features:</h4>
+                            <ul>
+                                <li><strong>Multiple Communication Channels:</strong> Phone, email, chat, text messaging, and in-person options</li>
+                                <li><strong>Assistive Technology Support:</strong> Our website and digital tools work with screen readers and keyboard navigation</li>
+                                <li><strong>Document Accessibility:</strong> Manuals, guides, and forms available in large print and digital formats</li>
+                                <li><strong>Language Support:</strong> Services available in multiple languages with interpretation services</li>
+                                <li><strong>Flexible Service Options:</strong> Extended appointment times and alternative meeting locations when needed</li>
+                            </ul>
+                            
+                            <h4>Accommodation Requests:</h4>
+                            <p>
+                                If you need specific accommodations to access our services, please contact our Accessibility Coordinator at accessibility@aquapure.example or +1 (555) 123-4571. We'll work with you to find the best solution for your needs, whether that's alternative document formats, extended service appointments, or specialized communication methods.
+                            </p>
+                            
+                            <h4>Continuous Improvement:</h4>
+                            <p>
+                                We regularly review and improve our accessibility practices based on customer feedback and evolving standards. If you encounter any barriers to accessing our services or have suggestions for improvements, please let us know. Your feedback helps us create a more inclusive experience for all customers.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL & DEVELOPER NOTES SECTION -->
+        <section class="technical-notes-section" id="technical-notes">
+            <div class="container">
+                <h2>Technical Implementation & Developer Notes</h2>
+                <p class="section-intro">
+                    This contact page is built using HTML5 and CSS3 only, with no JavaScript dependencies, ensuring maximum compatibility, fast loading times, and accessibility across all devices and browsers. For developers implementing the backend functionality, here are important technical considerations and recommended server-side implementations.
+                </p>
+                
+                <div class="technical-sections">
+                    <article class="technical-section">
+                        <h3>Server-Side Form Processing Requirements</h3>
+                        <div class="technical-content">
+                            <h4>Form Submission Endpoint:</h4>
+                            <p>
+                                The main contact form (POST to /your-server-endpoint) requires server-side processing to handle form validation, data sanitization, email routing, and user confirmation. The form includes HTML5 validation attributes, but server-side validation is essential for security and data integrity.
+                            </p>
+                            
+                            <h4>Required Server Behaviors:</h4>
+                            <ul>
+                                <li><strong>Input Validation:</strong> Validate all fields server-side, including email format, phone number patterns, and required field completion</li>
+                                <li><strong>Data Sanitization:</strong> Sanitize all input to prevent XSS and injection attacks</li>
+                                <li><strong>Rate Limiting:</strong> Implement rate limiting to prevent spam submissions (recommend max 3 submissions per IP per hour)</li>
+                                <li><strong>Email Routing:</strong> Route inquiries to appropriate departments based on product interest and contact method preferences</li>
+                                <li><strong>Confirmation Response:</strong> Send immediate confirmation email to user and internal notification to support team</li>
+                                <li><strong>Redirect Handling:</strong> Return 303 redirect to success page or render success message inline</li>
+                            </ul>
+                            
+                            <h4>Recommended Database Schema:</h4>
+                            <p>
+                                Store submissions with fields: id, submission_date, full_name, email, phone, company, contact_method, subject, product_interest, message, appointment_date, ip_address, user_agent, status (pending/processed/resolved), assigned_agent, response_date.
+                            </p>
+                        </div>
+                    </article>
+                    
+                    <article class="technical-section">
+                        <h3>Security Considerations</h3>
+                        <div class="technical-content">
+                            <h4>Anti-Spam Measures:</h4>
+                            <ul>
+                                <li><strong>Honeypot Fields:</strong> Add hidden form fields that should remain empty (bots often fill all fields)</li>
+                                <li><strong>Time-Based Validation:</strong> Reject submissions completed too quickly (under 10 seconds typically indicates bot activity)</li>
+                                <li><strong>CAPTCHA Integration:</strong> Consider implementing reCAPTCHA or similar verification for high-traffic scenarios</li>
+                                <li><strong>IP Reputation Checking:</strong> Block submissions from known spam IP ranges</li>
+                            </ul>
+                            
+                            <h4>Data Protection:</h4>
+                            <ul>
+                                <li><strong>HTTPS Required:</strong> All form submissions must be transmitted over secure connections</li>
+                                <li><strong>Input Encoding:</strong> Proper encoding of all user input before storage and display</li>
+                                <li><strong>File Upload Security:</strong> If adding file upload capability, implement strict file type and size validation</li>
+                                <li><strong>Database Security:</strong> Use parameterized queries to prevent SQL injection</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="technical-section">
+                        <h3>Performance & Optimization</h3>
+                        <div class="technical-content">
+                            <h4>Loading Performance:</h4>
+                            <ul>
+                                <li><strong>CSS Optimization:</strong> Minify CSS in production, consider critical CSS inlining</li>
+                                <li><strong>Image Optimization:</strong> When adding actual images, use WebP format with fallbacks, implement lazy loading</li>
+                                <li><strong>Font Loading:</strong> Use font-display: swap for custom fonts to prevent layout shifts</li>
+                                <li><strong>Resource Hints:</strong> Add preconnect hints for external resources like Google Fonts</li>
+                            </ul>
+                            
+                            <h4>SEO Enhancements:</h4>
+                            <ul>
+                                <li><strong>Structured Data:</strong> Add JSON-LD structured data for ContactPoint and Organization</li>
+                                <li><strong>Meta Tags:</strong> Implement Open Graph and Twitter Card meta tags</li>
+                                <li><strong>Canonical URL:</strong> Set canonical URL to prevent duplicate content issues</li>
+                                <li><strong>XML Sitemap:</strong> Include this page in your XML sitemap with appropriate priority</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="technical-section">
+                        <h3>Accessibility Implementation</h3>
+                        <div class="technical-content">
+                            <h4>ARIA and Semantic HTML:</h4>
+                            <ul>
+                                <li><strong>Form Labels:</strong> All form inputs have proper labels with for/id associations</li>
+                                <li><strong>Error Handling:</strong> Implement aria-invalid and aria-describedby for validation errors</li>
+                                <li><strong>Landmarks:</strong> Proper use of semantic HTML5 elements (header, main, section, aside, footer)</li>
+                                <li><strong>Focus Management:</strong> Ensure logical tab order and visible focus indicators</li>
+                            </ul>
+                            
+                            <h4>Testing Requirements:</h4>
+                            <ul>
+                                <li><strong>Screen Reader Testing:</strong> Verify compatibility with NVDA, JAWS, and VoiceOver</li>
+                                <li><strong>Keyboard Navigation:</strong> Ensure all interactive elements are keyboard accessible</li>
+                                <li><strong>Color Contrast:</strong> Maintain WCAG AA color contrast ratios throughout</li>
+                                <li><strong>Mobile Accessibility:</strong> Test with mobile screen readers and voice control</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>AquaPure</h3>
+                    <p>Leading the industry in water purification technology for over 20 years. Clean water, trusted solutions.</p>
+              
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Products</a></li>
+                        <li><a href="/services">Services</a></li>
+                        <li><a href="/support">Support</a></li>
+                        <li><a href="/about">About Us</a></li>
+                        <li><a href="/contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/support/installation">Installation Guide</a></li>
+                        <li><a href="/support/maintenance">Maintenance</a></li>
+                        <li><a href="/support/troubleshooting">Troubleshooting</a></li>
+                        <li><a href="/support/warranty">Warranty Info</a></li>
+                        <li><a href="/support/faq">FAQ</a></li>
+                        <li><a href="/support/manuals">User Manuals</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/legal/terms">Terms of Service</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="/legal/warranty">Warranty Terms</a></li>
+                        <li><a href="/legal/returns">Return Policy</a></li>
+                        <li><a href="#accessibility">Accessibility</a></li>
+                        <li><a href="/legal/compliance">Compliance</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section contact-info">
+                    <h4>Contact Information</h4>
+                    <address>
+                        <p>
+                            <strong>AquaPure Technologies Inc.</strong><br>
+                            1250 Water Solutions Blvd, Suite 300<br>
+                            Crystal City, CA 90210
+                        </p>
+                        <p>
+                            <strong>Phone:</strong> <a href="tel:+15551234567">+1 (555) 123-4567</a><br>
+                            <strong>Email:</strong> <a href="mailto:support@aquapure.example">support@aquapure.example</a>
+                        </p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 AquaPure Technologies Inc. All rights reserved. | Built with accessibility and performance in mind.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

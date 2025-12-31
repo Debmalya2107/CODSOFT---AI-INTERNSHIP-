@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=f1
+comment1.params=a\ b
+comment1.target=void\ in(int,\ int)
+comment2.params=ch1\ ch2
+comment2.target=void\ ch(char,\ char)
+comment3.params=s1\ s2
+comment3.target=void\ str(java.lang.String,\ java.lang.String)
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

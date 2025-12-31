@@ -1,0 +1,3454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Berger Paints - Premium paint solutions for every surface. Experience color like never before with our innovative and eco-friendly paint products."
+    />
+    <meta
+      name="keywords"
+      content="berger paints, premium paints, interior paint, exterior paint, decorative paint, waterproofing"
+    />
+    <title>Berger Paints</title>
+    <style>
+      /* ===================================
+   BERGER PAINTS - PREMIUM WEBSITE CSS
+   ===================================*/
+
+      /* ===================================
+   RESET & BASE STYLES
+   ===================================*/
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        overflow-x: hidden;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+
+      /* ===================================
+   VARIABLES
+   ===================================*/
+      :root {
+        /* Brand Colors */
+        --primary-color: #cc293d;
+        --primary-dark: #a51e2f;
+        --white: #ffffff;
+        --dark-gray: #333333;
+        --light-gray: #f5f5f5;
+        --medium-gray: #666666;
+        --border-color: #e0e0e0;
+
+        /* Typography */
+        --heading-font: "Playfair Display", serif;
+        --body-font: "Inter", sans-serif;
+
+        /* Spacing */
+        --section-padding: 100px 0;
+        --container-padding: 0 20px;
+
+        /* Shadows */
+        --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+        --shadow-medium: 0 5px 20px rgba(0, 0, 0, 0.15);
+        --shadow-heavy: 0 10px 30px rgba(0, 0, 0, 0.2);
+
+        /* Transitions */
+        --transition: all 0.3s ease;
+        --transition-slow: all 0.6s ease;
+      }
+
+      /* ===================================
+   TYPOGRAPHY
+   ===================================*/
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--heading-font);
+        font-weight: 600;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+        color: var(--dark-gray);
+        text-align: center;
+        margin-bottom: 1rem;
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: var(--primary-color);
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--medium-gray);
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      /* ===================================
+   CONTAINERS & LAYOUT
+   ===================================*/
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: var(--container-padding);
+      }
+
+      .main-content {
+        margin-top: 80px;
+      }
+
+      /* ===================================
+   BUTTONS
+   ===================================*/
+      .btn-primary,
+      .btn-secondary {
+        display: inline-block;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 50px;
+        font-family: var(--body-font);
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        text-align: center;
+        cursor: pointer;
+        transition: var(--transition);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn-primary {
+        background: var(--primary-color);
+        color: var(--white);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-heavy);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        color: var(--primary-color);
+        border: 2px solid var(--primary-color);
+      }
+
+      .btn-secondary:hover {
+        background: var(--primary-color);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      /* ===================================
+   HEADER & NAVIGATION
+   ===================================*/
+      .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: var(--white);
+        box-shadow: var(--shadow-light);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      /* ===================================
+   HERO SECTION
+   ===================================*/
+
+      .hero-section {
+        position: relative;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: -100px !important;
+        padding-top: 0;
+      }
+
+      .hero-background {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+      }
+
+      .hero-video-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero-video {
+        margin-top: 0;
+        padding-top: 0px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        display: block;
+        margin: 0;
+        padding: 0;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        color: var(--white);
+        max-width: 800px;
+        padding: var(--container-padding);
+      }
+
+      .hero-title {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        font-weight: 300;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+      }
+
+      .hero-cta {
+        margin-top: 2rem;
+      }
+
+      /* ===================================
+   ABOUT SECTION
+   ===================================*/
+      .about-section {
+        padding: var(--section-padding);
+        background: var(--white);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .about-image {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+      }
+
+      .about-img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: var(--transition-slow);
+      }
+
+      .about-image:hover .about-img {
+        transform: scale(1.05);
+      }
+
+      .about-content {
+        padding: 2rem 0;
+      }
+
+      .about-text {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        color: var(--medium-gray);
+      }
+
+      .about-stats {
+        display: flex;
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        color: var(--medium-gray);
+        font-weight: 500;
+      }
+
+      /* ===================================
+   PRODUCTS SECTION
+   ===================================*/
+      .products-section {
+        padding: var(--section-padding);
+        background: var(--light-gray);
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+      }
+
+      .product-card {
+        background: var(--white);
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow-light);
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-heavy);
+      }
+
+      .product-image {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+      }
+
+      .product-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition-slow);
+      }
+
+      .product-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(250, 234, 10, 0.9),
+          rgba(51, 51, 51, 0.7)
+        );
+        opacity: 0;
+        transition: var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .product-card:hover .product-overlay {
+        opacity: 1;
+      }
+
+      .product-card:hover .product-img {
+        transform: scale(1.1);
+      }
+
+      .product-overlay-content {
+        text-align: center;
+        color: var(--white);
+        padding: 1rem;
+      }
+
+      .product-overlay-content h4 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+      }
+
+      .product-info {
+        padding: 2rem;
+        text-align: center;
+      }
+
+      .product-title {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark-gray);
+      }
+
+      .product-description {
+        color: var(--medium-gray);
+        margin-bottom: 1.5rem;
+        line-height: 1.6;
+      }
+
+      /* ===================================
+   INNOVATION SECTION
+   ===================================*/
+      .innovation-section {
+        padding: var(--section-padding);
+        background: var(--white);
+      }
+
+      .innovation-slider {
+        overflow-x: auto;
+        padding: 2rem 0;
+      }
+
+      .innovation-cards {
+        display: flex;
+        gap: 2rem;
+        padding-bottom: 1rem;
+      }
+
+      .innovation-card {
+        min-width: 280px;
+        background: var(--white);
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        padding: 2rem;
+        text-align: center;
+        box-shadow: var(--shadow-light);
+        transition: var(--transition);
+      }
+
+      .innovation-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+        border-color: var(--primary-color);
+      }
+
+      .innovation-icon {
+        width: 80px;
+        height: 80px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--white);
+        font-size: 2rem;
+      }
+
+      .innovation-title {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        color: var(--dark-gray);
+      }
+
+      .innovation-description {
+        color: var(--medium-gray);
+        line-height: 1.6;
+      }
+
+      /* ===================================
+   SUSTAINABILITY SECTION
+   ===================================*/
+      .sustainability-section {
+        padding: var(--section-padding);
+        background: var(--light-gray);
+      }
+
+      .sustainability-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .sustainability-item {
+        background: var(--white);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: var(--shadow-light);
+        transition: var(--transition);
+      }
+
+      .sustainability-item:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .sustainability-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(
+          45deg,
+          var(--primary-color),
+          var(--primary-dark)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--white);
+        font-size: 1.5rem;
+      }
+
+      .sustainability-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: var(--dark-gray);
+      }
+
+      .sustainability-text {
+        color: var(--medium-gray);
+        line-height: 1.6;
+      }
+
+      /* ===================================
+   COLOR VISUALIZER SECTION
+   ===================================*/
+      .color-visualizer-section {
+        padding: var(--section-padding);
+        background: var(--white);
+      }
+
+      .visualizer-content {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        margin-top: 3rem;
+      }
+
+      .visualizer-room {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: var(--shadow-medium);
+      }
+
+      .room-preview {
+        position: relative;
+        height: 400px;
+      }
+
+      .room-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .room-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(204, 41, 61, 0.3);
+        opacity: 0;
+        transition: var(--transition-slow);
+      }
+
+      .color-palette {
+        background: var(--light-gray);
+        padding: 2rem;
+        border-radius: 15px;
+        text-align: center;
+      }
+
+      .palette-title {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-gray);
+      }
+
+      .color-swatches {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .color-swatch {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 3px solid var(--white);
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: var(--shadow-light);
+      }
+
+      .color-swatch:hover {
+        transform: scale(1.1);
+        box-shadow: var(--shadow-medium);
+      }
+
+      .color-swatch.active {
+        border-color: var(--dark-gray);
+        transform: scale(1.1);
+      }
+
+      .palette-instruction {
+        color: var(--medium-gray);
+        font-size: 0.9rem;
+      }
+
+      /* ===================================
+   CONTACT SECTION
+   ===================================*/
+      .contact-section {
+        padding: var(--section-padding);
+        background: var(--dark-gray);
+        color: var(--white);
+      }
+
+      .contact-section .section-title {
+        color: var(--white);
+      }
+
+      .contact-section .section-subtitle {
+        color: #cccccc;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        margin-top: 3rem;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+        background: var(--primary-color);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.2rem;
+      }
+
+      .contact-details h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .contact-details p {
+        color: #cccccc;
+      }
+
+      .contact-form-container {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 2rem;
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        padding: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--white);
+        font-family: var(--body-font);
+      }
+
+      .form-group input::placeholder,
+      .form-group textarea::placeholder {
+        color: #cccccc;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        background: rgba(255, 255, 255, 0.15);
+      }
+
+      .whatsapp-cta {
+        text-align: center;
+        margin-top: 4rem;
+        padding: 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        backdrop-filter: blur(10px);
+      }
+
+      .whatsapp-cta h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .whatsapp-cta p {
+        color: #cccccc;
+        margin-bottom: 2rem;
+      }
+
+      .whatsapp-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #25d366;
+        color: var(--white);
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: var(--transition);
+        font-size: 1.1rem;
+      }
+
+      .whatsapp-btn:hover {
+        background: #20b858;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-medium);
+      }
+
+      /* ===================================
+   FOOTER
+   ===================================*/
+      .footer {
+        background: var(--dark-gray);
+        color: var(--white);
+        padding: 3rem 0 1rem;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-logo-img {
+        height: 40px;
+        width: auto;
+        margin-bottom: 1rem;
+      }
+
+      .footer-description {
+        color: #cccccc;
+        line-height: 1.6;
+      }
+
+      .footer-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: var(--white);
+      }
+
+      .footer-links {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.5rem;
+      }
+
+      .footer-links a {
+        color: #cccccc;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-link {
+        width: 40px;
+        height: 40px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .social-link:hover {
+        background: var(--primary-color);
+        transform: translateY(-2px);
+      }
+
+      .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .footer-copyright {
+        color: #cccccc;
+      }
+
+      /* ===================================
+   WHATSAPP FLOATING BUTTON
+   ===================================*/
+      .whatsapp-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+      }
+
+      .whatsapp-float-btn {
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.5rem;
+        text-decoration: none;
+        box-shadow: var(--shadow-medium);
+        transition: var(--transition);
+        animation: pulse 2s infinite;
+      }
+
+      .whatsapp-float-btn:hover {
+        background: #20b858;
+        transform: scale(1.1);
+      }
+
+      @keyframes pulse {
+        0% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+        }
+
+        70% {
+          box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+        }
+
+        100% {
+          box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+        }
+      }
+
+      /* ===================================
+   ANIMATIONS
+   ===================================*/
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: var(--transition-slow);
+      }
+
+      .fade-in-up.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .fade-in-left {
+        opacity: 0;
+        transform: translateX(-30px);
+        transition: var(--transition-slow);
+      }
+
+      .fade-in-left.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .fade-in-right {
+        opacity: 0;
+        transform: translateX(30px);
+        transition: var(--transition-slow);
+      }
+
+      .fade-in-right.active {
+        opacity: 1;
+        transform: translateX(0);
+      }
+
+      .delay-1 {
+        transition-delay: 0.2s;
+      }
+
+      .delay-2 {
+        transition-delay: 0.4s;
+      }
+
+      .delay-3 {
+        transition-delay: 0.6s;
+      }
+
+      /* ===================================
+   RESPONSIVE DESIGN
+   ===================================*/
+
+      /* Tablet Styles */
+      @media (max-width: 768px) {
+        .nav-menu {
+          display: none;
+        }
+
+        .nav-toggle {
+          display: flex;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .section-title {
+          font-size: 2.5rem;
+        }
+
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .about-stats {
+          justify-content: center;
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .visualizer-content {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .innovation-cards {
+          justify-content: flex-start;
+        }
+
+        .innovation-card {
+          min-width: 250px;
+        }
+      }
+
+      /* Mobile Styles */
+      @media (max-width: 480px) {
+        :root {
+          --section-padding: 60px 0;
+          --container-padding: 0 15px;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .about-stats {
+          flex-direction: column;
+          gap: 1rem;
+        }
+
+        .sustainability-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .innovation-card {
+          min-width: 200px;
+        }
+
+        .color-swatches {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 0.5rem;
+        }
+
+        .color-swatch {
+          width: 40px;
+          height: 40px;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        .whatsapp-float {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .whatsapp-float-btn {
+          width: 50px;
+          height: 50px;
+          font-size: 1.2rem;
+        }
+      }
+
+      /* ===================================
+   SCROLL ANIMATIONS
+   ===================================*/
+      @media (prefers-reduced-motion: no-preference) {
+        .fade-in-up,
+        .fade-in-left,
+        .fade-in-right {
+          will-change: opacity, transform;
+        }
+      }
+
+      /* ===================================
+   PRINT STYLES
+   ===================================*/
+      @media print {
+        .header,
+        .mobile-menu-overlay,
+        .whatsapp-float,
+        .whatsapp-cta {
+          display: none;
+        }
+
+        .main-content {
+          margin-top: 0;
+        }
+
+        .hero-section {
+          height: auto;
+          padding: 2rem 0;
+        }
+
+        .hero-video {
+          display: none;
+        }
+
+        * {
+          box-shadow: none !important;
+        }
+      }
+
+      /* ===================================
+   ACCESSIBILITY
+   ===================================*/
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+
+      /* Focus styles for accessibility */
+      button:focus,
+      input:focus,
+      textarea:focus,
+      a:focus {
+        outline: 2px solid var(--primary-color);
+        outline-offset: 2px;
+      }
+
+      /* High contrast mode support */
+      @media (prefers-contrast: high) {
+        :root {
+          --primary-color: #000000;
+          --dark-gray: #000000;
+          --medium-gray: #000000;
+          --border-color: #000000;
+        }
+      }
+
+      /* why wxpress painting */
+      .why-express-section {
+        padding: 80px 20px;
+        background: linear-gradient(
+          135deg,
+          var(--light-gray, #f6f6f6) 0%,
+          #fff 100%
+        );
+      }
+
+      .why-express-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        align-items: center;
+      }
+
+      .express-image {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .express-image img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+      }
+
+      .yellow-circle {
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        width: 200px;
+        height: 200px;
+        background: #ffcc00;
+        opacity: 0.5;
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      .express-content h2 {
+        text-align: left;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .express-content p {
+        color: var(--medium-gray, #555);
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .express-benefits {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .benefit-card {
+        background: white;
+        padding: 1.5rem;
+        border-radius: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .benefit-header {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .benefit-header img {
+        width: 40px;
+        height: 40px;
+      }
+
+      .benefit-card h3 {
+        font-size: 1.1rem;
+        margin: 0;
+      }
+
+      .benefit-card p {
+        font-size: 0.9rem;
+        color: var(--medium-gray, #666);
+      }
+
+      .btn-primary {
+        display: inline-block;
+        background: #ffcc00;
+        color: #000;
+        font-weight: 600;
+        padding: 12px 24px;
+        border-radius: 30px;
+        text-decoration: none;
+        margin-top: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background: #ffe607;
+      }
+
+      /* ---------- RESPONSIVENESS ---------- */
+
+      /* Tablet */
+      @media (max-width: 992px) {
+        .why-express-grid {
+          grid-template-columns: 1fr;
+          gap: 3rem;
+        }
+
+        .express-image img {
+          max-width: 400px;
+        }
+
+        .express-benefits {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* Mobile */
+      @media (max-width: 600px) {
+        .why-express-section {
+          padding: 60px 15px;
+        }
+
+        .express-content h2 {
+          font-size: 1.6rem;
+          text-align: center;
+        }
+
+        .express-content p {
+          text-align: center;
+          font-size: 0.95rem;
+        }
+
+        .express-benefits {
+          grid-template-columns: 1fr;
+          gap: 1.2rem;
+        }
+
+        .benefit-card {
+          text-align: center;
+        }
+
+        .benefit-header {
+          justify-content: center;
+        }
+
+        .btn-primary {
+          display: block;
+          margin: 1.5rem auto 0;
+        }
+
+        .express-image img {
+          max-width: 300px;
+        }
+
+        .yellow-circle {
+          width: 120px;
+          height: 120px;
+          top: -10px;
+          right: -10px;
+        }
+      }
+    </style>
+
+    <!-- Font Awesome for Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav
+      id="navbar"
+      style="
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 800px;
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        text-align: center;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: white;
+        animation: float 6s ease-in-out infinite;
+      "
+    >
+      <span style="font-family: 'Playfair Display', serif; font-size: 2.0rem; font-weight: bold;color: #080808">Matri</span>
+      <span style="font-family: 'Playfair Display', serif; font-size: 2.0rem; font-weight: bold; color: #ffcc00">Hardwares</span>
+
+      <style>
+        @keyframes float {
+          0% {
+            transform: translateX(-50%) translateY(0);
+          }
+          50% {
+            transform: translateX(-50%) translateY(-10px);
+          }
+          100% {
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+        @media (max-width: 768px) {
+          #navbar {
+            width: 85%;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+          }
+        }
+        @media (max-width: 480px) {
+          #navbar {
+            width: 80%;
+            padding: 10px 15px;
+            font-size: 1rem;
+          }
+        }
+      </style>
+
+      <script>
+        window.addEventListener("scroll", () => {
+          const n = document.getElementById("navbar");
+          if (window.scrollY > 50) {
+            n.style.top = "10px";
+            n.style.background = "rgba(255,255,255,0.15)";
+            n.style.boxShadow = "0 8px 32px rgba(0,0,0,0.2)";
+          } else {
+            n.style.top = "20px";
+            n.style.background = "rgba(255,255,255,0.1)";
+            n.style.boxShadow = "0 8px 32px rgba(0,0,0,0.1)";
+          }
+        });
+      </script>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Hero Section -->
+      <section class="hero-section" id="home">
+        <div class="hero-background">
+          <div class="hero-video-container">
+            <video
+              autoplay
+              muted
+              loop
+              playsinline
+              webkit-playsinline
+              class="hero-video"
+              style="
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                min-width: 100%;
+                min-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: cover;
+                z-index: 0;
+                display: block;
+              "
+            >
+              <source src="./imgs/beregerban.mp4" type="video/mp4" />
+            </video>
+            <div class="hero-overlay"></div>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <div class="hero-text">
+            <!-- Image above the button -->
+            <div style="margin-bottom: 2rem; text-align: center">
+              <img
+                src="./imgs/bergerlogo.png"
+                alt="Description"
+                style="
+                  max-width: 300px;
+                  width: 100%;
+                  height: auto;
+                  display: block;
+                  margin: 0 auto;
+                  z-index: 3;
+                  position: relative;
+                "
+              />
+            </div>
+
+            <div class="hero-cta fade-in-up delay-2">
+              <a href="#products" class="btn-primary">Explore Products</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Berger Section -->
+      <section class="about-section" id="about">
+        <div class="container">
+          <div class="about-grid">
+            <div class="about-image fade-in-left">
+              <img
+                src="./imgs/aboutberger.avif"
+                alt="Berger Paint Factory"
+                class="about-img"
+              />
+            </div>
+            <div class="about-content fade-in-right">
+              <h2 class="section-title">About Berger Paints</h2>
+              <p class="about-text">
+                For over six decades, Berger Paints has been at the forefront of
+                paint innovation in India. Our commitment to quality,
+                technology, and customer satisfaction has made us one of the
+                most trusted paint brands in the country.
+              </p>
+              <p class="about-text">
+                From humble beginnings to becoming a market leader, we continue
+                to transform spaces with our premium paint solutions,
+                cutting-edge technology, and unwavering dedication to
+                excellence.
+              </p>
+              <div class="about-stats">
+                <div class="stat-item">
+                  <h3 class="stat-number">60+</h3>
+                  <p class="stat-label">Years of Excellence</p>
+                </div>
+                <div class="stat-item">
+                  <h3 class="stat-number">1000+</h3>
+                  <p class="stat-label">Color Options</p>
+                </div>
+                <div class="stat-item">
+                  <h3 class="stat-number">50M+</h3>
+                  <p class="stat-label">Homes Painted</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section class="products-section" id="products">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">Our Paint Solutions</h2>
+            <p class="section-subtitle">
+              Discover our comprehensive range of premium paint products
+            </p>
+          </div>
+
+          <div class="products-grid">
+            <div class="product-card fade-in-up">
+              <div class="product-image">
+                <img
+                  src="./imgs/xpbg.jfif"
+                  alt="Express Painting"
+                  class="product-img"
+                />
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <h4>Safe Express Home Painting Services</h4>
+                    <p>Renovate Your Home Cleaner, Faster and Safer!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Express Painting</h3>
+                <p class="product-description">
+                  Paint Your Home The Smart Way With Berger XP
+                </p>
+                <a href="xpbg.html" class="btn-secondary">Learn More</a>
+              </div>
+            </div>
+
+            <div class="product-card fade-in-up delay-1">
+              <div class="product-image">
+                <img
+                  src="./imgs/wpbg.webp"
+                  alt="Exterior Paints"
+                  class="product-img"
+                />
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <h4>Water Protection Excellence</h4>
+                    <p>Don't compromise on waterproofing!</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">WaterProofing</h3>
+                <p class="product-description">
+                  Scientific-Waterproffing Solution For Complete Protection
+                </p>
+                <a href="wpbg.html" class="btn-secondary">Learn More</a>
+              </div>
+            </div>
+
+            <div class="product-card fade-in-up delay-2">
+              <div class="product-image">
+                <img
+                  src="./imgs/bgpro.jpg"
+                  alt="Decorative Paints"
+                  class="product-img"
+                />
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <h4>Explore Products</h4>
+                    <p>Creative decorative finishes for unique spaces</p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Berger Products</h3>
+                <p class="product-description">
+                  Artistic textures and finishes for creative expression
+                </p>
+                <a href="bg_berger_products.html" class="btn-secondary"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+
+            <div class="product-card fade-in-up delay-3">
+              <div class="product-image">
+                <img
+                  src="./imgs/bgcc.webp"
+                  alt="Waterproofing"
+                  class="product-img"
+                />
+                <div class="product-overlay">
+                  <div class="product-overlay-content">
+                    <h4>Colour Shades and Cards</h4>
+                    <p>
+                      Choosing the right colour palette is key when decorating
+                      your home. While finding the perfect wall paint shade can
+                      be frustrating, a well-organized colour catalogue makes
+                      browsing and selecting from a wide range of shades quick
+                      and easy
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Color Catelogue</h3>
+                <p class="product-description">2500+ Unique Paint Colors</p>
+                <a href="bg_color_catelogue.html" class="btn-secondary"
+                  >Learn More</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Express Painting Section -->
+      <section class="why-express-section" id="why-express">
+        <div class="container">
+          <div class="why-express-grid">
+            <!-- Left Side - Image -->
+            <div class="express-image fade-in-left">
+              <img
+                src="./imgs/express prings.png"
+                alt="Express Painting Professional"
+              />
+              <div class="yellow-circle"></div>
+            </div>
+
+            <!-- Right Side - Content -->
+            <div class="express-content fade-in-right">
+              <h2 class="section-title">Why Express Painting?</h2>
+              <p>
+                Looking for end-to-end solutions for all your painting needs?
+                Look no further. Berger Express Painting is a service
+                all-rounder in home painting. Enjoy a hassle-free and convenient
+                painting experience today!
+              </p>
+
+              <div class="express-benefits">
+                <!-- Accurate Quotation -->
+                <div class="benefit-card">
+                  <div class="benefit-header">
+                    <img src="./imgs/quote-icon.webp" alt="Quotation Icon" />
+                    <h3>Accurate Quotation</h3>
+                  </div>
+                  <p>
+                    Precise quotations that include advice on products specific
+                    to your requirements.
+                  </p>
+                </div>
+
+                <!-- Trained Professionals -->
+                <div class="benefit-card">
+                  <div class="benefit-header">
+                    <img src="./imgs/trained.webp" alt="Professional Icon" />
+                    <h3>Trained & Certified Professionals</h3>
+                  </div>
+                  <p>
+                    Supervised painting and expert advised colour consultations
+                    from our professional team.
+                  </p>
+                </div>
+
+                <!-- Modernised Tools -->
+                <div class="benefit-card">
+                  <div class="benefit-header">
+                    <img src="./imgs/automated.webp" alt="Tools Icon" />
+                    <h3>Modernised & Automated Tools</h3>
+                  </div>
+                  <p>
+                    A quick, low sound and dust-free painting experience with a
+                    variety of modernised tools.
+                  </p>
+                </div>
+
+                <!-- Furniture Protection -->
+                <div class="benefit-card">
+                  <div class="benefit-header">
+                    <img src="./imgs/Covering.webp" alt="Furniture Icon" />
+                    <h3>Furniture & Floor Covering</h3>
+                  </div>
+                  <p>
+                    We cover your belongings while painting to avoid an
+                    unpleasant experience.
+                  </p>
+                </div>
+              </div>
+
+              <a
+                href="#"
+                class="btn-primary"
+                onclick="event.preventDefault();
+            const businessEmail='debmalyabhattacharyya2@gmail.com';
+            const subject=encodeURIComponent('Inquiry about Berger Express Painting');
+            const body=encodeURIComponent('Hello,%0A%0AI want more details about the Express Painting service.%0A%0AThank you.');
+            window.location.href=`mailto:${businessEmail}?subject=${subject}&body=${body}`;"
+              >
+                Enquire About Xpress Painting
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Berger My Colour Section -->
+      <section
+        class="berger-my-colour-section"
+        style="
+          padding: 80px 20px;
+          background: white;
+          position: relative;
+          overflow: hidden;
+        "
+      >
+        <div
+          class="container"
+          style="
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+          "
+        >
+          <div
+            class="mycolour-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 4rem;
+              align-items: center;
+            "
+          >
+            <!-- Left Side - Features -->
+            <div class="mycolour-left" style="width: 100%">
+              <h1 style="font-size: 2.5rem; color: #333; margin-bottom: 1rem">
+                Berger My Colour
+              </h1>
+              <p style="color: #ff3c00; font-size: 1.1rem; margin-bottom: 3rem">
+                Visualize your room with your favourite colours.
+              </p>
+
+              <!-- Feature Items -->
+              <div style="display: flex; flex-direction: column; gap: 2rem">
+                <!-- Feature 1 -->
+                <div style="display: flex; align-items: center; gap: 1.5rem">
+                  <div
+                    style="
+                      width: 48px;
+                      height: 48px;
+                      background: #ffcc00;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i
+                      class="fas fa-camera"
+                      style="color: white; font-size: 1.2rem"
+                    ></i>
+                  </div>
+                  <p
+                    style="
+                      flex: 1;
+                      font-size: 1.1rem;
+                      color: #333;
+                      line-height: 1.5;
+                    "
+                  >
+                    Upload images from your gallery or camera and explore
+                    different paint colours in real-time!
+                  </p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div style="display: flex; align-items: center; gap: 1.5rem">
+                  <div
+                    style="
+                      width: 48px;
+                      height: 48px;
+                      background: #ffcc00;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i
+                      class="fas fa-magic"
+                      style="color: white; font-size: 1.2rem"
+                    ></i>
+                  </div>
+                  <p
+                    style="
+                      flex: 1;
+                      font-size: 1.1rem;
+                      color: #333;
+                      line-height: 1.5;
+                    "
+                  >
+                    Unable to decide a colour? Find the perfect one for your
+                    persona with 'Surprise Me'.
+                  </p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div style="display: flex; align-items: center; gap: 1.5rem">
+                  <div
+                    style="
+                      width: 48px;
+                      height: 48px;
+                      background: #ffcc00;
+                      border-radius: 50%;
+                      display: flex;
+                      align-items: center;
+                      justify-content: center;
+                    "
+                  >
+                    <i
+                      class="fas fa-paint-brush"
+                      style="color: white; font-size: 1.2rem"
+                    ></i>
+                  </div>
+                  <p
+                    style="
+                      flex: 1;
+                      font-size: 1.1rem;
+                      color: #333;
+                      line-height: 1.5;
+                    "
+                  >
+                    Experience your favourite colours from pictures or
+                    surroundings on the walls with our advanced picker tool.
+                  </p>
+                </div>
+
+                <!-- App Store Buttons -->
+                <div
+                  style="
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 1rem;
+                    margin-top: 2rem;
+                  "
+                >
+                  <a href="#" style="display: inline-block">
+                    <img
+                      src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png"
+                      alt="Get it on Google Play"
+                      style="height: 60px"
+                    />
+                  </a>
+                  <a href="#" style="display: inline-block">
+                    <img
+                      src="https://developer.apple.com/app-store/marketing/guidelines/images/badge-download-on-the-app-store.svg"
+                      alt="Download on the App Store"
+                      style="height: 40px; margin-top: 10px"
+                    />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right Side - Phone Mockup -->
+            <div
+              class="mycolour-right"
+              style="position: relative; text-align: center"
+            >
+              <div style="position: relative; z-index: 2; padding: 2rem">
+                <img
+                  src="./imgs/ph bg-min.webp"
+                  alt="Berger My Colour App"
+                  style="
+                    width: 100%;
+                    max-width: 500px;
+                    margin: 0 auto;
+                    display: block;
+                    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.1));
+                  "
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsive Styles -->
+        <style>
+          /* Tablet */
+          @media (max-width: 992px) {
+            .mycolour-grid {
+              grid-template-columns: 1fr;
+              gap: 3rem;
+              text-align: center;
+            }
+
+            .mycolour-left h1 {
+              font-size: 2rem;
+              text-align: center;
+            }
+
+            .mycolour-left p {
+              text-align: center;
+            }
+
+            .mycolour-right img {
+              max-width: 400px;
+            }
+
+            .mycolour-left
+              div[style*="display:flex;align-items:center;gap:1.5rem;"] {
+              justify-content: center;
+            }
+          }
+
+          /* Mobile */
+          @media (max-width: 600px) {
+            section.berger-my-colour-section {
+              padding: 60px 15px;
+            }
+
+            .mycolour-left h1 {
+              font-size: 1.8rem;
+            }
+
+            .mycolour-left p {
+              font-size: 1rem;
+            }
+
+            .mycolour-left
+              div[style*="display:flex;align-items:center;gap:1.5rem;"] {
+              flex-direction: column;
+              text-align: center;
+              gap: 1rem;
+            }
+
+            .mycolour-left p[style*="flex:1;"] {
+              font-size: 1rem;
+            }
+
+            .mycolour-right img {
+              max-width: 300px;
+            }
+
+            .mycolour-left
+              div[style*="display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem;"] {
+              justify-content: center;
+            }
+          }
+        </style>
+      </section>
+
+      <!-- Colour Inspiration Section -->
+      <section
+        class="colour-inspiration-section"
+        style="
+          padding: 60px 20px;
+          background: white;
+          position: relative;
+          font-family: sans-serif;
+        "
+      >
+        <div class="container" style="max-width: 1400px; margin: 0 auto">
+          <div
+            class="colour-grid"
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 2rem;
+              align-items: start;
+            "
+          >
+            <!-- Left Side - Image -->
+            <div style="position: relative">
+              <img
+                src="./imgs/sumesh9499_Design_a_background._Bold_Colors_and_Patterns_Mix_br_3c941d66-6912-4b39-a210-e7171ae62f33.png"
+                alt="Color Inspiration"
+                style="
+                  width: 100%;
+                  height: auto;
+                  max-height: 800px;
+                  object-fit: cover;
+                  border-radius: 20px;
+                "
+              />
+            </div>
+
+            <!-- Right Side - Color Palettes -->
+            <div
+              style="
+                background: #ffcc00;
+                padding: 2rem;
+                border-radius: 20px;
+                color: rgb(17, 17, 17);
+              "
+            >
+              <h1 style="font-size: 2rem; margin-bottom: 1rem">
+                Explore Palettes
+              </h1>
+              <p style="font-size: 1.1rem; margin-bottom: 2rem">
+                Endless colours, limitless creativity!
+              </p>
+
+              <!-- Palette Groups -->
+              <div>
+                <!-- Zodiac Section -->
+                <div style="margin-bottom: 2.5rem">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 1rem;
+                    "
+                  >
+                    <h2 style="font-size: 1.5rem; margin: 0">Zodiac</h2>
+                  </div>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(100px, 1fr)
+                      );
+                      gap: 1rem;
+                    "
+                  >
+                    <div
+                      onclick="explorePalette('Scorpio')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          border-radius: 8px;
+                          display: flex;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #e5e5e5"></div>
+                        <div style="flex: 1; background: #98b4b6"></div>
+                        <div style="flex: 1; background: #2f4f4f"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">Scorpio</p>
+                    </div>
+
+                    <div
+                      onclick="explorePalette('Aquarius')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          border-radius: 8px;
+                          display: flex;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #e0ffff"></div>
+                        <div style="flex: 1; background: #40e0d0"></div>
+                        <div style="flex: 1; background: #ff69b4"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">
+                        Aquarius
+                      </p>
+                    </div>
+
+                    <div
+                      onclick="explorePalette('Leo')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          border-radius: 8px;
+                          display: flex;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #ffa500"></div>
+                        <div style="flex: 1; background: #ff69b4"></div>
+                        <div style="flex: 1; background: #800080"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">Leo</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Gems Section -->
+                <div style="margin-bottom: 2.5rem">
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 1rem;
+                    "
+                  >
+                    <h2 style="font-size: 1.5rem; margin: 0">Gems</h2>
+                  </div>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(100px, 1fr)
+                      );
+                      gap: 1rem;
+                    "
+                  >
+                    <div
+                      onclick="explorePalette('Amethyst')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          border-radius: 8px;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #483d8b"></div>
+                        <div style="flex: 1; background: #9370db"></div>
+                        <div style="flex: 1; background: #ba55d3"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">
+                        Amethyst
+                      </p>
+                    </div>
+
+                    <div
+                      onclick="explorePalette('Citrine')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          border-radius: 8px;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #daa520"></div>
+                        <div style="flex: 1; background: #ffd700"></div>
+                        <div style="flex: 1; background: #ffffe0"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">Citrine</p>
+                    </div>
+
+                    <div
+                      onclick="explorePalette('Sapphire')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          border-radius: 8px;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #191970"></div>
+                        <div style="flex: 1; background: #4169e1"></div>
+                        <div style="flex: 1; background: #b0e0e6"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">
+                        Sapphire
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Nature Inspired Section -->
+                <div>
+                  <div
+                    style="
+                      display: flex;
+                      justify-content: space-between;
+                      align-items: center;
+                      margin-bottom: 1rem;
+                    "
+                  >
+                    <h2 style="font-size: 1.5rem; margin: 0">
+                      Nature Inspired
+                    </h2>
+                  </div>
+                  <div
+                    style="
+                      display: grid;
+                      grid-template-columns: repeat(
+                        auto-fit,
+                        minmax(100px, 1fr)
+                      );
+                      gap: 1rem;
+                    "
+                  >
+                    <div
+                      onclick="explorePalette('Forest')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          border-radius: 8px;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #90ee90"></div>
+                        <div style="flex: 1; background: #deb887"></div>
+                        <div style="flex: 1; background: #556b2f"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">Forest</p>
+                    </div>
+
+                    <div
+                      onclick="explorePalette('Beach')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          border-radius: 8px;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #f5f5f5"></div>
+                        <div style="flex: 1; background: #ffdab9"></div>
+                        <div style="flex: 1; background: #87ceeb"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">Beach</p>
+                    </div>
+
+                    <div
+                      onclick="explorePalette('Mountain')"
+                      style="cursor: pointer"
+                    >
+                      <div
+                        style="
+                          height: 50px;
+                          display: flex;
+                          border-radius: 8px;
+                          overflow: hidden;
+                          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+                        "
+                      >
+                        <div style="flex: 1; background: #f0e68c"></div>
+                        <div style="flex: 1; background: #cd853f"></div>
+                        <div style="flex: 1; background: #228b22"></div>
+                      </div>
+                      <p style="text-align: center; margin-top: 8px">
+                        Mountain
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Responsive Adjustments -->
+        <style>
+          @media (max-width: 992px) {
+            .colour-grid {
+              grid-template-columns: 1fr;
+            }
+          }
+
+          @media (max-width: 600px) {
+            .colour-inspiration-section h1 {
+              font-size: 1.6rem;
+            }
+
+            .colour-inspiration-section h2 {
+              font-size: 1.2rem;
+            }
+
+            .colour-inspiration-section p {
+              font-size: 0.95rem;
+            }
+
+            .colour-inspiration-section button {
+              font-size: 0.9rem;
+              padding: 5px 12px;
+            }
+          }
+        </style>
+      </section>
+
+      <!-- Innovation Section -->
+      <section class="innovation-section" id="innovation">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">Innovation & Technology</h2>
+            <p class="section-subtitle">
+              Leading the future of paint technology
+            </p>
+          </div>
+
+          <div class="innovation-slider">
+            <div class="innovation-cards" id="innovation-cards">
+              <div class="innovation-card">
+                <div class="innovation-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <h3 class="innovation-title">Eco-Friendly Formula</h3>
+                <p class="innovation-description">
+                  Low VOC and environment-friendly paint formulations
+                </p>
+              </div>
+
+              <div class="innovation-card">
+                <div class="innovation-icon">
+                  <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="innovation-title">Advanced Protection</h3>
+                <p class="innovation-description">
+                  Anti-bacterial and anti-fungal properties for healthier spaces
+                </p>
+              </div>
+
+              <div class="innovation-card">
+                <div class="innovation-icon">
+                  <i class="fas fa-tint"></i>
+                </div>
+                <h3 class="innovation-title">Weather Guard</h3>
+                <p class="innovation-description">
+                  Superior weather resistance and durability technology
+                </p>
+              </div>
+
+              <div class="innovation-card">
+                <div class="innovation-icon">
+                  <i class="fas fa-palette"></i>
+                </div>
+                <h3 class="innovation-title">Color Science</h3>
+                <p class="innovation-description">
+                  Advanced color matching and retention technology
+                </p>
+              </div>
+
+              <div class="innovation-card">
+                <div class="innovation-icon">
+                  <i class="fas fa-magic"></i>
+                </div>
+                <h3 class="innovation-title">Easy Application</h3>
+                <p class="innovation-description">
+                  Smooth application and excellent coverage properties
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sustainability Section -->
+      <section class="sustainability-section" id="sustainability">
+        <div class="container">
+          <div class="sustainability-content">
+            <div class="section-header fade-in-up">
+              <h2 class="section-title">Sustainability & Responsibility</h2>
+              <p class="section-subtitle">Committed to a greener future</p>
+            </div>
+
+            <div class="sustainability-grid">
+              <div class="sustainability-item fade-in-up">
+                <div class="sustainability-icon">
+                  <i class="fas fa-recycle"></i>
+                </div>
+                <h3 class="sustainability-title">Recyclable Packaging</h3>
+                <p class="sustainability-text">
+                  100% recyclable packaging materials to reduce environmental
+                  impact
+                </p>
+              </div>
+
+              <div class="sustainability-item fade-in-up delay-1">
+                <div class="sustainability-icon">
+                  <i class="fas fa-water"></i>
+                </div>
+                <h3 class="sustainability-title">Water-Based Technology</h3>
+                <p class="sustainability-text">
+                  Low VOC, water-based formulations for safer indoor
+                  environments
+                </p>
+              </div>
+
+              <div class="sustainability-item fade-in-up delay-2">
+                <div class="sustainability-icon">
+                  <i class="fas fa-seedling"></i>
+                </div>
+                <h3 class="sustainability-title">Green Manufacturing</h3>
+                <p class="sustainability-text">
+                  Sustainable manufacturing processes with minimal carbon
+                  footprint
+                </p>
+              </div>
+
+              <div class="sustainability-item fade-in-up delay-3">
+                <div class="sustainability-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <h3 class="sustainability-title">Green Certifications</h3>
+                <p class="sustainability-text">
+                  Certified eco-friendly products meeting international
+                  standards
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Interactive Color Visualizer Section -->
+      <section class="color-visualizer-section" id="color-visualizer">
+        <div class="container">
+          <div class="section-header fade-in-up">
+            <h2 class="section-title">Color Visualizer</h2>
+            <p class="section-subtitle">
+              See how different colors transform your space
+            </p>
+          </div>
+
+          <div class="visualizer-content">
+            <div class="visualizer-room fade-in-left">
+              <div class="room-preview" id="room-preview">
+                <img
+                  src="./imgs/colorvisualizer.avif"
+                  alt="Room Preview"
+                  class="room-img"
+                  id="room-img"
+                />
+                <div class="room-overlay" id="room-overlay"></div>
+              </div>
+            </div>
+
+            <div class="color-palette fade-in-right">
+              <h3 class="palette-title">Choose a Color</h3>
+              <div class="color-swatches">
+                <button
+                  class="color-swatch"
+                  data-color="#CC293D"
+                  style="background-color: #cc293d"
+                  title="Berger Red"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#2E5C8A"
+                  style="background-color: #2e5c8a"
+                  title="Royal Blue"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#4A7C59"
+                  style="background-color: #4a7c59"
+                  title="Forest Green"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#8B4A6B"
+                  style="background-color: #8b4a6b"
+                  title="Purple Rose"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#D4A574"
+                  style="background-color: #d4a574"
+                  title="Golden Beige"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#E8E8E8"
+                  style="background-color: #e8e8e8"
+                  title="Pearl White"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#4A4A4A"
+                  style="background-color: #4a4a4a"
+                  title="Charcoal Gray"
+                ></button>
+                <button
+                  class="color-swatch"
+                  data-color="#7D4E57"
+                  style="background-color: #7d4e57"
+                  title="Wine Red"
+                ></button>
+              </div>
+              <p class="palette-instruction">
+                Click on any color to see the room transformation
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact/Enquiry Section -->
+      <section class="contact-section" id="contact">
+        <div class="container">
+          <div class="contact-content">
+            <div class="contact-header fade-in-up">
+              <h2 class="section-title">Get Your Dream Colors Today</h2>
+              <p class="section-subtitle">
+                Contact us for expert consultation and premium paint solutions
+              </p>
+            </div>
+
+            <div class="contact-grid">
+              <div class="contact-info fade-in-left">
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Call Us</h3>
+                    <p>+91 98765 43210</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Email Us</h3>
+                    <p>info@bergerpaints.com</p>
+                  </div>
+                </div>
+
+                <div class="contact-item">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <div class="contact-details">
+                    <h3>Visit Us</h3>
+                    <p>Berger House, 129 Park Street, Kolkata</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- WhatsApp CTA -->
+            <div class="whatsapp-cta fade-in-up">
+              <h3>Instant Guide</h3>
+              <p>Get immediate assistance via WhatsApp</p>
+              <a href="#" class="whatsapp-btn" id="whatsapp-btn">
+                <i class="fab fa-whatsapp"></i>
+                Chat on WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <div class="footer-logo">
+              <img
+                src="./imgs/bergerlogo.png"
+                alt="Berger Paints Logo"
+                class="footer-logo-img"
+              />
+            </div>
+            <p class="footer-description">
+              Leading paint manufacturer committed to quality, innovation, and
+              customer satisfaction for over 60 years.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-title">Follow Us</h4>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/BergerPaintsIndia/"
+                class="social-link"
+                title="Facebook"
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://x.com/BergerPaintsInd?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                class="social-link"
+                title="Twitter"
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/bergerpaintsindia/"
+                class="social-link"
+                title="Instagram"
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/bergerpaintsindia/?originalSubdomain=in"
+                class="social-link"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a
+                href="https://www.youtube.com/c/bergerpaints"
+                class="social-link"
+                title="YouTube"
+              >
+                <i class="fab fa-youtube"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copyright">
+            © 2025 Matri Hardwares . All Rights Reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <a
+      href="index.html"
+      style="
+        position: fixed;
+        bottom: 90px; /* 👈 lifts it above the old button */
+        right: 25px;
+        background-color: #ffcc00;
+        color: black;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 14px 26px;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        font-family: Arial, sans-serif;
+        z-index: 1001; /* 👈 ensures it's above most elements */
+      "
+      onmouseover="this.style.backgroundColor='#ffd633'; this.style.transform='scale(1.05)';"
+      onmouseout="this.style.backgroundColor='#ffcc00'; this.style.transform='scale(1)';"
+    >
+      Go Back
+    </a>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" id="whatsapp-float">
+      <a href="#" class="whatsapp-float-btn" id="whatsapp-float-btn">
+        <i class="fab fa-whatsapp"></i>
+      </a>
+    </div>
+
+    <!-- Configuration -->
+    <script>
+      /**
+       * Configuration file for Berger Paints Website
+       * Edit these settings to customize the website
+       */
+
+      const BERGER_CONFIG = {
+        // WhatsApp Configuration
+        whatsapp: {
+          number: "8961373808", // Replace with actual WhatsApp business number
+          defaultMessage:
+            "Hi! I'm interested in Berger Paints products. Could you please provide me with more information?",
+        },
+
+        // Company Information
+        company: {
+          name: "Berger Paints",
+          phone: "+91 98765 43210",
+          email: "info@bergerpaints.com",
+          address: "Berger House, 129 Park Street, Kolkata",
+          website: "https://www.bergerpaints.com",
+        },
+
+        // Social Media Links
+        social: {
+          facebook: "https://facebook.com/bergerpaints",
+          twitter: "https://twitter.com/bergerpaints",
+          instagram: "https://instagram.com/bergerpaints",
+          linkedin: "https://linkedin.com/company/bergerpaints",
+          youtube: "https://youtube.com/bergerpaints",
+        },
+
+        // Brand Colors
+        colors: {
+          primary: "#CC293D",
+          primaryDark: "#A51E2F",
+          white: "#FFFFFF",
+          darkGray: "#333333",
+          lightGray: "#f5f5f5",
+          mediumGray: "#666666",
+        },
+
+        // Analytics (Optional)
+        analytics: {
+          googleAnalyticsId: "", // Add your Google Analytics ID here
+          facebookPixelId: "", // Add your Facebook Pixel ID here
+          enabled: false, // Set to true when analytics IDs are configured
+        },
+
+        // Features Toggle
+        features: {
+          colorVisualizer: true,
+          whatsappIntegration: true,
+          smoothScrolling: true,
+          animations: true,
+          lazyLoading: true,
+          serviceWorker: true,
+        },
+
+        // Performance Settings
+        performance: {
+          imageQuality: 80,
+          animationDuration: 300,
+          scrollDebounceDelay: 100,
+        },
+      };
+
+      // Export for use in main.js (if using modules)
+      if (typeof module !== "undefined" && module.exports) {
+        module.exports = BERGER_CONFIG;
+      }
+    </script>
+
+    <!-- JavaScript -->
+    <script>
+      /*
+===================================
+BERGER PAINTS - MAIN JAVASCRIPT
+===================================
+*/
+
+      // Global Variables
+      let isMenuOpen = false;
+      let currentColorOverlay = "#CC293D";
+
+      // DOM Content Loaded Event
+      document.addEventListener("DOMContentLoaded", function () {
+        initializeApp();
+      });
+
+      // Initialize Application
+      function initializeApp() {
+        setupMobileMenu();
+        setupSmoothScroll();
+        setupScrollAnimations();
+        setupColorVisualizer();
+        setupWhatsAppIntegration();
+        setupContactForm();
+        setupHeaderScroll();
+        setupInnovationSlider();
+      }
+
+      /*
+===================================
+MOBILE MENU FUNCTIONALITY
+===================================
+*/
+      function setupMobileMenu() {
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileMenuOverlay = document.getElementById(
+          "mobile-menu-overlay"
+        );
+        const mobileMenuClose = document.getElementById("mobile-menu-close");
+        const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+        // Toggle mobile menu
+        if (navToggle) {
+          navToggle.addEventListener("click", toggleMobileMenu);
+        }
+
+        // Close mobile menu
+        if (mobileMenuClose) {
+          mobileMenuClose.addEventListener("click", closeMobileMenu);
+        }
+
+        // Close menu when clicking on overlay
+        if (mobileMenuOverlay) {
+          mobileMenuOverlay.addEventListener("click", function (e) {
+            if (e.target === mobileMenuOverlay) {
+              closeMobileMenu();
+            }
+          });
+        }
+
+        // Close menu when clicking on navigation links
+        mobileNavLinks.forEach((link) => {
+          link.addEventListener("click", closeMobileMenu);
+        });
+
+        // Handle escape key
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape" && isMenuOpen) {
+            closeMobileMenu();
+          }
+        });
+      }
+
+      function toggleMobileMenu() {
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileMenuOverlay = document.getElementById(
+          "mobile-menu-overlay"
+        );
+
+        if (isMenuOpen) {
+          closeMobileMenu();
+        } else {
+          openMobileMenu();
+        }
+      }
+
+      function openMobileMenu() {
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileMenuOverlay = document.getElementById(
+          "mobile-menu-overlay"
+        );
+
+        isMenuOpen = true;
+        navToggle.classList.add("active");
+        mobileMenuOverlay.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeMobileMenu() {
+        const navToggle = document.getElementById("nav-toggle");
+        const mobileMenuOverlay = document.getElementById(
+          "mobile-menu-overlay"
+        );
+
+        isMenuOpen = false;
+        navToggle.classList.remove("active");
+        mobileMenuOverlay.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      /*
+===================================
+SMOOTH SCROLL FUNCTIONALITY
+===================================
+*/
+      function setupSmoothScroll() {
+        // Get all navigation links
+        const navLinks = document.querySelectorAll('a[href^="#"]');
+
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            const targetId = this.getAttribute("href").substring(1);
+            const targetElement = document.getElementById(targetId);
+
+            if (targetElement) {
+              const headerHeight =
+                document.querySelector(".header").offsetHeight;
+              const targetPosition =
+                targetElement.offsetTop - headerHeight - 20;
+
+              window.scrollTo({
+                top: targetPosition,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      }
+
+      /*
+===================================
+SCROLL ANIMATIONS
+===================================
+*/
+      function setupScrollAnimations() {
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("active");
+            }
+          });
+        }, observerOptions);
+
+        // Observe all elements with animation classes
+        const animatedElements = document.querySelectorAll(
+          ".fade-in-up, .fade-in-left, .fade-in-right"
+        );
+        animatedElements.forEach((element) => {
+          observer.observe(element);
+        });
+      }
+
+      /*
+===================================
+HEADER SCROLL EFFECT
+===================================
+*/
+      function setupHeaderScroll() {
+        const header = document.getElementById("header");
+        let lastScrollTop = 0;
+
+        window.addEventListener("scroll", function () {
+          const scrollTop =
+            window.pageYOffset || document.documentElement.scrollTop;
+
+          // Add/remove scrolled class for styling
+          if (scrollTop > 100) {
+            header.classList.add("scrolled");
+          } else {
+            header.classList.remove("scrolled");
+          }
+
+          lastScrollTop = scrollTop;
+        });
+      }
+
+      /*
+===================================
+COLOR VISUALIZER FUNCTIONALITY
+===================================
+*/
+      function setupColorVisualizer() {
+        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const roomOverlay = document.getElementById("room-overlay");
+
+        colorSwatches.forEach((swatch) => {
+          swatch.addEventListener("click", function () {
+            const selectedColor = this.getAttribute("data-color");
+
+            // Remove active class from all swatches
+            colorSwatches.forEach((s) => s.classList.remove("active"));
+
+            // Add active class to clicked swatch
+            this.classList.add("active");
+
+            // Update room overlay color
+            if (roomOverlay) {
+              updateRoomColor(selectedColor);
+            }
+          });
+        });
+
+        // Set default active color
+        if (colorSwatches.length > 0) {
+          colorSwatches[0].classList.add("active");
+        }
+      }
+
+      function updateRoomColor(color) {
+        const roomOverlay = document.getElementById("room-overlay");
+
+        if (roomOverlay) {
+          // Convert hex to rgba for overlay effect
+          const rgba = hexToRgba(color, 0.4);
+
+          roomOverlay.style.background = rgba;
+          roomOverlay.style.opacity = "1";
+
+          // Animate the color change
+          roomOverlay.style.transition = "all 0.6s ease";
+
+          // Store current color
+          currentColorOverlay = color;
+
+          // Reset opacity after animation
+          setTimeout(() => {
+            roomOverlay.style.opacity = "0.4";
+          }, 600);
+        }
+      }
+
+      function hexToRgba(hex, alpha) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+      }
+
+      /*
+===================================
+WHATSAPP INTEGRATION
+===================================
+*/
+      function setupWhatsAppIntegration() {
+        const whatsappButtons = document.querySelectorAll(
+          "#whatsapp-btn, #whatsapp-float-btn"
+        );
+
+        // Get WhatsApp number from config or use default
+        const whatsappNumber =
+          typeof BERGER_CONFIG !== "undefined" && BERGER_CONFIG.whatsapp
+            ? BERGER_CONFIG.whatsapp.number
+            : "+919876543210"; // Replace with client's WhatsApp number
+
+        whatsappButtons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+            openWhatsAppChat(whatsappNumber);
+          });
+        });
+      }
+
+      function openWhatsAppChat(phoneNumber, message = "") {
+        // Get default message from config or use fallback
+        const defaultMessage =
+          typeof BERGER_CONFIG !== "undefined" && BERGER_CONFIG.whatsapp
+            ? BERGER_CONFIG.whatsapp.defaultMessage
+            : `Hi! I'm interested in Berger Paints products. Could you please provide me with more information?`;
+        const finalMessage = message || defaultMessage;
+
+        // Encode the message for URL
+        const encodedMessage = encodeURIComponent(finalMessage);
+
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${phoneNumber.replace(
+          /\D/g,
+          ""
+        )}?text=${encodedMessage}`;
+
+        // Open WhatsApp in new tab/window
+        window.open(whatsappUrl, "_blank");
+      }
+
+      /*
+===================================
+CONTACT FORM FUNCTIONALITY
+===================================
+*/
+      function setupContactForm() {
+        const contactForm = document.getElementById("contact-form");
+
+        if (contactForm) {
+          contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+            handleContactFormSubmission();
+          });
+        }
+      }
+
+      function handleContactFormSubmission() {
+        const form = document.getElementById("contact-form");
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const phone = document.getElementById("phone").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Validate form
+        if (!validateContactForm(name, email)) {
+          return;
+        }
+
+        // Create WhatsApp message
+        const whatsappMessage = createWhatsAppMessage(
+          name,
+          email,
+          phone,
+          message
+        );
+
+        // Open WhatsApp with the message
+        const whatsappNumber = "+919876543210"; // Replace with client's WhatsApp number
+        openWhatsAppChat(whatsappNumber, whatsappMessage);
+
+        // Reset form
+        form.reset();
+
+        // Show success message
+        showFormSuccessMessage();
+      }
+
+      function validateContactForm(name, email) {
+        if (!name) {
+          showFormError("Please enter your name.");
+          return false;
+        }
+
+        if (!email || !isValidEmail(email)) {
+          showFormError("Please enter a valid email address.");
+          return false;
+        }
+
+        return true;
+      }
+
+      function isValidEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+      }
+
+      function createWhatsAppMessage(name, email, phone, message) {
+        let whatsappMessage = `*Berger Paints Inquiry*\n\n`;
+        whatsappMessage += `*Name:* ${name}\n`;
+        whatsappMessage += `*Email:* ${email}\n`;
+
+        if (phone) {
+          whatsappMessage += `*Phone:* ${phone}\n`;
+        }
+
+        if (message) {
+          whatsappMessage += `\n*Message:*\n${message}\n`;
+        } else {
+          whatsappMessage += `\n*Message:*\nI'm interested in Berger Paints products. Please provide more information.\n`;
+        }
+
+        whatsappMessage += `\nThank you!`;
+
+        return whatsappMessage;
+      }
+
+      function showFormError(message) {
+        // Create or update error message element
+        let errorElement = document.querySelector(".form-error");
+
+        if (!errorElement) {
+          errorElement = document.createElement("div");
+          errorElement.className = "form-error";
+          errorElement.style.cssText = `
+            color: #ff4757;
+            background: rgba(255, 71, 87, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-size: 14px;
+        `;
+          document.getElementById("contact-form").prepend(errorElement);
+        }
+
+        errorElement.textContent = message;
+
+        // Remove error after 5 seconds
+        setTimeout(() => {
+          if (errorElement && errorElement.parentNode) {
+            errorElement.remove();
+          }
+        }, 5000);
+      }
+
+      function showFormSuccessMessage() {
+        // Create success message element
+        const successElement = document.createElement("div");
+        successElement.className = "form-success";
+        successElement.style.cssText = `
+        color: #2ed573;
+        background: rgba(46, 213, 115, 0.1);
+        padding: 15px;
+        border-radius: 5px;
+        margin: 10px 0;
+        font-size: 14px;
+        text-align: center;
+    `;
+        successElement.textContent =
+          "Thank you! Your message has been forwarded to WhatsApp. We will contact you soon.";
+
+        document.getElementById("contact-form").prepend(successElement);
+
+        // Remove success message after 5 seconds
+        setTimeout(() => {
+          if (successElement && successElement.parentNode) {
+            successElement.remove();
+          }
+        }, 5000);
+      }
+
+      /*
+===================================
+INNOVATION SLIDER FUNCTIONALITY
+===================================
+*/
+      function setupInnovationSlider() {
+        const innovationCards = document.getElementById("innovation-cards");
+
+        if (innovationCards) {
+          // Enable horizontal scrolling with mouse wheel
+          innovationCards.addEventListener("wheel", function (e) {
+            if (e.deltaY !== 0) {
+              e.preventDefault();
+              this.scrollLeft += e.deltaY;
+            }
+          });
+
+          // Add touch/swipe support for mobile
+          let isDown = false;
+          let startX;
+          let scrollLeft;
+
+          innovationCards.addEventListener("mousedown", function (e) {
+            isDown = true;
+            startX = e.pageX - this.offsetLeft;
+            scrollLeft = this.scrollLeft;
+            this.style.cursor = "grabbing";
+          });
+
+          innovationCards.addEventListener("mouseleave", function () {
+            isDown = false;
+            this.style.cursor = "grab";
+          });
+
+          innovationCards.addEventListener("mouseup", function () {
+            isDown = false;
+            this.style.cursor = "grab";
+          });
+
+          innovationCards.addEventListener("mousemove", function (e) {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - this.offsetLeft;
+            const walk = (x - startX) * 2;
+            this.scrollLeft = scrollLeft - walk;
+          });
+        }
+      }
+
+      /*
+===================================
+UTILITY FUNCTIONS
+===================================
+*/
+
+      // Debounce function for performance optimization
+      function debounce(func, wait, immediate) {
+        let timeout;
+        return function executedFunction() {
+          const context = this;
+          const args = arguments;
+          const later = function () {
+            timeout = null;
+            if (!immediate) func.apply(context, args);
+          };
+          const callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+        };
+      }
+
+      // Throttle function for scroll events
+      function throttle(func, limit) {
+        let inThrottle;
+        return function () {
+          const args = arguments;
+          const context = this;
+          if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => (inThrottle = false), limit);
+          }
+        };
+      }
+
+      /*
+===================================
+PERFORMANCE OPTIMIZATIONS
+===================================
+*/
+
+      // Lazy load images when they come into view
+      function setupLazyLoading() {
+        const images = document.querySelectorAll("img[data-src]");
+
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              img.src = img.dataset.src;
+              img.classList.remove("lazy");
+              observer.unobserve(img);
+            }
+          });
+        });
+
+        images.forEach((img) => imageObserver.observe(img));
+      }
+
+      /*
+===================================
+ERROR HANDLING
+===================================
+*/
+
+      // Global error handler
+      window.addEventListener("error", function (e) {
+        console.error("JavaScript Error:", e.error);
+        // Could send error to analytics service here
+      });
+
+      // Handle unhandled promise rejections
+      window.addEventListener("unhandledrejection", function (e) {
+        console.error("Unhandled Promise Rejection:", e.reason);
+        e.preventDefault();
+      });
+
+      /*
+===================================
+ACCESSIBILITY ENHANCEMENTS
+===================================
+*/
+
+      // Add keyboard navigation support
+      document.addEventListener("keydown", function (e) {
+        // Handle Enter key on buttons and links
+        if (e.key === "Enter") {
+          const target = e.target;
+          if (
+            target.tagName === "BUTTON" ||
+            (target.tagName === "A" && target.hasAttribute("href"))
+          ) {
+            target.click();
+          }
+        }
+      });
+
+      // Focus management for mobile menu
+      function manageFocus() {
+        const mobileMenuOverlay = document.getElementById(
+          "mobile-menu-overlay"
+        );
+        const firstFocusableElement =
+          mobileMenuOverlay.querySelector("a, button");
+        const focusableElements =
+          mobileMenuOverlay.querySelectorAll("a, button");
+        const lastFocusableElement =
+          focusableElements[focusableElements.length - 1];
+
+        // Trap focus within mobile menu when open
+        document.addEventListener("keydown", function (e) {
+          if (!isMenuOpen) return;
+
+          if (e.key === "Tab") {
+            if (e.shiftKey) {
+              if (document.activeElement === firstFocusableElement) {
+                e.preventDefault();
+                lastFocusableElement.focus();
+              }
+            } else {
+              if (document.activeElement === lastFocusableElement) {
+                e.preventDefault();
+                firstFocusableElement.focus();
+              }
+            }
+          }
+        });
+      }
+
+      /*
+===================================
+ANALYTICS TRACKING (Optional)
+===================================
+*/
+
+      // Track user interactions for analytics
+      function trackEvent(eventName, eventData) {
+        // Example: Send to Google Analytics or other analytics service
+        if (typeof gtag !== "undefined") {
+          gtag("event", eventName, eventData);
+        }
+
+        // Example: Send to custom analytics
+        console.log("Event tracked:", eventName, eventData);
+      }
+
+      // Track button clicks
+      document.addEventListener("click", function (e) {
+        const target = e.target.closest("button, .btn-primary, .btn-secondary");
+        if (target) {
+          const buttonText = target.textContent.trim();
+          trackEvent("button_click", {
+            button_text: buttonText,
+            page_section: getPageSection(target),
+          });
+        }
+      });
+
+      function getPageSection(element) {
+        const section = element.closest("section");
+        return section ? section.id || section.className : "unknown";
+      }
+
+      /*
+===================================
+INITIALIZATION CHECK
+===================================
+*/
+
+      // Ensure all critical elements are present
+      function checkCriticalElements() {
+        const criticalElements = [
+          "nav-toggle",
+          "mobile-menu-overlay",
+          "contact-form",
+          "whatsapp-btn",
+        ];
+
+        criticalElements.forEach((id) => {
+          const element = document.getElementById(id);
+          if (!element) {
+            console.warn(`Critical element missing: ${id}`);
+          }
+        });
+      }
+
+      // Run initialization check after DOM is loaded
+      document.addEventListener("DOMContentLoaded", function () {
+        checkCriticalElements();
+        manageFocus();
+      });
+
+      /*
+===================================
+SERVICE WORKER REGISTRATION (Optional)
+===================================
+*/
+
+      // Register service worker for offline functionality
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then(function (registration) {
+              console.log("SW registered: ", registration);
+            })
+            .catch(function (registrationError) {
+              console.log("SW registration failed: ", registrationError);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>

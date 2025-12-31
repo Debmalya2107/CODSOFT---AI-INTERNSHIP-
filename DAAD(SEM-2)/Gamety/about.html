@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Gamety</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/avstyle.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 px-6">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-6xl font-bold mb-6 gradient-text slide-up">About Gamety</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto slide-up">Your Ultimate Source for In-Depth Game Documentation and PC Gaming Heritage</p>
+        </div>
+    </section>
+
+    <!-- Main Cards Section -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-6 text-center floating-animation">
+                <h3 class="text-2xl font-bold mb-4">Comprehensive Guides</h3>
+                <img src="./images/ab-cg.jpg" alt="Comprehensive Guides" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-gray-300">Explore detailed walkthroughs for your favorite games, complete with strategies, hidden secrets, and full game breakdowns.</p>
+            </div>
+            <div class="glass-card p-6 text-center floating-animation" style="animation-delay: 0.2s">
+                <h3 class="text-2xl font-bold mb-4">Developer Insights</h3>
+                <img src="./images/ab-di.jpg" alt="Developer Insights" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-gray-300">Get behind-the-scenes access to game development with our exclusive interviews and production documentation.</p>
+            </div>
+            <div class="glass-card p-6 text-center floating-animation" style="animation-delay: 0.4s">
+                <h3 class="text-2xl font-bold mb-4">Historical Analysis</h3>
+                <img src="./images/ab-ha.jpg" alt="Historical Analysis" class="w-full h-40 object-cover rounded-lg mb-4">
+                <p class="text-gray-300">Discover how games have evolved with our comprehensive historical documentation of genres, mechanics, and industry trends.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About GameDocs Section -->
+    <section class="px-6 mb-20">
+        <div class="max-w-4xl mx-auto glass-card p-8">
+            <h2 class="text-4xl font-bold mb-6 text-center gradient-text">About GameDocs</h2>
+            <p class="text-lg text-gray-300 mb-4">Founded by passionate gamers, GameDocs is dedicated to preserving and presenting comprehensive documentation for PC games. We believe understanding games deeply enhances the player experience, uncovering layers of design that often go unnoticed during casual play.</p>
+            <p class="text-lg text-gray-300">Our team of dedicated researchers and writers create meticulously detailed documentation that serves both casual players seeking to enhance their experience and developers looking to understand game design principles.</p>
+        </div>
+    </section>
+
+    <!-- Statistics -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+            <div class="glass-card p-8 text-center">
+                <div class="text-5xl font-bold gradient-text mb-2">500+</div>
+                <div class="text-gray-300">Games Documented</div>
+            </div>
+            <div class="glass-card p-8 text-center">
+                <div class="text-5xl font-bold gradient-text mb-2">1M+</div>
+                <div class="text-gray-300">Monthly Readers</div>
+            </div>
+            <div class="glass-card p-8 text-center">
+                <div class="text-5xl font-bold gradient-text mb-2">10+</div>
+                <div class="text-gray-300">Years of Experience</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- History of PC Gaming -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">The Evolution of PC Gaming</h2>
+            <div class="glass-card p-8">
+                <p class="text-lg text-gray-300 mb-8">PC gaming has undergone a remarkable transformation since its humble beginnings in the 1970s. From text-based adventures to today's photorealistic virtual worlds, the journey of PC gaming represents one of technology's most dynamic evolution stories.</p>
+                
+                <div class="space-y-8">
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-blue-400 mb-2">1970s-1980s: The Pioneer Era</h4>
+                        <p class="text-gray-300">Early text adventures and simple graphics games laid the foundation. Games like "Adventure" and "Zork" established storytelling as a core element of gaming.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-purple-400 mb-2">1990s: The Golden Age</h4>
+                        <p class="text-gray-300">Revolutionary titles like "Doom," "Myst," and "Warcraft" defined genres that still dominate today. This era saw the birth of 3D graphics and multiplayer gaming.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-pink-400 mb-2">2000s: Online Revolution</h4>
+                        <p class="text-gray-300">MMORPGs like "World of Warcraft" and digital distribution through Steam transformed how games were played and distributed.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4 class="text-xl font-bold text-green-400 mb-2">2010s-Present: The Modern Era</h4>
+                        <p class="text-gray-300">Indie gaming boom, virtual reality, and esports have created an unprecedented diversity in gaming experiences and opportunities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Why Documentation Matters -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Why Documenting Games Matters</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-archive text-2xl text-blue-400 mr-3"></i>
+                        <h3 class="text-xl font-bold">Cultural Preservation</h3>
+                    </div>
+                    <p class="text-gray-300">Games are digital artifacts that can be lost forever. Documentation preserves the cultural impact, design philosophy, and historical significance of interactive entertainment for future generations.</p>
+                </div>
+                <div class="glass-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-lightbulb text-2xl text-purple-400 mr-3"></i>
+                        <h3 class="text-xl font-bold">Design Learning</h3>
+                    </div>
+                    <p class="text-gray-300">By analyzing game mechanics, narrative structures, and design decisions, we create a knowledge base that benefits current and aspiring game developers worldwide.</p>
+                </div>
+                <div class="glass-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-users text-2xl text-pink-400 mr-3"></i>
+                        <h3 class="text-xl font-bold">Community Building</h3>
+                    </div>
+                    <p class="text-gray-300">Comprehensive documentation creates shared references and deeper discussions within gaming communities, fostering appreciation for the craft behind beloved games.</p>
+                </div>
+                <div class="glass-card p-6">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-chart-line text-2xl text-green-400 mr-3"></i>
+                        <h3 class="text-xl font-bold">Industry Evolution</h3>
+                    </div>
+                    <p class="text-gray-300">Understanding past successes and failures through detailed analysis helps the industry evolve, avoiding repeated mistakes and building upon proven innovations.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Vision & Purpose -->
+    <section class="px-6 mb-20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Our Vision & Purpose</h2>
+            <div class="glass-card p-8">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-400">Our Mission</h3>
+                    <p class="text-lg text-gray-300">To create the world's most comprehensive and accessible repository of PC game documentation, preserving gaming heritage while empowering players and developers with deep insights into interactive entertainment.</p>
+                </div>
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-400">Our Vision</h3>
+                    <p class="text-lg text-gray-300">A future where every significant PC game is thoroughly documented, analyzed, and preserved, creating an invaluable resource that bridges the gap between casual enjoyment and professional development.</p>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 text-pink-400">Future Goals</h3>
+                    <ul class="space-y-3 text-gray-300">
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Expand to 1,000+ documented games by 2025</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Launch interactive game design analysis tools</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Establish partnerships with major game developers</li>
+                        <li class="flex items-center"><i class="fas fa-check text-green-400 mr-3"></i>Create educational resources for game design students</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- How Gamers Benefit -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">How Gamers Benefit</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-card p-6 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 glass-effect rounded-full flex items-center justify-center">
+                        <i class="fas fa-trophy text-2xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Enhanced Gameplay</h3>
+                    <p class="text-gray-300">Discover hidden mechanics, optimal strategies, and secret content that developers embedded in their games.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 glass-effect rounded-full flex items-center justify-center">
+                        <i class="fas fa-brain text-2xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Deeper Understanding</h3>
+                    <p class="text-gray-300">Learn about game design principles, narrative techniques, and artistic choices that make games memorable.</p>
+                </div>
+                <div class="glass-card p-6 text-center">
+                    <div class="w-16 h-16 mx-auto mb-4 glass-effect rounded-full flex items-center justify-center">
+                        <i class="fas fa-history text-2xl text-purple-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Gaming Heritage</h3>
+                    <p class="text-gray-300">Connect with gaming history and understand how your favorite titles fit into the broader evolution of interactive entertainment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Values & Community -->
+    <section class="px-6 mb-20">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Our Values & Community</h2>
+            <div class="glass-card p-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-blue-400">Core Values</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-heart text-red-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Passion for Gaming</h4>
+                                    <p class="text-gray-300 text-sm">Every piece of content is created by genuine gaming enthusiasts who understand what makes games special.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-search text-yellow-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Accuracy & Research</h4>
+                                    <p class="text-gray-300 text-sm">We prioritize factual accuracy and thorough research in all our documentation efforts.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-globe text-green-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Accessibility</h4>
+                                    <p class="text-gray-300 text-sm">Making gaming knowledge accessible to everyone, regardless of their technical background or experience level.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-purple-400">Community Focus</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <i class="fas fa-comments text-blue-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Open Dialogue</h4>
+                                    <p class="text-gray-300 text-sm">We encourage community contributions, discussions, and collaborative knowledge building.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-hands-helping text-pink-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Mutual Support</h4>
+                                    <p class="text-gray-300 text-sm">Creating an environment where gamers help each other discover and appreciate gaming experiences.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-shield-alt text-cyan-400 mt-1 mr-3"></i>
+                                <div>
+                                    <h4 class="font-bold">Respectful Environment</h4>
+                                    <p class="text-gray-300 text-sm">Maintaining a welcoming space for all gaming enthusiasts, regardless of their preferences or skill levels.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- FAQs -->
+    <section class="px-6 mb-20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Frequently Asked Questions</h2>
+            <div class="space-y-6">
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-3 text-blue-400">How do you choose which games to document?</h3>
+                    <p class="text-gray-300">We prioritize games based on cultural impact, innovative design elements, community interest, and historical significance. We also take suggestions from our community members.</p>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-3 text-purple-400">Can I contribute to your documentation efforts?</h3>
+                    <p class="text-gray-300">Absolutely! We welcome contributions from passionate gamers. Contact us through our community channels to learn about current projects and how you can get involved.</p>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-3 text-pink-400">How accurate is your information?</h3>
+                    <p class="text-gray-300">All our documentation goes through rigorous fact-checking and verification processes. We cite sources and work directly with developers when possible to ensure accuracy.</p>
+                </div>
+                <div class="glass-card p-6">
+                    <h3 class="text-xl font-bold mb-3 text-green-400">Do you cover indie games as well as AAA titles?</h3>
+                    <p class="text-gray-300">Yes! We believe innovative design can come from any size studio. Many indie games have contributed significantly to gaming evolution and deserve thorough documentation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Acknowledgments -->
+    <section class="px-6 mb-20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-4xl font-bold mb-12 text-center gradient-text">Acknowledgments</h2>
+            <div class="glass-card p-8">
+                <p class="text-lg text-gray-300 mb-6">GameDocs wouldn't exist without the incredible support and contributions from the gaming community. We extend our gratitude to:</p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-bold text-blue-400 mb-2">Game Developers</h4>
+                        <p class="text-gray-300 text-sm">The creative minds who have shared their insights, development stories, and behind-the-scenes access with our team.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-purple-400 mb-2">Community Contributors</h4>
+                        <p class="text-gray-300 text-sm">Dedicated community members who have provided research, corrections, and valuable feedback to improve our documentation.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-pink-400 mb-2">Gaming Historians</h4>
+                        <p class="text-gray-300 text-sm">Researchers and archivists who have helped us maintain historical accuracy and preserve gaming heritage.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-green-400 mb-2">Our Readers</h4>
+                        <p class="text-gray-300 text-sm">The passionate gaming community whose engagement and feedback continue to drive our mission forward.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Disclaimer -->
+    <section class="px-6 mb-20">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Disclaimer</h2>
+            <div class="glass-card p-6">
+                <p class="text-gray-300 text-sm leading-relaxed">
+                    All game content, screenshots, and intellectual property referenced in our documentation belong to their respective owners and developers. 
+                    GameDocs operates under fair use principles for educational and analytical purposes. Our documentation aims to celebrate and analyze 
+                    games as cultural artifacts and does not claim ownership of any copyrighted material. If you are a rights holder and have concerns 
+                    about our coverage of your content, please contact us for resolution.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="px-6 py-12 border-t border-white border-opacity-20">
+        <div class="max-w-6xl mx-auto text-center">
+            <div class="glass-card p-8">
+                <h3 class="text-2xl font-bold mb-4 gradient-text">Join Our Community</h3>
+                <p class="text-gray-300 mb-6">Be part of the movement to preserve and celebrate PC gaming heritage.</p>
+                <div class="flex justify-center space-x-6 text-2xl">
+                    <i class="fab fa-discord text-purple-400 hover:text-purple-300 cursor-pointer transition-colors"></i>
+                    <i class="fab fa-twitter text-blue-400 hover:text-blue-300 cursor-pointer transition-colors"></i>
+                    <i class="fab fa-reddit text-orange-400 hover:text-orange-300 cursor-pointer transition-colors"></i>
+                    <i class="fab fa-youtube text-red-400 hover:text-red-300 cursor-pointer transition-colors"></i>
+                </div>
+            </div>
+            <p class="text-gray-400 text-sm mt-8">&copy; 2025 GameDocs. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

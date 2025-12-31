@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Documentation - 3D Interactive Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="./css/mine.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-4">
+                    <div class="logo-3d">
+                        <div class="cube">
+                            <div class="cube-face front"></div>
+                            <div class="cube-face back"></div>
+                            <div class="cube-face right"></div>
+                            <div class="cube-face left"></div>
+                            <div class="cube-face top"></div>
+                            <div class="cube-face bottom"></div>
+                        </div>
+                    </div>
+                    <h1 class="text-2xl font-bold text-white pixel-font">MINECRAFT</h1>
+                </div>
+                <!-- Navigation -->
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-blocks">
+            <div class="floating-block"></div>
+            <div class="floating-block"></div>
+            <div class="floating-block"></div>
+            <div class="floating-block"></div>
+        </div>
+        <div class="container mx-auto px-6 text-center">
+            <h1 class="hero-title text-white pixel-font mb-6">MINECRAFT</h1>
+            <p class="text-xl text-white mb-8 max-w-3xl mx-auto">
+                Explore infinite worlds and build everything from the simplest of homes to the grandest of castles. 
+                Play in creative mode with unlimited resources or mine deep into the world in survival mode.
+            </p>
+            <div class="flex justify-center space-x-6">
+                <div class="cube">
+                    <div class="cube-face front" style="background: #FF6B6B;"></div>
+                    <div class="cube-face back" style="background: #FF6B6B;"></div>
+                    <div class="cube-face right" style="background: #FF6B6B;"></div>
+                    <div class="cube-face left" style="background: #FF6B6B;"></div>
+                    <div class="cube-face top" style="background: #FF6B6B;"></div>
+                    <div class="cube-face bottom" style="background: #FF6B6B;"></div>
+                </div>
+                <div class="cube" style="animation-delay: 1s;">
+                    <div class="cube-face front" style="background: #4ECDC4;"></div>
+                    <div class="cube-face back" style="background: #4ECDC4;"></div>
+                    <div class="cube-face right" style="background: #4ECDC4;"></div>
+                    <div class="cube-face left" style="background: #4ECDC4;"></div>
+                    <div class="cube-face top" style="background: #4ECDC4;"></div>
+                    <div class="cube-face bottom" style="background: #4ECDC4;"></div>
+                </div>
+                <div class="cube" style="animation-delay: 2s;">
+                    <div class="cube-face front" style="background: #FFD93D;"></div>
+                    <div class="cube-face back" style="background: #FFD93D;"></div>
+                    <div class="cube-face right" style="background: #FFD93D;"></div>
+                    <div class="cube-face left" style="background: #FFD93D;"></div>
+                    <div class="cube-face top" style="background: #FFD93D;"></div>
+                    <div class="cube-face bottom" style="background: #FFD93D;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Overview -->
+    <section id="overview" class="py-20 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 pixel-font text-gray-800">Game Overview</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="card-3d">
+                    <div class="text-center">
+                        <i class="fas fa-cube text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Creative Mode</h3>
+                        <p class="text-gray-600">Build with unlimited resources and fly around the world. Perfect for construction projects and artistic creations.</p>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <div class="text-center">
+                        <i class="fas fa-heart text-4xl text-red-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Survival Mode</h3>
+                        <p class="text-gray-600">Gather resources, craft tools, and survive hostile mobs. Manage hunger and health while exploring.</p>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <div class="text-center">
+                        <i class="fas fa-users text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Multiplayer</h3>
+                        <p class="text-gray-600">Join servers or play with friends locally. Collaborate on builds or compete in mini-games.</p>
+                    </div>
+                </div>
+                <div class="card-3d">
+                    <div class="text-center">
+                        <i class="fas fa-puzzle-piece text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-4">Mods & Plugins</h3>
+                        <p class="text-gray-600">Customize your experience with thousands of mods, texture packs, and server plugins.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Statistics -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-center mb-12 pixel-font text-gray-800">Minecraft by Numbers</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-number">200M+</div>
+                    <div class="stat-label">Copies Sold</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">126M+</div>
+                    <div class="stat-label">Monthly Active Users</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">400+</div>
+                    <div class="stat-label">Block Types</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">World Size</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blocks Section -->
+    <section id="blocks" class="py-20 bg-gradient-to-b from-green-100 to-blue-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 pixel-font text-gray-800">Block Types</h2>
+            <div class="block-grid">
+                <div class="block-item">
+                    <div class="block-icon" style="background: #8B4513;"></div>
+                    <h3 class="font-bold mb-2">Dirt Block</h3>
+                    <p class="text-sm text-gray-600">Basic building block found everywhere. Can be converted to farmland for crops.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #708238;"></div>
+                    <h3 class="font-bold mb-2">Grass Block</h3>
+                    <p class="text-sm text-gray-600">Dirt with grass on top. Animals spawn on grass and it spreads to nearby dirt.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #7F7F7F;"></div>
+                    <h3 class="font-bold mb-2">Stone</h3>
+                    <p class="text-sm text-gray-600">Solid block found underground. Source of cobblestone when mined.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #8C7853;"></div>
+                    <h3 class="font-bold mb-2">Wood Log</h3>
+                    <p class="text-sm text-gray-600">Essential resource from trees. Used for crafting tools and building.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #C7C7C7;"></div>
+                    <h3 class="font-bold mb-2">Iron Ore</h3>
+                    <p class="text-sm text-gray-600">Valuable ore that smelts into iron ingots for advanced tools.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #FFFF55;"></div>
+                    <h3 class="font-bold mb-2">Gold Ore</h3>
+                    <p class="text-sm text-gray-600">Rare ore found deep underground. Smelts into gold ingots.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #5DCFDC;"></div>
+                    <h3 class="font-bold mb-2">Diamond Ore</h3>
+                    <p class="text-sm text-gray-600">Extremely rare and valuable. Creates the strongest tools and armor.</p>
+                </div>
+                <div class="block-item">
+                    <div class="block-icon" style="background: #FF6600;"></div>
+                    <h3 class="font-bold mb-2">Lava</h3>
+                    <p class="text-sm text-gray-600">Dangerous liquid that causes fire damage. Can be collected with buckets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Crafting Section -->
+    <section id="crafting" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 pixel-font text-gray-800">Crafting Recipes</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-6">Wooden Pickaxe</h3>
+                    <div class="crafting-grid">
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot" style="background: #CD853F;"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot" style="background: #CD853F;"></div>
+                        <div class="crafting-slot"></div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Essential tool for mining stone and ores.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-6">Crafting Table</h3>
+                    <div class="crafting-grid">
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot" style="background: #8C7853;"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot"></div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Upgrade from 2x2 to 3x3 crafting grid.</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-6">Furnace</h3>
+                    <div class="crafting-grid">
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                        <div class="crafting-slot" style="background: #7F7F7F;"></div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Smelt ores and cook food items.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biomes Section -->
+    <section id="biomes" class="py-20 bg-gradient-to-b from-blue-50 to-green-50">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 pixel-font text-gray-800">Biomes</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="biome-card">
+                    <h3 class="text-2xl font-bold mb-4">Plains</h3>
+                    <p class="mb-4">Flat grasslands perfect for building. Home to horses, cows, and sheep. Contains villages and plenty of space for farms.</p>
+                    <ul class="list-disc list-inside">
+                        <li>Abundant grass and flowers</li>
+                        <li>Villages with villagers</li>
+                        <li>Perfect for agriculture</li>
+                        <li>Oak trees scattered around</li>
+                    </ul>
+                </div>
+                <div class="biome-card">
+                    <h3 class="text-2xl font-bold mb-4">Forest</h3>
+                    <p class="mb-4">Dense woodland areas rich in wood resources. Dark forests contain special mansion structures and dangerous mobs.</p>
+                    <ul class="list-disc list-inside">
+                        <li>Oak and birch trees</li>
+                        <li>Wolves and various animals</li>
+                        <li>Abundant wood supply</li>
+                        <li>Mushrooms and flowers</li>
+                    </ul>
+                </div>
+                <div class="biome-card">
+                    <h3 class="text-2xl font-bold mb-4">Desert</h3>
+                    <p class="mb-4">Sandy wasteland with cacti and rare oases. Contains pyramids with valuable treasures and dangerous traps.</p>
+                    <ul class="list-disc list-inside">
+                        <li>Sand and sandstone blocks</li>
+                        <li>Desert temples with loot</li>
+                        <li>Cacti for protection</li>
+                        <li>Villages adapted to heat</li>
+                    </ul>
+                </div>
+                <div class="biome-card">
+                    <h3 class="text-2xl font-bold mb-4">Mountains</h3>
+                    <p class="mb-4">Towering peaks with stone and ore. Dangerous terrain but rich in valuable resources like emeralds and coal.</p>
+                    <ul class="list-disc list-inside">
+                        <li>High altitude terrain</li>
+                        <li>Rich ore deposits</li>
+                        <li>Snow-capped peaks</li>
+                        <li>Challenging navigation</li>
+                    </ul>
+                </div>
+                <div class="biome-card">
+                    <h3 class="text-2xl font-bold mb-4">Ocean</h3>
+                    <p class="mb-4">Vast water bodies with underwater structures. Home to dolphins, fish, and dangerous guardians protecting ocean monuments.</p>
+                    <ul class="list-disc list-inside">
+                        <li>Ocean monuments with guardians</li>
+                        <li>Shipwrecks with treasure</li>
+                        <li>Coral reefs and sea life</li>
+                        <li>Underwater exploration</li>
+                    </ul>
+                </div>
+                <div class="biome-card">
+                    <h3 class="text-2xl font-bold mb-4">Nether</h3>
+                    <p class="mb-4">Hell-like dimension accessed through obsidian portals. Contains unique materials and extremely dangerous mobs.</p>
+                    <ul class="list-disc list-inside">
+                        <li>Nether fortresses with blazes</li>
+                        <li>Ghasts and zombie pigmen</li>
+                        <li>Glowstone and nether quartz</li>
+                        <li>Lava seas and fire</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobs Section -->
+    <section id="mobs" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-16 pixel-font text-gray-800">Creatures & Mobs</h2>
+            <div class="mob-gallery">
+                <div class="mob-card">
+                    <div class="mob-icon">
+                        <i class="fas fa-spider"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Creeper</h3>
+                    <p class="text-gray-600 mb-4">Silent green mob that explodes when near players. Drops gunpowder and music discs.</p>
+                    <div class="text-sm">
+                        <span class="font-bold">Health:</span> 20 HP<br>
+                        <span class="font-bold">Behavior:</span> Hostile
+                    </div>
+                </div>
+                <div class="mob-card">
+                    <div class="mob-icon" style="background: linear-gradient(45deg, #8B4513, #CD853F);">
+                        <i class="fas fa-horse"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Zombie</h3>
+                    <p class="text-gray-600 mb-4">Undead mob that spawns in darkness. Burns in sunlight and can break down doors.</p>
+                    <div class="text-sm">
+                        <span class="font-bold">Health:</span> 20 HP<br>
+                        <span class="font-bold">Behavior:</span> Hostile
+                    </div>
+                </div>
+                <div class="mob-card">
+                    <div class="mob-icon" style="background: linear-gradient(45tag, #228B22, #90EE90);">
+                        <i class="fas fa-bone"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Skeleton</h3>
+                    <p class="text-gray-600 mb-4">Archer mob with bow and arrows. Drops bones and arrows when defeated.</p>
+                    <div class="text-sm">
+                        <span class="font-bold">Health:</span> 20 HP<br>
+                        <span class="font-bold">Behavior:</span> Hostile
+                    </div>
+                </div>
+                <div class="mob-card">
+                    <div class="mob-icon" style="background: linear-gradient(45deg, #FFB6C1, #FF69B4);">
+                        <i class="fas fa-bacon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Pig</h3>
+                    <p class="text-gray-600 mb-4">Peaceful farm animal that provides pork. Can be ridden with a saddle and carrot on a stick.</p>
+                    <div class="text-sm">
+                        <span class="font-bold">Health:</span> 10 HP<br>
+                        <span class="font-bold">Behavior:</span> Passive
+                    </div>
+                </div>
+                <div class="mob-card">
+                    <div class="mob-icon" style="background: linear-gradient(45deg, #FFFFFF, #F5F5F5);">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Sheep</h3>
+                    <p class="text-gray-600 mb-4">Woolly farm animal that provides wool when sheared. Wool regrows and can be dyed.</p>
+                    <div class="text-sm">
+                        <span class="font-bold">Health:</span> 8 HP<br>
+                        <span class="font-bold">Behavior:</span> Passive
+                    </div>
+                </div>
+                <div class="mob-card">
+                    <div class="mob-icon" style="background: linear-gradient(45deg, #8B4513, #DEB887);">
+                        <i class="fas fa-paw"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Wolf</h3>
+                    <p class="text-gray-600 mb-4">Wild dog that can be tamed with bones. Loyal companion that helps in combat.</p>
+                    <div class="text-sm">
+                        <span class="font-bold">Health:</span> 8-20 HP<br>
+                        <span class="font-bold">Behavior:</span> Tameable
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-cube"></div>
+        <div class="footer-cube"></div>
+        <div class="footer-cube"></div>
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <div class="cube mx-auto mb-8" style="animation-duration: 8s;">
+                    <div class="cube-face front" style="background: #4A90E2;"></div>
+                    <div class="cube-face back" style="background: #4A90E2;"></div>
+                    <div class="cube-face right" style="background: #4A90E2;"></div>
+                    <div class="cube-face left" style="background: #4A90E2;"></div>
+                    <div class="cube-face top" style="background: #4A90E2;"></div>
+                    <div class="cube-face bottom" style="background: #4A90E2;"></div>
+                </div>
+                <h3 class="text-2xl font-bold mb-4 pixel-font">Minecraft Documentation</h3>
+                <p class="mb-6">Your complete guide to the blocky world of infinite possibilities.</p>
+                <div class="flex justify-center space-x-6 mb-8">
+                    <i class="fab fa-twitter text-2xl hover:text-blue-400 transition-colors cursor-pointer"></i>
+                    <i class="fab fa-facebook text-2xl hover:text-blue-600 transition-colors cursor-pointer"></i>
+                    <i class="fab fa-youtube text-2xl hover:text-red-500 transition-colors cursor-pointer"></i>
+                    <i class="fab fa-discord text-2xl hover:text-purple-400 transition-colors cursor-pointer"></i>
+                </div>
+                <p class="text-sm opacity-75">&copy; 2025 Minecraft Documentation. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

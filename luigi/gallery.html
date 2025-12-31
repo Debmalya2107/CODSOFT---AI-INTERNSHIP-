@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse amazing screenshots and artwork from the Luigi & Mario game">
+    <title>Gallery - Luigi & Mario Gaming</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                MARIO <span class="luigi-text">& LUIGI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="characters.html">Characters</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="game.html">Play Game</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="gallery.html">Gallery</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header py-5" style="background: linear-gradient(135deg, #E52521 0%, #3CB043 100%);">
+        <div class="container text-center text-white">
+            <h1 data-aos="fade-down" class="display-3 fw-bold">Game Gallery</h1>
+            <p data-aos="fade-up" data-aos-delay="100" class="lead">Explore stunning visuals from the Mushroom Kingdom</p>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="gallery-section py-5">
+        <div class="container">
+            <div class="gallery-grid">
+                
+                <!-- Gallery Item 1 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+                    <img src="img/gallery/screenshot1.jpg" alt="Game Screenshot - Luigi Running">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="150">
+                    <img src="img/gallery/screenshot2.jpg" alt="Game Screenshot - Collecting Coins">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+                    <img src="img/gallery/screenshot3.jpg" alt="Game Screenshot - Fighting Enemies">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="250">
+                    <img src="img/gallery/screenshot4.jpg" alt="Game Screenshot - Jumping Over Obstacles">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 5 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="300">
+                    <img src="img/gallery/screenshot5.jpg" alt="Game Screenshot - Parallax Background">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 6 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="350">
+                    <img src="img/gallery/screenshot6.jpg" alt="Game Screenshot - Level Complete">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 7 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="400">
+                    <img src="img/gallery/screenshot7.jpg" alt="Character Artwork - Mario">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 8 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="450">
+                    <img src="img/gallery/screenshot8.jpg" alt="Character Artwork - Luigi">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 9 -->
+                <div class="gallery-item" data-aos="fade-up" data-aos-delay="500">
+                    <img src="img/gallery/screenshot9.jpg" alt="Game Environment - Mushroom Kingdom">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- LIGHTBOX MODAL -->
+    <div id="lightboxModal" class="lightbox-modal">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImage" alt="Full size image">
+    </div>
+
+    <!-- CALL TO ACTION -->
+    <section class="py-5 bg-white">
+        <div class="container text-center">
+            <div data-aos="zoom-in">
+                <h2 class="mb-4">Ready to Create Your Own Memories?</h2>
+                <p class="lead text-muted mb-4">Jump into the game and start your adventure!</p>
+                <a href="game.html" class="btn bg-mario text-white btn-lg me-3">
+                    <i class="fas fa-play"></i> Play Now
+                </a>
+                <a href="leaderboard.html" class="btn bg-luigi text-white btn-lg">
+                    <i class="fas fa-trophy"></i> View Scores
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    MARIO <span>& LUIGI</span>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="social-icon" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-icon" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Luigi & Mario Gaming Website. All Rights Reserved. Created with <i class="fas fa-heart text-mario"></i> for gamers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="js/main.js"></script>
+
+    <!-- Gallery Lightbox Script -->
+    <script>
+        // Lightbox functionality
+        const lightboxModal = document.getElementById('lightboxModal');
+        const lightboxImage = document.getElementById('lightboxImage');
+        const lightboxClose = document.querySelector('.lightbox-close');
+        const galleryItems = document.querySelectorAll('.gallery-item img');
+
+        // Open lightbox when clicking on gallery item
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                lightboxModal.style.display = 'block';
+                lightboxImage.src = this.src;
+                lightboxImage.alt = this.alt;
+            });
+        });
+
+        // Close lightbox when clicking the X button
+        lightboxClose.addEventListener('click', function() {
+            lightboxModal.style.display = 'none';
+        });
+
+        // Close lightbox when clicking outside the image
+        lightboxModal.addEventListener('click', function(e) {
+            if (e.target === lightboxModal) {
+                lightboxModal.style.display = 'none';
+            }
+        });
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && lightboxModal.style.display === 'block') {
+                lightboxModal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

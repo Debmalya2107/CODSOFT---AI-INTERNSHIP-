@@ -1,0 +1,73 @@
+python -m venv venv
+
+venv\Scripts\activate
+
+pip install -r requirements.txt
+
+python main.py 
+
+<------------ manual ------------
+
+👉 Cursor Move
+
+Gesture: Only index finger extended, others folded.
+
+Expected:
+
+Cursor moves in direction of your finger motion.
+
+No clicking, just movement.
+
+If laggy: check FPS of webcam or reduce smoothing factor in utils.py.
+
+🤏 Click
+
+Gesture: Index and middle fingers close together.
+
+Expected:
+
+One click performed (pyautogui.click()).
+
+Action cooldown (~1 sec) to prevent rapid clicks.
+
+✌️ Screenshot
+
+Gesture: Thumb, index, and middle fingers extended.
+
+Expected:
+
+“Screenshot saved” message in console.
+
+Screenshot image appears in your project folder.
+
+🖐️ Brightness Up / Down
+
+Gesture: Open palm facing camera — move hand up/down.
+
+Expected:
+
+System brightness increases or decreases smoothly.
+
+screen-brightness-control log message confirms change.
+
+⚠️ If you’re on a desktop monitor — brightness control might not work (it depends on your display driver). Works best on laptops.
+
+👊 Mute / Unmute
+
+Gesture: Closed fist.
+
+Expected:
+
+System toggles mute/unmute.
+
+“Mute toggled” message prints in console.
+
+🧏‍♂️ Play / Pause
+
+Optional — If mapped in your gesture_actions.py.
+
+Expected:
+
+Media playback toggles.
+
+Works with some players (like Spotify, VLC, YouTube tab via focus).

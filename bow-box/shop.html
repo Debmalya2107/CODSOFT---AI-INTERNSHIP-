@@ -1,0 +1,3034 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop - BOWBOX | Handpicked Gifts for Every Occasion</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- AOS (Animate On Scroll) CSS -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Google Fonts - Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* ===== GLOBAL STYLES ===== */
+    :root {
+      --white: #ffffff;
+      --black: #000000;
+      --pink: #ffc0cb;
+      --red: #ff0000;
+      --light-pink: #ffe4e9;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: var(--white);
+      color: var(--black);
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ===== NAVBAR STYLES ===== */
+
+    /* ===== HERO BANNER SECTION ===== */
+    .hero-banner {
+      position: relative;
+      height: 70vh;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: url("./media/shopban.png") center/cover no-repeat;
+      overflow: hidden;
+    }
+
+    .hero-banner::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("") center/cover no-repeat;
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: var(--white);
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-primary-custom {
+      background-color: var(--pink);
+      color: var(--white);
+      border: none;
+      padding: 15px 40px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(255, 192, 203, 0.4);
+    }
+
+    .btn-primary-custom:hover {
+      background-color: var(--red);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+    }
+
+    /* ===== SECTION TITLES ===== */
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 3rem;
+      color: var(--black);
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .section-title::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--pink), var(--red));
+      border-radius: 2px;
+    }
+
+    /* ===== CATEGORIES SECTION ===== */
+    .categories-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .category-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .category-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(255, 192, 203, 0.4);
+    }
+
+    .category-card img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    .category-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .category-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+      padding: 30px 20px 20px;
+      transition: all 0.4s ease;
+    }
+
+    .category-card:hover .category-overlay {
+      background: rgba(255, 192, 203, 0.9);
+    }
+
+    .category-name {
+      color: var(--white);
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      text-align: center;
+    }
+
+    /* ===== FILTER BAR ===== */
+    .filter-bar {
+      background-color: var(--light-pink);
+      padding: 30px 0;
+      margin: 50px 0;
+      border-radius: 15px;
+    }
+
+    .filter-bar .form-select,
+    .filter-bar .form-control {
+      border-radius: 50px;
+      border: 2px solid var(--pink);
+      padding: 10px 20px;
+      font-weight: 500;
+    }
+
+    .filter-bar .form-select:focus,
+    .filter-bar .form-control:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 0.2rem rgba(255, 192, 203, 0.25);
+    }
+
+    .btn-filter {
+      background-color: var(--pink);
+      color: var(--white);
+      border: none;
+      padding: 10px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-filter:hover {
+      background-color: var(--red);
+      transform: scale(1.05);
+    }
+
+    /* ===== PRODUCT GRID ===== */
+    .products-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .product-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      transition: all 0.4s ease;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      background-color: var(--white);
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .product-card .card-body {
+      padding: 20px;
+    }
+
+    .product-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+
+    .product-description {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 15px;
+    }
+
+    .btn-add-cart {
+      width: 100%;
+      background-color: var(--pink);
+      color: var(--white);
+      border: none;
+      padding: 12px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-add-cart:hover {
+      background-color: var(--red);
+      transform: scale(1.02);
+    }
+
+    /* ===== FEATURED COLLECTIONS ===== */
+    .collections-section {
+      padding: 80px 0;
+      background-color: var(--light-pink);
+    }
+
+    .collection-banner {
+      position: relative;
+      height: 350px;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(85, 79, 79, 0.15);
+    }
+
+    .collection-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all 0.4s ease;
+    }
+
+    .collection-banner:hover img {
+      transform: scale(1.1);
+    }
+
+    .collection-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+      transition: all 0.4s ease;
+    }
+
+    .collection-banner:hover .collection-overlay {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .collection-title {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .btn-collection {
+      background-color: var(--white);
+      color: var(--pink);
+      border: none;
+      padding: 12px 35px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-collection:hover {
+      background-color: var(--pink);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+
+    /* ===== GIFT BUNDLES ===== */
+    .bundles-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .bundle-card {
+      position: relative;
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+    }
+
+    .bundle-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(255, 192, 203, 0.3);
+    }
+
+    .discount-badge {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background-color: var(--red);
+      color: var(--white);
+      padding: 8px 15px;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      z-index: 10;
+      box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+    }
+
+    .bundle-card img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+    }
+
+    .bundle-card .card-body {
+      padding: 25px;
+    }
+
+    .bundle-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .bundle-description {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 15px;
+    }
+
+    .bundle-price {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 15px;
+    }
+
+    .bundle-price .original-price {
+      text-decoration: line-through;
+      color: #999;
+      font-size: 1rem;
+      margin-left: 10px;
+    }
+
+    .btn-bundle {
+      background-color: var(--pink);
+      color: var(--white);
+      border: none;
+      padding: 12px 30px;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-bundle:hover {
+      background-color: var(--red);
+      transform: scale(1.05);
+    }
+
+    /* ===== REVIEWS SECTION ===== */
+    .reviews-section {
+      padding: 80px 0;
+      background-color: var(--light-pink);
+    }
+
+    .review-card {
+      background-color: var(--white);
+      border-radius: 15px;
+      padding: 30px;
+      margin-bottom: 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .review-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .review-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .review-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 15px;
+      border: 3px solid var(--pink);
+    }
+
+    .review-info h5 {
+      margin: 0;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .review-stars {
+      color: #ffd700;
+      font-size: 1rem;
+    }
+
+    .review-text {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #555;
+      font-style: italic;
+    }
+
+    /* ===== GIFT FINDER CTA ===== */
+    .gift-finder-section {
+      padding: 100px 0;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--red) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .gift-finder-section h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .gift-finder-section p {
+      font-size: 1.3rem;
+      margin-bottom: 30px;
+      opacity: 0.95;
+    }
+
+    .btn-gift-finder {
+      background-color: var(--white);
+      color: var(--pink);
+      border: none;
+      padding: 15px 45px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 20px rgba(255, 255, 255, 0.3);
+    }
+
+    .btn-gift-finder:hover {
+      background-color: var(--black);
+      color: var(--white);
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    /* ===== NEWSLETTER SECTION ===== */
+    .newsletter-section {
+      padding: 80px 0;
+      background-color: var(--white);
+    }
+
+    .newsletter-content {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .newsletter-content h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+      color: var(--black);
+    }
+
+    .newsletter-content p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .newsletter-form .form-control {
+      border-radius: 50px;
+      border: 2px solid var(--pink);
+      padding: 15px 25px;
+      font-size: 1rem;
+    }
+
+    .newsletter-form .form-control:focus {
+      border-color: var(--red);
+      box-shadow: 0 0 0 0.2rem rgba(255, 192, 203, 0.25);
+    }
+
+    .btn-newsletter {
+      background-color: var(--pink);
+      color: var(--white);
+      border: none;
+      padding: 15px 40px;
+      font-weight: 600;
+      border-radius: 50px;
+      white-space: nowrap;
+      transition: all 0.3s ease;
+    }
+
+    .btn-newsletter:hover {
+      background-color: var(--red);
+      transform: scale(1.05);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background-color: var(--black);
+      color: var(--white);
+      padding: 60px 0 30px;
+    }
+
+    .footer h5 {
+      color: var(--pink);
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .footer ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer ul li {
+      margin-bottom: 10px;
+    }
+
+    .footer ul li a {
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .footer ul li a:hover {
+      color: var(--pink);
+      padding-left: 5px;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 40px;
+      padding-top: 20px;
+      text-align: center;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      width: 40px;
+      height: 40px;
+      background-color: var(--pink);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--white);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--red);
+      transform: translateY(-3px);
+    }
+
+    /* ===== BACK TO TOP BUTTON ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--pink);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-size: 1.5rem;
+      box-shadow: 0 5px 15px rgba(255, 192, 203, 0.4);
+      transition: all 0.3s ease;
+      z-index: 1000;
+    }
+
+    .back-to-top:hover {
+      background-color: var(--red);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(255, 0, 0, 0.4);
+    }
+
+    /* ===== RESPONSIVE DESIGN ===== */
+    @media (max-width: 768px) {
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-content p {
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .gift-finder-section h2 {
+        font-size: 2rem;
+      }
+
+      .gift-finder-section p {
+        font-size: 1rem;
+      }
+
+      .newsletter-form {
+        flex-direction: column;
+      }
+
+      .collection-banner {
+        height: 250px;
+      }
+
+      .collection-title {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+      .product-card img,
+      .bundle-card img {
+        height: 220px;
+      }
+    }
+
+    /* ==================== COMIC BUTTON STYLE ==================== */
+    .comic-button {
+      display: inline-block;
+      padding: 10px 20px;
+      font-size: 24px;
+      font-weight: bold;
+      text-align: center;
+      text-decoration: none;
+      color: #fff;
+      background-color: #ff5252;
+      border: 2px solid #000;
+      border-radius: 10px;
+      box-shadow: 5px 5px 0px #000;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .comic-button:hover {
+      background-color: #fff;
+      color: #ff5252;
+      border: 2px solid #ff5252;
+      box-shadow: 5px 5px 0px #ff5252;
+    }
+
+    .comic-button:active {
+      background-color: #fcf414;
+      box-shadow: none;
+      transform: translateY(4px);
+    }
+
+    .gift-snippet-wrapper {
+      position: relative;
+      width: 100%;
+      height: 500px;
+      /* Increased height to show off the bubbles better */
+      overflow: hidden;
+      box-sizing: border-box;
+      /* Bubbles Background Styles (formerly .wrapper) */
+      background: linear-gradient(180deg, #ffaddb, 5%, #ff1493, 50%, #420320);
+    }
+
+    /* --- BUBBLES STYLES --- */
+    .gift-snippet-wrapper h1 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      word-spacing: 2px;
+      color: #fff;
+      font-size: 40px;
+      font-weight: 888;
+      text-transform: uppercase;
+      margin: 0;
+      z-index: 1;
+      /* Below the gift box */
+      pointer-events: none;
+      /* Let clicks pass through */
+    }
+
+    /* Generic Bubble Style (formerly .wrapper div) */
+    .gift-snippet-wrapper .bubble {
+      height: 60px;
+      width: 60px;
+      border: 2px solid rgba(255, 255, 255, 0.7);
+      border-radius: 50px;
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      animation: bubbles-animate 4s linear infinite;
+      z-index: 1;
+    }
+
+    /* Dot inside bubble (formerly div .dot) */
+    .gift-snippet-wrapper .bubble .dot {
+      height: 10px;
+      width: 10px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.5);
+      position: absolute;
+      top: 20%;
+      right: 20%;
+    }
+
+    /* Bubble Animations (using nth-of-type to avoid selecting the h1 or gift box) */
+    .gift-snippet-wrapper .bubble:nth-of-type(1) {
+      top: 20%;
+      left: 20%;
+      animation: bubbles-animate 8s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(2) {
+      top: 60%;
+      left: 80%;
+      animation: bubbles-animate 10s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(3) {
+      top: 40%;
+      left: 40%;
+      animation: bubbles-animate 3s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(4) {
+      top: 66%;
+      left: 30%;
+      animation: bubbles-animate 7s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(5) {
+      top: 90%;
+      left: 10%;
+      animation: bubbles-animate 9s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(6) {
+      top: 30%;
+      left: 60%;
+      animation: bubbles-animate 5s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(7) {
+      top: 70%;
+      left: 20%;
+      animation: bubbles-animate 8s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(8) {
+      top: 75%;
+      left: 60%;
+      animation: bubbles-animate 10s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(9) {
+      top: 50%;
+      left: 50%;
+      animation: bubbles-animate 6s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(10) {
+      top: 45%;
+      left: 20%;
+      animation: bubbles-animate 10s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(11) {
+      top: 10%;
+      left: 90%;
+      animation: bubbles-animate 9s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(12) {
+      top: 20%;
+      left: 70%;
+      animation: bubbles-animate 7s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(13) {
+      top: 20%;
+      left: 20%;
+      animation: bubbles-animate 8s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(14) {
+      top: 60%;
+      left: 5%;
+      animation: bubbles-animate 6s linear infinite;
+    }
+
+    .gift-snippet-wrapper .bubble:nth-of-type(15) {
+      top: 90%;
+      left: 80%;
+      animation: bubbles-animate 9s linear infinite;
+    }
+
+    @keyframes bubbles-animate {
+      0% {
+        transform: scale(0) translateY(0) rotate(70deg);
+      }
+
+      100% {
+        transform: scale(1.3) translateY(-100px) rotate(360deg);
+      }
+    }
+
+    /* --- GIFT BOX STYLES --- */
+    .gift-snippet-box {
+      position: absolute;
+      top: 20px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+
+      /* Main Box Styles */
+      width: 100px;
+      height: 100px;
+      border-radius: 2px 2px 4px 4px / 2px 2px 16px 16px;
+      background:
+        linear-gradient(to top, transparent 0px, rgba(255, 255, 255, .3)),
+        linear-gradient(to top, transparent 0px, rgba(255, 255, 255, .3)),
+        linear-gradient(to top, transparent 0px, rgba(255, 255, 255, .35)),
+        linear-gradient(to top, rgba(0, 0, 0, 0.4) 0px, rgba(0, 0, 0, .1)),
+        linear-gradient(to top, transparent 70px, rgba(0, 0, 0, 0.6) 80px),
+        linear-gradient(to top, transparent 70px, rgba(0, 0, 0, 0.6) 80px),
+        linear-gradient(to right,
+          #338833 0px,
+          #33BB33 34px, #FF0000 34px,
+          #FF0000 36px, #FFFF00 36px,
+          #FFFF00 38px, #FF0000 38px,
+          #FF0000 62px, #FFFF00 62px,
+          #FFFF00 64px, #FF0000 64px,
+          #FF0000 66px, #33BB33 66px,
+          #338833 100px),
+        linear-gradient(to right,
+          #338833 0px,
+          #33BB33 32px, #FF0000 32px,
+          #FF0000 34px, #FFFF00 34px,
+          #FFFF00 36px, #FF0000 36px,
+          #FF0000 60px, #FFFF00 60px,
+          #FFFF00 62px, #FF0000 62px,
+          #FF0000 64px, #33BB33 64px,
+          #338833 100px);
+      background-size:
+        34px 5px,
+        36px 5px,
+        32px 20px,
+        96px 80px,
+        32px 80px,
+        32px 80px,
+        100px 20px,
+        96px 80px;
+      background-position:
+        0px 0px,
+        66px 0px,
+        34px 0px,
+        2px 20px,
+        2px 20px,
+        66px 20px,
+        0px 0px,
+        2px 20px;
+      background-repeat: no-repeat;
+      box-shadow:
+        0px 20px 40px -18px rgba(0, 0, 0, 0.25),
+        0px -20px 15px -10px rgba(0, 0, 0, 0.2);
+
+      /* Ensure Gift Box is above bubbles */
+      z-index: 10;
+    }
+
+    .gift-snippet-box::before {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      top: -105px;
+      left: -20px;
+
+      content: '';
+      z-index: -1;
+      width: 32px;
+      height: 40px;
+      border-radius: 10px 5px 0px 0px;
+      box-shadow: inset -4px 5px 10px rgba(255, 255, 255, 0.5);
+      background:
+        linear-gradient(to right,
+          transparent 0px, #FF0000 0px,
+          #FF0000 2px, #FFFF00 2px,
+          #FFFF00 4px, #FF0000 4px,
+          #FF0000 28px, #FFFF00 28px,
+          #FFFF00 30px, #FF0000 30px,
+          #FF0000 32px, transparent 32px);
+      background-size: 32px 40px;
+      background-position: 0px 0px;
+      background-repeat: no-repeat;
+      transform: rotateZ(-30deg) scale(0.8, 1);
+    }
+
+    .gift-snippet-box::after {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      top: -90px;
+      right: -20px;
+
+      content: '';
+      z-index: -1;
+      width: 32px;
+      height: 40px;
+      border-radius: 5px 10px 0px 0px;
+      box-shadow:
+        inset -5px 5px 10px rgba(255, 255, 255, 0.5),
+        0 0 20px rgba(0, 0, 0, 0.5);
+      background:
+        linear-gradient(to right,
+          transparent 0px, #FF0000 0px,
+          #FF0000 2px, #FFFF00 2px,
+          #FFFF00 4px, #FF0000 4px,
+          #FF0000 28px, #FFFF00 28px,
+          #FFFF00 30px, #FF0000 30px,
+          #FF0000 32px, transparent 32px);
+      background-size: 32px 40px;
+      background-position: 0px 0px;
+      background-repeat: no-repeat;
+      transform: rotateZ(25deg) scale(0.75, 1);
+    }
+
+    /* ==================== style for latesy drop ==================== */
+    @import url("https://fonts.googleapis.com/css2?family=Bowlby+One+SC&family=DM+Mono:wght@500&display=swap");
+
+    /* Wrapper Class: .suburbia-drop-snippet 
+   Acts as the 'scope' for all styles.
+*/
+
+    .suburbia-drop-snippet {
+      /* Variables moved from :root to here for scoping */
+      --brand-blue: #4876ff;
+      --brand-lime: #d9f154;
+      --brand-navy: #2e3192;
+      --brand-orange: #ff7347;
+      --brand-pink: #f7d0e9;
+      --brand-purple: #692e54;
+      --brand-gray: #fffdf9;
+
+      /* Fluid Typography */
+      --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+      --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+      --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+      --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+      --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+      --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+      --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+      --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+      --step-6: clamp(3.3592rem, 2.8691rem + 2.4507vw, 4.7684rem);
+
+      /* Layout & Reset for this section */
+      font-family: "DM Mono", monospace;
+      box-sizing: border-box;
+      color: rgb(39, 39, 42);
+      padding: 2rem 12px;
+      /* Added some vertical padding */
+
+      /* Background applied here instead of body */
+      background: url("https://assets.codepen.io/1385231/bg-texture.webp") no-repeat center center;
+      background-size: cover;
+      background-color: var(--brand-gray);
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+      /* Prevents animations from overflowing horizontally */
+    }
+
+    /* Reset box-sizing for all elements inside the snippet */
+    .suburbia-drop-snippet *,
+    .suburbia-drop-snippet *::before,
+    .suburbia-drop-snippet *::after {
+      box-sizing: border-box;
+    }
+
+    .suburbia-drop-snippet h1,
+    .suburbia-drop-snippet h2,
+    .suburbia-drop-snippet h3 {
+      font-family: "Bowlby One SC", cursive;
+      margin-top: 0;
+    }
+
+    .suburbia-drop-snippet .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    /* Animations */
+    .suburbia-drop-snippet .title-section h2 {
+      opacity: 0;
+      font-size: var(--step-6);
+      text-transform: uppercase;
+      line-height: 1;
+      text-align: center;
+      margin-bottom: 16px;
+      animation: suburbia-slideInFromLeft 600ms linear(0, 0.464 8.3%, 0.819 17%, 0.956 21.5%, 1.069 26.2%, 1.156 31%, 1.219 36%, 1.252 40.2%, 1.271 44.5%, 1.275 49.1%, 1.265 54.1%, 1.215 63.4%, 1.041 86.9%, 1.01 93.7%, 1) forwards;
+      animation-delay: 200ms;
+    }
+
+    .suburbia-drop-snippet .subtitle-section p {
+      opacity: 0;
+      text-align: center;
+      margin-bottom: 40px;
+      font-size: var(--step-0);
+      animation: suburbia-slideInFromLeft 600ms linear(0, 0.464 8.3%, 0.819 17%, 0.956 21.5%, 1.069 26.2%, 1.156 31%, 1.219 36%, 1.252 40.2%, 1.271 44.5%, 1.275 49.1%, 1.265 54.1%, 1.215 63.4%, 1.041 86.9%, 1.01 93.7%, 1) forwards;
+      animation-delay: 500ms;
+    }
+
+    /* Grid System */
+    .suburbia-drop-snippet .product-grid {
+      --min: 225px;
+      --gap: 1.25rem;
+      display: grid;
+      grid-gap: var(--gap);
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, var(--min)), 1fr));
+    }
+
+    @media (min-width: 768px) {
+      .suburbia-drop-snippet .product-card:nth-child(even) {
+        margin-top: 4rem;
+      }
+    }
+
+    /* Product Card */
+    .suburbia-drop-snippet .product-card {
+      padding: 1rem 2rem 0 2rem;
+      max-height: 600px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin-inline: auto;
+      width: 100%;
+      max-width: 18rem;
+      opacity: 0;
+      transform: translateY(50px);
+      animation: suburbia-slideInFromBottom 0.8s linear(0, 0.464 8.3%, 0.819 17%, 0.956 21.5%, 1.069 26.2%, 1.156 31%, 1.219 36%, 1.252 40.2%, 1.271 44.5%, 1.275 49.1%, 1.265 54.1%, 1.215 63.4%, 1.041 86.9%, 1.01 93.7%, 1) forwards;
+    }
+
+    /* Expanded Loop for Animation Delays */
+    .suburbia-drop-snippet .product-card:nth-child(1) {
+      animation-delay: 0.8s;
+    }
+
+    .suburbia-drop-snippet .product-card:nth-child(2) {
+      animation-delay: 1.0s;
+    }
+
+    .suburbia-drop-snippet .product-card:nth-child(3) {
+      animation-delay: 1.2s;
+    }
+
+    .suburbia-drop-snippet .product-card:nth-child(4) {
+      animation-delay: 1.4s;
+    }
+
+    .suburbia-drop-snippet .product-card:nth-child(5) {
+      animation-delay: 1.6s;
+    }
+
+    /* Lines & Decorations */
+    .suburbia-drop-snippet .horizontal-line,
+    .suburbia-drop-snippet .vertical-line {
+      stroke-width: 2;
+      transition: opacity 0.3s ease;
+      color: #a8a29e;
+      opacity: 0.5;
+    }
+
+    .suburbia-drop-snippet .horizontal-line {
+      margin-left: -8rem;
+      margin-right: -8rem;
+      height: auto;
+      width: calc(100% + 5rem);
+    }
+
+    .suburbia-drop-snippet .vertical-line {
+      position: absolute;
+      top: 0;
+      height: 100%;
+    }
+
+    .suburbia-drop-snippet .vertical-line.left {
+      left: 1rem;
+    }
+
+    .suburbia-drop-snippet .vertical-line.right {
+      right: 1rem;
+    }
+
+    .suburbia-drop-snippet .product-card:hover :is(.horizontal-line, .vertical-line) {
+      opacity: 1;
+    }
+
+    /* Images */
+    .suburbia-drop-snippet .product-card img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto 16px;
+      width: 58%;
+      transform-origin: top center;
+      transition: transform 500ms linear(0, -0.008 3.8%, -0.035 7.8%, -0.177 20.3%, -0.215 24.7%, -0.228 29%, -0.207 32.9%, -0.12 37.9%, 0.037 42.5%, 0.261 46.7%, 0.877 55.7%, 1.055 59.9%, 1.17 64.4%, 1.222 69%, 1.228 71.5%, 1.221 74.2%, 1.182 79.2%, 1.033 92.4%, 1.008 96.3%, 1);
+    }
+
+    .suburbia-drop-snippet .product-card:hover img {
+      transform: scale(1.5);
+    }
+
+    /* Titles & Details */
+    .suburbia-drop-snippet .title-wrapper {
+      position: relative;
+      height: 50px;
+    }
+
+    .suburbia-drop-snippet .product-title {
+      font-size: var(--step-0);
+      font-weight: bold;
+      margin: 8px 0;
+      position: absolute;
+      inset: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .suburbia-drop-snippet .product-details {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--step-1);
+      margin-bottom: 16px;
+    }
+
+    .suburbia-drop-snippet .product-button-wrapper {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 200ms;
+    }
+
+    .suburbia-drop-snippet .product-card:hover .product-button-wrapper,
+    .suburbia-drop-snippet .product-card:focus-within .product-button-wrapper {
+      opacity: 1;
+    }
+
+    .suburbia-drop-snippet .product-image-wrapper {
+      overflow: hidden;
+      margin-bottom: -0.25rem;
+      padding-inline: 1rem;
+      position: relative;
+    }
+
+    /* Scribble Animation */
+    .suburbia-drop-snippet .scribble-svg {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      animation: suburbia-squiggle 0.5s infinite;
+      pointer-events: none;
+    }
+
+    .suburbia-drop-snippet .scribble-path {
+      transform-origin: center;
+      opacity: 0.6;
+      transition: stroke-dashoffset 500ms ease-in;
+      stroke-dasharray: 1700;
+      stroke-dashoffset: 1700;
+    }
+
+    .suburbia-drop-snippet .product-card:hover .scribble-path {
+      stroke-dashoffset: 0;
+    }
+
+    /* Keyframes - Prefixed */
+    @keyframes suburbia-squiggle {
+      0% {
+        filter: url("#suburbia-squiggle-0");
+      }
+
+      25% {
+        filter: url("#suburbia-squiggle-1");
+      }
+
+      50% {
+        filter: url("#suburbia-squiggle-2");
+      }
+
+      75% {
+        filter: url("#suburbia-squiggle-3");
+      }
+
+      100% {
+        filter: url("#suburbia-squiggle-4");
+      }
+    }
+
+    @keyframes suburbia-slideInFromLeft {
+      0% {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes suburbia-slideInFromBottom {
+      0% {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Custom Button Styles (Flattened from SCSS) */
+    .suburbia-drop-snippet .button-outer {
+      filter: drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(1px 0 0 #000) drop-shadow(0 -1px 0 #000) drop-shadow(5px 5px 0 #000);
+      transition: filter 0.3s ease-in-out;
+    }
+
+    .suburbia-drop-snippet .button-outer:hover {
+      filter: drop-shadow(0 1px 0 #000) drop-shadow(-1px 0 0 #000) drop-shadow(1px 0 0 #000) drop-shadow(0 -1px 0 #000) drop-shadow(0px 0px 0 #000);
+    }
+
+    .suburbia-drop-snippet .button-middle {
+      text-decoration: none;
+      transition: transform 0.3s ease-in-out;
+      cursor: pointer;
+      position: relative;
+      border: none;
+      font-family: monospace;
+      font-size: var(--step-0);
+      font-weight: 600;
+      padding: 0;
+      display: inline-block;
+    }
+
+    .suburbia-drop-snippet .button-outer:hover .button-middle {
+      transform: translate(5px, 5px);
+    }
+
+    .suburbia-drop-snippet .button-inner {
+      background: linear-gradient(to bottom, var(--brand-orange) 33%, var(--brand-lime) 66%) 50% 0% / 100% 400% no-repeat;
+      color: #000;
+      padding: 1rem;
+      position: relative;
+      transition: color 0.3s ease-in-out, background-position 0.3s ease-in-out;
+      display: block;
+    }
+
+    .suburbia-drop-snippet .button-outer:hover .button-inner {
+      color: #000;
+      background-position: 50% 100%;
+    }
+
+    .suburbia-drop-snippet .button-inner:before,
+    .suburbia-drop-snippet .button-inner:after {
+      content: "";
+      position: absolute;
+      width: 1rem;
+      height: 100%;
+      top: 0;
+      background: inherit;
+    }
+
+    .suburbia-drop-snippet .button-inner:before {
+      left: calc(100% - 1px);
+      clip-path: polygon(100% 0, 74% 28%, 100% 29%, 100% 70%, 84% 78%, 100% 100%, 0 100%, 0 0);
+    }
+
+    .suburbia-drop-snippet .button-inner:after {
+      left: calc(-1rem + 1px);
+      clip-path: polygon(23% 19%, 0 0, 100% 0, 100% 100%, 0 100%, 29% 79%, 9% 80%, 0 33%);
+    }
+
+    /* SVG Filter Definitions (Hidden) */
+    .suburbia-drop-snippet .svg-filters {
+      position: absolute;
+      width: 0;
+      height: 0;
+      pointer-events: none;
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top" style="
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      ">
+    <div class="container">
+      <a class="navbar-brand" href="index.html" style="
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #000000 !important;
+            letter-spacing: 2px;
+          ">
+        <img src="./media/logo.jpg" alt="BOWBOX Logo" style="
+              width: 50px;
+              height: 50px;
+              border-radius: 12px;
+              vertical-align: middle;
+              margin-right: 8px;
+            " />
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html" style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                ">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="shop.html" style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                ">Shop</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html" style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                ">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contact.html" style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                ">Contact</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="login.html" style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                ">Login</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <style>
+    /* Navbar hover and active states */
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #ffc0cb !important;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -5px;
+      left: 50%;
+      background-color: #ffc0cb;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 100%;
+    }
+
+    /* Responsive navbar styles */
+    @media (max-width: 992px) {
+      .navbar-brand {
+        font-size: 1.5rem;
+      }
+
+      .navbar-nav .nav-link {
+        margin: 0 10px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .navbar-brand {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+
+  <!-- ===== HERO BANNER SECTION ===== -->
+  <section class="hero-banner">
+    <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+      <h1>Discover</h1>
+      <h1>The Perfect Gift</h1>
+      <p>Handpicked treasures to make every moment special.</p>
+      <a href="shop.html"><button class="comic-button">Shop Now</button></a>
+    </div>
+  </section>
+  <style>
+    .center-img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    @media only screen and (max-width: 768px) {
+      .center-img {
+        width: 100%;
+      }
+    }
+  </style>
+  <div class="gift-snippet-wrapper">
+    <!-- Bubbles Elements -->
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+    <div class="bubble"><span class="dot"></span></div>
+
+    <!-- Gift Box Element -->
+    <div class="gift-snippet-box"></div>
+    <div class="center-img">
+      <img src="./media/logo2.png" alt="Hero Background Image" />
+    </div>
+  </div>
+
+  </div>
+  <!-- ===== CATEGORIES SECTION ===== -->
+  <div class="suburbia-drop-snippet">
+
+    <section class="product-grid-section">
+      <div class="container">
+        <div class="title-section">
+          <h2 class="section-title">Latest Drop</h2>
+        </div>
+        <div class="subtitle-section">
+          <p class="section-subtitle">Grab our freshest designs before they sell out!</p>
+        </div>
+        <div class="product-grid">
+
+          <!-- Product 1 -->
+          <div class="product-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+              class="product-svg vertical-line left">
+              <path fill="none" stroke="currentColor"
+                d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+              class="product-svg vertical-line right">
+              <path fill="none" stroke="currentColor"
+                d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" class="product-svg top horizontal-line">
+              <path fill="none" stroke="currentColor"
+                d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+              </path>
+            </svg>
+            <div class="product-details">
+              <span class="product-price">$2050</span>
+              <span class="product-rating">⭐ 32</span>
+            </div>
+            <div class="product-image-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306" preserveAspectRatio="none"
+                class="scribble-svg">
+                <path class="scribble-path" filter="url(#suburbia-scribble)" stroke="#b75648" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="12"
+                  d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                </path>
+                <filter id="suburbia-scribble">
+                  <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="0">
+                  </feTurbulence>
+                  <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="5"></feDisplacementMap>
+                </filter>
+              </svg>
+              <img src="./media/s1.png" width="150" height="1050" alt="Oni Mask" class="product-image"
+                style="height: 290px; width: 290px;" />
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+              preserveAspectRatio="none" shape-rendering="crispEdges" class="product-svg bottom horizontal-line">
+              <path fill="none" stroke="currentColor"
+                d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+              </path>
+            </svg>
+            <div class="title-wrapper">
+              <h3 class="product-title">Oni Mask</h3>
+            </div>
+            <div class="product-button-wrapper">
+              <div class="button-outer">
+                <a href="#" class="button-middle"><span class="button-inner">Customize</span></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+              class="product-svg vertical-line left">
+              <path fill="none" stroke="currentColor"
+                d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+              class="product-svg vertical-line right">
+              <path fill="none" stroke="currentColor"
+                d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" class="product-svg top horizontal-line">
+              <path fill="none" stroke="currentColor"
+                d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+              </path>
+            </svg>
+            <div class="product-details">
+              <span class="product-price">$1590.99</span>
+              <span class="product-rating">⭐ 58</span>
+            </div>
+            <div class="product-image-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306" preserveAspectRatio="none"
+                class="scribble-svg">
+                <path class="scribble-path" filter="url(#suburbia-scribble-2)" stroke="#f34e79" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="12"
+                  d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                </path>
+                <filter id="suburbia-scribble-2">
+                  <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="0">
+                  </feTurbulence>
+                  <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="5"></feDisplacementMap>
+                </filter>
+              </svg>
+              <img src="./media/s2.png" width="150" alt="Pink Drop" class="product-image"
+                style="height: 350px; width: 290px;" />
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+              preserveAspectRatio="none" shape-rendering="crispEdges" class="product-svg bottom horizontal-line">
+              <path fill="none" stroke="currentColor"
+                d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+              </path>
+            </svg>
+            <div class="title-wrapper">
+              <h3 class="product-title">Pink Drop</h3>
+            </div>
+            <div class="product-button-wrapper">
+              <div class="button-outer">
+                <a href="#" class="button-middle"><span class="button-inner">Customize</span></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+              class="product-svg vertical-line left">
+              <path fill="none" stroke="currentColor"
+                d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 555" preserveAspectRatio="none"
+              class="product-svg vertical-line right">
+              <path fill="none" stroke="currentColor"
+                d="M4.42.73c-2.26 26.23.02-6.6 1.2 43.35.23 9.32-2.18 7.94-4.04 16.35a14.65 14.65 0 0 0 0 4.97c.97 7.34 3.34 14.33 3.57 21.8.25 8.41-2.29 16.65-2.16 25.08.34 22.7 4.9 14.96 2.83 34.25-.46 4.36-2.72 8.16-2.83 12.58-.25 10.5 1.83 20.9 1.79 31.4-.03 6.97-2.06 19.04-1.99 20.68.91 19.67 3.03 4.4 2.43 33.04-.84 39.25-3.08 33.75-2.85 51.02.13 9.92 2.04 19.65 2.3 29.56.18 7.18-1.19 14.32-.97 21.5.14 4.5 2.23 8.7 2.04 13.2-1.4 33.36-4.96 13.26-3.6 36.05 2.3 38.96 3.25 77.61.48 116.44-.24 3.35.3 7.14 1.08 11.1 2.16 10.89 2.16 23.87.92 31.24">
+              </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" class="product-svg top horizontal-line">
+              <path fill="none" stroke="currentColor"
+                d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+              </path>
+            </svg>
+            <div class="product-details">
+              <span class="product-price">$59.99</span>
+              <span class="product-rating">⭐ 82</span>
+            </div>
+            <div class="product-image-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 166 306" preserveAspectRatio="none"
+                class="scribble-svg">
+                <path class="scribble-path" filter="url(#suburbia-scribble-3)" stroke="#fce04e" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="12"
+                  d="M126 8c-10 10-26 17-41 22-24 9-50 14-74 23a152 152 0 0 0 24 3l50 1c5 0 17 0 20 4 3 3-13 6-15 6a689 689 0 0 0-45 12c1 2 7 2 9 2 11 2 22 1 33 1l48-2 17 1c2 0-2 2-3 2l-8 2-60 11-32 7c-5 1-12 2-16 5-2 1 8 3 9 4 13 2 27 2 39 2 14 0 29-2 43 0 3 1 7 1 3 3-7 3-15 4-23 6l-41 7c-10 2-22 5-31 9-2 2-1 2 1 3l23 2c22 1 43 0 64 3 4 0 4 1 1 2l-20 7c-11 3-22 5-32 9l-14 6c-3 4 32 7 35 7 20 1 43 0 62 6 1 1 5 2 4 3-3 3-9 4-12 5-28 7-57 9-85 15l-30 7-9 3h1l13 1 53-1c15-1 31-1 47 1 10 1-2 4-6 5-14 4-29 5-44 8l-39 7c-2 1-22 5-22 7 0 3 58 4 65 5 6 0 17 0 23 3 1 1-4 3-4 3-16 6-36 7-52 10l-13 3a227 227 0 0 0 49 4c20 0 41 7 62 7">
+                </path>
+                <filter id="suburbia-scribble-3">
+                  <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="0">
+                  </feTurbulence>
+                  <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="5"></feDisplacementMap>
+                </filter>
+              </svg>
+              <img src="./media/s3.png" width="150" alt="Yellow and Black" class="product-image" />
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 266 8" width="266" height="8"
+              preserveAspectRatio="none" shape-rendering="crispEdges" class="product-svg bottom horizontal-line">
+              <path fill="none" stroke="currentColor"
+                d="M.74 5.43c16.62-3.7 7.17-2.5 43.93-.8 17.36.79 15.14-2.9 24.1-2.63 1.21.04 5.55 1.98 7.47 2.14 5.24.42 8.17-.7 13.42-.44 3 .14 5.77 2.11 8.77 2.1 8.33-.04 16.56-2.19 24.89-2.25 10.32-.07 23.74 1.66 34.49 1.07 8.49-.46 17.47-1.77 25.92-2.65 11.98-1.24 18.38 2.3 30.24 3.88 12.82 1.7 5.26-2.3 21.35-2.14 10.15.1 19.92 1.14 29.88 1.7">
+              </path>
+            </svg>
+            <div class="title-wrapper">
+              <h3 class="product-title">Bumblebee</h3>
+            </div>
+            <div class="product-button-wrapper">
+              <div class="button-outer">
+                <a href="#" class="button-middle"><span class="button-inner">Customize</span></a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Global SVG Definitions (Prefixed IDs) -->
+    <svg class="svg-filters">
+      <defs>
+        <filter id="suburbia-squiggle-0">
+          <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="0"></feTurbulence>
+          <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="4"></feDisplacementMap>
+        </filter>
+        <filter id="suburbia-squiggle-1">
+          <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="1"></feTurbulence>
+          <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="4"></feDisplacementMap>
+        </filter>
+        <filter id="suburbia-squiggle-2">
+          <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="2"></feTurbulence>
+          <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="4"></feDisplacementMap>
+        </filter>
+        <filter id="suburbia-squiggle-3">
+          <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="3"></feTurbulence>
+          <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="4"></feDisplacementMap>
+        </filter>
+        <filter id="suburbia-squiggle-4">
+          <feTurbulence baseFrequency="0.05" id="turbulence" numOctaves="2" result="noise" seed="4"></feTurbulence>
+          <feDisplacementMap id="displacement" in2="noise" in="SourceGraphic" scale="4"></feDisplacementMap>
+        </filter>
+      </defs>
+    </svg>
+
+  </div>
+
+
+  <!-- ===== FILTER + SORT BAR ===== -->
+  <section class="filter-bar" data-aos="fade-down">
+    <div class="container">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select">
+            <option selected>Sort by: Popularity</option>
+            <option value="1">Price: Low to High</option>
+            <option value="2">Price: High to Low</option>
+            <option value="3">New Arrivals</option>
+            <option value="4">Best Sellers</option>
+          </select>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select">
+            <option selected>All Categories</option>
+            <option value="1">Birthday Gifts</option>
+            <option value="2">Anniversary</option>
+            <option value="3">Wedding</option>
+            <option value="4">Personalized</option>
+            <option value="5">Corporate</option>
+          </select>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <select class="form-select">
+            <option selected>Price Range</option>
+            <option value="1">Under $25</option>
+            <option value="2">$25 - $50</option>
+            <option value="3">$50 - $100</option>
+            <option value="4">$100 - $200</option>
+            <option value="5">Above $200</option>
+          </select>
+        </div>
+        <div class="search">
+          <input type="text" placeholder="search" />
+          <div class="symbol">
+            <svg class="cloud">
+              <use xlink:href="#cloud" />
+            </svg>
+            <svg class="lens">
+              <use xlink:href="#lens" />
+            </svg>
+          </div>
+        </div>
+
+        <!-- SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="cloud">
+            <path d="M31.714,25.543c3.335-2.17,4.27-6.612,2.084-9.922c-1.247-1.884-3.31-3.077-5.575-3.223h-0.021
+	C27.148,6.68,21.624,2.89,15.862,3.931c-3.308,0.597-6.134,2.715-7.618,5.708c-4.763,0.2-8.46,4.194-8.257,8.919
+	c0.202,4.726,4.227,8.392,8.991,8.192h4.873h13.934C27.784,26.751,30.252,26.54,31.714,25.543z" />
+          </symbol>
+          <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="lens">
+            <path d="M15.656,13.692l-3.257-3.229c2.087-3.079,1.261-7.252-1.845-9.321c-3.106-2.068-7.315-1.25-9.402,1.83
+	s-1.261,7.252,1.845,9.32c1.123,0.748,2.446,1.146,3.799,1.142c1.273-0.016,2.515-0.39,3.583-1.076l3.257,3.229
+	c0.531,0.541,1.404,0.553,1.95,0.025c0.009-0.008,0.018-0.017,0.026-0.025C16.112,15.059,16.131,14.242,15.656,13.692z M2.845,6.631
+	c0.023-2.188,1.832-3.942,4.039-3.918c2.206,0.024,3.976,1.816,3.951,4.004c-0.023,2.171-1.805,3.918-3.995,3.918
+	C4.622,10.623,2.833,8.831,2.845,6.631L2.845,6.631z" />
+          </symbol>
+        </svg>
+
+
+      </div>
+    </div>
+    </div>
+  </section>
+  <style>
+    .search {
+      --background: #ffffff;
+      --text-color: #414856;
+      --primary-color: #f612d4;
+      --border-radius: 10px;
+      --width: 190px;
+      --height: 55px;
+      background: var(--background);
+      width: auto;
+      height: var(--height);
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(#414856, .05);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      input[type="text"] {
+        position: relative;
+        width: var(--height);
+        height: var(--height);
+        font: 400 16px 'Varela Round', sans-serif;
+        color: var(--text-color);
+        border: 0;
+        box-sizing: border-box;
+        outline: none;
+        padding: 0 0 0 40px;
+        transition: width .6s ease;
+        z-index: 10;
+        opacity: 0;
+        cursor: pointer;
+
+        &:focus {
+          z-index: 0;
+          opacity: 1;
+          width: var(--width);
+
+          ~.symbol {
+            &::before {
+              width: 0%;
+            }
+
+            &:after {
+              clip-path: inset(0% 0% 0% 100%);
+              transition: clip-path .04s linear .105s;
+            }
+
+            .cloud {
+              top: -30px;
+              left: -30px;
+              transform: translate(0, 0);
+              transition: all .6s ease;
+            }
+
+            .lens {
+              top: 20px;
+              left: 15px;
+              transform: translate(0, 0);
+              fill: var(--primary-color);
+              transition: top .5s ease .1s, left .5s ease .1s, fill .3s ease;
+            }
+          }
+        }
+      }
+
+      .symbol {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        z-index: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &:before {
+          content: "";
+          position: absolute;
+          right: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--primary-color);
+          z-index: -1;
+          transition: width .6s ease;
+        }
+
+        &:after {
+          content: "";
+          position: absolute;
+          top: 21px;
+          left: 21px;
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background: var(--primary-color);
+          z-index: 1;
+          clip-path: inset(0% 0% 0% 0%);
+          transition: clip-path .04s linear .225s;
+        }
+
+        .cloud,
+        .lens {
+          position: absolute;
+          fill: #fff;
+          stroke: none;
+          top: 50%;
+          left: 50%;
+        }
+
+        .cloud {
+          width: 35px;
+          height: 32px;
+          transform: translate(-50%, -60%);
+          transition: all .6s ease;
+        }
+
+        .lens {
+          fill: #fff;
+          width: 16px;
+          height: 16px;
+          z-index: 2;
+          top: 24px;
+          left: 24px;
+          transition: top .3s ease, left .3s ease, fill .2s ease .2s;
+        }
+      }
+    }
+  </style>
+  <!-- ===== PRODUCT GRID SECTION ===== -->
+  <section class="products-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down">All Gifts 🎀</h2>
+      <div class="row">
+        <!-- Product 1 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card" style="background-color: #ff007b">
+            <img src="./media/s4.jfif" class="card-img-top" alt="Luxury Gift Box" />
+            <div class="card-body" ;>
+              <h5 class="product-title">Luxury Gift Box</h5>
+              <p class="product-description">
+                Elegant collection of premium treats and goodies.
+              </p>
+              <p class="product-price">$89.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card" style="background-color: #ff5757">
+            <img src="./media/s5.jfif" class="card-img-top" alt="Personalized Mug" />
+            <div class="card-body">
+              <h5 class="product-title">Personalized Mug</h5>
+              <p class="product-description">
+                Custom printed ceramic mug with your message.
+              </p>
+              <p class="product-price">$24.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card" style="background-color: #ff8585">
+            <img src="./media/s6.jfif" class="card-img-top" alt="Scented Candles Set" />
+            <div class="card-body">
+              <h5 class="product-title">Scented Candles Set</h5>
+              <p class="product-description">
+                Set of 3 aromatherapy candles in gift packaging.
+              </p>
+              <p class="product-price">$45.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 4 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card product-card" style="background-color: #ffebeb">
+            <img src="./media/s7.jfif" class="card-img-top" alt="Jewelry Box" />
+            <div class="card-body">
+              <h5 class="product-title">Elegant Jewelry Box</h5>
+              <p class="product-description">
+                Handcrafted wooden jewelry organizer box.
+              </p>
+              <p class="product-price">$65.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 5 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card" style="background-color: #f5eee6">
+            <img src="./media/s8.jfif" class="card-img-top" alt="Photo Frame" />
+            <div class="card-body">
+              <h5 class="product-title">Photo Frame Set</h5>
+              <p class="product-description">
+                Set of 5 modern photo frames with gold accents.
+              </p>
+              <p class="product-price">$34.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 6 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card" style="background-color: #f3d7ca">
+            <img src="./media/s9.jfif" class="card-img-top" alt="Chocolate Hamper" />
+            <div class="card-body">
+              <h5 class="product-title">Chocolate Hamper</h5>
+              <p class="product-description">
+                Assorted gourmet chocolates in decorative basket.
+              </p>
+              <p class="product-price">$79.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 7 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card" style="background-color: #e6a4b4">
+            <img src="./media/s10.jfif" class="card-img-top" alt="Spa Gift Set" />
+            <div class="card-body">
+              <h5 class="product-title">Spa Gift Set</h5>
+              <p class="product-description">
+                Luxurious bath and body care products collection.
+              </p>
+              <p class="product-price">$54.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 8 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card product-card" style="background-color: #c86b85">
+            <img src="./media/s11.jfif" class="card-img-top" alt="Wine Gift Set" />
+            <div class="card-body">
+              <h5 class="product-title">Wine Gift Set</h5>
+              <p class="product-description">
+                Premium wine with accessories in gift box.
+              </p>
+              <p class="product-price">$125.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 9 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card" style="background-color: #ffedff">
+            <img src="./media/s12.jfif" class="card-img-top" alt="Plush Toy" />
+            <div class="card-body">
+              <h5 class="product-title">Plush Teddy Bear</h5>
+              <p class="product-description">
+                Soft and cuddly teddy bear with ribbon bow.
+              </p>
+              <p class="product-price">$29.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 10 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card" style="background-color: #ffd5be">
+            <img src="./media/s13.jfif" class="card-img-top" alt="Notebook Set" />
+            <div class="card-body">
+              <h5 class="product-title">Designer Notebook Set</h5>
+              <p class="product-description">
+                Set of 3 premium hardcover notebooks.
+              </p>
+              <p class="product-price">$39.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 11 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card" style="background-color: #ff9776">
+            <img src="./media/s14.jfif" class="card-img-top" alt="Flower Bouquet" />
+            <div class="card-body">
+              <h5 class="product-title">Fresh Flower Bouquet</h5>
+              <p class="product-description">
+                Beautiful arrangement of seasonal flowers.
+              </p>
+              <p class="product-price">$55.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 12 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card product-card" style="background-color: #ff487e">
+            <img src="./media/s15.jfif" class="card-img-top" alt="Watch Box" />
+            <div class="card-body">
+              <h5 class="product-title">Premium Watch Box</h5>
+              <p class="product-description">
+                Leather watch storage case for 6 watches.
+              </p>
+              <p class="product-price">$95.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 13 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card" style="background-color: #ffd7e8">
+            <img src="./media/s16.jfif" class="card-img-top" alt="Tea Collection" />
+            <div class="card-body">
+              <h5 class="product-title">Gourmet Tea Collection</h5>
+              <p class="product-description">
+                Assortment of premium loose leaf teas.
+              </p>
+              <p class="product-price">$42.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 14 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card" style="background-color: #f2c0ff">
+            <img src="./media/s17.jfif" class="card-img-top" alt="Personalized Keychain" />
+            <div class="card-body">
+              <h5 class="product-title">Personalized Keychain</h5>
+              <p class="product-description">
+                Custom engraved metal keychain with name.
+              </p>
+              <p class="product-price">$18.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 15 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card" style="background-color: #bf9fee">
+            <img src="./media/s18.jfif" class="card-img-top" alt="Cozy Blanket" />
+            <div class="card-body">
+              <h5 class="product-title">Cozy Throw Blanket</h5>
+              <p class="product-description">
+                Ultra-soft fleece blanket in gift packaging.
+              </p>
+              <p class="product-price">$48.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 16 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card product-card" style="background-color: #866ec7">
+            <img src="./media/s19.jfif" class="card-img-top" alt="Diffuser Set" />
+            <div class="card-body">
+              <h5 class="product-title">Aroma Diffuser Set</h5>
+              <p class="product-description">
+                Essential oil diffuser with 5 oil bottles.
+              </p>
+              <p class="product-price">$62.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 17 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card" style="background-color: #61d4b3">
+            <img src="./media/s20.jfif" class="card-img-top" alt="Leather Wallet" />
+            <div class="card-body">
+              <h5 class="product-title">Leather Wallet</h5>
+              <p class="product-description">
+                Genuine leather wallet with RFID protection.
+              </p>
+              <p class="product-price">$58.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 18 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card" style="background-color: #fdd365">
+            <img src="./media/s21.jfif" class="card-img-top" alt="Cookbook" />
+            <div class="card-body">
+              <h5 class="product-title">Gourmet Cookbook</h5>
+              <p class="product-description">
+                Collection of 200 recipes from world chefs.
+              </p>
+              <p class="product-price">$35.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 19 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card" style="background-color: #fb8d62">
+            <img src="./media/s22.jfif" class="card-img-top" alt="Designer Backpack" />
+            <div class="card-body">
+              <h5 class="product-title">Designer Backpack</h5>
+              <p class="product-description">
+                Stylish and functional laptop backpack.
+              </p>
+              <p class="product-price">$85.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 20 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card product-card" style="background-color: #fd2eb3">
+            <img src="./media/s23.jfif" class="card-img-top" alt="Succulent Set" />
+            <div class="card-body">
+              <h5 class="product-title">Mini Succulent Set</h5>
+              <p class="product-description">
+                Set of 4 cute succulents in ceramic pots.
+              </p>
+              <p class="product-price">$32.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 21 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="card product-card" style="background-color: #755da3">
+            <img src="./media/s25.jfif" class="card-img-top" alt="Designer Sunglasses" />
+            <div class="card-body">
+              <h5 class="product-title">Designer Sunglasses</h5>
+              <p class="product-description">
+                UV protection polarized sunglasses with case.
+              </p>
+              <p class="product-price">$72.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 22 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="card product-card" style="background-color: #ba78cd">
+            <img src="./media/s26.jfif" class="card-img-top" alt="Phone Stand" />
+            <div class="card-body">
+              <h5 class="product-title">Wooden Phone Stand</h5>
+              <p class="product-description">
+                Handcrafted adjustable phone holder.
+              </p>
+              <p class="product-price">$26.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 23 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="card product-card" style="background-color: #ffa35f">
+            <img src="./media/s27.jfif" class="card-img-top" alt="Travel Kit" />
+            <div class="card-body">
+              <h5 class="product-title">Travel Essentials Kit</h5>
+              <p class="product-description">
+                Complete travel toiletries and accessories set.
+              </p>
+              <p class="product-price">$44.99</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 24 -->
+        <div class="col-lg-3 col-md-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="card product-card" style="background-color: #e7759a">
+            <img src="./media/s28.jfif" class="card-img-top" alt="Art Supplies" />
+            <div class="card-body">
+              <h5 class="product-title">Art Supplies Set</h5>
+              <p class="product-description">
+                Professional sketching and coloring kit.
+              </p>
+              <p class="product-price">$67.00</p>
+              <button class="btn-add-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURED COLLECTIONS SECTION ===== -->
+  <section class="collections-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down">
+        Curated Gift Collections 💝
+      </h2>
+      <div class="row">
+        <!-- Collection 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="collection-banner">
+            <img src="./media/s29.jfif" alt="Valentine's Specials" />
+            <div class="collection-overlay">
+              <h3 class="collection-title" style="color: rgb(239, 23, 146);">Valentine's Specials</h3>
+              <a href="vtypes.html"><button class="comic-button">Explore</button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="collection-banner">
+            <img src="./media/s30.jfif" alt="Corporate Hampers" />
+            <div class="collection-overlay">
+              <h3 class="collection-title" style="color: rgb(239, 23, 146);">Corporate Hampers</h3>
+              <a href="corptypes.html"><button class="comic-button">Explore</button></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Collection 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-right" data-aos-delay="300">
+          <div class="collection-banner">
+            <img src="./media/s31.jfif" alt="Personalized Boxes" />
+            <div class="collection-overlay">
+              <h3 class="collection-title">Personalized Boxes</h3>
+              <a href="customize.html"><button class="comic-button">Explore</button></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GIFT BUNDLES SECTION ===== -->
+  <style>
+    .bundles-section {
+      position: relative;
+      background: #6dd3e7;
+      /* Sky Blue Background */
+      overflow: hidden;
+      /* Clips the clouds */
+      padding: 60px 0;
+      font-family: sans-serif;
+    }
+
+    .cloud-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      /* Behind content */
+      pointer-events: none;
+    }
+
+    .bundles-section .container {
+      position: relative;
+      z-index: 2;
+      /* Content sits on top of clouds */
+    }
+
+    /* Cloud Animation Styles */
+    .cloud {
+      animation: cloud-drift 60s infinite linear;
+      border-radius: 10px;
+      position: relative;
+      margin: 33px 0 0 0;
+      width: 54px;
+      height: 5px;
+      background: #f7e7eb;
+      left: -100px;
+    }
+
+    .cloud.tiny {
+      transform: scale(0.5);
+    }
+
+    .cloud.small {
+      transform: scale(1);
+    }
+
+    .cloud.normal {
+      transform: scale(2);
+    }
+
+    .cloud.large {
+      transform: scale(4);
+    }
+
+    .cloud div {
+      box-shadow: inset -2px -3px 0 0 #f7e7eb;
+      position: absolute;
+      border-radius: 50%;
+      width: 12px;
+      height: 12px;
+      left: -3px;
+      bottom: 0;
+      background: #fafbf0;
+      z-index: 10;
+    }
+
+    .cloud div:first-child+div {
+      transform: scale(1.6, 1.6);
+      margin: 0 0 4px 13px;
+      z-index: 9;
+    }
+
+    .cloud div:first-child+div+div {
+      transform: scale(2.4, 2.4);
+      margin: 0 0 9px 32px;
+      z-index: 8;
+    }
+
+    .cloud div:first-child+div+div+div {
+      transform: scale(1.3, 1.3);
+      margin: 0 0 2px 50px;
+      z-index: 7;
+    }
+
+    @keyframes cloud-drift {
+      0% {
+        left: -20%;
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        left: 120%;
+        opacity: 0;
+      }
+    }
+
+    /* Specific Cloud Timings */
+    .cloud-1 {
+      animation-duration: 263s;
+      margin-left: 20%;
+    }
+
+    .cloud-2 {
+      animation-duration: 99s;
+      margin-left: 90%;
+    }
+
+    .cloud-3 {
+      animation-duration: 142s;
+      margin-left: 50%;
+    }
+
+    .cloud-4 {
+      animation-duration: 152s;
+      margin-left: 43%;
+    }
+
+    .cloud-5 {
+      animation-duration: 215s;
+      margin-left: 83%;
+    }
+
+    .cloud-6 {
+      animation-duration: 139s;
+      margin-left: 73%;
+    }
+
+    .cloud-7 {
+      animation-duration: 109s;
+      margin-left: 69%;
+    }
+
+    .cloud-8 {
+      animation-duration: 121s;
+      margin-left: 100%;
+    }
+
+    .cloud-9 {
+      animation-duration: 101s;
+      margin-left: 10%;
+    }
+
+    .cloud-10 {
+      animation-duration: 126s;
+      margin-left: 14%;
+    }
+
+    .cloud-11 {
+      animation-duration: 96s;
+      margin-left: 73%;
+    }
+
+    .cloud-12 {
+      animation-duration: 83s;
+      margin-left: 51%;
+    }
+  </style>
+  <section class="bundles-section">
+
+    <!-- --- CLOUD BACKGROUND LAYER START --- -->
+    <!-- Added absolutely positioned behind content -->
+    <div class="cloud-layer">
+      <div class="cloud large cloud-1">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud normal cloud-2">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud small cloud-3">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud tiny cloud-4">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud large cloud-5">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud normal cloud-6">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud small cloud-7">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud tiny cloud-8">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud small cloud-9">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud normal cloud-10">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud tiny cloud-11">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="cloud small cloud-12">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+    <!-- --- CLOUD BACKGROUND LAYER END --- -->
+
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down">
+        <p>𝙻𝚞𝚡𝚞𝚛𝚢 𝙱𝚞𝚗𝚍𝚕𝚎𝚜</p>
+      </h2>
+      <div class="row">
+        <!-- Bundle 1 -->
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in-up" data-aos-delay="100">
+          <div class="card bundle-card">
+            <div class="discount-badge">20% OFF</div>
+            <img src="./media/s32.jfif" class="card-img-top" alt="Romance Bundle" />
+            <div class="card-body">
+              <h5 class="bundle-title">Romance Bundle</h5>
+              <p class="bundle-description">
+                Roses, chocolates, candles, and personalized card.
+              </p>
+              <p class="bundle-price">
+                $119.99 <span class="original-price">$149.99</span>
+              </p>
+              <button class="btn-bundle">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bundle 2 -->
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in-up" data-aos-delay="200">
+          <div class="card bundle-card">
+            <div class="discount-badge">15% OFF</div>
+            <img src="./media/s33.jfif" class="card-img-top" alt="Relaxation Bundle" />
+            <div class="card-body">
+              <h5 class="bundle-title">Relaxation Bundle</h5>
+              <p class="bundle-description">
+                Spa set, aromatherapy oils, cozy blanket, and tea.
+              </p>
+              <p class="bundle-price">
+                $84.99 <span class="original-price">$99.99</span>
+              </p>
+              <button class="btn-bundle">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bundle 3 -->
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in-up" data-aos-delay="300">
+          <div class="card bundle-card">
+            <div class="discount-badge">25% OFF</div>
+            <img src="./media/s34.jfif" class="card-img-top" alt="Birthday Bash Bundle" />
+            <div class="card-body">
+              <h5 class="bundle-title">Birthday Bash Bundle</h5>
+              <p class="bundle-description">
+                Balloons, party supplies, cake, and gift wrapping.
+              </p>
+              <p class="bundle-price">
+                $89.99 <span class="original-price">$119.99</span>
+              </p>
+              <button class="btn-bundle">View Details</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bundle 4 -->
+        <div class="col-lg-3 col-md-6" data-aos="zoom-in-up" data-aos-delay="400">
+          <div class="card bundle-card">
+            <div class="discount-badge">30% OFF</div>
+            <img src="./media/s35.jfif" class="card-img-top" alt="Luxury Corporate Bundle" />
+            <div class="card-body">
+              <h5 class="bundle-title">Luxury Corporate Bundle</h5>
+              <p class="bundle-description">
+                Wine, gourmet snacks, notebook, and pen set.
+              </p>
+              <p class="bundle-price">
+                $174.99 <span class="original-price">$249.99</span>
+              </p>
+              <button class="btn-bundle">View Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CUSTOMER REVIEWS SECTION ===== -->
+  <section class="reviews-section">
+    <div class="container">
+      <h2 class="section-title" data-aos="fade-down">
+        Loved by Thousands ❤️
+      </h2>
+      <div class="row">
+        <!-- Review 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="100">
+          <div class="review-card">
+            <div class="review-header">
+              <img src="https://placehold.co/100x100/FFC0CB/FFFFFF?text=SM" class="review-avatar"
+                alt="Sarah Mitchell" />
+              <div class="review-info">
+                <h5>Sarah Mitchell</h5>
+                <div class="review-stars">⭐️⭐️⭐️⭐️⭐️</div>
+              </div>
+            </div>
+            <p class="review-text">
+              "BOWBOX made my anniversary unforgettable! The personalized gift
+              box was beautifully packaged and my wife absolutely loved it.
+              Will definitely order again!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="200">
+          <div class="review-card">
+            <div class="review-header">
+              <img src="https://placehold.co/100x100/FFC0CB/FFFFFF?text=JD" class="review-avatar"
+                alt="James Davidson" />
+              <div class="review-info">
+                <h5>James Davidson</h5>
+                <div class="review-stars">⭐️⭐️⭐️⭐️⭐️</div>
+              </div>
+            </div>
+            <p class="review-text">
+              "Excellent quality and fast delivery! Ordered a corporate gift
+              hamper for my team and everyone was impressed. Great customer
+              service too!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="300">
+          <div class="review-card">
+            <div class="review-header">
+              <img src="https://placehold.co/100x100/FFC0CB/FFFFFF?text=EP" class="review-avatar" alt="Emily Parker" />
+              <div class="review-info">
+                <h5>Emily Parker</h5>
+                <div class="review-stars">⭐️⭐️⭐️⭐️⭐️</div>
+              </div>
+            </div>
+            <p class="review-text">
+              "The cutest gift shop ever! Found the perfect birthday present
+              for my best friend. The packaging was adorable and the quality
+              exceeded my expectations."
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 4 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="100">
+          <div class="review-card">
+            <div class="review-header">
+              <img src="https://placehold.co/100x100/FFC0CB/FFFFFF?text=MR" class="review-avatar"
+                alt="Michael Roberts" />
+              <div class="review-info">
+                <h5>Michael Roberts</h5>
+                <div class="review-stars">⭐️⭐️⭐️⭐️⭐️</div>
+              </div>
+            </div>
+            <p class="review-text">
+              "BOWBOX is my go-to for all occasions! From birthdays to
+              weddings, they have something special for everyone. Highly
+              recommend!"
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 5 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="200">
+          <div class="review-card">
+            <div class="review-header">
+              <img src="https://placehold.co/100x100/FFC0CB/FFFFFF?text=LC" class="review-avatar" alt="Lisa Chen" />
+              <div class="review-info">
+                <h5>Lisa Chen</h5>
+                <div class="review-stars">⭐️⭐️⭐️⭐️⭐️</div>
+              </div>
+            </div>
+            <p class="review-text">
+              "Amazing experience! The gift finder tool helped me choose the
+              perfect present for my mom. She was so touched by the thoughtful
+              selection."
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 6 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-in" data-aos-delay="300">
+          <div class="review-card">
+            <div class="review-header">
+              <img src="https://placehold.co/100x100/FFC0CB/FFFFFF?text=DW" class="review-avatar" alt="David Wilson" />
+              <div class="review-info">
+                <h5>David Wilson</h5>
+                <div class="review-stars">⭐️⭐️⭐️⭐️⭐️</div>
+              </div>
+            </div>
+            <p class="review-text">
+              "Best gift shop online! The bundle deals are fantastic value,
+              and everything arrived beautifully wrapped. My girlfriend loved
+              her Valentine's gift!"
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer" style="background-color: #000000; color: #ffffff; padding: 60px 0 20px;">
+    <div class="container">
+      <div class="row">
+        <!-- Column 1 - Logo & Tagline -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <div class="footer-logo" style="font-size: 2rem; font-weight: 700; color: #ffffff; margin-bottom: 15px;">
+            <img src="./media/logo2.png" alt="BOWBOX Logo" style="width: 300px; height: 200px; border-radius: 12px; vertical-align: middle; margin-right: 8px;">
+            </div>
+          <p class="footer-tagline" style="font-size: 0.95rem; color: #ccc; margin-bottom: 20px;">
+            Unwrap joy with every gift. Making moments memorable since 2025.
+          </p>
+        </div>
+
+        <!-- Column 2 - Quick Links -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; color: #ffc0cb;">Quick Links</h5>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;">
+              <a href="index.html" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">Home</a>
+            </li>
+            <li style="margin-bottom: 10px;">
+              <a href="shop.html" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">Shop</a>
+            </li>
+            <li style="margin-bottom: 10px;">
+              <a href="about.html" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">About</a>
+            </li>
+            <li style="margin-bottom: 10px;">
+              <a href="contact.html" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3 - Customer Care -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; color: #ffc0cb;">Customer Care</h5>
+          <ul style="list-style: none; padding: 0;">
+            <li style="margin-bottom: 10px;">
+              <a href="#" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">FAQ</a>
+            </li>
+            <li style="margin-bottom: 10px;">
+              <a href="#" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">Return Policy</a>
+            </li>
+            <li style="margin-bottom: 10px;">
+              <a href="#" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">Shipping Info</a>
+            </li>
+            <li style="margin-bottom: 10px;">
+              <a href="#" style="color: #ccc; text-decoration: none; transition: all 0.3s ease;">Track Order</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4 - Follow Us -->
+        <div class="col-lg-3 col-md-6 mb-4">
+          <h5 style="font-size: 1.3rem; font-weight: 600; margin-bottom: 20px; color: #ffc0cb;">Follow Us</h5>
+          <div class="social-icons" style="display: flex; gap: 15px;">
+            <a href="#" aria-label="Facebook"
+              style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #ffc0cb; color: #ffffff; border-radius: 50%; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" aria-label="Instagram"
+              style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #ffc0cb; color: #ffffff; border-radius: 50%; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" aria-label="Twitter"
+              style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #ffc0cb; color: #ffffff; border-radius: 50%; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" aria-label="Pinterest"
+              style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; background-color: #ffc0cb; color: #ffffff; border-radius: 50%; text-decoration: none; transition: all 0.3s ease;">
+              <i class="fab fa-pinterest-p"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer Bottom -->
+      <div class="footer-bottom"
+        style="text-align: center; padding-top: 30px; margin-top: 40px; border-top: 1px solid #333; color: #999;">
+        <p>&copy; 2025 BOWBOX. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <style>
+    /* Footer link hover effects */
+    .footer ul li a:hover {
+      color: #ffc0cb;
+      padding-left: 5px;
+    }
+
+    .social-icons a:hover {
+      background-color: #ff0000;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive footer styles */
+    @media (max-width: 768px) {
+      .footer {
+        padding: 40px 0 15px;
+      }
+
+      .footer-logo {
+        font-size: 1.8rem;
+      }
+
+      .footer h5 {
+        font-size: 1.1rem;
+        margin-bottom: 15px;
+      }
+
+      .footer ul li a {
+        font-size: 0.9rem;
+      }
+
+      .social-icons a {
+        width: 35px;
+        height: 35px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .footer-logo {
+        font-size: 1.6rem;
+      }
+
+      .footer h5 {
+        font-size: 1rem;
+        margin-bottom: 15px;
+      }
+
+      .footer ul li a {
+        font-size: 0.9rem;
+      }
+
+      .social-icons a {
+        width: 35px;
+        height: 35px;
+      }
+    }
+  </style>
+
+  <!-- ===== BACK TO TOP BUTTON ===== -->
+  <a href="#" class="back-to-top" data-aos="fade-up">↑</a>
+
+  <!-- Bootstrap 5 JS Bundle -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- AOS (Animate On Scroll) JS -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: "ease-in-out",
+      once: true,
+      offset: 100,
+    });
+  </script>
+</body>
+
+</html>

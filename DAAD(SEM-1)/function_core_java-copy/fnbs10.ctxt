@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=fnbs10
+comment1.params=
+comment1.target=void\ input()
+comment2.params=l\ b
+comment2.target=int\ cal1(int,\ int)
+comment3.params=l\ b
+comment3.target=int\ cal2(int,\ int)
+numComments=4

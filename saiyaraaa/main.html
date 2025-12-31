@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Love you Babby</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        overflow-x: hidden;
+        font-family: "Playfair Display", serif;
+      }
+
+      .video-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          rgba(0, 0, 0, 0.4),
+          rgba(139, 69, 19, 0.3),
+          rgba(0, 0, 0, 0.5)
+        );
+        z-index: -1;
+      }
+
+      .cards-container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .cards-track {
+        display: flex;
+        animation: slideCards 110s linear infinite;
+        gap: 2rem;
+        will-change: transform;
+      }
+
+      @keyframes slideCards {
+        0% {
+          transform: translateX(100vw);
+        }
+        100% {
+          transform: translateX(-100vw);
+        }
+      }
+
+      .memory-card {
+        flex-shrink: 0;
+        width: 280px;
+        height: 380px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+      }
+
+      .memory-card.center {
+        transform: scale(1.1);
+        filter: blur(0px) brightness(1.2);
+        box-shadow: 0 35px 80px rgba(255, 255, 255, 0.2);
+        border: 2px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .memory-card:not(.center) {
+        transform: scale(0.85);
+        filter: blur(2px) brightness(0.6);
+        opacity: 0.7;
+      }
+
+      .card-image {
+        width: 100%;
+        height: 70%;
+        object-fit: cover;
+        transition: all 0.8s ease;
+      }
+
+      .card-content {
+        padding: 1.5rem;
+        height: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+
+      .card-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 1.5rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 0.5rem;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .card-date {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic;
+      }
+
+      .title-overlay {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        z-index: 10;
+        /* The animation has been changed to fade in and then out */
+        animation: fadeInThenOutTitle 8s ease-in-out 2s forwards;
+      }
+
+      .main-title {
+        font-family: "Dancing Script", cursive;
+        font-size: 4rem;
+        color: rgba(255, 255, 255, 0.95);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        margin-bottom: 1rem;
+      }
+
+      .subtitle {
+        font-size: 1.2rem;
+        color: rgba(255, 255, 255, 0.8);
+        font-style: italic;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+      }
+
+      /* This is the new animation for the title */
+      @keyframes fadeInThenOutTitle {
+        0% {
+          opacity: 0;
+          transform: translate(-50%, -60%);
+        }
+        15% {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+        85% {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      @keyframes fadeInCards {
+        0% {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .cards-wrapper {
+        opacity: 0;
+        animation: fadeInCards 2s ease-in-out 5s forwards;
+      }
+
+      .floating-hearts {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 5;
+      }
+
+      .heart {
+        position: absolute;
+        color: rgba(255, 182, 193, 0.4);
+        font-size: 1.5rem;
+        animation: floatHeart 15s linear infinite;
+      }
+
+      @keyframes floatHeart {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 1;
+        }
+        90% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Background Video -->
+    <video class="video-background" autoplay muted loop>
+      <source
+        src="./media/hero.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    <!-- Dark Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Background Audio -->
+    <audio id="bgAudio" autoplay loop>
+      <source src="./song.mp3" type="audio/mpeg" />
+    </audio>
+    <button
+      onclick="document.getElementById('bgAudio').play()"
+      style="position: fixed; top: 20px; right: 20px; z-index: 1000"
+    >
+      🎶
+    </button>
+
+    <!-- Title Overlay -->
+    <div class="title-overlay">
+      <h1 class="main-title">Echoes of Us</h1>
+      <p class="subtitle">
+        Love you maamam<3 <br />
+        this is only for you
+      </p>
+    </div>
+
+    <!-- Floating Hearts -->
+    <div class="floating-hearts" id="heartsContainer"></div>
+
+    <!-- Cards Container -->
+    <div class="cards-container">
+      <div class="cards-wrapper">
+        <div class="cards-track" id="cardsTrack">
+          <!-- Memory Cards will be dynamically generated -->
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Memory data with heartbreak-themed content
+      const memories = [
+        {
+          image: "./media/pic1.jpg",
+          title: "Movie Date Together",
+          date: "YOUR Birthday",
+        },
+        {
+          image: "./media/pic2.jpg",
+          title: "Official Proposal",
+          date: "College Freshers day",
+        },
+        {
+          image: "./media/pic3.jpg",
+          title: "Cutest uss",
+          date: "2k25 Durga Puja",
+        },
+        {
+          image: "./media/pic4.jpg",
+          title: "Sexy Ass mirroe selfie",
+          date: "Chupke se ",
+        },
+        {
+          image: "./media/pic5.jpg",
+          title: "angry me cutie you",
+          date: "2K25 Durga Puja",
+        },
+        {
+          image: "./media/pic6.jpg",
+          title: "Last year Puja",
+          date: "IDK why I love you",
+        },
+        {
+          image: "./media/pic7.jpg",
+          title: "Flower for my red cherries",
+          date: "Christmassss",
+        },
+        {
+          image: "./media/pic8.jpg",
+          title: "why u love me ??",
+          date: "ador khete bhaloi lagge",
+        },
+        {
+          image: "./media/pic9.jpg",
+          title: "Jhargram nights",
+          date: "Lucky nights",
+        },
+        {
+          image: "./media/pic10.jpg",
+          title: "Restaurant kissing",
+          date: "This year birthday",
+        },
+        {
+          image: "./media/pic11.jpg",
+          title: "Cutie you ",
+          date: "Bhondu mess",
+        },
+        {
+          image: "./media/pic12.jpg",
+          title: "sarasawati dumpppp",
+          date: "this pic was in my father's phone",
+        },
+        {
+          image: "./media/pic13.jpg",
+          title: "Our firsst best cute shot",
+          date: "College time",
+        },
+        {
+          image: "./media/pic14.jpg",
+          title: "finding a million galaxy in your eyes",
+          date: "Meuseum visit",
+        },
+        {
+          image: "./media/pic15.jpg",
+          title: "naughty me & cute you",
+          date: "Pandal hopping",
+        },
+        {
+          image: "./media/pic16.jpg",
+          title: "bussy usss",
+          date: "first smootch at maidan",
+        },
+        {
+          image: "./media/pic17.jpg",
+          title: "waterfall kisses",
+          date: "jhargram trip",
+        },
+        {
+          image: "./media/pic18.jpg",
+          title: "Asthetic us",
+          date: "Diwali drunk nights",
+        },
+        {
+          image: "./media/pic19.jpg",
+          title: "your juicy lips",
+          date: "Smart plaza",
+        },
+        {
+          image: "./media/pic20.jpg",
+          title: "Our boat trip",
+          date: "Our pre-honeymoon",
+        },
+        {
+          image: "./media/pic21.jpg",
+          title: "H&M USSSSS",
+          date: "Balish er cover shoot",
+        },
+        {
+          image: "./media/pic22.jpg",
+          title: "you were looking good at sarrees",
+          date: "Mangal pandey ghat",
+        },
+        {
+          image: "./media/pic23.jpg",
+          title: "Your kiss makes me horny ASF!",
+          date: "Wanted to kiss your sweet booty",
+        },
+        {
+          image: "./media/pic24.jpg",
+          title: "my best birthday gift ",
+          date: "smell of urssssss",
+        },
+        {
+          image: "./media/pic25.jpg",
+          title: "sexyy nightss",
+          date: "you back took my attention",
+        },
+        {
+          image: "./media/pic26.jpg",
+          title: "happy cute couple uss",
+          date: "durga puja",
+        },
+        {
+          image: "./media/pic27.jpg",
+          title: "SHOULD I KISS YOU????????????????????",
+          date: "Confused meeeh",
+        },
+        {
+          image: "./media/pic28.jpg",
+          title: "praying for our best marriage life",
+          date: "Lokking like my mommy ",
+        },
+      ];
+
+      // Create memory cards
+      function createMemoryCards() {
+        const track = document.getElementById("cardsTrack");
+
+        // Create 2 sets of cards for a seamless loop. This is enough.
+        for (let set = 0; set < 2; set++) {
+          memories.forEach((memory) => {
+            const card = document.createElement("div");
+            card.className = "memory-card";
+            card.innerHTML = `
+                        <img src="${memory.image}" alt="${memory.title}" class="card-image">
+                        <div class="card-content">
+                            <h3 class="card-title">${memory.title}</h3>
+                            <p class="card-date">${memory.date}</p>
+                        </div>
+                    `;
+            track.appendChild(card);
+          });
+        }
+      }
+
+      // Update center card highlighting
+      function updateCenterCard() {
+        const cards = document.querySelectorAll(".memory-card");
+        const containerCenter = window.innerWidth / 2;
+
+        cards.forEach((card) => {
+          const cardRect = card.getBoundingClientRect();
+          const cardCenter = cardRect.left + cardRect.width / 2;
+          const distance = Math.abs(cardCenter - containerCenter);
+
+          if (distance < 200) {
+            card.classList.add("center");
+          } else {
+            card.classList.remove("center");
+          }
+        });
+      }
+
+      // Create floating hearts
+      function createFloatingHeart() {
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "💖";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 10 + 10 + "s";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+
+        document.getElementById("heartsContainer").appendChild(heart);
+
+        setTimeout(() => {
+          heart.remove();
+        }, 20000);
+      }
+
+      // Initialize the page
+      function init() {
+        createMemoryCards();
+
+        // Start heart animation
+        setInterval(createFloatingHeart, 3000);
+
+        // Update center card periodically
+        setInterval(updateCenterCard, 100);
+
+        // Handle audio autoplay (some browsers block it)
+        const audio = document.getElementById("bgAudio");
+        const playAudio = () => {
+          audio.play().catch((e) => {
+            console.log("Audio autoplay blocked by browser");
+            // Create a subtle click handler to start audio
+            document.addEventListener(
+              "click",
+              () => {
+                audio.play();
+              },
+              { once: true }
+            );
+          });
+        };
+
+        setTimeout(playAudio, 500);
+      }
+
+      // Start everything when page loads
+      window.addEventListener("load", init);
+
+      // Handle window resize
+      window.addEventListener("resize", updateCenterCard);
+
+      // Prevent context menu and selection for immersive experience
+      document.addEventListener("contextmenu", (e) => e.preventDefault());
+      document.addEventListener("selectstart", (e) => e.preventDefault());
+    </script>
+  </body>
+</html>

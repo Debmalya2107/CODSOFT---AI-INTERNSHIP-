@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VALORANT - Game Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/valorant.css">
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+      <!-- Navigation -->
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-red-600 to-orange-500 opacity-20"></div>
+        <div class="text-center z-10 float">
+            <img src="./images/gow.jfif" alt="Valorant Logo" class="mx-auto mb-8 w-64 h-32 object-contain pulse-glow">
+            <h1 class="text-6xl md:text-8xl font-bold mb-6 text-3d glitch">VALORANT</h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
+                A 5v5 character-based tactical FPS where precise gunplay meets unique agent abilities
+            </p>
+            <a href="#overview" class="btn-3d inline-block px-8 py-4 bg-red-600 hover:bg-red-700 rounded-lg text-lg font-semibold transition-all rotating-border">
+                Explore Game
+            </a>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 text-3d">Game Overview</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="card-3d glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold mb-6 neon-glow">What is VALORANT?</h3>
+                    <p class="text-lg mb-4">
+                        VALORANT is a free-to-play first-person tactical hero shooter developed and published by Riot Games. 
+                        Released in 2020, it combines precise gunplay with unique agent abilities in intense 5v5 matches.
+                    </p>
+                    <p class="text-lg mb-4">
+                        The game emphasizes competitive integrity with advanced anti-cheat systems and focuses on strategic 
+                        team-based gameplay where every round matters.
+                    </p>
+                    <p class="text-lg">
+                        Players choose from a diverse cast of agents, each with unique abilities that complement different 
+                        playstyles and team compositions.
+                    </p>
+                </div>
+                <div class="card-3d">
+                    <img src="./images/valo1.jpg" alt="Valorant Agents" class="rounded-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Agents Section -->
+    <section id="agents" class="py-20 px-6 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 text-3d">Agents</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                
+                <!-- Duelist -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass">
+                            <div class="hexagon">
+                                <div><i class="fas fa-fire text-2xl"></i></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mt-4">Duelists</h3>
+                            <p class="text-center px-4">Entry fraggers and aggressive players</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-bold mb-4">Duelist Agents</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>• Jett - Agile wind-based abilities</li>
+                                <li>• Reyna - Soul-harvesting vampire</li>
+                                <li>• Phoenix - Fire-based self-healer</li>
+                                <li>• Raze - Explosive damage dealer</li>
+                                <li>• Yoru - Dimension-rifting infiltrator</li>
+                                <li>• Neon - Electric speed demon</li>
+                                <li>• Iso - Shield-manipulating warrior</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sentinel -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass">
+                            <div class="hexagon">
+                                <div><i class="fas fa-shield-alt text-2xl"></i></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mt-4">Sentinels</h3>
+                            <p class="text-center px-4">Defensive anchors and support</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-bold mb-4">Sentinel Agents</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>• Sage - Healing and resurrection</li>
+                                <li>• Cypher - Information gathering</li>
+                                <li>• Killjoy - Tech-based lockdown</li>
+                                <li>• Chamber - Precision marksman</li>
+                                <li>• Deadlock - Nanowire trapper</li>
+                                <li>• Vyse - Area denial specialist</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controller -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass">
+                            <div class="hexagon">
+                                <div><i class="fas fa-eye text-2xl"></i></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mt-4">Controllers</h3>
+                            <p class="text-center px-4">Map control and vision denial</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-bold mb-4">Controller Agents</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>• Brimstone - Orbital strike commander</li>
+                                <li>• Omen - Shadow teleporter</li>
+                                <li>• Viper - Toxic gas specialist</li>
+                                <li>• Astra - Cosmic map controller</li>
+                                <li>• Harbor - Water-based barrier creator</li>
+                                <li>• Clove - Smoke support from beyond</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Initiator -->
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front glass">
+                            <div class="hexagon">
+                                <div><i class="fas fa-search text-2xl"></i></div>
+                            </div>
+                            <h3 class="text-2xl font-bold mt-4">Initiators</h3>
+                            <p class="text-center px-4">Information gathering and setup</p>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3 class="text-xl font-bold mb-4">Initiator Agents</h3>
+                            <ul class="text-sm space-y-2">
+                                <li>• Sova - Reconnaissance hunter</li>
+                                <li>• Breach - Bionic arms disruptor</li>
+                                <li>• Skye - Nature-based healer</li>
+                                <li>• KAY/O - Robot suppressor</li>
+                                <li>• Fade - Nightmare hunter</li>
+                                <li>• Gekko - Creature companion controller</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Maps Section -->
+    <section id="maps" class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 text-3d">Maps</h2>
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
+                <div class="card-3d">
+                    <img src="./images/valo2.jpg" alt="Valorant Maps" class="rounded-2xl w-full h-auto">
+                </div>
+                <div class="card-3d glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold mb-6 neon-glow">Competitive Arenas</h3>
+                    <p class="text-lg mb-4">
+                        VALORANT features diverse maps designed for strategic 5v5 gameplay. Each map offers unique 
+                        layouts, callouts, and tactical opportunities.
+                    </p>
+                    <p class="text-lg">
+                        From the three-site Haven to the teleporter-focused Bind, every map requires different 
+                        strategies and agent compositions.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="card-3d glass p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-red-400">Haven</h4>
+                    <p class="text-sm mb-3">Three-site map with long sightlines</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-red-600 px-2 py-1 rounded">Active</span>
+                        <i class="fas fa-map text-red-400"></i>
+                    </div>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-red-400">Bind</h4>
+                    <p class="text-sm mb-3">Two-site map with teleporters</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-gray-600 px-2 py-1 rounded">Rotated Out</span>
+                        <i class="fas fa-map text-red-400"></i>
+                    </div>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-red-400">Split</h4>
+                    <p class="text-sm mb-3">Vertical gameplay with ropes</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-red-600 px-2 py-1 rounded">Active</span>
+                        <i class="fas fa-map text-red-400"></i>
+                    </div>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-red-400">Ascent</h4>
+                    <p class="text-sm mb-3">Classic two-site with mid control</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-red-600 px-2 py-1 rounded">Active</span>
+                        <i class="fas fa-map text-red-400"></i>
+                    </div>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-red-400">Icebox</h4>
+                    <p class="text-sm mb-3">Snowy map with ziplines</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-red-600 px-2 py-1 rounded">Active</span>
+                        <i class="fas fa-map text-red-400"></i>
+                    </div>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl">
+                    <h4 class="text-xl font-bold mb-3 text-red-400">Breeze</h4>
+                    <p class="text-sm mb-3">Open tropical island map</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs bg-gray-600 px-2 py-1 rounded">Rotated Out</span>
+                        <i class="fas fa-map text-red-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Section -->
+    <section id="gameplay" class="py-20 px-6 bg-gray-900 bg-opacity-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 text-3d">Gameplay Mechanics</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-crosshairs text-4xl text-red-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Precise Gunplay</h3>
+                    <p class="text-sm">Counter-Strike inspired shooting mechanics with recoil patterns</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-magic text-4xl text-blue-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Agent Abilities</h3>
+                    <p class="text-sm">Unique skills that complement traditional FPS gameplay</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-bomb text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Spike Plant/Defuse</h3>
+                    <p class="text-sm">Attackers plant the spike, defenders prevent or defuse</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-coins text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3">Economy System</h3>
+                    <p class="text-sm">Buy weapons and abilities with credits earned each round</p>
+                </div>
+            </div>
+
+            <!-- Game Modes -->
+            <div class="card-3d glass p-8 rounded-2xl">
+                <h3 class="text-3xl font-bold mb-8 text-center neon-glow">Game Modes</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="rotating-border bg-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-trophy text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Competitive</h4>
+                        <p class="text-sm">Ranked matches with skill-based matchmaking</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="rotating-border bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-play text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Unrated</h4>
+                        <p class="text-sm">Casual matches without rank consequences</p>
+                    </div>
+                    
+                    <div class="text-center">
+                        <div class="rotating-border bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="fas fa-gamepad text-white text-xl"></i>
+                        </div>
+                        <h4 class="text-lg font-bold mb-2">Special Modes</h4>
+                        <p class="text-sm">Spike Rush, Deathmatch, and limited-time events</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Weapons & Equipment -->
+    <section class="py-20 px-6">
+        <div class="container mx-auto">
+            <h2 class="text-4xl md:text-6xl font-bold text-center mb-16 text-3d">Arsenal</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-gun text-3xl text-red-400 mb-3"></i>
+                    <h4 class="text-lg font-bold mb-2">Rifles</h4>
+                    <p class="text-xs">Vandal, Phantom, Guardian</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-crosshairs text-3xl text-green-400 mb-3"></i>
+                    <h4 class="text-lg font-bold mb-2">Snipers</h4>
+                    <p class="text-xs">Operator, Marshal</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-spray-can text-3xl text-yellow-400 mb-3"></i>
+                    <h4 class="text-lg font-bold mb-2">SMGs</h4>
+                    <p class="text-xs">Spectre, Stinger</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-dot-circle text-3xl text-blue-400 mb-3"></i>
+                    <h4 class="text-lg font-bold mb-2">Shotguns</h4>
+                    <p class="text-xs">Judge, Bucky</p>
+                </div>
+                
+                <div class="card-3d glass p-6 rounded-xl text-center">
+                    <i class="fas fa-hand-rock text-3xl text-purple-400 mb-3"></i>
+                    <h4 class="text-lg font-bold mb-2">Sidearms</h4>
+                    <p class="text-xs">Classic, Ghost, Sheriff</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-6 bg-black bg-opacity-70">
+        <div class="container mx-auto text-center">
+            <div class="cube mb-6"></div>
+            <h3 class="text-2xl font-bold mb-4 neon-glow">Ready to Play?</h3>
+            <p class="text-lg mb-6">Join millions of players in the ultimate tactical shooter</p>
+            <a href="#" class="btn-3d inline-block px-8 py-4 bg-red-600 hover:bg-red-700 rounded-lg text-lg font-semibold transition-all">
+                Download VALORANT
+            </a>
+            <div class="mt-8 pt-8 border-t border-gray-700">
+                <p class="text-sm text-gray-400">
+                   <p>&copy; Debmalya Bhattacharyya. All rights reserved.</p>
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

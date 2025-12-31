@@ -1,0 +1,28 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100" height="100" fill="#3CB043"/>
+  
+  <!-- Mario Hat -->
+  <rect x="15" y="10" width="70" height="25" fill="#E52521" rx="5"/>
+  
+  <!-- Mario Face -->
+  <rect x="20" y="30" width="60" height="40" fill="#FDBCB4" rx="10"/>
+  
+  <!-- Eyes -->
+  <rect x="30" y="40" width="10" height="10" fill="white"/>
+  <rect x="60" y="40" width="10" height="10" fill="white"/>
+  <rect x="33" y="43" width="4" height="4" fill="black"/>
+  <rect x="63" y="43" width="4" height="4" fill="black"/>
+  
+  <!-- Mustache -->
+  <rect x="25" y="55" width="50" height="8" fill="#8B4513" rx="4"/>
+  
+  <!-- Mario Body -->
+  <rect x="20" y="70" width="60" height="25" fill="#E52521" rx="5"/>
+  
+  <!-- Overalls -->
+  <rect x="25" y="75" width="50" height="15" fill="#0000FF" rx="3"/>
+  
+  <!-- Logo Text -->
+  <text x="50" y="95" font-family="Arial" font-size="8" fill="white" text-anchor="middle">MARIO</text>
+</svg>

@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mass Effect 2 - Complete Game Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/mass.css">
+</head>
+<body>
+    <div class="space-bg"></div>
+    <div class="stars"></div>
+    
+    <div class="container mx-auto px-4">
+        <!-- Header -->
+        <header class="text-center py-8">
+            <div class="game-logo">
+                <i class="fas fa-rocket text-6xl text-orange-500 rotate-hover floating-element"></i>
+                <div class="logo-text">CERBERUS ARCHIVES</div>
+            </div>
+            <h1 class="hero-title">MASS EFFECT 2</h1>
+            <p class="text-xl text-gray-300 pulse-glow">COMPLETE MISSION DOCUMENTATION</p>
+            
+            <!-- Navigation -->
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+        </header>
+
+        <!-- Game Overview -->
+        <section id="overview" class="section-3d">
+            <h2 class="section-title">
+                <i class="fas fa-info-circle mr-4"></i>MISSION OVERVIEW
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="holographic p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-planet-ringed mr-2"></i>The Suicide Mission
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Commander Shepard is back from the dead, thanks to Cerberus technology. 
+                        Human colonies are disappearing beyond the Omega 4 Relay, and only Shepard 
+                        can stop the Collectors and their mysterious agenda.
+                    </p>
+                    <div class="interactive-stat">
+                        <div class="flex justify-between items-center">
+                            <span><i class="fas fa-calendar-alt mr-2"></i>Release Date</span>
+                            <span class="text-blue-400 font-bold">January 26, 2010</span>
+                        </div>
+                    </div>
+                    <div class="interactive-stat">
+                        <div class="flex justify-between items-center">
+                            <span><i class="fas fa-gamepad mr-2"></i>Platforms</span>
+                            <span class="text-blue-400 font-bold">PC, Xbox 360, PS3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="holographic p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-orange-400 mb-4">
+                        <i class="fas fa-trophy mr-2"></i>Critical Acclaim
+                    </h3>
+                    <div class="skill-bar mb-4">
+                        <div class="text-center text-white font-bold py-1">Metacritic: 96/100</div>
+                    </div>
+                    <div class="skill-bar mb-4">
+                        <div class="text-center text-white font-bold py-1">IGN: 9.6/10</div>
+                    </div>
+                    <div class="skill-bar mb-4">
+                        <div class="text-center text-white font-bold py-1">GameSpot: 9.0/10</div>
+                    </div>
+                    <p class="text-lg">
+                        "The best game in the series" - GameInformer<br>
+                        "A masterpiece of science fiction storytelling" - PC Gamer
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Characters Section -->
+        <section id="characters" class="section-3d">
+            <h2 class="section-title">
+                <i class="fas fa-users mr-4"></i>NORMANDY CREW
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="character-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-user-astronaut text-6xl text-blue-400 floating-element"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">Commander Shepard</h3>
+                    <p class="text-gray-300 mb-4">N7 Marine brought back from the dead by Cerberus to stop the Collectors.</p>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Class: Customizable</span>
+                    </div>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Specialization: Leadership</span>
+                    </div>
+                </div>
+
+                <div class="character-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-robot text-6xl text-orange-400 floating-element"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">Garrus Vakarian</h3>
+                    <p class="text-gray-300 mb-4">Former C-Sec officer turned vigilante. Expert marksman and tactical specialist.</p>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Class: Turian Agent</span>
+                    </div>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Specialization: Sniper</span>
+                    </div>
+                </div>
+
+                <div class="character-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-female text-6xl text-purple-400 floating-element"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-purple-400 mb-2">Tali'Zorah</h3>
+                    <p class="text-gray-300 mb-4">Quarian engineer with unmatched technical expertise and drone support.</p>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Class: Quarian Machinist</span>
+                    </div>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Specialization: Tech/Drones</span>
+                    </div>
+                </div>
+
+                <div class="character-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-brain text-6xl text-blue-300 floating-element"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-300 mb-2">Liara T'Soni</h3>
+                    <p class="text-gray-300 mb-4">Asari information broker with powerful biotic abilities and Prothean expertise.</p>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Class: Asari Scientist</span>
+                    </div>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Specialization: Biotics/Intel</span>
+                    </div>
+                </div>
+
+                <div class="character-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-fist-raised text-6xl text-red-400 floating-element"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-400 mb-2">Urdnot Wrex</h3>
+                    <p class="text-gray-300 mb-4">Krogan battlelord and mercenary with centuries of combat experience.</p>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Class: Krogan Battlemaster</span>
+                    </div>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Specialization: Assault</span>
+                    </div>
+                </div>
+
+                <div class="character-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-magic text-6xl text-green-400 floating-element"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-green-400 mb-2">Thane Krios</h3>
+                    <p class="text-gray-300 mb-4">Drell assassin with perfect memory and deadly biotic infiltration skills.</p>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Class: Drell Assassin</span>
+                    </div>
+                    <div class="interactive-stat">
+                        <span class="text-sm">Specialization: Infiltration</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Missions Section -->
+        <section id="missions" class="section-3d">
+            <h2 class="section-title">
+                <i class="fas fa-crosshairs mr-4"></i>CRITICAL MISSIONS
+            </h2>
+            <div class="mission-timeline">
+                <div class="timeline-item">
+                    <h3 class="text-2xl font-bold text-orange-400 mb-4">
+                        <i class="fas fa-rocket mr-2"></i>Freedom's Progress
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Investigate the first sign of Collector activity. All colonists have vanished, 
+                        leaving only empty homes and mysterious technology behind.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="interactive-stat">
+                            <i class="fas fa-map-marker-alt mr-2"></i>Location: Freedom's Progress
+                        </div>
+                        <div class="interactive-stat">
+                            <i class="fas fa-users mr-2"></i>Recommended Squad: Miranda + Jacob
+                        </div>
+                        <div class="interactive-stat">
+                            <i class="fas fa-clock mr-2"></i>Duration: 45 minutes
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-virus mr-2"></i>Collector Ship
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Board a supposedly derelict Collector vessel. Discover the truth about 
+                        human experimentation and the Reaper connection.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="interactive-stat">
+                            <i class="fas fa-exclamation-triangle mr-2"></i>Difficulty: High
+                        </div>
+                        <div class="interactive-stat">
+                            <i class="fas fa-award mr-2"></i>Reward: Reaper IFF
+                        </div>
+                        <div class="interactive-stat">
+                            <i class="fas fa-shield-alt mr-2"></i>Enemies: Collectors
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <h3 class="text-2xl font-bold text-red-400 mb-4">
+                        <i class="fas fa-skull-crossbones mr-2"></i>The Suicide Mission
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Lead your team through the Omega 4 Relay to destroy the Collector Base. 
+                        Every decision determines who lives and who dies.
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <div class="interactive-stat">
+                            <i class="fas fa-fire mr-2"></i>Stakes: Maximum
+                        </div>
+                        <div class="interactive-stat">
+                            <i class="fas fa-heart mr-2"></i>Survival: Loyalty Dependent
+                        </div>
+                        <div class="interactive-stat">
+                            <i class="fas fa-stopwatch mr-2"></i>Point of No Return: Yes
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Weapons Section -->
+        <section id="weapons" class="section-3d">
+            <h2 class="section-title">
+                <i class="fas fa-gun mr-4"></i>WEAPONS ARSENAL
+            </h2>
+            <div class="weapon-showcase">
+                <div class="weapon-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-crosshairs text-5xl text-red-400 rotate-hover"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-red-400 mb-2">M-76 Revenant</h3>
+                    <p class="text-gray-300 mb-4">Light machine gun with devastating firepower and high ammunition capacity.</p>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Damage: 95%</div>
+                    </div>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Accuracy: 60%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="text-xs text-white text-center py-1">Rate of Fire: 85%</div>
+                    </div>
+                </div>
+
+                <div class="weapon-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bullseye text-5xl text-blue-400 rotate-hover"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-400 mb-2">M-98 Widow</h3>
+                    <p class="text-gray-300 mb-4">Anti-materiel sniper rifle capable of penetrating any armor with a single shot.</p>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Damage: 100%</div>
+                    </div>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Accuracy: 98%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="text-xs text-white text-center py-1">Rate of Fire: 20%</div>
+                    </div>
+                </div>
+
+                <div class="weapon-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-bolt text-5xl text-yellow-400 rotate-hover"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-yellow-400 mb-2">Arc Projector</h3>
+                    <p class="text-gray-300 mb-4">Experimental weapon that fires electrical arcs, devastating against synthetics.</p>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Damage: 80%</div>
+                    </div>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">vs Synthetics: 100%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="text-xs text-white text-center py-1">Chain Effect: 90%</div>
+                    </div>
+                </div>
+
+                <div class="weapon-card">
+                    <div class="text-center mb-4">
+                        <i class="fas fa-fire text-5xl text-orange-400 rotate-hover"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-orange-400 mb-2">M-451 Firestorm</h3>
+                    <p class="text-gray-300 mb-4">Heavy flamethrower that deals continuous damage and bypasses most defenses.</p>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Damage: 75%</div>
+                    </div>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Area Effect: 100%</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="text-xs text-white text-center py-1">vs Armor: 85%</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Mechanics -->
+        <section id="mechanics" class="section-3d">
+            <h2 class="section-title">
+                <i class="fas fa-cogs mr-4"></i>GAME SYSTEMS
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="holographic p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-green-400 mb-4">
+                        <i class="fas fa-heart mr-2"></i>Loyalty System
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Complete loyalty missions for each squad member to unlock their full potential 
+                        and ensure their survival in the suicide mission.
+                    </p>
+                    <div class="interactive-stat">
+                        <div class="flex justify-between">
+                            <span>Squad Survival Rate</span>
+                            <span class="text-green-400">Loyalty Dependent</span>
+                        </div>
+                    </div>
+                    <div class="interactive-stat">
+                        <div class="flex justify-between">
+                            <span>Bonus Powers</span>
+                            <span class="text-green-400">Unlocked</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="holographic p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-purple-400 mb-4">
+                        <i class="fas fa-flask mr-2"></i>Research & Upgrades
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Scan planets for resources and invest in ship upgrades to improve your 
+                        chances of surviving the final mission.
+                    </p>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Normandy Armor: Critical</div>
+                    </div>
+                    <div class="skill-bar mb-2">
+                        <div class="text-xs text-white text-center py-1">Shields: Critical</div>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="text-xs text-white text-center py-1">Cannon: Critical</div>
+                    </div>
+                </div>
+
+                <div class="holographic p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-red-400 mb-4">
+                        <i class="fas fa-balance-scale mr-2"></i>Morality System
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Choose between Paragon and Renegade actions that shape Shepard's personality 
+                        and unlock unique dialogue options.
+                    </p>
+                    <div class="interactive-stat">
+                        <div class="flex justify-between">
+                            <span><i class="fas fa-angel text-blue-400 mr-1"></i>Paragon</span>
+                            <span class="text-blue-400">Compassionate</span>
+                        </div>
+                    </div>
+                    <div class="interactive-stat">
+                        <div class="flex justify-between">
+                            <span><i class="fas fa-fire text-red-400 mr-1"></i>Renegade</span>
+                            <span class="text-red-400">Ruthless</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="holographic p-6 rounded-lg">
+                    <h3 class="text-2xl font-bold text-blue-400 mb-4">
+                        <i class="fas fa-graduation-cap mr-2"></i>Class System
+                    </h3>
+                    <p class="text-lg mb-4">
+                        Six unique classes offer different combat styles and specializations, 
+                        each with unique abilities and weapon proficiencies.
+                    </p>
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="interactive-stat text-sm">
+                            <i class="fas fa-gun mr-1"></i>Soldier
+                        </div>
+                        <div class="interactive-stat text-sm">
+                            <i class="fas fa-eye mr-1"></i>Infiltrator
+                        </div>
+                        <div class="interactive-stat text-sm">
+                            <i class="fas fa-wrench mr-1"></i>Engineer
+                        </div>
+                        <div class="interactive-stat text-sm">
+                            <i class="fas fa-magic mr-1"></i>Adept
+                        </div>
+                        <div class="interactive-stat text-sm">
+                            <i class="fas fa-fist-raised mr-1"></i>Vanguard
+                        </div>
+                        <div class="interactive-stat text-sm">
+                            <i class="fas fa-bolt mr-1"></i>Sentinel
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="section-3d text-center">
+            <div class="holographic p-8 rounded-lg">
+                <h3 class="text-2xl font-bold text-blue-400 mb-4 pulse-glow">
+                    <i class="fas fa-rocket mr-2"></i>MISSION COMPLETE
+                </h3>
+                <p class="text-lg text-gray-300 mb-4">
+                    The galaxy depends on your choices. Every decision matters. Every ally counts.
+                </p>
+                <div class="flex justify-center space-x-8 text-4xl">
+                    <i class="fab fa-steam text-blue-400 rotate-hover floating-element"></i>
+                    <i class="fab fa-xbox text-green-400 rotate-hover floating-element"></i>
+                    <i class="fab fa-playstation text-blue-600 rotate-hover floating-element"></i>
+                    <i class="fas fa-desktop text-purple-400 rotate-hover floating-element"></i>
+                </div>
+                <p class="text-sm text-gray-400 mt-4">
+                    © Gamety 2025. All rights reserved.
+                </p>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,488 @@
+/* Mario & Luigi Gaming Universe - Custom CSS */
+
+/* ===== IMPORTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@300;400;700&display=swap');
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --mario-red: #E52521;
+    --luigi-green: #3CB043;
+    --gold: #F8D210;
+    --dark: #1C1C1C;
+    --white: #FFFFFF;
+    --light-gray: #f8f9fa;
+    --mario-dark-red: #c41e3a;
+    --luigi-dark-green: #2d8f3a;
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--white);
+    color: var(--dark);
+    overflow-x: hidden;
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.display-1, .display-2, .display-3 {
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+}
+
+/* ===== NAVIGATION ===== */
+.navbar-brand {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem !important;
+    color: var(--gold) !important;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+}
+
+.nav-link {
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: var(--gold) !important;
+    transform: translateY(-2px);
+}
+
+.nav-link.active {
+    color: var(--gold) !important;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 3px;
+    background: var(--gold);
+    border-radius: 2px;
+}
+
+/* ===== HERO SECTIONS ===== */
+.hero-section {
+    background: linear-gradient(135deg, var(--mario-red) 0%, var(--luigi-green) 100%);
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="0" y="0" width="20" height="20" fill="%23ffffff10"/><rect x="20" y="20" width="20" height="20" fill="%23ffffff10"/><rect x="40" y="0" width="20" height="20" fill="%23ffffff10"/><rect x="60" y="20" width="20" height="20" fill="%23ffffff10"/><rect x="80" y="0" width="20" height="20" fill="%23ffffff10"/></svg>');
+    background-size: 100px 100px;
+    opacity: 0.3;
+}
+
+.hero-section-characters {
+    background: linear-gradient(135deg, var(--luigi-green) 0%, var(--mario-red) 100%);
+    padding: 80px 0;
+    position: relative;
+}
+
+.hero-section-characters::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><circle cx="25" cy="25" r="20" fill="none" stroke="%23ffffff10" stroke-width="2"/></svg>');
+    background-size: 50px 50px;
+    opacity: 0.3;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+    font-weight: 500;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255,255,255,0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-success {
+    background-color: var(--luigi-green);
+    border-color: var(--luigi-green);
+}
+
+.btn-success:hover {
+    background-color: var(--luigi-dark-green);
+    border-color: var(--luigi-dark-green);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(60, 176, 67, 0.4);
+}
+
+.btn-danger {
+    background-color: var(--mario-red);
+    border-color: var(--mario-red);
+}
+
+.btn-danger:hover {
+    background-color: var(--mario-dark-red);
+    border-color: var(--mario-dark-red);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(229, 37, 33, 0.4);
+}
+
+.btn-warning {
+    background-color: var(--gold);
+    border-color: var(--gold);
+    color: var(--dark);
+}
+
+.btn-warning:hover {
+    background-color: #e6c200;
+    border-color: #e6c200;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(248, 210, 16, 0.4);
+}
+
+/* ===== CARDS ===== */
+.card {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.character-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border: 3px solid transparent;
+    background-clip: padding-box;
+    position: relative;
+}
+
+.character-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--mario-red), var(--luigi-green));
+    border-radius: 15px;
+    padding: 3px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.character-card:hover::before {
+    opacity: 1;
+}
+
+.enemy-card {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.enemy-card:hover {
+    transform: rotate(-2deg) scale(1.05);
+}
+
+/* ===== CHARACTER STATS ===== */
+.progress {
+    height: 8px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.progress-bar {
+    border-radius: 4px;
+    transition: width 1s ease;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.bg-pink {
+    background-color: #ff69b4 !important;
+}
+
+/* ===== GALLERY ===== */
+.gallery-preview {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.gallery-preview:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: linear-gradient(135deg, var(--dark) 0%, #2c3e50 100%) !important;
+}
+
+footer a {
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--gold);
+    transform: translateY(-2px);
+}
+
+/* ===== GAME SPECIFIC STYLES ===== */
+.game-container {
+    background: linear-gradient(to bottom, #87CEEB 0%, #98D8C8 100%);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.game-canvas {
+    border: 4px solid var(--dark);
+    border-radius: 10px;
+    background: #5C94FC;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.game-hud {
+    background: rgba(0,0,0,0.8);
+    color: var(--white);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 14px;
+}
+
+.game-controls {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* ===== LEADERBOARD ===== */
+.leaderboard-table {
+    background: var(--white);
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.leaderboard-table thead {
+    background: linear-gradient(135deg, var(--mario-red) 0%, var(--luigi-green) 100%);
+    color: var(--white);
+}
+
+.leaderboard-table tbody tr {
+    transition: all 0.3s ease;
+}
+
+.leaderboard-table tbody tr:hover {
+    background-color: var(--light-gray);
+    transform: scale(1.02);
+}
+
+.rank-1 { color: #FFD700; font-weight: bold; }
+.rank-2 { color: #C0C0C0; font-weight: bold; }
+.rank-3 { color: #CD7F32; font-weight: bold; }
+
+/* ===== CONTACT FORM ===== */
+.contact-form {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.form-control, .form-select {
+    border-radius: 8px;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: var(--luigi-green);
+    box-shadow: 0 0 0 0.2rem rgba(60, 176, 67, 0.25);
+}
+
+/* ===== MODAL STYLES ===== */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+    background: linear-gradient(135deg, var(--mario-red) 0%, var(--luigi-green) 100%);
+    color: var(--white);
+    border-radius: 15px 15px 0 0;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-30px); }
+    60% { transform: translateY(-15px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+    from { transform: translateX(-100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes slideInRight {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.bounce-animation {
+    animation: bounce 2s infinite;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .display-1 { font-size: 2.5rem; }
+    .display-2 { font-size: 2rem; }
+    .display-3 { font-size: 1.5rem; }
+    
+    .hero-section { padding: 60px 0; }
+    .hero-section-characters { padding: 50px 0; }
+    
+    .navbar-brand { font-size: 0.8rem !important; }
+    
+    .btn { padding: 10px 20px; font-size: 0.9rem; }
+    
+    .card { margin-bottom: 20px; }
+    
+    .game-canvas { max-width: 100%; height: auto; }
+}
+
+@media (max-width: 576px) {
+    .display-1 { font-size: 2rem; }
+    .display-2 { font-size: 1.5rem; }
+    .display-3 { font-size: 1.2rem; }
+    
+    .hero-section { padding: 40px 0; }
+    .hero-section-characters { padding: 30px 0; }
+    
+    .btn { padding: 8px 16px; font-size: 0.8rem; }
+    
+    .contact-form { padding: 20px; }
+}
+
+/* ===== LOADING ANIMATION ===== */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255,255,255,.3);
+    border-radius: 50%;
+    border-top-color: var(--white);
+    animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, var(--mario-red), var(--luigi-green));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, var(--mario-dark-red), var(--luigi-dark-green));
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .navbar, .footer, .btn, .game-container {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .card {
+        break-inside: avoid;
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

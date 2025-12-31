@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Berger Paints Product Finder Clone</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: white;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: white;
+            border-bottom: 2px solid black;
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 600;
+        }
+        
+        .header h1 span {
+            color: #FFC107;
+        }
+        
+        .search-container {
+            padding: 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+            border-bottom: 1px solid black;
+        }
+        
+        .search-box {
+            display: flex;
+            justify-content: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        #myInput {
+            border: 1px solid black;
+            padding: 10px 15px;
+            width: 100%;
+            font-size: 16px;
+            border-radius: 4px 0 0 4px;
+            border-right: none;
+        }
+        
+        #searchBtn {
+            background-color: #FFC107;
+            color: black;
+            border: 1px solid black;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 0 4px 4px 0;
+            border-left: none;
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        
+        #searchBtn:hover {
+            background-color: #e0a800;
+        }
+        
+        .filter-container {
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            border-bottom: 1px solid black;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        
+        .filter-btn {
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 8px 16px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-block;
+        }
+        
+        .filter-btn:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .filter-btn.active {
+            background-color: #FFC107;
+            color: black;
+            border: 1px solid black;
+        }
+        
+        .container {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .filterDiv {
+            border: 1px solid black;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: none;
+        }
+        
+        .filterDiv:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .filterDiv img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: #f8f9fa;
+        }
+        
+        .filterDiv h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+        
+        .filterDiv p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .product-tag {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            color: #555;
+        }
+        
+        .product-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .btn-learn-more {
+            flex: 1;
+            background-color: white;
+            color: black;
+            border: 1px solid black;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-learn-more:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .btn-buy-now {
+            flex: 1;
+            background-color: #FFC107;
+            color: black;
+            border: 1px solid black;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-buy-now:hover {
+            background-color: #e0a800;
+        }
+        
+        .show {
+            display: block !important;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            display: none;
+        }
+        
+        .no-results h2 {
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .no-results p {
+            color: #999;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+        
+        .close {
+            color: black;
+            position: absolute;
+            right: 20px;
+            top: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #666;
+        }
+        
+        .modal-header {
+            margin-bottom: 15px;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+        }
+        
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        .modal-btn {
+            padding: 8px 16px;
+            border: 1px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+        }
+        
+        .modal-btn-primary {
+            background-color: #FFC107;
+            color: black;
+        }
+        
+        .modal-btn-secondary {
+            background-color: white;
+            color: black;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .product-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 15px;
+            }
+            
+            .filter-btn {
+                padding: 6px 12px;
+                font-size: 13px;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 15% auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-box {
+                width: 95%;
+            }
+            
+            .product-actions {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Berger Paints <span>Product Finder</span> Clone</h1>
+    </div>
+    
+    <div class="search-container">
+        <div class="search-box">
+            <input type="text" id="myInput" placeholder="Search products...">
+            <button id="searchBtn" onclick="performSearch()">Search</button>
+        </div>
+    </div>
+    
+    <div class="filter-container">
+        <button class="filter-btn active" onclick="filterSelection('all')">All</button>
+        <button class="filter-btn" onclick="filterSelection('interior')">Interior</button>
+        <button class="filter-btn" onclick="filterSelection('exterior')">Exterior</button>
+        <button class="filter-btn" onclick="filterSelection('primers')">Primers</button>
+        <button class="filter-btn" onclick="filterSelection('waterproofing')">Waterproofing</button>
+        <button class="filter-btn" onclick="filterSelection('consumer')">Consumer</button>
+        <button class="filter-btn" onclick="filterSelection('business')">Business</button>
+        <button class="filter-btn" onclick="filterSelection('metal')">Metal</button>
+        <button class="filter-btn" onclick="filterSelection('wood')">Wood</button>
+        <button class="filter-btn" onclick="filterSelection('texture')">Texture</button>
+    </div>
+    
+    <div class="container">
+        <div class="product-grid">
+            <!-- Interior Products -->
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-silk/300/180.jpg" alt="Berger Silk">
+                <h3>Berger Silk</h3>
+                <p>Premium washable interior paint with a smooth silk finish</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Washable</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Silk', 'Premium washable interior paint with a smooth silk finish. Provides excellent coverage and durability for interior walls.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Silk')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-silk-breathe-easy/300/180.jpg" alt="Berger Silk Breathe Easy">
+                <h3>Berger Silk Breathe Easy</h3>
+                <p>Luxurious interior emulsion with activated carbon technology for cleaner air</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Air Purifying</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Silk Breathe Easy', 'Luxurious interior emulsion with activated carbon technology for cleaner air. Helps reduce indoor air pollutants and provides a healthier living environment.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Silk Breathe Easy')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-easy-clean/300/180.jpg" alt="Berger Easy Clean">
+                <h3>Berger Easy Clean</h3>
+                <p>Scratch-resistant interior paint that's easy to clean and maintain</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Scratch Resistant</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Easy Clean', 'Scratch-resistant interior paint that\'s easy to clean and maintain. Ideal for high-traffic areas and homes with children.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Easy Clean')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-velvet-touch/300/180.jpg" alt="Berger Velvet Touch">
+                <h3>Berger Velvet Touch</h3>
+                <p>Luxurious interior paint with a rich velvet finish for premium spaces</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Premium</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Velvet Touch', 'Luxurious interior paint with a rich velvet finish for premium spaces. Provides a sophisticated look and feel to any interior.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Velvet Touch')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-illusions/300/180.jpg" alt="Berger Illusions">
+                <h3>Berger Illusions</h3>
+                <p>Special effects paint with metallic and pearlescent finishes for accent walls</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Special Effects</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Illusions', 'Special effects paint with metallic and pearlescent finishes for accent walls. Create stunning visual effects with this premium interior paint.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Illusions')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-rangoli/300/180.jpg" alt="Berger Rangoli">
+                <h3>Berger Rangoli</h3>
+                <p>Economical interior paint with a smooth matte finish for budget-friendly projects</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Economy</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Rangoli', 'Economical interior paint with a smooth matte finish for budget-friendly projects. Provides good coverage at an affordable price.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Rangoli')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-premium-emulsion/300/180.jpg" alt="Berger Premium Emulsion">
+                <h3>Berger Premium Emulsion</h3>
+                <p>High-quality interior emulsion with excellent coverage and durability</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Durable</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Premium Emulsion', 'High-quality interior emulsion with excellent coverage and durability. Perfect for all interior surfaces with long-lasting performance.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Premium Emulsion')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv interior consumer">
+                <img src="https://picsum.photos/seed/berger-weathercoat/300/180.jpg" alt="Berger WeatherCoat">
+                <h3>Berger WeatherCoat</h3>
+                <p>Moisture-resistant interior paint suitable for humid areas</p>
+                <div class="product-tags">
+                    <span class="product-tag">Interior</span>
+                    <span class="product-tag">Moisture Resistant</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat', 'Moisture-resistant interior paint suitable for humid areas. Prevents mold and mildew growth in damp environments.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat')">Buy Now</div>
+                </div>
+            </div>
+            
+            <!-- Exterior Products -->
+            <div class="filterDiv exterior consumer business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-long-life/300/180.jpg" alt="Berger WeatherCoat Long Life">
+                <h3>Berger WeatherCoat Long Life</h3>
+                <p>Advanced exterior paint with weatherproof technology for long-lasting protection</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Weatherproof</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Long Life', 'Advanced exterior paint with weatherproof technology for long-lasting protection. Withstands harsh weather conditions and prevents wall damage.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Long Life')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv exterior consumer business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-anti-dust/300/180.jpg" alt="Berger WeatherCoat Anti Dust">
+                <h3>Berger WeatherCoat Anti Dust</h3>
+                <p>Exterior paint with anti-dust technology that keeps walls cleaner for longer</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Anti Dust</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Anti Dust', 'Exterior paint with anti-dust technology that keeps walls cleaner for longer. Reduces dust accumulation and maintains appearance.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Anti Dust')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv exterior consumer business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-cool-roof/300/180.jpg" alt="Berger WeatherCoat Cool Roof">
+                <h3>Berger WeatherCoat Cool Roof</h3>
+                <p>Specialized roof coating that reflects heat and reduces indoor temperature</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Heat Reflective</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Cool Roof', 'Specialized roof coating that reflects heat and reduces indoor temperature. Helps reduce energy costs and provides excellent protection.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Cool Roof')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv exterior business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-anti-carbonation/300/180.jpg" alt="Berger WeatherCoat Anti Carbonation">
+                <h3>Berger WeatherCoat Anti Carbonation</h3>
+                <p>Exterior paint with anti-carbonation properties to protect concrete structures</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Anti Carbonation</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Anti Carbonation', 'Exterior paint with anti-carbonation properties to protect concrete structures. Prevents deterioration and extends building life.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Anti Carbonation')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv exterior business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-power-flexx/300/180.jpg" alt="Berger WeatherCoat Power Flexx">
+                <h3>Berger WeatherCoat Power Flexx</h3>
+                <p>Flexible exterior paint that bridges hairline cracks and prevents water seepage</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Crack Resistant</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Power Flexx', 'Flexible exterior paint that bridges hairline cracks and prevents water seepage. Provides excellent elasticity and weather protection.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Power Flexx')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv exterior consumer business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-glaze/300/180.jpg" alt="Berger WeatherCoat Glaze">
+                <h3>Berger WeatherCoat Glaze</h3>
+                <p>Glossy exterior paint with excellent water resistance and UV protection</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Glossy</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Glaze', 'Glossy exterior paint with excellent water resistance and UV protection. Provides a premium finish with long-lasting durability.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Glaze')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv exterior business">
+                <img src="https://picsum.photos/seed/berger-weathercoat-textured/300/180.jpg" alt="Berger WeatherCoat Textured">
+                <h3>Berger WeatherCoat Textured</h3>
+                <p>Textured exterior paint for decorative finishes with added protection</p>
+                <div class="product-tags">
+                    <span class="product-tag">Exterior</span>
+                    <span class="product-tag">Textured</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger WeatherCoat Textured', 'Textured exterior paint for decorative finishes with added protection. Creates unique visual effects while providing weather protection.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger WeatherCoat Textured')">Buy Now</div>
+                </div>
+            </div>
+            
+            <!-- Primers -->
+            <div class="filterDiv primers consumer business">
+                <img src="https://picsum.photos/seed/berger-primer/300/180.jpg" alt="Berger Primer">
+                <h3>Berger Primer</h3>
+                <p>Universal primer for interior and exterior surfaces</p>
+                <div class="product-tags">
+                    <span class="product-tag">Primer</span>
+                    <span class="product-tag">Universal</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Primer', 'Universal primer for interior and exterior surfaces. Provides excellent adhesion and prepares surfaces for painting.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Primer')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv primers consumer business">
+                <img src="https://picsum.photos/seed/berger-primer-water-based/300/180.jpg" alt="Berger Primer Water Based">
+                <h3>Berger Primer Water Based</h3>
+                <p>Water-based primer with low VOC for eco-friendly applications</p>
+                <div class="product-tags">
+                    <span class="product-tag">Primer</span>
+                    <span class="product-tag">Eco Friendly</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Primer Water Based', 'Water-based primer with low VOC for eco-friendly applications. Provides excellent coverage with minimal environmental impact.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Primer Water Based')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv primers business">
+                <img src="https://picsum.photos/seed/berger-primer-oil-based/300/180.jpg" alt="Berger Primer Oil Based">
+                <h3>Berger Primer Oil Based</h3>
+                <p>Oil-based primer with excellent adhesion for difficult surfaces</p>
+                <div class="product-tags">
+                    <span class="product-tag">Primer</span>
+                    <span class="product-tag">Oil Based</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Primer Oil Based', 'Oil-based primer with excellent adhesion for difficult surfaces. Provides superior bonding on challenging substrates.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Primer Oil Based')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv primers metal business">
+                <img src="https://picsum.photos/seed/berger-metal-primer/300/180.jpg" alt="Berger Metal Primer">
+                <h3>Berger Metal Primer</h3>
+                <p>Specialized primer for metal surfaces with rust-inhibiting properties</p>
+                <div class="product-tags">
+                    <span class="product-tag">Primer</span>
+                    <span class="product-tag">Metal</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Metal Primer', 'Specialized primer for metal surfaces with rust-inhibiting properties. Prevents corrosion and ensures long-lasting paint performance.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Metal Primer')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv primers wood business">
+                <img src="https://picsum.photos/seed/berger-wood-primer/300/180.jpg" alt="Berger Wood Primer">
+                <h3>Berger Wood Primer</h3>
+                <p>Wood primer that seals the surface and enhances paint adhesion</p>
+                <div class="product-tags">
+                    <span class="product-tag">Primer</span>
+                    <span class="product-tag">Wood</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Wood Primer', 'Wood primer that seals the surface and enhances paint adhesion. Prevents tannin bleeding and ensures uniform finish.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Wood Primer')">Buy Now</div>
+                </div>
+            </div>
+            
+            <!-- Waterproofing -->
+            <div class="filterDiv waterproofing business">
+                <img src="https://picsum.photos/seed/berger-homeshield-elastomeric/300/180.jpg" alt="Berger Homeshield Elastomeric">
+                <h3>Berger Homeshield Elastomeric</h3>
+                <p>Elastomeric waterproof coating for roofs and exterior walls</p>
+                <div class="product-tags">
+                    <span class="product-tag">Waterproofing</span>
+                    <span class="product-tag">Elastomeric</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Homeshield Elastomeric', 'Elastomeric waterproof coating for roofs and exterior walls. Provides excellent flexibility and crack-bridging properties.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Homeshield Elastomeric')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv waterproofing consumer business">
+                <img src="https://picsum.photos/seed/berger-homeshield-dampstop/300/180.jpg" alt="Berger Homeshield DampStop">
+                <h3>Berger Homeshield DampStop</h3>
+                <p>Waterproof coating for interior walls to prevent dampness</p>
+                <div class="product-tags">
+                    <span class="product-tag">Waterproofing</span>
+                    <span class="product-tag">Damp Proof</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Homeshield DampStop', 'Waterproof coating for interior walls to prevent dampness. Creates a barrier against moisture and protects walls.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Homeshield DampStop')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv waterproofing business">
+                <img src="https://picsum.photos/seed/berger-homeshield-cementitious/300/180.jpg" alt="Berger Homeshield Cementitious">
+                <h3>Berger Homeshield Cementitious</h3>
+                <p>Cement-based waterproof coating for basements and water tanks</p>
+                <div class="product-tags">
+                    <span class="product-tag">Waterproofing</span>
+                    <span class="product-tag">Cement Based</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Homeshield Cementitious', 'Cement-based waterproof coating for basements and water tanks. Provides excellent water resistance for below-grade applications.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Homeshield Cementitious')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv waterproofing business">
+                <img src="https://picsum.photos/seed/berger-homeshield-polyurethane/300/180.jpg" alt="Berger Homeshield Polyurethane">
+                <h3>Berger Homeshield Polyurethane</h3>
+                <p>Polyurethane waterproof coating for terraces and balconies</p>
+                <div class="product-tags">
+                    <span class="product-tag">Waterproofing</span>
+                    <span class="product-tag">Polyurethane</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Homeshield Polyurethane', 'Polyurethane waterproof coating for terraces and balconies. Provides excellent UV resistance and long-term protection.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Homeshield Polyurethane')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv waterproofing business">
+                <img src="https://picsum.photos/seed/berger-homeshield-bituminous/300/180.jpg" alt="Berger Homeshield Bituminous">
+                <h3>Berger Homeshield Bituminous</h3>
+                <p>Bituminous waterproof coating for foundations and underground structures</p>
+                <div class="product-tags">
+                    <span class="product-tag">Waterproofing</span>
+                    <span class="product-tag">Bituminous</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Homeshield Bituminous', 'Bituminous waterproof coating for foundations and underground structures. Provides excellent protection against water ingress.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Homeshield Bituminous')">Buy Now</div>
+                </div>
+            </div>
+            
+            <!-- Metal Products -->
+            <div class="filterDiv metal business">
+                <img src="https://picsum.photos/seed/berger-metalshield/300/180.jpg" alt="Berger Metalshield">
+                <h3>Berger Metalshield</h3>
+                <p>High-performance metal paint with excellent rust protection</p>
+                <div class="product-tags">
+                    <span class="product-tag">Metal</span>
+                    <span class="product-tag">Rust Protection</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Metalshield', 'High-performance metal paint with excellent rust protection. Provides long-lasting protection for metal surfaces.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Metalshield')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv metal business">
+                <img src="https://picsum.photos/seed/berger-metalshield-premium/300/180.jpg" alt="Berger Metalshield Premium">
+                <h3>Berger Metalshield Premium</h3>
+                <p>Premium metal paint with enhanced durability and weather resistance</p>
+                <div class="product-tags">
+                    <span class="product-tag">Metal</span>
+                    <span class="product-tag">Premium</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Metalshield Premium', 'Premium metal paint with enhanced durability and weather resistance. Ideal for demanding applications and harsh environments.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Metalshield Premium')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv metal business">
+                <img src="https://picsum.photos/seed/berger-metalshield-hammer-tone/300/180.jpg" alt="Berger Metalshield Hammer Tone">
+                <h3>Berger Metalshield Hammer Tone</h3>
+                <p>Special effects metal paint with a hammered texture for decorative applications</p>
+                <div class="product-tags">
+                    <span class="product-tag">Metal</span>
+                    <span class="product-tag">Hammer Tone</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Metalshield Hammer Tone', 'Special effects metal paint with a hammered texture for decorative applications. Creates a unique finish with excellent durability.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Metalshield Hammer Tone')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv metal business">
+                <img src="https://picsum.photos/seed/berger-metalshield-zinc-chromate/300/180.jpg" alt="Berger Metalshield Zinc Chromate">
+                <h3>Berger Metalshield Zinc Chromate</h3>
+                <p>Industrial metal primer with zinc chromate for superior rust protection</p>
+                <div class="product-tags">
+                    <span class="product-tag">Metal</span>
+                    <span class="product-tag">Industrial</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Metalshield Zinc Chromate', 'Industrial metal primer with zinc chromate for superior rust protection. Provides exceptional corrosion resistance for industrial applications.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Metalshield Zinc Chromate')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv metal business">
+                <img src="https://picsum.photos/seed/berger-metalshield-aluminium/300/180.jpg" alt="Berger Metalshield Aluminium">
+                <h3>Berger Metalshield Aluminium</h3>
+                <p>Aluminium-based metal paint with heat resistance properties</p>
+                <div class="product-tags">
+                    <span class="product-tag">Metal</span>
+                    <span class="product-tag">Heat Resistant</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Metalshield Aluminium', 'Aluminium-based metal paint with heat resistance properties. Ideal for surfaces exposed to high temperatures.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Metalshield Aluminium')">Buy Now</div>
+                </div>
+            </div>
+            
+            <!-- Wood Products -->
+            <div class="filterDiv wood consumer business">
+                <img src="https://picsum.photos/seed/berger-woodshield/300/180.jpg" alt="Berger Woodshield">
+                <h3>Berger Woodshield</h3>
+                <p>Premium wood paint that enhances the natural beauty of wood</p>
+                <div class="product-tags">
+                    <span class="product-tag">Wood</span>
+                    <span class="product-tag">Premium</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Woodshield', 'Premium wood paint that enhances the natural beauty of wood. Provides excellent protection while highlighting wood grain.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Woodshield')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv wood business">
+                <img src="https://picsum.photos/seed/berger-woodshield-melamine/300/180.jpg" alt="Berger Woodshield Melamine">
+                <h3>Berger Woodshield Melamine</h3>
+                <p>Melamine finish wood paint with enhanced durability and scratch resistance</p>
+                <div class="product-tags">
+                    <span class="product-tag">Wood</span>
+                    <span class="product-tag">Melamine</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Woodshield Melamine', 'Melamine finish wood paint with enhanced durability and scratch resistance. Ideal for furniture and high-traffic wood surfaces.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Woodshield Melamine')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv wood business">
+                <img src="https://picsum.photos/seed/berger-woodshield-pu/300/180.jpg" alt="Berger Woodshield PU">
+                <h3>Berger Woodshield PU</h3>
+                <p>Polyurethane wood finish with excellent protection against moisture and wear</p>
+                <div class="product-tags">
+                    <span class="product-tag">Wood</span>
+                    <span class="product-tag">Polyurethane</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Woodshield PU', 'Polyurethane wood finish with excellent protection against moisture and wear. Provides a durable, long-lasting finish for wood surfaces.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Woodshield PU')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv wood business">
+                <img src="https://picsum.photos/seed/berger-woodshield-transparent/300/180.jpg" alt="Berger Woodshield Transparent">
+                <h3>Berger Woodshield Transparent</h3>
+                <p>Transparent wood finish that preserves the natural grain while providing protection</p>
+                <div class="product-tags">
+                    <span class="product-tag">Wood</span>
+                    <span class="product-tag">Transparent</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Woodshield Transparent', 'Transparent wood finish that preserves the natural grain while providing protection. Enhances wood appearance while protecting from damage.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Woodshield Transparent')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv wood business">
+                <img src="https://picsum.photos/seed/berger-woodshield-nc-lacquer/300/180.jpg" alt="Berger Woodshield NC Lacquer">
+                <h3>Berger Woodshield NC Lacquer</h3>
+                <p>Nitrocellulose lacquer for a high-gloss finish on wooden furniture</p>
+                <div class="product-tags">
+                    <span class="product-tag">Wood</span>
+                    <span class="product-tag">High Gloss</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Woodshield NC Lacquer', 'Nitrocellulose lacquer for a high-gloss finish on wooden furniture. Provides a premium, professional finish with excellent clarity.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Woodshield NC Lacquer')">Buy Now</div>
+                </div>
+            </div>
+            
+            <!-- Texture Products -->
+            <div class="filterDiv texture business">
+                <img src="https://picsum.photos/seed/berger-texture-designer/300/180.jpg" alt="Berger Texture Designer">
+                <h3>Berger Texture Designer</h3>
+                <p>Designer texture paint for creating unique wall finishes</p>
+                <div class="product-tags">
+                    <span class="product-tag">Texture</span>
+                    <span class="product-tag">Designer</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Texture Designer', 'Designer texture paint for creating unique wall finishes. Allows for creative expression with various application techniques.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Texture Designer')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv texture business">
+                <img src="https://picsum.photos/seed/berger-texture-stone/300/180.jpg" alt="Berger Texture Stone">
+                <h3>Berger Texture Stone</h3>
+                <p>Stone-effect texture paint for a natural, rustic look</p>
+                <div class="product-tags">
+                    <span class="product-tag">Texture</span>
+                    <span class="product-tag">Stone Effect</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Texture Stone', 'Stone-effect texture paint for a natural, rustic look. Creates the appearance of natural stone with excellent durability.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Texture Stone')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv texture business">
+                <img src="https://picsum.photos/seed/berger-texture-sand/300/180.jpg" alt="Berger Texture Sand">
+                <h3>Berger Texture Sand</h3>
+                <p>Sand-effect texture paint for creating smooth, sandy finishes</p>
+                <div class="product-tags">
+                    <span class="product-tag">Texture</span>
+                    <span class="product-tag">Sand Effect</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Texture Sand', 'Sand-effect texture paint for creating smooth, sandy finishes. Provides a subtle, elegant texture for interior walls.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Texture Sand')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv texture business">
+                <img src="https://picsum.photos/seed/berger-texture-concrete/300/180.jpg" alt="Berger Texture Concrete">
+                <h3>Berger Texture Concrete</h3>
+                <p>Concrete-effect texture paint for an industrial, modern look</p>
+                <div class="product-tags">
+                    <span class="product-tag">Texture</span>
+                    <span class="product-tag">Concrete Effect</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Texture Concrete', 'Concrete-effect texture paint for an industrial, modern look. Creates a contemporary urban aesthetic with excellent durability.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Texture Concrete')">Buy Now</div>
+                </div>
+            </div>
+            
+            <div class="filterDiv texture business">
+                <img src="https://picsum.photos/seed/berger-texture-metallic/300/180.jpg" alt="Berger Texture Metallic">
+                <h3>Berger Texture Metallic</h3>
+                <p>Metallic texture paint for luxurious, reflective surfaces</p>
+                <div class="product-tags">
+                    <span class="product-tag">Texture</span>
+                    <span class="product-tag">Metallic</span>
+                </div>
+                <div class="product-actions">
+                    <div class="btn-learn-more" onclick="openModal('Berger Texture Metallic', 'Metallic texture paint for luxurious, reflective surfaces. Creates stunning visual effects with light-reflecting properties.')">Learn More</div>
+                    <div class="btn-buy-now" onclick="buyNow('Berger Texture Metallic')">Buy Now</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="no-results" id="noResults">
+            <h2>No products found</h2>
+            <p>Try adjusting your filters or search terms</p>
+        </div>
+    </div>
+    
+    <!-- Modal for Learn More -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div class="modal-header">
+                <h2 id="modalTitle">Product Details</h2>
+            </div>
+            <div class="modal-body">
+                <p id="modalDescription">Product description goes here.</p>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal()">Close</button>
+                <button class="modal-btn modal-btn-primary" onclick="buyNowFromModal()">Buy Now</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Initialize with all products shown
+        document.addEventListener('DOMContentLoaded', function() {
+            filterSelection('all');
+        });
+        
+        // Filter selection function
+        function filterSelection(c) {
+            var x = document.getElementsByClassName("filterDiv");
+            var buttons = document.getElementsByClassName("filter-btn");
+            
+            // Update active button
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].classList.remove("active");
+            }
+            event.target.classList.add("active");
+            
+            // Filter products
+            if (c == "all") c = "";
+            var found = false;
+            
+            for (var i = 0; i < x.length; i++) {
+                removeClass(x[i], "show");
+                if (x[i].className.indexOf(c) > -1) {
+                    addClass(x[i], "show");
+                    found = true;
+                }
+            }
+            
+            // Show/hide no results message
+            document.getElementById("noResults").style.display = found ? "none" : "block";
+        }
+        
+        // Add class function
+        function addClass(element, name) {
+            var arr = element.className.split(" ");
+            if (arr.indexOf(name) == -1) {
+                element.className += " " + name;
+            }
+        }
+        
+        // Remove class function
+        function removeClass(element, name) {
+            var arr = element.className.split(" ");
+            while (arr.indexOf(name) > -1) {
+                arr.splice(arr.indexOf(name), 1);
+            }
+            element.className = arr.join(" ");
+        }
+        
+        // Search function triggered by button click
+        function performSearch() {
+            var input, filter, items, i, txtValue;
+            input = document.getElementById('myInput');
+            filter = input.value.toUpperCase();
+            items = document.getElementsByClassName('filterDiv');
+            var found = false;
+            
+            for (i = 0; i < items.length; i++) {
+                txtValue = items[i].textContent || items[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    items[i].style.display = "";
+                    found = true;
+                } else {
+                    items[i].style.display = "none";
+                }
+            }
+            
+            // Show/hide no results message
+            document.getElementById("noResults").style.display = found ? "none" : "block";
+            
+            // Reset active filter button when searching
+            if (filter.length > 0) {
+                var buttons = document.getElementsByClassName("filter-btn");
+                for (var j = 0; j < buttons.length; j++) {
+                    buttons[j].classList.remove("active");
+                }
+            } else if (filter.length === 0) {
+                // When search is cleared, restore the "All" filter
+                var buttons = document.getElementsByClassName("filter-btn");
+                for (var k = 0; k < buttons.length; k++) {
+                    buttons[k].classList.remove("active");
+                    if (buttons[k].textContent === "All") {
+                        buttons[k].classList.add("active");
+                    }
+                }
+            }
+        }
+        
+        // Search function triggered by Enter key
+        document.getElementById('myInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        });
+        
+        // Modal functions
+        var currentProduct = "";
+        
+        function openModal(productName, productDescription) {
+            document.getElementById("modalTitle").textContent = productName;
+            document.getElementById("modalDescription").textContent = productDescription;
+            document.getElementById("productModal").style.display = "block";
+            currentProduct = productName;
+        }
+        
+        function closeModal() {
+            document.getElementById("productModal").style.display = "none";
+        }
+        
+        function buyNow(productName) {
+            // In a real application, this would add the product to a cart or redirect to a purchase page
+            alert("Thank you for your interest in " + productName + "! This would redirect to the purchase page in a real application.");
+        }
+        
+        function buyNowFromModal() {
+            closeModal();
+            buyNow(currentProduct);
+        }
+        
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            var modal = document.getElementById("productModal");
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>

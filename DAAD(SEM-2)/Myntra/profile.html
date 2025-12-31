@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra - My Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="./css/profile.css">
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="myntra-pink text-white shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-8">
+                    <h1 class="text-2xl font-bold">Myntra</h1>
+                    <nav class="hidden md:flex space-x-6">
+                        <a href="#" class="hover:text-pink-200">Men</a>
+                        <a href="#" class="hover:text-pink-200">Women</a>
+                        <a href="#" class="hover:text-pink-200">Kids</a>
+                        <a href="#" class="hover:text-pink-200">Home & Living</a>
+                        <a href="#" class="hover:text-pink-200">Beauty</a>
+                    </nav>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <div class="relative">
+                        <input type="text" placeholder="Search for products, brands and more" class="bg-white text-gray-800 px-4 py-2 pr-10 rounded-md w-80 focus:outline-none">
+                        <i class="fas fa-search absolute right-3 top-3 text-gray-400"></i>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <!-- Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="profile-card bg-white p-6 mb-6">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gray-300 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user text-2xl text-gray-600"></i>
+                        </div>
+                        <h3 class="font-semibold text-lg">Debmalya Bhattacharyya</h3>
+                        <p class="text-gray-600 text-sm">debmalyabhattacharyya2@gmail.com</p>
+                        <p class="text-gray-600 text-sm"></p>
+                    </div>
+                </div>
+
+                <div class="profile-card bg-white p-4">
+                    <nav class="space-y-2">
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 myntra-text-pink font-medium">
+                            <i class="fas fa-user w-5"></i>
+                            <span>Profile Details</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-box w-5"></i>
+                            <span>My Orders</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-heart w-5"></i>
+                            <span>Wishlist</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-map-marker-alt w-5"></i>
+                            <span>Addresses</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-credit-card w-5"></i>
+                            <span>Payment Methods</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-gift w-5"></i>
+                            <span>Coupons</span>
+                        </a>
+                        <a href="#" class="flex items-center space-x-3 p-3 rounded-md hover:bg-gray-50 text-gray-700">
+                            <i class="fas fa-cog w-5"></i>
+                            <span>Settings</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Main Content Area -->
+            <div class="lg:col-span-3">
+                <!-- Profile Details Section -->
+                <div class="profile-card bg-white p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-semibold">Profile Details</h2>
+                        <button class="myntra-text-pink hover:underline">
+                            <i class="fas fa-edit mr-2"></i>Edit
+                        </button>
+                    </div>
+                    
+                    <form action="#" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Full Name</label>
+                                <input type="text" name="name" class="border border-gray-300 rounded-md p-3 bg-gray-50 w-full" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                                <input type="email" name="email" class="border border-gray-300 rounded-md p-3 bg-gray-50 w-full" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Mobile Number</label>
+                                <input type="tel" name="mobile" class="border border-gray-300 rounded-md p-3 bg-gray-50 w-full" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Gender</label>
+                                <select name="gender" class="border border-gray-300 rounded-md p-3 bg-gray-50 w-full" required>
+                                    <option value="">Select</option>
+                                    <option value="male">Male</option>
+                                    <option value="female">Female</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Date of Birth</label>
+                                <input type="date" name="dob" class="border border-gray-300 rounded-md p-3 bg-gray-50 w-full" required>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Location</label>
+                                <input type="text" name="location" class="border border-gray-300 rounded-md p-3 bg-gray-50 w-full" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="myntra-text-pink hover:underline mt-4">Save</button>
+                    </form>
+                </div>
+
+                <!-- Recent Orders Section -->
+                <div class="profile-card bg-white p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-semibold">Recent Orders</h2>
+                        <a href="#" class="myntra-text-pink hover:underline">View All Orders</a>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="order-item border border-gray-200 rounded-lg p-4 pl-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <div>
+                                    <h4 class="font-semibold">Order #MYN12345678</h4>
+                                    <p class="text-gray-600 text-sm">Placed on 15 Dec 2023</p>
+                                </div>
+                                <span class="status-delivered font-medium">
+                                    <i class="fas fa-check-circle mr-1"></i>Delivered
+                                </span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gray-200 rounded-md">
+                                    <img src="./images/order1.jpeg" alt="Product 1 Image" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-medium">H&M Women's Cotton T-Shirt</h5>
+                                    <p class="text-gray-600 text-sm">Size: M, Color: Navy Blue</p>
+                                    <p class="myntra-text-pink font-semibold">₹799</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-item border border-gray-200 rounded-lg p-4 pl-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <div>
+                                    <h4 class="font-semibold">Order #MYN12345679</h4>
+                                    <p class="text-gray-600 text-sm">Placed on 12 Dec 2023</p>
+                                </div>
+                                <span class="status-shipping font-medium">
+                                    <i class="fas fa-shipping-fast mr-1"></i>In Transit
+                                </span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gray-200 rounded-md">
+                                    <img src="./images/order2.jpeg" alt="Product 2 Image" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-medium">Nike Air Max Women's Shoes</h5>
+                                    <p class="text-gray-600 text-sm">Size: 7 UK, Color: White</p>
+                                    <p class="myntra-text-pink font-semibold">₹6,999</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="order-item border border-gray-200 rounded-lg p-4 pl-6">
+                            <div class="flex items-center justify-between mb-3">
+                                <div>
+                                    <h4 class="font-semibold">Order #MYN12345680</h4>
+                                    <p class="text-gray-600 text-sm">Placed on 10 Dec 2023</p>
+                                </div>
+                                <span class="status-processing font-medium">
+                                    <i class="fas fa-cog mr-1"></i>Processing
+                                </span>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="w-16 h-16 bg-gray-200 rounded-md">
+                                    <img src="./images/order3.jpeg" alt="Product 3 Image" class="w-full h-full object-cover">
+                                </div>
+                                <div class="flex-1">
+                                    <h5 class="font-medium">Zara Women's Denim Jacket</h5>
+                                    <p class="text-gray-600 text-sm">Size: S, Color: Blue</p>
+                                    <p class="myntra-text-pink font-semibold">₹2,499</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Addresses Section -->
+                <div class="profile-card bg-white p-6 mb-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-semibold">Saved Addresses</h2>
+                        <button class="myntra-pink text-white px-4 py-2 rounded-md hover:opacity-90">
+                            <i class="fas fa-plus mr-2"></i>Add New Address
+                        </button>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs font-medium">Default</span>
+                                <div class="space-x-2">
+                                    <button class="text-blue-600 hover:underline text-sm">Edit</button>
+                                    <button class="text-red-600 hover:underline text-sm">Delete</button>
+                                </div>
+                            </div>
+                            <h4 class="font-semibold mb-1">Home</h4>
+                            <p class="text-gray-600 text-sm">
+                                Debmalya Bhattacaharyya<br>
+                                Flat 401, Sunrise Apartments<br>
+                                Link Road, West Bengal<br>
+                                Howrah 711301<br>
+                            </p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-4">
+                            <div class="flex items-end justify-end mb-2">
+                                <div class="space-x-2">
+                                    <button class="text-blue-600 hover:underline text-sm">Edit</button>
+                                    <button class="text-red-600 hover:underline text-sm">Delete</button>
+                                </div>
+                            </div>
+                            <h4 class="font-semibold mb-1">Office</h4>
+                            <p class="text-gray-600 text-sm">
+                                Debmalya Bhattacaharyya<br>
+                                Tech Solutions Pvt Ltd<br>
+                                Floor 12, Business Plaza<br>
+                                Andheri East, Mumbai 400069<br>
+                                
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wishlist Section -->
+                <div class="profile-card bg-white p-6">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-semibold">My Wishlist</h2>
+                        <span class="text-gray-600">12 items</span>
+                    </div>
+                    
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <div class="relative">
+                                <div class="w-full h-32 bg-gray-200 rounded-md mb-2">
+                                    <img src="./images/whishlist1.jpeg" alt="Product 1 Image" class="w-full h-full object-cover">
+                                </div>
+                                <button class="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h5 class="font-medium text-sm mb-1">Roadster T-Shirt</h5>
+                            <p class="myntra-text-pink font-semibold text-sm">₹499</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <div class="relative">
+                                <div class="w-full h-32 bg-gray-200 rounded-md mb-2">
+                                    <img src="./images/whislist2.jpeg" alt="Product 2 Image" class="w-full h-full object-cover">
+                                </div>
+                                <button class="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h5 class="font-medium text-sm mb-1">Mango Dress</h5>
+                            <p class="myntra-text-pink font-semibold text-sm">₹1,299</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <div class="relative">
+                                <div class="w-full h-32 bg-gray-200 rounded-md mb-2">
+                                    <img src="./images/whishlist3.jpeg" alt="Product 3 Image" class="w-full h-full object-cover">
+                                </div>
+                                <button class="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h5 class="font-medium text-sm mb-1">Adidas Sneakers</h5>
+                            <p class="myntra-text-pink font-semibold text-sm">₹3,999</p>
+                        </div>
+
+                        <div class="border border-gray-200 rounded-lg p-3 hover:shadow-md transition-shadow">
+                            <div class="relative">
+                                <div class="w-full h-32 bg-gray-200 rounded-md mb-2">
+                                    <img src="./images/whishlist4.jpeg" alt="Product 4 Image" class="w-full h-full object-cover">
+                                </div>
+                                <button class="absolute top-2 right-2 text-red-500 hover:text-red-700">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                            </div>
+                            <h5 class="font-medium text-sm mb-1">Gold Earrings</h5>
+                            <p class="myntra-text-pink font-semibold text-sm">₹2,499</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-semibold mb-4">ONLINE SHOPPING</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">Men</a></li>
+                        <li><a href="#" class="hover:text-white">Women</a></li>
+                        <li><a href="#" class="hover:text-white">Kids</a></li>
+                        <li><a href="#" class="hover:text-white">Home & Living</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">CUSTOMER POLICIES</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#" class="hover:text-white">T&C</a></li>
+                        <li><a href="#" class="hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">USEFUL LINKS</h3>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                        <li><a href="#" class="hover:text-white">Site Map</a></li>
+                        <li><a href="#" class="hover:text-white">Corporate Information</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-semibold mb-4">EXPERIENCE MYNTRA APP ON MOBILE</h3>
+                    <div class="flex space-x-2 mb-4">
+                        <div class="bg-gray-700 px-3 py-2 rounded text-xs">Google Play</div>
+                        <div class="bg-gray-700 px-3 py-2 rounded text-xs">App Store</div>
+                    </div>
+                    <h4 class="font-semibold mb-2">KEEP IN TOUCH</h4>
+                    <div class="flex space-x-3">
+                        <i class="fab fa-facebook hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-twitter hover:text-blue-400 cursor-pointer"></i>
+                        <i class="fab fa-instagram hover:text-pink-400 cursor-pointer"></i>
+                        <i class="fab fa-youtube hover:text-red-400 cursor-pointer"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 mt-8 pt-6 text-center text-sm text-gray-400">
+                
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,11 @@
+#BlueJ class context
+comment0.target=po5
+comment1.params=s\ ch1\ ch2
+comment1.target=void\ joyString(java.lang.String,\ char,\ char)
+comment2.params=s
+comment2.target=void\ joyString(java.lang.String)
+comment3.params=s1\ s2
+comment3.target=void\ joyString(java.lang.String,\ java.lang.String)
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

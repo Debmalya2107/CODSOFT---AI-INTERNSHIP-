@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Dead Redemption 2 - Game Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/red.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <!-- Navigation -->
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section min-h-screen flex items-center justify-center parallax-bg western-pattern">
+        <div class="text-center z-10">
+            <h1 class="western-font text-6xl md:text-8xl font-bold mb-6 typewriter text-shadow-glow">
+                RED DEAD REDEMPTION 2
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto opacity-90">
+                The ultimate open-world Western adventure that redefined gaming storytelling
+            </p>
+            <div class="floating">
+                <i class="fas fa-horse text-6xl text-yellow-400 pulse-glow"></i>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+            <i class="fas fa-chevron-down text-3xl text-yellow-400 animate-bounce"></i>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="py-20 western-pattern">
+        <div class="container mx-auto px-6">
+            <h2 class="western-font text-5xl font-bold text-center mb-16 text-shadow-glow">Epic Story</h2>
+            <div class="western-divider"></div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="card-3d bg-gradient-to-r from-yellow-900 to-red-900 p-8 rounded-lg glowing-border">
+                    <h3 class="western-font text-3xl font-semibold mb-6 text-yellow-400">Arthur Morgan's Journey</h3>
+                    <p class="text-lg leading-relaxed mb-4">
+                        Follow Arthur Morgan, a rugged outlaw and member of the Van der Linde gang, as he navigates the decline of the Wild West in 1899. The story explores themes of loyalty, morality, and the changing world.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        Experience a tale of brotherhood, betrayal, and redemption across the American frontier, from the mountains to the bayous, in this critically acclaimed narrative masterpiece.
+                    </p>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gradient-to-br from-red-800 to-yellow-700 glowing-border">
+                            <i class="fas fa-map text-6xl text-yellow-300 mb-4"></i>
+                            <h4 class="western-font text-2xl font-bold">Explore the Frontier</h4>
+                            <p class="mt-4 px-4">Hover to discover more</p>
+                        </div>
+                        <div class="flip-card-back bg-gradient-to-br from-yellow-700 to-red-800 glowing-border">
+                            <h4 class="western-font text-xl font-bold mb-4">Vast Open World</h4>
+                            <ul class="text-left space-y-2">
+                                <li><i class="fas fa-star text-yellow-400"></i> 60+ story missions</li>
+                                <li><i class="fas fa-star text-yellow-400"></i> 100+ side quests</li>
+                                <li><i class="fas fa-star text-yellow-400"></i> Dynamic weather system</li>
+                                <li><i class="fas fa-star text-yellow-400"></i> Day/night cycles</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Mechanics -->
+    <section id="gameplay" class="py-20 bg-gradient-to-r from-red-900 to-yellow-900">
+        <div class="container mx-auto px-6">
+            <h2 class="western-font text-5xl font-bold text-center mb-16 text-shadow-glow">Gameplay Mechanics</h2>
+            <div class="western-divider"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card-3d bg-black bg-opacity-60 p-8 rounded-lg hover-lift glowing-border">
+                    <div class="text-center">
+                        <i class="fas fa-crosshairs mechanic-icon text-red-400"></i>
+                        <h3 class="western-font text-2xl font-semibold mb-4 text-yellow-400">Combat System</h3>
+                        <p class="text-gray-300">
+                            Dead Eye targeting system allows for precise shooting. Multiple weapon types including revolvers, rifles, and shotguns each with unique handling.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-black bg-opacity-60 p-8 rounded-lg hover-lift glowing-border">
+                    <div class="text-center">
+                        <i class="fas fa-horse-head mechanic-icon text-yellow-400"></i>
+                        <h3 class="western-font text-2xl font-semibold mb-4 text-yellow-400">Horse Bonding</h3>
+                        <p class="text-gray-300">
+                            Build relationships with various horse breeds. Each horse has unique stats for speed, stamina, and health. Care for your horse to improve bonding levels.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-black bg-opacity-60 p-8 rounded-lg hover-lift glowing-border">
+                    <div class="text-center">
+                        <i class="fas fa-campground mechanic-icon text-green-400"></i>
+                        <h3 class="western-font text-2xl font-semibold mb-4 text-yellow-400">Camp Life</h3>
+                        <p class="text-gray-300">
+                            Manage gang camp with upgrades, contribute resources, and interact with gang members. Your actions affect camp morale and story progression.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-black bg-opacity-60 p-8 rounded-lg hover-lift glowing-border">
+                    <div class="text-center">
+                        <i class="fas fa-fish mechanic-icon text-blue-400"></i>
+                        <h3 class="western-font text-2xl font-semibold mb-4 text-yellow-400">Hunting & Fishing</h3>
+                        <p class="text-gray-300">
+                            Track over 200 animal species with realistic behavior. Perfect pelts require proper weapons and shot placement. Fish in various water bodies.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-black bg-opacity-60 p-8 rounded-lg hover-lift glowing-border">
+                    <div class="text-center">
+                        <i class="fas fa-balance-scale mechanic-icon text-purple-400"></i>
+                        <h3 class="western-font text-2xl font-semibold mb-4 text-yellow-400">Honor System</h3>
+                        <p class="text-gray-300">
+                            Your actions affect Arthur's honor level. Help strangers and make moral choices to be honorable, or rob and kill for a dishonorable path.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-black bg-opacity-60 p-8 rounded-lg hover-lift glowing-border">
+                    <div class="text-center">
+                        <i class="fas fa-utensils mechanic-icon text-orange-400"></i>
+                        <h3 class="western-font text-2xl font-semibold mb-4 text-yellow-400">Survival Elements</h3>
+                        <p class="text-gray-300">
+                            Maintain Arthur's health, stamina, and Dead Eye cores through eating, sleeping, and bathing. Weather affects gameplay and character needs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-20 western-pattern">
+        <div class="container mx-auto px-6">
+            <h2 class="western-font text-5xl font-bold text-center mb-16 text-shadow-glow">Key Characters</h2>
+            <div class="western-divider"></div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="character-card p-6 rounded-lg rotate-hover glowing-border">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-red-600 to-yellow-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user-cowboy text-3xl text-white"></i>
+                        </div>
+                        <h3 class="western-font text-2xl font-bold mb-3 text-yellow-400">Arthur Morgan</h3>
+                        <p class="text-gray-300 text-sm mb-3">Protagonist & Gang Member</p>
+                        <p class="text-gray-200">
+                            The main character, a loyal gang member struggling with his own morality as the world changes around him.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="character-card p-6 rounded-lg rotate-hover glowing-border">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-purple-600 to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-crown text-3xl text-white"></i>
+                        </div>
+                        <h3 class="western-font text-2xl font-bold mb-3 text-yellow-400">Dutch van der Linde</h3>
+                        <p class="text-gray-300 text-sm mb-3">Gang Leader</p>
+                        <p class="text-gray-200">
+                            Charismatic leader of the Van der Linde gang, increasingly desperate as law enforcement closes in.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="character-card p-6 rounded-lg rotate-hover glowing-border">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-blue-600 to-green-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-user-friends text-3xl text-white"></i>
+                        </div>
+                        <h3 class="western-font text-2xl font-bold mb-3 text-yellow-400">John Marston</h3>
+                        <p class="text-gray-300 text-sm mb-3">Gang Member</p>
+                        <p class="text-gray-200">
+                            Fellow gang member and Arthur's close friend, protagonist of the first Red Dead Redemption game.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="character-card p-6 rounded-lg rotate-hover glowing-border">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-pink-600 to-red-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-female text-3xl text-white"></i>
+                        </div>
+                        <h3 class="western-font text-2xl font-bold mb-3 text-yellow-400">Sadie Adler</h3>
+                        <p class="text-gray-300 text-sm mb-3">Widowed Rancher</p>
+                        <p class="text-gray-200">
+                            A strong-willed woman who transforms from a grieving widow into a fierce bounty hunter.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="character-card p-6 rounded-lg rotate-hover glowing-border">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-yellow-600 to-orange-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-skull text-3xl text-white"></i>
+                        </div>
+                        <h3 class="western-font text-2xl font-bold mb-3 text-yellow-400">Micah Bell</h3>
+                        <p class="text-gray-300 text-sm mb-3">Gang Member & Antagonist</p>
+                        <p class="text-gray-200">
+                            A ruthless and manipulative gang member who becomes increasingly influential with Dutch.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="character-card p-6 rounded-lg rotate-hover glowing-border">
+                    <div class="text-center">
+                        <div class="w-20 h-20 bg-gradient-to-r from-green-600 to-teal-600 rounded-full mx-auto mb-4 flex items-center justify-center">
+                            <i class="fas fa-heart text-3xl text-white"></i>
+                        </div>
+                        <h3 class="western-font text-2xl font-bold mb-3 text-yellow-400">Hosea Matthews</h3>
+                        <p class="text-gray-300 text-sm mb-3">Gang Co-founder</p>
+                        <p class="text-gray-200">
+                            Dutch's oldest friend and the gang's voice of reason, serving as a father figure to many members.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="specs" class="py-20 bg-gradient-to-r from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <h2 class="western-font text-5xl font-bold text-center mb-16 text-shadow-glow">Technical Specifications</h2>
+            <div class="western-divider"></div>
+            
+            <div class="spec-grid">
+                <div class="card-3d bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-lg glowing-border">
+                    <h3 class="western-font text-2xl font-bold mb-6 text-yellow-400 flex items-center">
+                        <i class="fas fa-desktop mr-3"></i>Minimum Requirements
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">OS:</span>
+                            <span>Windows 7 SP1 64-bit</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Processor:</span>
+                            <span>Intel Core i5-2500K / AMD FX-6300</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Memory:</span>
+                            <span>8 GB RAM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Graphics:</span>
+                            <span>NVIDIA GTX 770 2GB / AMD Radeon R9 280</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Storage:</span>
+                            <span>150 GB available space</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-gradient-to-br from-red-900 to-yellow-900 p-8 rounded-lg glowing-border">
+                    <h3 class="western-font text-2xl font-bold mb-6 text-yellow-400 flex items-center">
+                        <i class="fas fa-rocket mr-3"></i>Recommended
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">OS:</span>
+                            <span>Windows 10 64-bit</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Processor:</span>
+                            <span>Intel Core i7-4770K / AMD Ryzen 5 1500X</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Memory:</span>
+                            <span>12 GB RAM</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Graphics:</span>
+                            <span>NVIDIA GTX 1060 6GB / AMD RX 480 4GB</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Storage:</span>
+                            <span>150 GB SSD space</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-gradient-to-br from-purple-900 to-blue-900 p-8 rounded-lg glowing-border">
+                    <h3 class="western-font text-2xl font-bold mb-6 text-yellow-400 flex items-center">
+                        <i class="fas fa-gamepad mr-3"></i>Platform Features
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>4K Resolution Support</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>HDR Support</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Multiple Control Options</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Customizable Graphics Settings</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-check text-green-400 mr-3"></i>
+                            <span>Photo Mode</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-gradient-to-br from-green-900 to-teal-900 p-8 rounded-lg glowing-border lg:col-span-2">
+                    <h3 class="western-font text-2xl font-bold mb-6 text-yellow-400 flex items-center">
+                        <i class="fas fa-trophy mr-3"></i>Game Awards & Recognition
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold mb-3 text-yellow-300">Major Awards</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-2"></i>Game of the Year - Multiple Publications</li>
+                                <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-2"></i>Best Narrative - DICE Awards</li>
+                                <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-2"></i>Outstanding Achievement in Story</li>
+                                <li class="flex items-center"><i class="fas fa-star text-yellow-400 mr-2"></i>Best Performance (Roger Clark as Arthur)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold mb-3 text-yellow-300">Critical Reception</h4>
+                            <ul class="space-y-2">
+                                <li class="flex items-center"><i class="fas fa-chart-line text-green-400 mr-2"></i>97/100 Metacritic Score</li>
+                                <li class="flex items-center"><i class="fas fa-users text-blue-400 mr-2"></i>38+ Million Copies Sold</li>
+                                <li class="flex items-center"><i class="fas fa-clock text-purple-400 mr-2"></i>60+ Hours Average Playtime</li>
+                                <li class="flex items-center"><i class="fas fa-globe text-red-400 mr-2"></i>Multiple Platform Release</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card-3d bg-gradient-to-br from-orange-900 to-red-900 p-8 rounded-lg glowing-border">
+                    <h3 class="western-font text-2xl font-bold mb-6 text-yellow-400 flex items-center">
+                        <i class="fas fa-info-circle mr-3"></i>Game Info
+                    </h3>
+                    <div class="space-y-3">
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Developer:</span>
+                            <span>Rockstar Games</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Publisher:</span>
+                            <span>Rockstar Games</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Release Date:</span>
+                            <span>October 26, 2018</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Genre:</span>
+                            <span>Action-Adventure</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-300">Rating:</span>
+                            <span>M for Mature</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <h3 class="western-font text-3xl font-bold text-yellow-400 mb-4">Red Dead Redemption 2</h3>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Experience the epic tale of Arthur Morgan and the Van der Linde gang in the dying days of the Wild West. 
+                    A masterpiece of storytelling, gameplay, and technical achievement.
+                </p>
+            </div>
+            
+            <div class="western-divider"></div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="western-font text-xl font-semibold mb-4 text-yellow-400">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#story" class="text-gray-400 hover:text-yellow-400 transition-colors">Story</a></li>
+                        <li><a href="#gameplay" class="text-gray-400 hover:text-yellow-400 transition-colors">Gameplay</a></li>
+                        <li><a href="#characters" class="text-gray-400 hover:text-yellow-400 transition-colors">Characters</a></li>
+                        <li><a href="#specs" class="text-gray-400 hover:text-yellow-400 transition-colors">System Requirements</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="western-font text-xl font-semibold mb-4 text-yellow-400">Game Features</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><i class="fas fa-check mr-2"></i>Open World Exploration</li>
+                        <li><i class="fas fa-check mr-2"></i>Dynamic Weather System</li>
+                        <li><i class="fas fa-check mr-2"></i>Realistic Wildlife</li>
+                        <li><i class="fas fa-check mr-2"></i>Honor System</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="western-font text-xl font-semibold mb-4 text-yellow-400">Platforms</h4>
+                    <div class="flex justify-center space-x-4">
+                        <div class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-playstation text-2xl text-blue-400"></i>
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-xbox text-2xl text-green-400"></i>
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
+                            <i class="fab fa-steam text-2xl text-gray-400"></i>
+                        </div>
+                        <div class="bg-gray-800 p-3 rounded-full hover:bg-gray-700 transition-colors">
+                            <i class="fas fa-laptop text-2xl text-yellow-400"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-gray-500">
+                    &copy;Gamety presents Red Dead Redemption 2. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Waterproofing Solutions by Berger Paints</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+    />
+    <style>
+      /* CSS Reset and Base Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: #333;
+        overflow-x: hidden;
+      }
+
+      /* Color Variables */
+      :root {
+        --primary-blue-light: #3f6a86;
+        --primary-blue-dark: #043b5e;
+        --accent-gold: #ffd700;
+        --white: #ffffff;
+        --dark-blue: #003366;
+        --text-dark: #333333;
+        --shadow: rgba(0, 0, 0, 0.1);
+      }
+
+      /* Common Gradient */
+      .blue-gradient {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue-light) 0%,
+          var(--primary-blue-dark) 100%
+        );
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 80px 0;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        text-align: center;
+        margin-bottom: 60px;
+        color: #666;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center; /* centers content horizontally */
+        background-image: url("./imgs/wpbgbantop.webp");
+        background-repeat: no-repeat;
+        background-size: cover;
+        filter: brightness(1) opacity(100.8);
+        background-size: cover; /* scales image proportionally */
+        background-position: center; /* keeps focus on the center area */
+        background-repeat: no-repeat; /* prevents tiling */
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="a" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="white" stop-opacity="0.1"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23a)"/></svg>')
+          repeat;
+        opacity: 0.1;
+      }
+
+      .hero-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-text h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--white);
+        margin-bottom: 20px;
+        line-height: 1.2;
+      }
+
+      .hero-text .highlight {
+        color: var(--accent-gold);
+      }
+
+      .hero-text p {
+        font-size: 1.3rem;
+        color: var(--white);
+        margin-bottom: 40px;
+        opacity: 0.9;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 18px 40px;
+        background: var(--accent-gold);
+        color: var(--dark-blue);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
+      }
+
+      .cta-button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 35px rgba(255, 215, 0, 0.4);
+        background: #ffcc00;
+      }
+
+      .hero-image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .hero-image-placeholder {
+        width: 100%;
+        height: 400px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1.2rem;
+        backdrop-filter: blur(10px);
+      }
+
+      /* About Section */
+      .about {
+        background: var(--white);
+        border-top: 4px solid var(--primary-blue-dark);
+      }
+
+      .about-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .about-text h2 {
+        color: var(--primary-blue-dark);
+        margin-bottom: 30px;
+      }
+
+      .about-text p {
+        margin-bottom: 20px;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .benefits-list {
+        list-style: none;
+        margin-top: 30px;
+      }
+
+      .benefits-list li {
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 1.1rem;
+      }
+
+      .benefits-list li i {
+        color: var(--accent-gold);
+        margin-right: 15px;
+        font-size: 1.2rem;
+        width: 20px;
+      }
+
+      .about-image-placeholder {
+        width: 100%;
+        height: 350px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 15px;
+        border: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 1.1rem;
+      }
+
+      /* Features Section */
+      .features {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue-light) 0%,
+          var(--primary-blue-dark) 100%
+        );
+      }
+
+      .features .section-title {
+        color: var(--white);
+        position: relative;
+      }
+
+      .features .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--accent-gold);
+      }
+
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .feature-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        color: var(--accent-gold);
+        margin-bottom: 20px;
+      }
+
+      .feature-card h3 {
+        color: var(--primary-blue-dark);
+        margin-bottom: 15px;
+        font-size: 1.4rem;
+      }
+
+      .feature-card p {
+        color: #666;
+        line-height: 1.6;
+      }
+
+      /* Solutions Section */
+      .solutions {
+        background: var(--white);
+      }
+
+      .solutions .section-title {
+        color: var(--accent-gold);
+        position: relative;
+      }
+
+      .solutions .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background: var(--primary-blue-dark);
+      }
+
+      .solutions-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-top: 60px;
+      }
+
+      .solution-card {
+        background: var(--white);
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .solution-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+      }
+
+      .solution-image-placeholder {
+        width: 100%;
+        height: 200px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-bottom: 2px dashed #ccc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 1rem;
+      }
+
+      .solution-content {
+        padding: 30px;
+      }
+
+      .solution-card h3 {
+        color: var(--primary-blue-dark);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .solution-card p {
+        color: #666;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .learn-more-btn {
+        color: var(--accent-gold);
+        text-decoration: none;
+        font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .learn-more-btn:hover {
+        color: var(--primary-blue-dark);
+      }
+
+      .learn-more-btn i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+
+      .learn-more-btn:hover i {
+        transform: translateX(3px);
+      }
+
+      /* How It Works Section */
+      .how-it-works {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue-light) 0%,
+          var(--primary-blue-dark) 100%
+        );
+      }
+
+      .how-it-works .section-title {
+        color: var(--white);
+      }
+
+      .steps-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .step {
+        text-align: center;
+        position: relative;
+      }
+
+      .step-number {
+        width: 80px;
+        height: 80px;
+        background: var(--accent-gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--dark-blue);
+        margin: 0 auto 20px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .step h3 {
+        color: var(--white);
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+      }
+
+      .step p {
+        color: rgba(255, 255, 255, 0.9);
+        line-height: 1.6;
+      }
+
+      /* Testimonials Section */
+      .testimonials {
+        background: var(--white);
+        border-top: 1px solid rgba(136, 207, 253, 0.3);
+      }
+
+      .testimonials .section-title {
+        color: var(--primary-blue-dark);
+      }
+
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+        margin-top: 60px;
+      }
+
+      .testimonial-card {
+        background: var(--white);
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 10px 30px var(--shadow);
+        position: relative;
+        text-align: center;
+      }
+
+      .testimonial-card::before {
+        content: '"';
+        position: absolute;
+        top: 20px;
+        left: 30px;
+        font-size: 4rem;
+        color: var(--accent-gold);
+        opacity: 0.3;
+      }
+
+      .testimonial-image-placeholder {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        border-radius: 50%;
+        border: 2px dashed #ccc;
+        margin: 0 auto 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .testimonial-text {
+        font-style: italic;
+        margin-bottom: 20px;
+        color: #666;
+        line-height: 1.8;
+      }
+
+      .testimonial-author {
+        font-weight: 600;
+        color: var(--primary-blue-dark);
+        margin-bottom: 10px;
+      }
+
+      .testimonial-rating {
+        color: var(--accent-gold);
+        font-size: 1.2rem;
+      }
+
+      /* Final CTA Section */
+      .final-cta {
+        background: linear-gradient(
+          135deg,
+          var(--primary-blue-light) 0%,
+          var(--primary-blue-dark) 100%
+        );
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .final-cta::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><radialGradient id="b" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="white" stop-opacity="0.05"/><stop offset="100%" stop-color="white" stop-opacity="0"/></radialGradient></defs><rect width="100" height="20" fill="url(%23b)"/></svg>')
+          repeat;
+      }
+
+      .final-cta-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .final-cta h2 {
+        font-size: 3rem;
+        color: var(--white);
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+
+      .final-cta p {
+        font-size: 1.3rem;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 40px;
+      }
+
+      .final-cta .cta-button {
+        font-size: 1.2rem;
+        padding: 20px 50px;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--dark-blue);
+        color: var(--white);
+        padding: 40px 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-bottom: 30px;
+      }
+
+      .footer-section h3 {
+        color: var(--accent-gold);
+        margin-bottom: 15px;
+      }
+
+      .footer-section p {
+        line-height: 1.8;
+        opacity: 0.9;
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-top: 20px;
+        opacity: 0.8;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 1200px) {
+        .container {
+          padding: 0 30px;
+        }
+
+        .hero-text h1 {
+          font-size: 3rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section {
+          padding: 60px 0;
+        }
+
+        .container {
+          padding: 0 20px;
+        }
+
+        .hero-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+          text-align: center;
+        }
+
+        .hero-text h1 {
+          font-size: 2.5rem;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .features-grid,
+        .solutions-grid,
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .steps-container {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .final-cta h2 {
+          font-size: 2.2rem;
+        }
+
+        .final-cta .cta-button {
+          padding: 18px 40px;
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 0 15px;
+        }
+
+        .hero-text h1 {
+          font-size: 2rem;
+        }
+
+        .hero-text p {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .feature-card,
+        .solution-card,
+        .testimonial-card {
+          padding: 30px 20px;
+        }
+
+        .final-cta h2 {
+          font-size: 1.8rem;
+        }
+      }
+
+      /* Animation Classes */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeInUp 1s ease forwards;
+      }
+
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Scroll Animations */
+      .hero-content {
+        animation: fadeInUp 1.2s ease;
+      }
+
+      /* Smooth transitions for all interactive elements */
+      * {
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      id="navbar"
+      style="
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        max-width: 800px;
+        padding: 15px 30px;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border-radius: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        text-align: center;
+        font-family: 'Segoe UI', sans-serif;
+        font-weight: bold;
+        letter-spacing: 1px;
+        color: white;
+        animation: float 6s ease-in-out infinite;
+      "
+    >
+      <span style="font-family: 'Playfair Display', serif; font-size: 2.0rem; font-weight: bold;color: #080808">Matri</span>
+      <span style="font-family: 'Playfair Display', serif; font-size: 2.0rem; font-weight: bold; color: #ffcc00">Hardwares</span>
+
+      <style>
+        @keyframes float {
+          0% {
+            transform: translateX(-50%) translateY(0);
+          }
+          50% {
+            transform: translateX(-50%) translateY(-10px);
+          }
+          100% {
+            transform: translateX(-50%) translateY(0);
+          }
+        }
+        @media (max-width: 768px) {
+          #navbar {
+            width: 85%;
+            padding: 12px 20px;
+            font-size: 1.2rem;
+          }
+        }
+        @media (max-width: 480px) {
+          #navbar {
+            width: 80%;
+            padding: 10px 15px;
+            font-size: 1rem;
+          }
+        }
+      </style>
+
+      <script>
+        window.addEventListener("scroll", () => {
+          const n = document.getElementById("navbar");
+          if (window.scrollY > 50) {
+            n.style.top = "10px";
+            n.style.background = "rgba(255,255,255,0.15)";
+            n.style.boxShadow = "0 8px 32px rgba(0,0,0,0.2)";
+          } else {
+            n.style.top = "20px";
+            n.style.background = "rgba(255,255,255,0.1)";
+            n.style.boxShadow = "0 8px 32px rgba(0,0,0,0.1)";
+          }
+        });
+      </script>
+    </nav>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>
+              Protect Your Home with
+              <span class="highlight">Berger Waterproofing</span>
+            </h1>
+            <p>
+              Advanced waterproofing solutions backed by science. Experience
+              long-lasting protection against dampness, cracks, and weather
+              damage with our professional-grade products.
+            </p>
+            <a href="#solutions" class="cta-button"
+              >Explore Waterproofing Solutions</a
+            >
+          </div>
+          <div
+            class="hero-image"
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              margin: 0 auto;
+              padding: 0;
+            "
+          >
+            <img
+              src="./imgs/wpbgban.jpg"
+              alt="Hero Banner Image"
+              class="hero-img"
+              style="
+                width: 90%;
+                max-width: 500px; /* prevents it from stretching too large */
+                height: auto; /* keeps proper aspect ratio */
+                border-radius: 10%;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: block;
+                margin: 0 auto;
+                object-fit: cover;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Waterproofing Section -->
+    <section class="about section" id="about">
+      <div class="container">
+        <div class="about-content">
+          <div class="about-text">
+            <h2
+              class="section-title"
+              style="text-align: left; font-size: 2.2rem"
+            >
+              Why Waterproofing is Essential for Every Home
+            </h2>
+            <p>
+              Traditional waterproofing methods with outdated materials and
+              techniques are not enough to tackle modern challenges. You need
+              new and advanced treatment to arrest dampness permanently.
+            </p>
+            <p>
+              With our well-experienced team, advanced tools, and useful
+              HomeShield Moisture Meter, we can identify the original source and
+              tackle the problem effectively using the right waterproofing
+              products and application methods.
+            </p>
+
+            <ul class="benefits-list">
+              <li>
+                <i class="fas fa-shield-alt"></i> Long-lasting protection
+                against water damage
+              </li>
+              <li>
+                <i class="fas fa-home"></i> Prevents structural damage to your
+                property
+              </li>
+              <li>
+                <i class="fas fa-leaf"></i> Eliminates mold and mildew growth
+              </li>
+              <li>
+                <i class="fas fa-money-bill-wave"></i> Saves costly repairs in
+                the long run
+              </li>
+              <li>
+                <i class="fas fa-thermometer-half"></i> Maintains indoor climate
+                comfort
+              </li>
+            </ul>
+          </div>
+          <div class="about-image">
+            <div
+              class="about-image-placeholder"
+              style="
+                width: 100%;
+                max-width: 600px; /* limits size on large screens */
+                margin: 0 auto; /* centers the div */
+                padding: 0;
+              "
+            >
+              <img
+                src="./imgs/wpbgban2.webp"
+                alt="Waterproofing Concept Image"
+                style="
+                  width: 100%;
+                  height: auto; /* maintains aspect ratio */
+                  object-fit: cover;
+                  border-radius: 10%;
+                  display: block;
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Features Section -->
+    <section class="features section" id="features">
+      <div class="container">
+        <h2 class="section-title">Berger Waterproofing Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Long-lasting Protection</h3>
+            <p>
+              Advanced formulas that provide years of reliable protection
+              against water damage and environmental factors.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-hammer"></i>
+            </div>
+            <h3>Crack-Resistant Formula</h3>
+            <p>
+              Flexible coating that moves with your structure, preventing cracks
+              and maintaining watertight seals.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-sun"></i>
+            </div>
+            <h3>UV & Weather Shield</h3>
+            <p>
+              Superior resistance to UV rays, extreme temperatures, and harsh
+              weather conditions.
+            </p>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon">
+              <i class="fas fa-bacteria"></i>
+            </div>
+            <h3>Anti-Fungal Barrier</h3>
+            <p>
+              Prevents mold, mildew, and fungal growth, maintaining a healthy
+              indoor environment.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section class="solutions section" id="solutions">
+      <div class="container">
+        <h2 class="section-title">Berger Waterproofing Solutions</h2>
+        <p class="section-subtitle">
+          Professional-grade products designed for every waterproofing need
+        </p>
+        <div class="solutions-grid">
+          <div class="solution-card">
+            <div class="solution-image-placeholder">
+              <img
+                src="./imgs/wpbghs.webp"
+                alt="Waterproofing Concept Image"
+                style="
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  border-radius: 10%;
+                  display: block;
+                  margin: 0 auto;
+                "
+              />
+            </div>
+            <div class="solution-content">
+              <h3>HomeShield DampStop</h3>
+              <p>
+                Advanced dampness treatment solution that identifies and
+                eliminates moisture sources with our scientific moisture meter
+                technology.
+              </p>
+              <a href="./imgs/wpbghs.pdf" download style="color: #ffcc00">
+                Learn More
+                <i class="fas fa-arrow-right" style="color: #ffcc00"></i>
+              </a>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="solution-image-placeholder">
+              <img
+                src="./imgs/wpbgwl.webp"
+                alt="Waterproofing Concept Image"
+                style="
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  border-radius: 10%;
+                  display: block;
+                  margin: 0 auto;
+                "
+              />
+            </div>
+            <div class="solution-content">
+              <h3>WeatherCoat Long Life</h3>
+              <p>
+                Premium exterior coating that provides long-lasting protection
+                against rain, UV rays, and extreme weather conditions.
+              </p>
+              <a href="./imgs/wpbgwl.pdf" download style="color: #ffcc00">
+                Learn More
+                <i class="fas fa-arrow-right" style="color: #ffcc00"></i>
+              </a>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="solution-image-placeholder">
+              <img
+                src="./imgs/wpbgrw.webp"
+                alt="Waterproofing Concept Image"
+                style="
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  border-radius: 10%;
+                  display: block;
+                  margin: 0 auto;
+                "
+              />
+            </div>
+            <div class="solution-content">
+              <h3>Roof WaterProof Coating</h3>
+              <p>
+                Specialized roof protection system that prevents leakage and
+                extends the life of your roofing materials.
+              </p>
+              <a href="./imgs/wpbgrw.pdf" download style="color: #ffcc00">
+                Learn More
+                <i class="fas fa-arrow-right" style="color: #ffcc00"></i>
+              </a>
+            </div>
+          </div>
+          <div class="solution-card">
+            <div class="solution-image-placeholder">
+              <img
+                src="./imgs/wpbgwp.webp"
+                alt="Waterproofing Concept Image"
+                style="
+                  width: 100%;
+                  height: auto;
+                  object-fit: cover;
+                  border-radius: 10%;
+                  display: block;
+                  margin: 0 auto;
+                "
+              />
+            </div>
+            <div class="solution-content">
+              <h3>Wall Protect Solution</h3>
+              <p>
+                Comprehensive wall protection system that prevents seepage from
+                kitchens, bathrooms, and external walls.
+              </p>
+              <a href="./imgs/wpbgwp.pdf" download style="color: #ffcc00">
+                Learn More
+                <i class="fas fa-arrow-right" style="color: #ffcc00"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works section" id="how-it-works">
+      <div class="container">
+        <h2 class="section-title">How Our Waterproofing Process Works</h2>
+        <div class="steps-container">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Surface Inspection</h3>
+            <p>
+              Our experts conduct thorough inspection using advanced moisture
+              meters to identify the root cause of water infiltration and
+              dampness.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Crack Filling</h3>
+            <p>
+              Professional crack sealing and preparation of surfaces using
+              specialized materials to ensure optimal adhesion.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Waterproof Coating Application</h3>
+            <p>
+              Application of premium waterproof coatings using proven techniques
+              that ensure complete coverage and protection.
+            </p>
+          </div>
+          <div class="step">
+            <div class="step-number">4</div>
+            <h3>Final Protection Layer</h3>
+            <p>
+              Application of final protective coating and quality assurance
+              testing to ensure long-lasting waterproof performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials section" id="testimonials">
+      <div class="container">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Berger's waterproofing solution completely transformed our home.
+              No more dampness or wall stains. The professional team was
+              excellent and the results have lasted for years."
+            </p>
+            <div class="testimonial-author">Rajesh Kumar</div>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "The HomeShield moisture meter technology helped identify hidden
+              dampness issues we never knew existed. Professional service and
+              amazing results!"
+            </p>
+            <div class="testimonial-author">Priya Sharma</div>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <p class="testimonial-text">
+              "Outstanding quality and service. Our roof waterproofing has been
+              perfect through multiple monsoon seasons. Highly recommend
+              Berger's solutions."
+            </p>
+            <div class="testimonial-author">Amit Patel</div>
+            <div class="testimonial-rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta section">
+      <div class="container">
+        <div class="final-cta-content">
+          <h2>Protect Your Home with Berger Waterproofing</h2>
+          <p>
+            Don't wait for water damage to become expensive. Get professional
+            waterproofing solutions today.
+          </p>
+          <a
+            href="https://wa.me/7003894182?text=hi"
+            target="_blank"
+            class="cta-button"
+            >Book a Free Consultation</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a
+      href="https://wa.me/9831353556?text=hi"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+      />
+    </a>
+
+    <style>
+      /* Floating WhatsApp Button Styles */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 5px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      .whatsapp-float img {
+        width: 35px;
+        height: 35px;
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <a
+      href="berger.html"
+      style="
+        position: fixed;
+        bottom: 120px;
+        right: 25px;
+        background-color: #ffcc00;
+        color: black;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 14px 26px;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        font-family: Arial, sans-serif;
+        z-index: 1000;
+      "
+      onmouseover="this.style.backgroundColor='#ffd633'; this.style.transform='scale(1.05)';"
+      onmouseout="this.style.backgroundColor='#ffcc00'; this.style.transform='scale(1)';"
+    >
+      Back
+    </a>
+    <!-- ✅ Font Awesome (must be placed once anywhere in <head> or before buttons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- 🟡 Floating Home Button -->
+    <a
+      href="index.html"
+      style="
+        position: fixed;
+        bottom: 200px; /* 👈 above the 'Click Me' button */
+        right: 25px;
+        background-color: #ffcc00;
+        color: black;
+        text-decoration: none;
+        padding: 14px 18px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        font-family: Arial, sans-serif;
+        z-index: 1001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      "
+      onmouseover="this.style.backgroundColor='#ffd633'; this.style.transform='scale(1.1)';"
+      onmouseout="this.style.backgroundColor='#ffcc00'; this.style.transform='scale(1)';"
+    >
+      <i class="fa-solid fa-house"></i>
+    </a>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>Contact Information</h3>
+            <p>
+              📍 Address: [Company Address]<br />
+              📧 Email: info@bergerpaints.com<br />
+              📞 Phone: [Contact Number]
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Professional Services</h3>
+            <p>
+              Our professional waterproofing systems are applied only by trained
+              experts with extensive expertise to achieve desired results and
+              maintain warranties.
+            </p>
+          </div>
+          <div class="footer-section">
+            <h3>Quality Assurance</h3>
+            <p>
+              Advanced tools, scientific moisture meters, and proven application
+              methods ensure long-lasting waterproof protection for your
+              property.
+            </p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            &copy; 2025 Matri Hardwares | Berger Paints. All rights reserved. | Waterproofing
+            Solutions
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Add subtle scroll animation for cards
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = "1";
+            entry.target.style.transform = "translateY(0)";
+          }
+        });
+      }, observerOptions);
+
+      // Observe all cards and sections for animation
+      document
+        .querySelectorAll(
+          ".feature-card, .solution-card, .testimonial-card, .step"
+        )
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "opacity 0.6s ease, transform 0.6s ease";
+          observer.observe(el);
+        });
+    </script>
+  </body>
+</html>

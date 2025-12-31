@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberpunk 2077 - Complete Game Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/cyber.css">
+</head>
+<body>
+    <div class="data-stream"></div>
+    <div class="circuit-bg"></div>
+    
+    <!-- Navigation -->
+   <!-- Navigation -->
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center perspective-container pt-20">
+        <div class="text-center rotate-3d">
+            <h1 class="glitch-text text-8xl font-black mb-6" data-text="CYBERPUNK 2077">CYBERPUNK 2077</h1>
+            <p class="text-2xl mb-8 text-cyan-300">Welcome to Night City</p>
+            <div class="floating-3d">
+                <button class="neon-button">ENTER THE MATRIX</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 container mx-auto px-4">
+        <div class="text-center mb-16">
+            <h2 class="text-6xl font-bold glitch-text mb-8" data-text="GAME OVERVIEW">GAME OVERVIEW</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div class="cyber-card p-8 hologram-effect tilt-3d">
+                <div class="flex items-center mb-6">
+                    <div class="hexagon mr-4"></div>
+                    <h3 class="text-3xl font-bold text-cyan-400">Night City Awaits</h3>
+                </div>
+                <p class="text-lg mb-6">Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City, where you play as a cyberpunk mercenary wrapped up in a do-or-die fight for survival.</p>
+                <div class="space-y-4">
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span>Graphics</span>
+                            <span class="matrix-text">95%</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span>Story</span>
+                            <span class="matrix-text">92%</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 92%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between mb-2">
+                            <span>Gameplay</span>
+                            <span class="matrix-text">88%</span>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-card p-8 pulse-3d">
+                <h3 class="text-3xl font-bold text-magenta-400 mb-6">
+                    <i class="fas fa-microchip mr-3"></i>Key Features
+                </h3>
+                <ul class="space-y-4 text-lg">
+                    <li class="flex items-center">
+                        <i class="fas fa-chevron-right text-cyan-400 mr-3"></i>
+                        Immersive open-world environment
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-chevron-right text-cyan-400 mr-3"></i>
+                        Deep character customization
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-chevron-right text-cyan-400 mr-3"></i>
+                        Multiple storyline paths
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-chevron-right text-cyan-400 mr-3"></i>
+                        Advanced combat system
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-chevron-right text-cyan-400 mr-3"></i>
+                        Cybernetic enhancements
+                    </li>
+                    <li class="flex items-center">
+                        <i class="fas fa-chevron-right text-cyan-400 mr-3"></i>
+                        Night City exploration
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-20 bg-gradient-to-r from-purple-900 to-blue-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-6xl font-bold text-center glitch-text mb-16" data-text="MAIN CHARACTERS">MAIN CHARACTERS</h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="cyber-card p-6 perspective-container">
+                    <div class="rotate-3d">
+                        <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-cyan-400 to-blue-600 rounded-full flex items-center justify-center text-4xl">
+                            <i class="fas fa-user-ninja"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center text-cyan-400 mb-4">V (Player Character)</h3>
+                        <p class="text-center mb-4">A mercenary outlaw going after a one-of-a-kind implant that is the key to immortality.</p>
+                        <div class="text-center">
+                            <button class="neon-button text-sm">VIEW PROFILE</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cyber-card p-6 perspective-container">
+                    <div class="rotate-3d">
+                        <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-red-600 rounded-full flex items-center justify-center text-4xl">
+                            <i class="fas fa-ghost"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center text-yellow-400 mb-4">Johnny Silverhand</h3>
+                        <p class="text-center mb-4">A digital ghost of a legendary rockerboy and terrorist, haunting V's mind.</p>
+                        <div class="text-center">
+                            <button class="neon-button text-sm">VIEW PROFILE</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cyber-card p-6 perspective-container">
+                    <div class="rotate-3d">
+                        <div class="w-32 h-32 mx-auto mb-6 bg-gradient-to-br from-pink-400 to-purple-600 rounded-full flex items-center justify-center text-4xl">
+                            <i class="fas fa-female"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-center text-pink-400 mb-4">Judy Alvarez</h3>
+                        <p class="text-center mb-4">A skilled braindance technician and member of the Mox gang.</p>
+                        <div class="text-center">
+                            <button class="neon-button text-sm">VIEW PROFILE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gameplay Section -->
+    <section id="gameplay" class="py-20 container mx-auto px-4">
+        <h2 class="text-6xl font-bold text-center glitch-text mb-16" data-text="GAMEPLAY MECHANICS">GAMEPLAY MECHANICS</h2>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="cyber-card p-6 hologram-effect floating-3d" style="animation-delay: 0s;">
+                <div class="text-center">
+                    <i class="fas fa-crosshairs text-4xl text-red-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-red-400">Combat System</h3>
+                    <p>Advanced gunplay, melee combat, and cybernetic abilities for tactical advantage.</p>
+                </div>
+            </div>
+
+            <div class="cyber-card p-6 hologram-effect floating-3d" style="animation-delay: 0.5s;">
+                <div class="text-center">
+                    <i class="fas fa-brain text-4xl text-purple-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-purple-400">Hacking</h3>
+                    <p>Breach protocols, quickhacks, and cyberdeck customization for digital warfare.</p>
+                </div>
+            </div>
+
+            <div class="cyber-card p-6 hologram-effect floating-3d" style="animation-delay: 1s;">
+                <div class="text-center">
+                    <i class="fas fa-cog text-4xl text-yellow-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400">Cyberware</h3>
+                    <p>Enhance your body with cybernetic implants for superhuman abilities.</p>
+                </div>
+            </div>
+
+            <div class="cyber-card p-6 hologram-effect floating-3d" style="animation-delay: 1.5s;">
+                <div class="text-center">
+                    <i class="fas fa-car text-4xl text-green-400 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-3 text-green-400">Vehicles</h3>
+                    <p>Drive and customize futuristic vehicles through Night City's streets.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 cyber-card p-8 tilt-3d">
+            <h3 class="text-4xl font-bold text-center mb-8 text-cyan-400">Character Progression</h3>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center">
+                    <div class="hexagon mx-auto mb-4" style="background: linear-gradient(45deg, #ff6b6b, #ffd93d);"></div>
+                    <h4 class="text-2xl font-bold mb-3 text-yellow-400">Body</h4>
+                    <p>Increases health, stamina, and allows use of heavy weapons and melee combat.</p>
+                </div>
+                <div class="text-center">
+                    <div class="hexagon mx-auto mb-4" style="background: linear-gradient(45deg, #4ecdc4, #44a08d);"></div>
+                    <h4 class="text-2xl font-bold mb-3 text-cyan-400">Intelligence</h4>
+                    <p>Improves hacking abilities and quickhack damage and duration.</p>
+                </div>
+                <div class="text-center">
+                    <div class="hexagon mx-auto mb-4" style="background: linear-gradient(45deg, #667eea, #764ba2);"></div>
+                    <h4 class="text-2xl font-bold mb-3 text-purple-400">Reflexes</h4>
+                    <p>Increases critical hit chance, movement speed, and weapon handling.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-4">
+            <h2 class="text-6xl font-bold text-center glitch-text mb-16" data-text="THE STORY">THE STORY</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="cyber-card p-8 mb-8 pulse-3d">
+                    <h3 class="text-3xl font-bold mb-6 text-magenta-400">
+                        <i class="fas fa-book-open mr-3"></i>Plot Synopsis
+                    </h3>
+                    <p class="text-lg leading-relaxed mb-6">
+                        In 2077, Night City is a megalopolis obsessed with power, glamour, and body modification. You play as V, a mercenary outlaw going after a one-of-a-kind implant that is the key to immortality. The implant contains the digital ghost of Johnny Silverhand, a legendary rockerboy and terrorist who died decades ago.
+                    </p>
+                    <p class="text-lg leading-relaxed">
+                        As the implant slowly overwrites V's personality with Johnny's, you must navigate the dangerous world of corporate espionage, street gangs, and cyberpunk politics while searching for a way to save your own identity and perhaps achieve digital immortality.
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="cyber-card p-6 hologram-effect tilt-3d">
+                        <h4 class="text-2xl font-bold mb-4 text-cyan-400">Night City Factions</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-red-500 rounded-full mr-3"></div>
+                                Arasaka Corporation
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                                Militech
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-purple-500 rounded-full mr-3"></div>
+                                The Mox
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></div>
+                                Voodoo Boys
+                            </li>
+                            <li class="flex items-center">
+                                <div class="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                                Valentinos
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="cyber-card p-6 hologram-effect tilt-3d">
+                        <h4 class="text-2xl font-bold mb-4 text-yellow-400">Key Themes</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-center">
+                                <i class="fas fa-brain text-cyan-400 mr-3"></i>
+                                Consciousness & Identity
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-building text-cyan-400 mr-3"></i>
+                                Corporate Dystopia
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-robot text-cyan-400 mr-3"></i>
+                                Transhumanism
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-skull text-cyan-400 mr-3"></i>
+                                Mortality & Legacy
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fas fa-fist-raised text-cyan-400 mr-3"></i>
+                                Rebellion & Freedom
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- System Requirements -->
+    <section id="requirements" class="py-20 container mx-auto px-4">
+        <h2 class="text-6xl font-bold text-center glitch-text mb-16" data-text="SYSTEM REQUIREMENTS">SYSTEM REQUIREMENTS</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <div class="cyber-card p-8 hologram-effect">
+                <h3 class="text-3xl font-bold mb-6 text-green-400">
+                    <i class="fas fa-desktop mr-3"></i>Minimum Requirements
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span class="font-semibold">OS:</span>
+                        <span class="matrix-text">Windows 10 64-bit</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Processor:</span>
+                        <span class="matrix-text">Intel i5-3570K / AMD FX-8310</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Memory:</span>
+                        <span class="matrix-text">8 GB RAM</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Graphics:</span>
+                        <span class="matrix-text">GTX 780 / Radeon RX 470</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Storage:</span>
+                        <span class="matrix-text">70 GB available space</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cyber-card p-8 pulse-3d">
+                <h3 class="text-3xl font-bold mb-6 text-red-400">
+                    <i class="fas fa-rocket mr-3"></i>Recommended Requirements
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span class="font-semibold">OS:</span>
+                        <span class="matrix-text">Windows 10 64-bit</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Processor:</span>
+                        <span class="matrix-text">Intel i7-4790 / AMD Ryzen 3 3200G</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Memory:</span>
+                        <span class="matrix-text">12 GB RAM</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Graphics:</span>
+                        <span class="matrix-text">GTX 1060 6GB / RX 590</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="font-semibold">Storage:</span>
+                        <span class="matrix-text">70 GB SSD space</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 cyber-card p-8 tilt-3d max-w-4xl mx-auto">
+            <h3 class="text-3xl font-bold text-center mb-8 text-cyan-400">
+                <i class="fas fa-trophy mr-3"></i>Performance Ratings
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-green-400 mb-2">9.2</div>
+                    <div class="text-lg">IGN Score</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-yellow-400 mb-2">86%</div>
+                    <div class="text-lg">Metacritic</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-6xl font-bold text-blue-400 mb-2">4.8</div>
+                    <div class="text-lg">User Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <div class="glitch-text text-4xl font-bold mb-6" data-text="WAKE THE F*CK UP, SAMURAI">WAKE UP, SAMURAI</div>
+            <p class="text-xl text-cyan-300 mb-8">WE HAVE A CITY TO BURN</p>
+            <div class="flex justify-center space-x-6">
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+                <div class="hexagon"></div>
+            </div>
+            <p class="mt-8 text-gray-400">&copy; 2025 Gamety. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

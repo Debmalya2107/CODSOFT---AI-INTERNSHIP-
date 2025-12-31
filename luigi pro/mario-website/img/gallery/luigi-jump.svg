@@ -1,0 +1,31 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="200" fill="#87CEEB"/>
+  
+  <!-- Ground -->
+  <rect y="150" width="300" height="50" fill="#90EE90"/>
+  
+  <!-- Luigi Jumping -->
+  <rect x="120" y="80" width="35" height="40" fill="#3CB043" rx="5"/>
+  <rect x="125" y="60" width="25" height="22" fill="#FDBCB4" rx="5"/>
+  <rect x="122" y="52" width="25" height="12" fill="#3CB043" rx="3"/>
+  
+  <!-- Luigi Details -->
+  <rect x="130" y="65" width="5" height="5" fill="white"/>
+  <rect x="140" y="65" width="5" height="5" fill="white"/>
+  <rect x="132" y="67" width="2" height="2" fill="black"/>
+  <rect x="142" y="67" width="2" height="2" fill="black"/>
+  <rect x="127" y="85" width="25" height="6" fill="#8B4513" rx="2"/>
+  
+  <!-- Jump Effect -->
+  <circle cx="137" cy="130" r="15" fill="none" stroke="#FFD700" stroke-width="2" opacity="0.6"/>
+  <circle cx="137" cy="130" r="20" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.4"/>
+  
+  <!-- Stars -->
+  <polygon points="137,110 139,116 145,116 140,120 142,126 137,122 132,126 134,120 129,116 135,116" fill="#FFD700"/>
+  <polygon points="80,40 82,46 88,46 83,50 85,56 80,52 75,56 77,50 72,46 78,46" fill="#FFD700"/>
+  <polygon points="200,60 202,66 208,66 203,70 205,76 200,72 195,76 197,70 192,66 198,66" fill="#FFD700"/>
+  
+  <!-- Title -->
+  <text x="150" y="190" font-family="Arial" font-size="12" fill="white" text-anchor="middle">Luigi's High Jump</text>
+</svg>

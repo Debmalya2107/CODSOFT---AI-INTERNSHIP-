@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travscode - Bali Trip Packages</title>
+    <style>
+      :root {
+        --primary: #0d9488;
+        --secondary: #f59e0b;
+        --light: #f0fdfa;
+        --dark: #134e4a;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+          url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ceda69f1-15cc-499d-a284-4a512f70f227.png")
+            no-repeat center center fixed;
+        background-size: cover;
+        color: var(--light);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      header {
+        text-align: center;
+        padding: 2rem 0;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: var(--secondary);
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+        font-style: italic;
+      }
+
+      .main-content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .form-container {
+        background: rgba(13, 148, 136, 0.8);
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      form {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1rem;
+      }
+
+      .form-group.full-width {
+        grid-column: span 2;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 4px;
+        background-color: var(--light);
+      }
+
+      textarea {
+        min-height: 100px;
+        resize: vertical;
+      }
+
+      button {
+        grid-column: span 2;
+        padding: 1rem;
+        background-color: var(--secondary);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      button:hover {
+        background-color: var(--dark);
+        transform: translateY(-2px);
+      }
+
+      .footer-content {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .video-gallery {
+        padding: 1rem;
+      }
+
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        margin-bottom: 1rem;
+        border-radius: 8px;
+      }
+
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .attractions-table {
+        padding: 1rem;
+        background: rgba(13, 148, 136, 0.8);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid var(--light);
+      }
+
+      th {
+        background-color: rgba(0, 0, 0, 0.2);
+        font-weight: bold;
+      }
+
+      tr:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .rating {
+        color: var(--secondary);
+        font-weight: bold;
+      }
+
+      @media (max-width: 768px) {
+        form {
+          grid-template-columns: 1fr;
+        }
+
+        .form-group.full-width {
+          grid-column: span 1;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Travscode Bali Adventures</h1>
+        <p class="tagline">
+          Your gateway to paradise - Book your dream Bali trip today!
+        </p>
+      </header>
+
+      <div class="main-content">
+        <div class="form-container">
+          <h2>Plan Your Bali Trip</h2>
+          <p>
+            Fill out this form and our travel experts will craft your perfect
+            Bali itinerary
+          </p>
+
+          <form id="trip-form">
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" required />
+            </div>
+
+            <div class="form-group">
+              <label for="travelers">Number of Travelers</label>
+              <input
+                type="number"
+                id="travelers"
+                name="travelers"
+                min="1"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="travel-date">Preferred Travel Dates</label>
+              <input type="date" id="travel-date" name="travel-date" required />
+            </div>
+
+            <div class="form-group">
+              <label for="duration">Trip Duration (days)</label>
+              <select id="duration" name="duration" required>
+                <option value="">Select...</option>
+                <option value="3-5">3-5 days</option>
+                <option value="6-8">6-8 days</option>
+                <option value="9-12">9-12 days</option>
+                <option value="13+">13+ days</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="accommodation">Accommodation Preference</label>
+              <select id="accommodation" name="accommodation" required>
+                <option value="">Select...</option>
+                <option value="budget">Budget (Guesthouses/Hostels)</option>
+                <option value="mid-range">Mid-range (3-4 star hotels)</option>
+                <option value="luxury">Luxury (5 star resorts/villas)</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="interests"
+                >Interests & Activities (Select all that apply)</label
+              >
+              <div
+                style="
+                  display: grid;
+                  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                  gap: 0.5rem;
+                "
+              >
+                <label
+                  ><input type="checkbox" name="interests" value="beaches" />
+                  Beaches</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="culture" />
+                  Balinese Culture</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="adventure" />
+                  Adventure Sports</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="wellness" />
+                  Wellness & Spa</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="cuisine" />
+                  Local Cuisine</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="shopping" />
+                  Shopping</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="nightlife" />
+                  Nightlife</label
+                >
+                <label
+                  ><input type="checkbox" name="interests" value="wildlife" />
+                  Wildlife</label
+                >
+              </div>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="budget">Budget Range (per person)</label>
+              <select id="budget" name="budget" required>
+                <option value="">Select...</option>
+                <option value="500-1000">$500 - $1,000</option>
+                <option value="1000-2000">$1,000 - $2,000</option>
+                <option value="2000-3000">$2,000 - $3,000</option>
+                <option value="3000+">$3,000+</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="message">Special Requests or Comments</label>
+              <textarea id="message" name="message"></textarea>
+            </div>
+
+            <button type="submit">Submit Your Bali Trip Request</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-content">
+        <div class="video-gallery">
+          <h2>Experience Bali's Beauty</h2>
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/cV9SRObiBrU?si=MMXOrjjh4A6G22TY"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+          <div class="video-container">
+            <iframe
+              width="560"
+              height="315"
+              src="https://www.youtube.com/embed/BFS9n4B_2xA?si=wJ-zNfbZLVy7VhIP"
+              title="YouTube video player"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </div>
+
+        <div class="attractions-table">
+          <h2>Top Bali Attractions</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Attraction</th>
+                <th>Location</th>
+                <th>Rating</th>
+                <th>Type</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Uluwatu Temple</td>
+                <td>South Bali</td>
+                <td class="rating">5/5</td>
+                <td>Cultural</td>
+              </tr>
+              <tr>
+                <td>Tegalalang Rice Terrace</td>
+                <td>Ubud</td>
+                <td class="rating">4.8/5</td>
+                <td>Natural</td>
+              </tr>
+              <tr>
+                <td>Mount Batur</td>
+                <td>Kintamani</td>
+                <td class="rating">4.9/5</td>
+                <td>Adventure</td>
+              </tr>
+              <tr>
+                <td>Nusa Penida</td>
+                <td>Island</td>
+                <td class="rating">4.9/5</td>
+                <td>Beach</td>
+              </tr>
+              <tr>
+                <td>Tirta Gangga</td>
+                <td>East Bali</td>
+                <td class="rating">4.7/5</td>
+                <td>Cultural</td>
+              </tr>
+              <tr>
+                <td>Seminyak Beach</td>
+                <td>South Bali</td>
+                <td class="rating">4.5/5</td>
+                <td>Beach</td>
+              </tr>
+              <tr>
+                <td>Sekumpul Waterfall</td>
+                <td>North Bali</td>
+                <td class="rating">4.8/5</td>
+                <td>Natural</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("trip-form")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+
+          // Get form data
+          const formData = new FormData(this);
+          const tripDetails = {};
+
+          for (const [key, value] of formData.entries()) {
+            tripDetails[key] = value;
+          }
+
+          // Get checkbox values
+          const interests = [];
+          document
+            .querySelectorAll('input[name="interests"]:checked')
+            .forEach((checkbox) => {
+              interests.push(checkbox.value);
+            });
+
+          tripDetails.interests = interests;
+
+          // Here you would typically send the data to a server
+          console.log("Trip details submitted:", tripDetails);
+
+          // Show success message
+          alert(
+            "Thank you for your Bali trip inquiry! Our travel experts will contact you shortly with package options."
+          );
+
+          // Reset form
+          this.reset();
+        });
+    </script>
+  </body>
+</html>

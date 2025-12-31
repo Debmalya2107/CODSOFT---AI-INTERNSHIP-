@@ -1,0 +1,30 @@
+body { font-family: 'Assistant', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+        .myntra-pink { color: #ff3f6c; }
+        .myntra-pink-bg { background-color: #ff3f6c; }
+        .myntra-dark { color: #282c3f; }
+        .myntra-gray { color: #696e79; }
+        .nav-hover:hover { border-bottom: 4px solid #ff3f6c; }
+        .placeholder-img { background-color: #f0f0f0; display: flex; align-items: center; justify-content: center; color: #999; }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+        }
+        
+        .crazy-deals-section {
+            padding: 3rem 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        

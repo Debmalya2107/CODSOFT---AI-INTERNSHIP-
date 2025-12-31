@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=fnifp1
+comment1.params=
+comment1.target=void\ input()
+comment2.params=price
+comment2.target=double\ laptopDiscount(double)
+comment3.params=price
+comment3.target=double\ desktopDiscount(double)
+numComments=4

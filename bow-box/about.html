@@ -1,0 +1,3409 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Learn about BOWBOX - Crafting moments, one gift at a time. Discover our story, mission, and the hearts behind your favorite gift boutique."
+    />
+    <title>About Us - BOWBOX</title>
+
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- AOS (Animate On Scroll) CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+      /* ===== GLOBAL STYLES ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --white: #ffffff;
+        --black: #000000;
+        --pink: #ffc0cb;
+        --red: #ff0000;
+        --light-pink: #ffe4e9;
+        --soft-pink: #fff0f3;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        color: var(--black);
+        background-color: var(--white);
+        overflow-x: hidden;
+      }
+
+      /* Navbar hover and active states */
+      .navbar-nav .nav-link:hover,
+      .navbar-nav .nav-link.active {
+        color: #ffc0cb !important;
+      }
+
+      .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -5px;
+        left: 50%;
+        background-color: #ffc0cb;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .navbar-nav .nav-link:hover::after,
+      .navbar-nav .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Responsive navbar styles */
+      @media (max-width: 992px) {
+        .navbar-brand {
+          font-size: 1.5rem;
+        }
+
+        .navbar-nav .nav-link {
+          margin: 0 10px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .navbar-brand {
+          font-size: 1.3rem;
+        }
+      }
+
+      /* ===== HERO BANNER SECTION ===== */
+      .hero-banner {
+        position: relative;
+        height: 85vh;
+        min-height: 700px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-image: url("./media/aban.png");
+        overflow: hidden;
+      }
+
+      .hero-banner::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.3" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>')
+          no-repeat bottom;
+        background-size: cover;
+        opacity: 0.5;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 1.5rem;
+        line-height: 1.2;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--black);
+        margin-bottom: 2.5rem;
+        opacity: 0.8;
+      }
+
+      .btn-hero {
+        background-color: var(--pink);
+        color: var(--white);
+        padding: 1rem 3rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        border: none;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-hero:hover {
+        background-color: var(--red);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(255, 192, 203, 0.4);
+      }
+
+      /* ===== SECTION COMMON STYLES ===== */
+      .section-padding {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        font-size: 2.8rem;
+        font-weight: 700;
+        color: var(--black);
+        margin-bottom: 1.5rem;
+        position: relative;
+        display: inline-block;
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--pink);
+        border-radius: 2px;
+      }
+
+      .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--black);
+        opacity: 0.7;
+        margin-bottom: 3rem;
+      }
+
+      /* ===== BRAND ORIGIN STORY SECTION ===== */
+      .story-section {
+        background-color: var(--white);
+      }
+
+      .story-image {
+        width: 100%;
+        height: 50px;
+        object-fit: cover;
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        color: var(--black);
+        opacity: 0.6;
+      }
+
+      .story-content {
+        padding: 2rem;
+      }
+
+      .story-content h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: var(--black);
+      }
+
+      .story-content p {
+        font-size: 1.1rem;
+        line-height: 1.9;
+        color: var(--black);
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .story-highlight {
+        background-color: var(--soft-pink);
+        padding: 1.5rem;
+        border-left: 4px solid var(--pink);
+        border-radius: 8px;
+        margin-top: 2rem;
+        font-style: italic;
+      }
+
+      /* ===== MISSION STATEMENT SECTION ===== */
+      .mission-section {
+        background: linear-gradient(
+          135deg,
+          var(--soft-pink) 0%,
+          var(--light-pink) 100%
+        );
+        text-align: center;
+      }
+
+      .mission-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .mission-icon {
+        font-size: 4rem;
+        margin-bottom: 2rem;
+      }
+
+      .mission-content p {
+        font-size: 1.2rem;
+        line-height: 1.9;
+        color: var(--black);
+        opacity: 0.8;
+      }
+
+      /* ===== CORE VALUES SECTION ===== */
+      .values-section {
+        background-color: var(--white);
+      }
+
+      .value-card {
+        background-color: var(--white);
+        border: 2px solid var(--light-pink);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        height: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .value-card:hover {
+        background-color: var(--soft-pink);
+        border-color: var(--pink);
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(255, 192, 203, 0.3);
+      }
+
+      .value-icon {
+        font-size: 3.5rem;
+        color: var(--pink);
+        margin-bottom: 1.5rem;
+      }
+
+      .value-card h4 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--black);
+      }
+
+      .value-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--black);
+        opacity: 0.7;
+      }
+
+      /* ===== TIMELINE SECTION ===== */
+      .timeline-section {
+        background-color: var(--soft-pink);
+        position: relative;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(180deg, var(--pink) 0%, var(--red) 100%);
+        transform: translateX(-50%);
+      }
+
+      .timeline-item {
+        position: relative;
+        margin-bottom: 5rem;
+      }
+
+      .timeline-content {
+        width: 45%;
+        padding: 2rem;
+        background-color: var(--white);
+        border-radius: 20px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+
+      .timeline-item:nth-child(odd) .timeline-content {
+        margin-left: auto;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        left: 50%;
+        top: 30px;
+        width: 25px;
+        height: 25px;
+        background-color: var(--pink);
+        border: 5px solid var(--white);
+        border-radius: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        box-shadow: 0 0 0 4px var(--soft-pink);
+      }
+
+      .timeline-year {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--pink);
+        margin-bottom: 0.5rem;
+      }
+
+      .timeline-content h4 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--black);
+      }
+
+      .timeline-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--black);
+        opacity: 0.8;
+      }
+
+      .timeline-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-top: 1rem;
+        background: linear-gradient(135deg, var(--light-pink), var(--pink));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+      }
+
+      /* ===== TEAM SECTION ===== */
+      .team-section {
+        background-color: var(--white);
+      }
+
+      .team-card {
+        background-color: var(--white);
+        border: 3px solid var(--pink);
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        height: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .team-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(255, 192, 203, 0.4);
+      }
+
+      .team-image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin: 0 auto 1.5rem;
+        border: 5px solid var(--pink);
+        background: linear-gradient(135deg, var(--light-pink), var(--pink));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 3rem;
+      }
+
+      .team-card h4 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--black);
+      }
+
+      .team-role {
+        color: var(--pink);
+        font-weight: 500;
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+
+      .team-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        color: var(--black);
+        opacity: 0.7;
+      }
+
+      /* ===== WHY CHOOSE US SECTION ===== */
+      .why-choose-section {
+        background: linear-gradient(
+          135deg,
+          var(--soft-pink) 0%,
+          var(--white) 100%
+        );
+      }
+
+      .feature-box {
+        background-color: var(--white);
+        border-radius: 20px;
+        padding: 2.5rem 2rem;
+        text-align: center;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s ease;
+        height: 100%;
+        margin-bottom: 2rem;
+      }
+
+      .feature-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature-icon {
+        width: 80px;
+        height: 80px;
+        background: linear-gradient(135deg, var(--pink), var(--red));
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        color: var(--white);
+        font-size: 2rem;
+      }
+
+      .feature-box h4 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: var(--black);
+      }
+
+      .feature-box p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--black);
+        opacity: 0.7;
+      }
+
+      /* ===== GALLERY SECTION ===== */
+      .gallery-section {
+        background-color: var(--white);
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 15px;
+        margin-bottom: 2rem;
+        height: 300px;
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.5s ease;
+        background: linear-gradient(135deg, var(--light-pink), var(--pink));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 1rem;
+        text-align: center;
+        padding: 1rem;
+      }
+
+      .gallery-item:hover .gallery-image {
+        transform: scale(1.1);
+      }
+
+      .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 192, 203, 0.9),
+          rgba(255, 0, 0, 0.9)
+        );
+        opacity: 0;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+
+      .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+      }
+
+      /* ===== SUSTAINABILITY SECTION ===== */
+      .sustainability-section {
+        background-color: var(--soft-pink);
+      }
+
+      .sustainability-content {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .sustainability-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2.5rem;
+        background-color: var(--white);
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .sustainability-icon {
+        font-size: 3rem;
+        color: #4caf50;
+        margin-right: 2rem;
+        flex-shrink: 0;
+      }
+
+      .sustainability-item h4 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 0.8rem;
+        color: var(--black);
+      }
+
+      .sustainability-item p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--black);
+        opacity: 0.8;
+      }
+
+      /* ===== TESTIMONIALS SECTION ===== */
+      .testimonials-section {
+        background-color: var(--white);
+      }
+
+      .testimonial-card {
+        background-color: var(--soft-pink);
+        border-radius: 20px;
+        padding: 2.5rem;
+        text-align: center;
+        margin-bottom: 2rem;
+        height: 100%;
+        transition: all 0.3s ease;
+      }
+
+      .testimonial-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 192, 203, 0.4);
+      }
+
+      .testimonial-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        background: linear-gradient(135deg, var(--pink), var(--red));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        font-size: 2rem;
+        font-weight: 700;
+      }
+
+      .testimonial-stars {
+        color: #ffd700;
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-text {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: var(--black);
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+
+      .testimonial-name {
+        font-weight: 600;
+        color: var(--black);
+        font-size: 1.1rem;
+      }
+
+      /* ===== CTA SECTION ===== */
+      .cta-section {
+        background: linear-gradient(135deg, var(--pink) 0%, var(--red) 100%);
+        color: var(--white);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.3"/></svg>');
+        animation: float 20s infinite linear;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translate(0, 0);
+        }
+        100% {
+          transform: translate(50px, 50px);
+        }
+      }
+
+      .cta-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      .cta-section h2 {
+        font-size: 3rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .cta-section p {
+        font-size: 1.3rem;
+        margin-bottom: 2.5rem;
+        opacity: 0.95;
+      }
+
+      .btn-cta {
+        background-color: var(--white);
+        color: var(--pink);
+        padding: 1rem 3rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.2rem;
+        border: none;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+      .btn-cta:hover {
+        background-color: var(--black);
+        color: var(--white);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      /* ===== NEWSLETTER SECTION ===== */
+      .newsletter-section {
+        background-color: var(--soft-pink);
+        text-align: center;
+      }
+
+      .newsletter-content {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+
+      .newsletter-icon {
+        font-size: 4rem;
+        color: var(--pink);
+        margin-bottom: 1.5rem;
+      }
+
+      .newsletter-form {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .newsletter-input {
+        flex: 1;
+        padding: 1rem 1.5rem;
+        border: 2px solid var(--pink);
+        border-radius: 50px;
+        font-size: 1rem;
+        outline: none;
+        transition: all 0.3s ease;
+      }
+
+      .newsletter-input:focus {
+        border-color: var(--red);
+        box-shadow: 0 0 0 4px rgba(255, 192, 203, 0.2);
+      }
+
+      .btn-newsletter {
+        background-color: var(--pink);
+        color: var(--white);
+        padding: 1rem 2.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        border: none;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .btn-newsletter:hover {
+        background-color: var(--red);
+        transform: translateY(-2px);
+        box-shadow: 0 5px 20px rgba(255, 192, 203, 0.4);
+      }
+
+      /* ===== FOOTER SECTION ===== */
+      .footer {
+        background-color: var(--black);
+        color: var(--white);
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--pink);
+        margin-bottom: 1rem;
+      }
+
+      .footer-description {
+        font-size: 0.95rem;
+        opacity: 0.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .footer h5 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        color: var(--pink);
+      }
+
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.8rem;
+      }
+
+      .footer-links a {
+        color: var(--white);
+        text-decoration: none;
+        opacity: 0.8;
+        transition: all 0.3s ease;
+      }
+
+      .footer-links a:hover {
+        color: var(--pink);
+        opacity: 1;
+        padding-left: 5px;
+      }
+
+      .social-icons {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .social-icon {
+        width: 45px;
+        height: 45px;
+        background-color: var(--pink);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--white);
+        text-decoration: none;
+        font-size: 1.3rem;
+        transition: all 0.3s ease;
+      }
+
+      .social-icon:hover {
+        background-color: var(--red);
+        transform: translateY(-5px);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 3rem;
+        padding-top: 2rem;
+        text-align: center;
+        opacity: 0.7;
+      }
+
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--pink);
+        color: var(--white);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        box-shadow: 0 5px 20px rgba(255, 192, 203, 0.4);
+        text-decoration: none;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--red);
+        transform: translateY(-5px);
+        color: var(--white);
+      }
+
+      /* ===== RESPONSIVE STYLES ===== */
+      @media (max-width: 991px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2.2rem;
+        }
+
+        .section-padding {
+          padding: 60px 0;
+        }
+
+        .story-image {
+          height: 350px;
+          margin-bottom: 2rem;
+        }
+
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-content {
+          width: calc(100% - 80px);
+          margin-left: 80px !important;
+        }
+
+        .timeline-dot {
+          left: 30px;
+        }
+
+        .cta-section h2 {
+          font-size: 2.2rem;
+        }
+
+        .cta-section p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1rem;
+        }
+
+        .btn-hero {
+          padding: 0.8rem 2rem;
+          font-size: 1rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .section-subtitle {
+          font-size: 1rem;
+        }
+
+        .story-content h2 {
+          font-size: 1.8rem;
+        }
+
+        .story-content p {
+          font-size: 1rem;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+        }
+
+        .btn-newsletter {
+          width: 100%;
+        }
+
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-content {
+          width: calc(100% - 60px);
+          margin-left: 60px !important;
+        }
+
+        .timeline-dot {
+          left: 20px;
+        }
+
+        .cta-section h2 {
+          font-size: 1.8rem;
+        }
+
+        .sustainability-item {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .sustainability-icon {
+          margin-right: 0;
+          margin-bottom: 1rem;
+        }
+      }
+
+      @media (max-width: 575px) {
+        .hero-banner {
+          height: 70vh;
+        }
+
+        .section-padding {
+          padding: 40px 0;
+        }
+
+        .value-card,
+        .team-card,
+        .feature-box {
+          padding: 1.5rem;
+        }
+      }
+      /*cosmic button style*/
+      .comic-button {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 24px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        color: #fff;
+        background-color: #ff5252;
+        border: 2px solid #000;
+        border-radius: 10px;
+        box-shadow: 5px 5px 0px #000;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+
+      .comic-button:hover {
+        background-color: #fff;
+        color: #ff5252;
+        border: 2px solid #ff5252;
+        box-shadow: 5px 5px 0px #ff5252;
+      }
+
+      .comic-button:active {
+        background-color: #fcf414;
+        box-shadow: none;
+        transform: translateY(4px);
+      }
+      .gift-snippet-box {
+        position: absolute;
+        top: 20px;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+
+        /* Main Box Styles */
+        width: 100px;
+        height: 100px;
+        border-radius: 2px 2px 4px 4px / 2px 2px 16px 16px;
+        background: linear-gradient(
+            to top,
+            transparent 0px,
+            rgba(255, 255, 255, 0.3)
+          ),
+          linear-gradient(to top, transparent 0px, rgba(255, 255, 255, 0.3)),
+          linear-gradient(to top, transparent 0px, rgba(255, 255, 255, 0.35)),
+          linear-gradient(to top, rgba(0, 0, 0, 0.4) 0px, rgba(0, 0, 0, 0.1)),
+          linear-gradient(to top, transparent 70px, rgba(0, 0, 0, 0.6) 80px),
+          linear-gradient(to top, transparent 70px, rgba(0, 0, 0, 0.6) 80px),
+          linear-gradient(
+            to right,
+            #338833 0px,
+            #33bb33 34px,
+            #ff0000 34px,
+            #ff0000 36px,
+            #ffff00 36px,
+            #ffff00 38px,
+            #ff0000 38px,
+            #ff0000 62px,
+            #ffff00 62px,
+            #ffff00 64px,
+            #ff0000 64px,
+            #ff0000 66px,
+            #33bb33 66px,
+            #338833 100px
+          ),
+          linear-gradient(
+            to right,
+            #338833 0px,
+            #33bb33 32px,
+            #ff0000 32px,
+            #ff0000 34px,
+            #ffff00 34px,
+            #ffff00 36px,
+            #ff0000 36px,
+            #ff0000 60px,
+            #ffff00 60px,
+            #ffff00 62px,
+            #ff0000 62px,
+            #ff0000 64px,
+            #33bb33 64px,
+            #338833 100px
+          );
+        background-size: 34px 5px, 36px 5px, 32px 20px, 96px 80px, 32px 80px,
+          32px 80px, 100px 20px, 96px 80px;
+        background-position: 0px 0px, 66px 0px, 34px 0px, 2px 20px, 2px 20px,
+          66px 20px, 0px 0px, 2px 20px;
+        background-repeat: no-repeat;
+        box-shadow: 0px 20px 40px -18px rgba(0, 0, 0, 0.25),
+          0px -20px 15px -10px rgba(0, 0, 0, 0.2);
+
+        /* Ensure Gift Box is above bubbles */
+        z-index: 10;
+      }
+
+      .gift-snippet-box::before {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        top: -105px;
+        left: -20px;
+
+        content: "";
+        z-index: -1;
+        width: 32px;
+        height: 40px;
+        border-radius: 10px 5px 0px 0px;
+        box-shadow: inset -4px 5px 10px rgba(255, 255, 255, 0.5);
+        background: linear-gradient(
+          to right,
+          transparent 0px,
+          #ff0000 0px,
+          #ff0000 2px,
+          #ffff00 2px,
+          #ffff00 4px,
+          #ff0000 4px,
+          #ff0000 28px,
+          #ffff00 28px,
+          #ffff00 30px,
+          #ff0000 30px,
+          #ff0000 32px,
+          transparent 32px
+        );
+        background-size: 32px 40px;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        transform: rotateZ(-30deg) scale(0.8, 1);
+      }
+
+      .gift-snippet-box::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        top: -90px;
+        right: -20px;
+
+        content: "";
+        z-index: -1;
+        width: 32px;
+        height: 40px;
+        border-radius: 5px 10px 0px 0px;
+        box-shadow: inset -5px 5px 10px rgba(255, 255, 255, 0.5),
+          0 0 20px rgba(0, 0, 0, 0.5);
+        background: linear-gradient(
+          to right,
+          transparent 0px,
+          #ff0000 0px,
+          #ff0000 2px,
+          #ffff00 2px,
+          #ffff00 4px,
+          #ff0000 4px,
+          #ff0000 28px,
+          #ffff00 28px,
+          #ffff00 30px,
+          #ff0000 30px,
+          #ff0000 32px,
+          transparent 32px
+        );
+        background-size: 32px 40px;
+        background-position: 0px 0px;
+        background-repeat: no-repeat;
+        transform: rotateZ(25deg) scale(0.75, 1);
+      }
+      /* --- NEWSLETTER SECTION STYLES --- */
+      .newsletter-section {
+        /* Local Variables for this section */
+        --ns-bg-lavender: #e6e6fa;
+        --ns-primary: #6c63ff;
+        --ns-cord: #333;
+        --ns-shade: #4a4a4a;
+        --ns-glow: rgba(255, 223, 107, 0.9);
+        --ns-glow: rgba(255, 215, 0, 1);
+        position: relative;
+        padding: 100px 20px;
+        background: radial-gradient(
+          circle at top right,
+          var(--ns-bg-lavender),
+          #dcd0ff,
+          #cbb6e6
+        );
+        overflow: hidden;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", sans-serif; /* Optional: Inherit from your body instead */
+      }
+
+      /* Animated Background Particles */
+      .newsletter-section::before,
+      .newsletter-section::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.4);
+        animation: nsFloatParticle 10s infinite ease-in-out;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .newsletter-section::before {
+        width: 100px;
+        height: 100px;
+        top: 10%;
+        left: 10%;
+        animation-delay: 0s;
+      }
+      .newsletter-section::after {
+        width: 150px;
+        height: 150px;
+        bottom: 10%;
+        right: 20%;
+        animation-delay: 2s;
+      }
+
+      @keyframes nsFloatParticle {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+        }
+        50% {
+          transform: translateY(-20px) scale(1.1);
+        }
+      }
+
+      /* Content Wrapper */
+      .newsletter-container {
+        position: relative;
+        z-index: 10;
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* Glassmorphism Card */
+      .newsletter-content {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 24px;
+        padding: 3rem;
+        text-align: center;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+        transform: translateY(30px);
+        opacity: 0;
+
+        /* Reveal Animation on Scroll */
+        animation: nsContentFadeUp 1s forwards;
+        animation-timeline: view();
+        animation-range: entry 10% cover 30%;
+      }
+
+      @keyframes nsContentFadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .newsletter-icon {
+        font-size: 3rem;
+        color: var(--ns-primary);
+        margin-bottom: 1rem;
+        animation: nsHeartBeat 1.5s infinite;
+      }
+
+      @keyframes nsHeartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .newsletter-section h2 {
+        margin: 0;
+        font-size: 2rem;
+        color: #333;
+        font-weight: 700;
+      }
+
+      .newsletter-section p {
+        color: #666;
+        margin: 10px 0 30px 0;
+        line-height: 1.6;
+      }
+
+      /* Form Styling */
+      .newsletter-form {
+        display: flex;
+        gap: 10px;
+        background: white;
+        padding: 5px;
+        border-radius: 50px;
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.1);
+      }
+
+      .newsletter-input {
+        border: none;
+        padding: 15px 20px;
+        flex-grow: 1;
+        border-radius: 50px;
+        outline: none;
+        font-size: 1rem;
+        background: transparent;
+      }
+
+      .btn-newsletter {
+        background: var(--ns-primary);
+        color: white;
+        border: none;
+        padding: 12px 30px;
+        border-radius: 50px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        white-space: nowrap;
+      }
+
+      .btn-newsletter:hover {
+        background: #564fcc;
+        transform: translateX(3px);
+        box-shadow: 0 5px 15px rgba(108, 99, 255, 0.3);
+      }
+
+      /* --- THE MAGIC LAMP --- */
+      .lamp-wrapper {
+        position: absolute;
+        top: -20px;
+        right: 15%;
+        z-index: 20;
+        transform-origin: top center;
+        animation: nsSway 4s infinite ease-in-out alternate;
+        pointer-events: none;
+      }
+
+      .lamp-cord {
+        width: 2px;
+        height: 100px;
+        background: var(--ns-cord);
+        margin: 0 auto;
+      }
+
+      .lamp-shade {
+        width: 60px;
+        height: 40px;
+        background: var(--ns-shade);
+        border-radius: 10px 10px 0 0;
+        border-bottom: 5px solid #222;
+        position: relative;
+      }
+
+      .lamp-shade::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: -10px;
+        width: 80px;
+        height: 30px;
+        background: var(--ns-shade);
+        border-radius: 50% 50% 0 0 / 10px 10px 0 0;
+        clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+      }
+
+      .lamp-light {
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20px;
+        height: 20px;
+        background: #fff;
+        border-radius: 50%;
+        opacity: 0.2;
+
+        /* Scroll Triggered Glow */
+        animation: nsTurnOnLight 1s forwards ease-in-out;
+        animation-timeline: view();
+        animation-range: entry 25% cover 50%;
+      }
+
+      @keyframes nsTurnOnLight {
+        0% {
+          opacity: 0.2;
+          box-shadow: none;
+        }
+        30% {
+          opacity: 0.4;
+        }
+        40% {
+          opacity: 0.2;
+        }
+        60% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 1;
+          background: #fff; /* Keep the center white (hot bulb) */
+          /* THE GLOW EFFECT */
+          box-shadow: 0 0 20px #fff,
+            /* Inner hot white core */ 0 20px 60px var(--ns-glow),
+            /* The main yellow glow */ 0 40px 120px 20px rgba(255, 215, 0, 0.5); /* The wide outer yellow wash */
+        }
+      }
+      @keyframes nsSway {
+        from {
+          transform: rotate(-3deg);
+        }
+        to {
+          transform: rotate(3deg);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .lamp-wrapper {
+          right: 5%;
+          transform: scale(0.8);
+        }
+        .newsletter-section {
+          padding: 80px 15px;
+        }
+        .newsletter-form {
+          flex-direction: column;
+          background: transparent;
+          box-shadow: none;
+        }
+        .newsletter-input {
+          margin-bottom: 10px;
+          background: #fff;
+          box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+        .btn-newsletter {
+          width: 100%;
+        }
+      }
+      /* --- FINAL CTA SECTION STYLES --- */
+      .cta-section-final {
+        /* Theme Colors: Lavender & Baby Pink */
+        --cta-bg-gradient: linear-gradient(135deg, #f745c1, #f06275, #f11bb1);
+        --cta-text-dark: #5a4a6a;
+        --cta-btn-pink: #ff85c2;
+        --cta-btn-pink-dark: #ff5ca8;
+
+        position: relative;
+        padding: 80px 20px;
+        background: var(--cta-bg-gradient);
+        background-size: 200% 200%;
+        /* Subtle background movement */
+        animation: ctaGradientMove 15s ease infinite;
+        min-height: 450px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Segoe UI", sans-serif;
+        overflow: hidden;
+      }
+
+      @keyframes ctaGradientMove {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .cta-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        max-width: 1100px;
+        width: 100%;
+        gap: 60px; /* Space between image and text */
+        position: relative;
+        z-index: 10;
+      }
+
+      /* --- LEFT SIDE: THE IMAGE --- */
+      .cta-image-wrapper {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* The Magic Floating Animation */
+        animation: ctaFloatImage 4s ease-in-out infinite alternate;
+      }
+
+      .cta-gift-img {
+        max-width: 400px; /* Adjust based on your image size */
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        /* Adds a soft shadow to make the image pop off the background */
+        filter: drop-shadow(0 20px 30px rgba(90, 74, 106, 0.25));
+        transition: transform 0.3s ease;
+      }
+
+      .cta-gift-img:hover {
+        transform: scale(1.05); /* Slight zoom on hover */
+      }
+
+      /* --- RIGHT SIDE: CONTENT CARD --- */
+      .cta-content {
+        flex: 1;
+        /* Glassmorphism Effect */
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        padding: 3.5rem;
+        border-radius: 24px;
+        box-shadow: 0 15px 40px rgba(90, 74, 106, 0.08);
+        text-align: left;
+      }
+
+      .cta-content h2 {
+        color: var(--cta-text-dark);
+        font-size: 2.5rem;
+        margin-top: 0;
+        margin-bottom: 1rem;
+        font-weight: 800;
+      }
+
+      .cta-content p {
+        color: #6a5a7a;
+        font-size: 1.15rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+      }
+
+      .btn-cta {
+        display: inline-block;
+        padding: 16px 40px;
+        background: linear-gradient(
+          to right,
+          var(--cta-btn-pink-dark),
+          var(--cta-btn-pink)
+        );
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1.1rem;
+        box-shadow: 0 8px 20px rgba(255, 92, 168, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .btn-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(255, 92, 168, 0.6);
+        background: linear-gradient(
+          to right,
+          var(--cta-btn-pink),
+          var(--cta-btn-pink-dark)
+        );
+      }
+
+      /* Floating Animation Keyframes */
+      @keyframes ctaFloatImage {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-25px);
+        }
+      }
+
+      /* Mobile Responsive */
+      @media (max-width: 968px) {
+        .cta-container {
+          flex-direction: column;
+          text-align: center;
+          gap: 30px;
+        }
+
+        .cta-image-wrapper {
+          margin-bottom: 10px;
+        }
+
+        .cta-gift-img {
+          max-width: 280px; /* Smaller image on mobile */
+        }
+
+        .cta-content {
+          text-align: center;
+          padding: 2rem;
+          width: 100%; /* Full width on mobile */
+          box-sizing: border-box;
+        }
+
+        .cta-content h2 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== NAVBAR SECTION ===== -->
+    <nav
+      class="navbar navbar-expand-lg navbar-light sticky-top"
+      style="
+        background-color: #ffffff;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        padding: 1rem 0;
+      "
+    >
+      <div class="container">
+        <a
+          class="navbar-brand"
+          href="index.html"
+          style="
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #000000 !important;
+            letter-spacing: 2px;
+          "
+        >
+          <img
+            src="./media/logo.jpg"
+            alt="BOWBOX Logo"
+            style="
+              width: 50px;
+              height: 50px;
+              border-radius: 12px;
+              vertical-align: middle;
+              margin-right: 8px;
+            "
+          />
+        </a>
+
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="index.html"
+                style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                "
+                >Home</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="shop.html"
+                style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                "
+                >Shop</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link active"
+                href="about.html"
+                style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                "
+                >About</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="contact.html"
+                style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                "
+                >Contact</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link"
+                href="login.html"
+                style="
+                  color: #000000 !important;
+                  font-weight: 500;
+                  margin: 0 15px;
+                  transition: all 0.3s ease;
+                  position: relative;
+                "
+                >Login</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== HERO BANNER SECTION ===== -->
+    <section class="hero-banner">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <h1 class="hero-title" style="font-size: 5rem">
+          𝐂𝐫𝐚𝐟𝐭𝐢𝐧𝐠 𝐘𝐨𝐮𝐫 𝐌𝐨𝐦𝐞𝐧𝐭𝐬🎀
+        </h1>
+        <div class="text-center">
+          <img
+            src="./media/ban2.png"
+            alt="About us"
+            class="img-fluid"
+            style="max-width: 100%; height: auto"
+          />
+        </div>
+        <a href="#story"
+          ><button class="comic-button">Explore About us</button></a
+        >
+      </div>
+    </section>
+
+    <!-- ===== BRAND ORIGIN STORY SECTION ===== -->
+    <section id="story" class="story-section section-padding">
+      <div class="container">
+        <div class="row align-items-center">
+          <div
+            class="col-lg-6 mb-4 mb-lg-0"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <div
+              class="story-image"
+              style="
+                width: 50%;
+                height: 350px;
+                overflow: hidden;
+                border-radius: 20px;
+              "
+            >
+              <img
+                src="./media/logo.jpg"
+                alt="Founder's Story Image - Aesthetic workspace with gifts and ribbons"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+                "
+              />
+            </div>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+            <div class="story-content">
+              <h2>How BOWBOX Was Born ✨</h2>
+              <p>
+                It all started with a simple question:
+                <strong
+                  >"What if giving could be as special as receiving?"</strong
+                >
+              </p>
+              <p>
+                In 2019, our founder Emma was searching for the perfect gift for
+                her best friend's wedding. She visited countless stores, spent
+                hours browsing online, but nothing felt quite right. She wanted
+                something that spoke from the heart, something that captured the
+                joy and warmth of their friendship.
+              </p>
+              <p>
+                That's when the idea sparked. What if there was a place where
+                every gift was thoughtfully curated, beautifully packaged, and
+                designed to create unforgettable moments? A place where gifting
+                wasn't just a transaction, but an experience filled with love
+                and intention.
+              </p>
+              <p>
+                And so, <strong>BOWBOX</strong> was born—named after the
+                delicate bow that ties every gift together, symbolizing the care
+                and attention we put into every single order.
+              </p>
+              <p>
+                From our small home studio to becoming a beloved boutique gift
+                brand, our mission has remained the same: to help you celebrate
+                life's precious moments with gifts that truly matter.
+              </p>
+              <div class="story-highlight">
+                <p>
+                  <strong
+                    >"Every gift box we create carries a piece of our heart. We
+                    believe that the art of gifting is about more than just the
+                    items inside—it's about the emotions they inspire and the
+                    memories they create."</strong
+                  >
+                </p>
+                <p>— Debdex, Founder of BOWBOX</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MISSION STATEMENT SECTION ===== -->
+    <section
+      class="mission-section section-padding"
+      style="
+        position: relative;
+        overflow: hidden;
+        background-color: #fee440;
+        padding: 60px 0;
+      "
+    >
+      <style>
+        /* Animation Keyframes */
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* Blob Animation Classes */
+        .blob-svg .out-top {
+          animation: rotate 20s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .in-top {
+          animation: rotate 10s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .out-bottom {
+          animation: rotate 25s linear infinite;
+          transform-origin: 84px 93px;
+        }
+        .blob-svg .in-bottom {
+          animation: rotate 15s linear infinite;
+          transform-origin: 84px 93px;
+        }
+      </style>
+
+      <svg
+        class="blob-svg"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="10 10 80 80"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        "
+      >
+        <path
+          fill="#9b5de5"
+          class="out-top"
+          d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"
+        />
+        <path
+          fill="#f15bb5"
+          class="in-top"
+          d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"
+        />
+        <path
+          fill="#00bbf9"
+          class="out-bottom"
+          d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"
+        />
+        <path
+          fill="#00f5d4"
+          class="in-bottom"
+          d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"
+        />
+      </svg>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div
+          class="mission-content"
+          data-aos="zoom-in"
+          data-aos-duration="1000"
+        >
+          <h2 class="section-title">Our Mission</h2>
+          <p class="mt-4">
+            At BOWBOX, we're on a mission to transform the way people express
+            love, appreciation, and celebration. We believe that every
+            occasion—big or small—deserves to be honored with a thoughtfully
+            curated gift that speaks from the heart.
+          </p>
+          <p>
+            We aim to make gifting effortless yet meaningful. By carefully
+            selecting premium products, designing elegant packaging, and
+            offering personalized touches, we create gift experiences that leave
+            lasting impressions.
+          </p>
+          <p>
+            Our vision is simple: to be the trusted companion for everyone who
+            wants to bring joy into the lives of those they care about. Whether
+            it's a birthday, anniversary, thank-you gesture, or just
+            because—we're here to help you celebrate every beautiful moment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CORE VALUES SECTION ===== -->
+    <section class="values-section section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">Our Core Values</h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            The principles that guide everything we do at BOWBOX
+          </p>
+        </div>
+        <div class="row">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-gem"></i>
+              </div>
+              <h4>Premium Quality</h4>
+              <p>
+                We handpick every product with meticulous care, ensuring that
+                only the finest items make it into our gift boxes. Quality is
+                never compromised, because your loved ones deserve the very
+                best.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-palette"></i>
+              </div>
+              <h4>Creativity & Innovation</h4>
+              <p>
+                Every gift box is a work of art. We constantly explore new
+                trends, unique products, and creative presentation styles to
+                keep our collections fresh, exciting, and inspiring.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-shield-check"></i>
+              </div>
+              <h4>Trust & Reliability</h4>
+              <p>
+                Your trust means everything to us. We're committed to delivering
+                on our promises—on time, every time—with transparent
+                communication and exceptional customer service.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-heart-fill"></i>
+              </div>
+              <h4>Customer Happiness</h4>
+              <p>
+                Your satisfaction and joy are at the heart of everything we do.
+                We go the extra mile to ensure every experience with BOWBOX is
+                delightful, memorable, and stress-free.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-tree"></i>
+              </div>
+              <h4>Sustainability</h4>
+              <p>
+                We care deeply about our planet. From eco-friendly packaging to
+                sustainable sourcing, we're committed to reducing our
+                environmental footprint while spreading love.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="bi bi-pencil-square"></i>
+              </div>
+              <h4>Personal Touch</h4>
+              <p>
+                Every gift tells a unique story. We offer personalization
+                options so you can add your own special touch, making each gift
+                truly one-of-a-kind and deeply meaningful.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TIMELINE SECTION ===== -->
+    <section
+      class="timeline-section section-padding"
+      style="
+        position: relative;
+        overflow: hidden;
+        background-color: #fee440;
+        padding: 60px 0;
+      "
+    >
+      <style>
+        /* Animation Keyframes */
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* Blob Animation Classes */
+        .blob-svg .out-top {
+          animation: rotate 20s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .in-top {
+          animation: rotate 10s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .out-bottom {
+          animation: rotate 25s linear infinite;
+          transform-origin: 84px 93px;
+        }
+        .blob-svg .in-bottom {
+          animation: rotate 15s linear infinite;
+          transform-origin: 84px 93px;
+        }
+      </style>
+
+      <svg
+        class="blob-svg"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="10 10 80 80"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        "
+      >
+        <path
+          fill="#9b5de5"
+          class="out-top"
+          d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"
+        />
+        <path
+          fill="#f15bb5"
+          class="in-top"
+          d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"
+        />
+        <path
+          fill="#00bbf9"
+          class="out-bottom"
+          d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"
+        />
+        <path
+          fill="#00f5d4"
+          class="in-bottom"
+          d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"
+        />
+      </svg>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">Our Journey</h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            From a small idea to a beloved brand
+          </p>
+        </div>
+
+        <div class="timeline">
+          <div
+            class="timeline-item"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2019</div>
+              <h4>The Idea Sparked ✨</h4>
+              <p>
+                Emma's quest for the perfect gift led to the birth of BOWBOX.
+                What started as a personal passion project quickly turned into a
+                mission to revolutionize the gifting experience.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-item"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2020</div>
+              <h4>First Curated Gift Box 🎁</h4>
+              <p>
+                Our very first BOWBOX was created—a beautifully curated
+                collection of handpicked items, elegantly wrapped with our
+                signature pink bow. The response was overwhelming and
+                heartwarming.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-item"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2021</div>
+              <h4>Website Launch 🚀</h4>
+              <p>
+                BOWBOX went digital! We launched our online store, making it
+                easier for customers across the country to discover and order
+                our thoughtfully curated gift collections.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-item"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2022</div>
+              <h4>10,000+ Happy Customers 🎉</h4>
+              <p>
+                A major milestone! We celebrated serving over 10,000 delighted
+                customers, each with their own unique story. Your love and
+                support fueled our growth and inspired us to do even better.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-item"
+            data-aos="fade-right"
+            data-aos-duration="1000"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2023</div>
+              <h4>New Warehouse & Premium Collections 📦</h4>
+              <p>
+                To meet growing demand, we expanded to a larger warehouse and
+                introduced exclusive premium collections featuring luxury
+                brands, artisanal products, and limited-edition items.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="timeline-item"
+            data-aos="fade-left"
+            data-aos-duration="1000"
+          >
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <div class="timeline-year">2024</div>
+              <h4>Loved by Influencers & Featured in Media 🌟</h4>
+              <p>
+                BOWBOX gained recognition from lifestyle influencers and was
+                featured in top magazines and blogs. Our commitment to quality
+                and aesthetics resonated with audiences worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEAM SECTION ===== -->
+    <section class="team-section section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">
+            The Hearts Behind BOWBOX ❤️
+          </h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Meet the passionate team that brings your gifting dreams to life
+          </p>
+        </div>
+        <div class="row">
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="team-card">
+              <div class="team-image">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4>Emma Richardson</h4>
+              <p class="team-role">Founder & Creative Director</p>
+              <p>
+                The visionary behind BOWBOX, Emma's passion for meaningful
+                gifting and eye for design drives every curated collection. She
+                believes every gift should tell a story.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="team-card">
+              <div class="team-image">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4>Sarah Martinez</h4>
+              <p class="team-role">Head of Curation</p>
+              <p>
+                With a keen eye for trends and quality, Sarah handpicks every
+                product that goes into our boxes. Her dedication ensures only
+                the best makes the cut.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="team-card">
+              <div class="team-image">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4>James Cooper</h4>
+              <p class="team-role">Operations Manager</p>
+              <p>
+                James keeps everything running smoothly behind the scenes. From
+                logistics to delivery, he ensures your gifts arrive perfectly
+                and on time, every time.
+              </p>
+            </div>
+          </div>
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="team-card">
+              <div class="team-image">
+                <i class="bi bi-person-circle"></i>
+              </div>
+              <h4>Olivia Chen</h4>
+              <p class="team-role">Customer Experience Lead</p>
+              <p>
+                Olivia is the friendly voice behind our customer service. She's
+                passionate about making sure every customer feels valued, heard,
+                and absolutely delighted.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY CHOOSE US SECTION ===== -->
+    <section
+      class="why-choose-section section-padding"
+      style="
+        position: relative;
+        overflow: hidden;
+        background-color: #fee440;
+        padding: 60px 0;
+      "
+    >
+      <style>
+        /* Animation Keyframes */
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* Blob Animation Classes */
+        .blob-svg .out-top {
+          animation: rotate 20s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .in-top {
+          animation: rotate 10s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .out-bottom {
+          animation: rotate 25s linear infinite;
+          transform-origin: 84px 93px;
+        }
+        .blob-svg .in-bottom {
+          animation: rotate 15s linear infinite;
+          transform-origin: 84px 93px;
+        }
+      </style>
+
+      <svg
+        class="blob-svg"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="10 10 80 80"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        "
+      >
+        <path
+          fill="#9b5de5"
+          class="out-top"
+          d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"
+        />
+        <path
+          fill="#f15bb5"
+          class="in-top"
+          d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"
+        />
+        <path
+          fill="#00bbf9"
+          class="out-bottom"
+          d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"
+        />
+        <path
+          fill="#00f5d4"
+          class="in-bottom"
+          d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"
+        />
+      </svg>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">
+            Why Choose BOWBOX? 🎀
+          </h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            What makes us special and why thousands trust us for their gifting
+            needs
+          </p>
+        </div>
+
+        <div class="row">
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-award"></i>
+              </div>
+              <h4>Premium Quality</h4>
+              <p>
+                Every product is carefully selected for its exceptional quality.
+                We never compromise, because your gifts deserve to be
+                extraordinary.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h4>Fast Delivery</h4>
+              <p>
+                We understand timing is everything. Our efficient logistics
+                ensure your gifts arrive swiftly and safely, right when you need
+                them.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-gift"></i>
+              </div>
+              <h4>Elegant Packaging</h4>
+              <p>
+                Our signature aesthetic packaging is designed to create that
+                magical unboxing moment. Beautiful from the outside, thoughtful
+                on the inside.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-pencil-fill"></i>
+              </div>
+              <h4>Personalization Available</h4>
+              <p>
+                Add a personal touch with custom messages, names, or special
+                requests. Make your gift truly unique and deeply meaningful.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-hand-thumbs-up"></i>
+              </div>
+              <h4>Curated Collections</h4>
+              <p>
+                No more endless browsing. Our expert team curates themed
+                collections for every occasion, making selection effortless and
+                enjoyable.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-headset"></i>
+              </div>
+              <h4>Exceptional Support</h4>
+              <p>
+                Our friendly customer service team is always ready to assist.
+                Have a question or special request? We're here to help with a
+                smile.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="700"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-star-fill"></i>
+              </div>
+              <h4>Trusted by Thousands</h4>
+              <p>
+                Join over 10,000+ satisfied customers who have made BOWBOX their
+                go-to destination for meaningful and memorable gifts.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="col-lg-3 col-md-6"
+            data-aos="zoom-in"
+            data-aos-delay="800"
+          >
+            <div class="feature-box">
+              <div class="feature-icon">
+                <i class="bi bi-arrow-repeat"></i>
+              </div>
+              <h4>Easy Returns</h4>
+              <p>
+                Not completely satisfied? Our hassle-free return policy ensures
+                you can shop with complete confidence and peace of mind.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section class="gallery-section section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">
+            A Peek Inside Our World
+          </h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Behind-the-scenes glimpses of how we create magic at BOWBOX
+          </p>
+        </div>
+        <div class="row">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img
+                  src="./media/a1.jfif"
+                  alt="Packaging Station"
+                  style="transform: scale(0.6)"
+                />
+              </div>
+              <div class="gallery-overlay">Packaging Station</div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img
+                  src="./media/a2.jfif"
+                  alt="Packaging Station"
+                  style="transform: scale(0.6)"
+                />
+              </div>
+              <div class="gallery-overlay">Ribbons & Bows</div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img
+                  src="./media/a3.jfif"
+                  alt="Packaging Station"
+                  style="transform: scale(0.6)"
+                />
+              </div>
+              <div class="gallery-overlay">Gift Arrangement</div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img
+                  src="./media/a4.jfif"
+                  alt="Packaging Station"
+                  style="transform: scale(1.0)"
+                />
+              </div>
+              <div class="gallery-overlay">Wrapping Process</div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img
+                  src="./media/a5.jfif"
+                  alt="Packaging Station"
+                  style="transform: scale(0.8)"
+                />
+              </div>
+              <div class="gallery-overlay">Quality Control</div>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img
+                  src="./media/a6.jfif"
+                  alt="Packaging Station"
+                  style="transform: scale(0.5)"
+                />
+              </div>
+              <div class="gallery-overlay">Storage & Inventory</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SUSTAINABILITY SECTION ===== -->
+    <section
+      class="sustainability-section section-padding"
+      style="
+        position: relative;
+        overflow: hidden;
+        background-color: #fee440;
+        padding: 60px 0;
+      "
+    >
+      <style>
+        /* Animation Keyframes */
+        @keyframes rotate {
+          0% {
+            transform: rotate(0deg);
+          }
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* Blob Animation Classes */
+        .blob-svg .out-top {
+          animation: rotate 20s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .in-top {
+          animation: rotate 10s linear infinite;
+          transform-origin: 13px 25px;
+        }
+        .blob-svg .out-bottom {
+          animation: rotate 25s linear infinite;
+          transform-origin: 84px 93px;
+        }
+        .blob-svg .in-bottom {
+          animation: rotate 15s linear infinite;
+          transform-origin: 84px 93px;
+        }
+      </style>
+
+      <svg
+        class="blob-svg"
+        preserveAspectRatio="xMidYMid slice"
+        viewBox="10 10 80 80"
+        style="
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          pointer-events: none;
+        "
+      >
+        <path
+          fill="#9b5de5"
+          class="out-top"
+          d="M37-5C25.1-14.7,5.7-19.1-9.2-10-28.5,1.8-32.7,31.1-19.8,49c15.5,21.5,52.6,22,67.2,2.3C59.4,35,53.7,8.5,37-5Z"
+        />
+        <path
+          fill="#f15bb5"
+          class="in-top"
+          d="M20.6,4.1C11.6,1.5-1.9,2.5-8,11.2-16.3,23.1-8.2,45.6,7.4,50S42.1,38.9,41,24.5C40.2,14.1,29.4,6.6,20.6,4.1Z"
+        />
+        <path
+          fill="#00bbf9"
+          class="out-bottom"
+          d="M105.9,48.6c-12.4-8.2-29.3-4.8-39.4.8-23.4,12.8-37.7,51.9-19.1,74.1s63.9,15.3,76-5.6c7.6-13.3,1.8-31.1-2.3-43.8C117.6,63.3,114.7,54.3,105.9,48.6Z"
+        />
+        <path
+          fill="#00f5d4"
+          class="in-bottom"
+          d="M102,67.1c-9.6-6.1-22-3.1-29.5,2-15.4,10.7-19.6,37.5-7.6,47.8s35.9,3.9,44.5-12.5C115.5,92.6,113.9,74.6,102,67.1Z"
+        />
+      </svg>
+
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">
+            Gifts That Care for the Planet
+          </h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Our commitment to sustainability and environmental responsibility
+          </p>
+        </div>
+
+        <div class="sustainability-content">
+          <div
+            class="sustainability-item"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div class="sustainability-icon">
+              <i class="bi bi-recycle"></i>
+            </div>
+            <div>
+              <h4>Eco-Friendly Packaging</h4>
+              <p>
+                All our packaging materials are recyclable, biodegradable, or
+                made from recycled content. We've eliminated unnecessary
+                plastics and use sustainable alternatives like kraft paper,
+                natural twine, and compostable wrapping.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="sustainability-item"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div class="sustainability-icon">
+              <i class="bi bi-bag-check"></i>
+            </div>
+            <div>
+              <h4>Reusable Materials</h4>
+              <p>
+                Our signature boxes and bags are designed to be reused. Many
+                customers tell us they treasure their BOWBOX packaging and
+                repurpose it for storage, organization, or regifting—giving it a
+                beautiful second life.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="sustainability-item"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="sustainability-icon">
+              <i class="bi bi-trash3"></i>
+            </div>
+            <div>
+              <h4>Reducing Waste</h4>
+              <p>
+                We optimize our shipping processes to minimize material waste.
+                By using right-sized packaging and efficient packing techniques,
+                we reduce excess materials while ensuring your gifts arrive
+                safely protected.
+              </p>
+            </div>
+          </div>
+
+          <div
+            class="sustainability-item"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div class="sustainability-icon">
+              <i class="bi bi-globe"></i>
+            </div>
+            <div>
+              <h4>Long-Term Sustainability Goals</h4>
+              <p>
+                We're continuously working toward carbon-neutral operations. Our
+                roadmap includes partnering with eco-conscious suppliers,
+                offsetting our carbon footprint, and supporting environmental
+                initiatives. Sustainability isn't just a buzzword for us—it's a
+                promise.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIALS SECTION ===== -->
+    <section class="testimonials-section section-padding">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title" data-aos="fade-up">Customer Love 💕</h2>
+          <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+            Hear what our happy customers have to say about their BOWBOX
+            experience
+          </p>
+        </div>
+        <div class="row">
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="flip-up"
+            data-aos-delay="100"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">JM</div>
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "I ordered a birthday gift box for my best friend and she
+                absolutely loved it! The presentation was stunning, and every
+                item was thoughtfully chosen. BOWBOX made me look like the best
+                gift-giver ever!"
+              </p>
+              <p class="testimonial-name">Jessica Martinez</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="flip-up"
+            data-aos-delay="200"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">DT</div>
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "The quality is exceptional! I've ordered from BOWBOX three
+                times now and each experience has been perfect. Fast shipping,
+                beautiful packaging, and the customer service is top-notch.
+                Highly recommend!"
+              </p>
+              <p class="testimonial-name">David Thompson</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="flip-up"
+            data-aos-delay="300"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">SL</div>
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "Finally, a gift company that gets it! The personalized message
+                card was such a sweet touch, and the items inside were exactly
+                what I was hoping for. My mom cried happy tears when she opened
+                her Mother's Day box."
+              </p>
+              <p class="testimonial-name">Sarah Lee</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="flip-up"
+            data-aos-delay="400"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">MP</div>
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "I'm a repeat customer and for good reason! BOWBOX takes the
+                stress out of gift shopping. Everything arrives beautifully
+                wrapped and ready to gift. The attention to detail is
+                unmatched."
+              </p>
+              <p class="testimonial-name">Michael Park</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="flip-up"
+            data-aos-delay="500"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">EJ</div>
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "Ordered a last-minute anniversary gift and it arrived the next
+                day! My wife was absolutely thrilled. The premium collection
+                exceeded all expectations. Thank you, BOWBOX, for saving the
+                day!"
+              </p>
+              <p class="testimonial-name">Emily Johnson</p>
+            </div>
+          </div>
+          <div
+            class="col-lg-4 col-md-6"
+            data-aos="flip-up"
+            data-aos-delay="600"
+          >
+            <div class="testimonial-card">
+              <div class="testimonial-avatar">AC</div>
+              <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+              <p class="testimonial-text">
+                "This is my go-to for corporate gifts now. Professional,
+                elegant, and always on time. Our clients love receiving BOWBOX
+                gifts and it reflects positively on our brand. Can't recommend
+                enough!"
+              </p>
+              <p class="testimonial-name">Alex Chen</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section-final">
+      <div class="cta-container">
+        <div class="cta-image-wrapper">
+          <img
+            src="./media/ban2.png"
+            alt="Special Gift Box"
+            class="cta-gift-img"
+          />
+        </div>
+
+        <div class="cta-content">
+          <h2>Be Part of Our Story</h2>
+          <p>
+            Join thousands of happy gifters who trust BOWBOX to make their
+            moments special with unboxing experiences they'll never forget.
+          </p>
+          <a href="shop.html" class="btn-cta">Shop Now</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== NEWSLETTER SECTION ===== -->
+    <section class="newsletter-section">
+      <div class="lamp-wrapper">
+        <div class="lamp-cord"></div>
+        <div class="lamp-shade">
+          <div class="lamp-light"></div>
+        </div>
+      </div>
+
+      <div class="newsletter-container">
+        <div class="newsletter-content">
+          <div class="newsletter-icon">
+            <i class="bi bi-envelope-heart"></i>
+          </div>
+          <h2>Let's Stay Connected 🎀</h2>
+          <p>
+            Get updates, exclusive offers, and heartwarming stories delivered to
+            your inbox
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your email address"
+              required
+            />
+            <button type="submit" class="btn-newsletter">Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER SECTION ===== -->
+    <footer
+      class="footer"
+      style="background-color: #000000; color: #ffffff; padding: 60px 0 20px"
+    >
+      <div class="container">
+        <div class="row">
+          <!-- Column 1 - Logo & Tagline -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <div
+              class="footer-logo"
+              style="
+                font-size: 2rem;
+                font-weight: 700;
+                color: #ffffff;
+                margin-bottom: 15px;
+              "
+            >
+              <img
+                src="./media/logo2.png"
+                alt="BOWBOX Logo"
+                style="
+                  width: 300px;
+                  height: 200px;
+                  border-radius: 12px;
+                  vertical-align: middle;
+                  margin-right: 8px;
+                "
+              />
+            </div>
+            <p
+              class="footer-tagline"
+              style="font-size: 0.95rem; color: #ccc; margin-bottom: 20px"
+            >
+              Unwrap joy with every gift. Making moments memorable since 2025.
+            </p>
+          </div>
+
+          <!-- Column 2 - Quick Links -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5
+              style="
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #ffc0cb;
+              "
+            >
+              Quick Links
+            </h5>
+            <ul style="list-style: none; padding: 0">
+              <li style="margin-bottom: 10px">
+                <a
+                  href="index.html"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Home</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="shop.html"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Shop</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="about.html"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >About</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="contact.html"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 3 - Customer Care -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5
+              style="
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #ffc0cb;
+              "
+            >
+              Customer Care
+            </h5>
+            <ul style="list-style: none; padding: 0">
+              <li style="margin-bottom: 10px">
+                <a
+                  href="#"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >FAQ</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="#"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Return Policy</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="#"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Shipping Info</a
+                >
+              </li>
+              <li style="margin-bottom: 10px">
+                <a
+                  href="#"
+                  style="
+                    color: #ccc;
+                    text-decoration: none;
+                    transition: all 0.3s ease;
+                  "
+                  >Track Order</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Column 4 - Follow Us -->
+          <div class="col-lg-3 col-md-6 mb-4">
+            <h5
+              style="
+                font-size: 1.3rem;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #ffc0cb;
+              "
+            >
+              Follow Us
+            </h5>
+            <div class="social-icons" style="display: flex; gap: 15px">
+              <a
+                href="#"
+                aria-label="Facebook"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 40px;
+                  height: 40px;
+                  background-color: #ffc0cb;
+                  color: #ffffff;
+                  border-radius: 50%;
+                  text-decoration: none;
+                  transition: all 0.3s ease;
+                "
+              >
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a
+                href="#"
+                aria-label="Instagram"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 40px;
+                  height: 40px;
+                  background-color: #ffc0cb;
+                  color: #ffffff;
+                  border-radius: 50%;
+                  text-decoration: none;
+                  transition: all 0.3s ease;
+                "
+              >
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a
+                href="#"
+                aria-label="Twitter"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 40px;
+                  height: 40px;
+                  background-color: #ffc0cb;
+                  color: #ffffff;
+                  border-radius: 50%;
+                  text-decoration: none;
+                  transition: all 0.3s ease;
+                "
+              >
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a
+                href="#"
+                aria-label="Pinterest"
+                style="
+                  display: inline-flex;
+                  align-items: center;
+                  justify-content: center;
+                  width: 40px;
+                  height: 40px;
+                  background-color: #ffc0cb;
+                  color: #ffffff;
+                  border-radius: 50%;
+                  text-decoration: none;
+                  transition: all 0.3s ease;
+                "
+              >
+                <i class="fab fa-pinterest-p"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div
+          class="footer-bottom"
+          style="
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+            color: #999;
+          "
+        >
+          <p>&copy; 2025 BOWBOX. All Rights Reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <style>
+      /* Footer link hover effects */
+      .footer ul li a:hover {
+        color: #ffc0cb;
+        padding-left: 5px;
+      }
+
+      .social-icons a:hover {
+        background-color: #ff0000;
+        transform: translateY(-3px);
+      }
+
+      /* Responsive footer styles */
+      @media (max-width: 768px) {
+        .footer {
+          padding: 40px 0 15px;
+        }
+
+        .footer-logo {
+          font-size: 1.8rem;
+        }
+
+        .footer h5 {
+          font-size: 1.1rem;
+          margin-bottom: 15px;
+        }
+
+        .footer ul li a {
+          font-size: 0.9rem;
+        }
+
+        .social-icons a {
+          width: 35px;
+          height: 35px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .footer-logo {
+          font-size: 1.6rem;
+        }
+
+        .footer h5 {
+          font-size: 1rem;
+          margin-bottom: 15px;
+        }
+
+        .footer ul li a {
+          font-size: 0.9rem;
+        }
+
+        .social-icons a {
+          width: 35px;
+          height: 35px;
+        }
+      }
+    </style>
+
+    <!-- ===== BACK TO TOP BUTTON ===== -->
+    <a href="#" class="back-to-top" data-aos="fade-up">
+      <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script
+      data-cfasync="false"
+      src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS (Animate On Scroll) JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <!-- Initialize AOS -->
+    <script>
+      AOS.init({
+        duration: 1000,
+        once: true,
+        offset: 100,
+      });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        const navbar = document.querySelector(".navbar");
+        if (window.scrollY > 50) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Back to top button smooth scroll
+      document
+        .querySelector(".back-to-top")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+          });
+        });
+    </script>
+  </body>
+</html>

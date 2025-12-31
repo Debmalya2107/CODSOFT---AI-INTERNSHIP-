@@ -1,0 +1,733 @@
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .logo img {
+            width: 50px; 
+            height: auto;
+            vertical-align: middle;
+        }
+
+        #nav {
+            background-color: rgb(0, 0, 0);
+            width: 100%;
+            height: auto;
+            min-height: 50px;
+            position: sticky;
+            top: 0px;
+            z-index: 1000;
+        }
+
+        .navrap {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+        }
+
+        .logo {
+            color: white;
+        }
+
+        .menu ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu ul li {
+            margin: 0 10px;
+        }
+
+        .menu ul li a {
+            text-decoration: none;
+            color: white;
+            padding: 8px 15px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .menu ul li a:hover {
+            color: rgb(142, 242, 102);
+        }
+
+        .ban {
+            width: 100%;
+            height: 60vh;
+            min-height: 400px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            position: relative;
+            overflow: hidden; 
+            animation: backgroundSlide 30s infinite; 
+        }
+
+        .sear {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 500px;
+            z-index: 10;
+        }
+
+        #search {
+            width: 100%;
+            height: 50px;
+            border-radius: 25px;
+            border: 2px solid rgb(72, 200, 13);
+            padding: 0 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .slideshow-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .mySlides {
+            display: none; 
+            width: 100%;
+            height: 100%;
+        }
+
+        .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+        }
+
+        @keyframes fade {
+            0% { opacity: 0; }
+            10% { opacity: 1; }
+            20% { opacity: 1; }
+            30% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+
+        .mySlides {
+            animation: fade 15s infinite;
+        }
+        
+        .mySlides:nth-child(1) { animation-delay: 0s; }
+        .mySlides:nth-child(2) { animation-delay: 5s; }
+        .mySlides:nth-child(3) { animation-delay: 10s; }
+        .mySlides:nth-child(4) { animation-delay: 15s; }
+        .mySlides:nth-child(5) { animation-delay: 20s; }
+
+        .banrap {
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        @keyframes backgroundSlide {
+            0% { background-image: url("../images/ban1.jpg"); }
+            20% { background-image: url("../images/ban1.jpg"); }
+            25% { background-image: url("../images/ban2.jpg"); }
+            45% { background-image: url("../images/ban2.jpg"); }
+            50% { background-image: url("../images/ban3.jpg"); }
+            70% { background-image: url("../images/ban3.jpg"); }
+            75% { background-image: url("../images/ban4.jpg"); }
+            95% { background-image: url("../images/ban4.jpg"); }
+            100% { background-image: url("../images/ban1.jpg"); } 
+        }
+
+        .features {
+            text-align: center; 
+            margin: auto; 
+            background-color: black;
+            padding: 20px 0;
+        }
+
+        .features h1 {
+            color: white;
+            font-size: 2.5rem;
+        }
+
+        .mid {
+            width: 100%;
+            padding: 40px 0;
+            background: linear-gradient(to right, #374151, #f43f5e, #fb923c);
+        }
+
+        .midrap {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        .box {
+            color: white;
+            background-color: rgb(0, 0, 0);
+            border: 2px solid black;
+            padding: 15px; 
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05); 
+        }
+
+        .box img {
+            width: 100%; 
+            height: 200px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .box h1 {
+            margin-top: 15px;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        /* NEW SECTIONS STYLES */
+
+        /* Game of the Week Section */
+        .game-of-week {
+            background: linear-gradient(135deg, #1e1b4b, #7c3aed, #ec4899);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .game-of-week-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .game-of-week h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .spotlight-game {
+            background: rgba(0,0,0,0.7);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 20px 0;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .spotlight-game:hover {
+            transform: translateY(-10px);
+        }
+
+        .spotlight-game-image {
+            width: 300px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 0 auto 20px;
+            display: block;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .spotlight-game h3 {
+            color: #8ef666;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+        }
+
+        .spotlight-game p {
+            color: white;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #48c80d, #8ef666);
+            color: black;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(142, 246, 102, 0.4);
+        }
+
+        /* Top Trending Games Section */
+        .trending-games {
+            background-color: #111827;
+            padding: 60px 0;
+        }
+
+        .trending-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .trending-games h2 {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .trending-card {
+            background: linear-gradient(145deg, #1f2937, #374151);
+            border-radius: 12px;
+            padding: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 1px solid #4b5563;
+        }
+
+        .trending-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .trending-rank {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: linear-gradient(45deg, #f59e0b, #fbbf24);
+            color: black;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .trending-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .trending-card h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .trending-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            color: #9ca3af;
+            font-size: 0.9rem;
+        }
+
+        .stat-item i {
+            margin-right: 5px;
+            color: #48c80d;
+        }
+
+        /* Latest News Section */
+        .latest-news {
+            background: linear-gradient(to bottom, #0f172a, #1e293b);
+            padding: 60px 0;
+        }
+
+        .news-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .latest-news h2 {
+            color: white;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .news-item {
+            background: rgba(255,255,255,0.05);
+            border-left: 4px solid #48c80d;
+            padding: 25px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .news-item:hover {
+            background: rgba(255,255,255,0.08);
+            transform: translateX(5px);
+        }
+
+        .news-date {
+            color: #8ef666;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .news-date i {
+            margin-right: 8px;
+        }
+
+        .news-item h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .news-item p {
+            color: #cbd5e1;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .news-link {
+            color: #48c80d;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            transition: color 0.3s ease;
+        }
+
+        .news-link:hover {
+            color: #8ef666;
+        }
+
+        .news-link i {
+            margin-left: 5px;
+        }
+
+        /* Developer Spotlight Section */
+        .developer-spotlight {
+            background: linear-gradient(135deg, #581c87, #7c3aed, #a855f7);
+            padding: 60px 0;
+        }
+
+        .spotlight-container {
+            width: 90%;
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .developer-spotlight h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .developer-card {
+            background: rgba(0,0,0,0.6);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .developer-card:hover {
+            transform: scale(1.02);
+        }
+
+        .developer-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 25px;
+            background: linear-gradient(45deg, #8ef666, #48c80d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: black;
+        }
+
+        .developer-info h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .developer-role {
+            color: #8ef666;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .developer-bio {
+            color: #e2e8f0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .developer-games {
+            margin-top: 25px;
+        }
+
+        .developer-games h4 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .games-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .game-tag {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        footer {
+            background-color: black; 
+            color: white; 
+            text-align: center; 
+            padding: 20px 0;
+        }
+
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .navrap {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .menu {
+                margin-top: 10px;
+            }
+            
+            .menu ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .menu ul li {
+                margin: 5px;
+            }
+            
+            .menu ul li a {
+                font-size: 16px;
+                padding: 6px 12px;
+            }
+            
+            .ban {
+                height: 50vh;
+                min-height: 300px;
+                background-attachment: scroll;
+            }
+            
+            #search {
+                height: 45px;
+                font-size: 14px;
+                padding: 0 15px;
+            }
+            
+            .features h1 {
+                font-size: 2rem;
+            }
+            
+            .midrap {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 15px;
+                width: 95%;
+            }
+            
+            .box {
+                padding: 12px;
+            }
+            
+            .box img {
+                height: 150px;
+            }
+            
+            .box h1 {
+                font-size: 1rem;
+                margin-top: 10px;
+            }
+
+            /* Mobile styles for new sections */
+            .game-of-week h2 {
+                font-size: 2.2rem;
+            }
+            
+            .spotlight-game-image {
+                width: 250px;
+                height: 330px;
+            }
+            
+            .spotlight-game h3 {
+                font-size: 1.8rem;
+            }
+            
+            .trending-games h2,
+            .latest-news h2,
+            .developer-spotlight h2 {
+                font-size: 2rem;
+            }
+            
+            .trending-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .developer-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Small Mobile Styles */
+        @media (max-width: 480px) {
+            .logo img {
+                width: 40px;
+            }
+            
+            .navrap {
+                width: 95%;
+            }
+            
+            .menu ul li a {
+                font-size: 14px;
+                padding: 5px 10px;
+            }
+            
+            .ban {
+                height: 40vh;
+                min-height: 250px;
+            }
+            
+            #search {
+                height: 40px;
+                font-size: 13px;
+            }
+            
+            .features h1 {
+                font-size: 1.8rem;
+            }
+            
+            .midrap {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 12px;
+            }
+            
+            .box img {
+                height: 120px;
+            }
+            
+            .box h1 {
+                font-size: 0.9rem;
+            }
+
+            .game-of-week h2 {
+                font-size: 1.8rem;
+            }
+            
+            .spotlight-game {
+                padding: 20px;
+            }
+            
+            .spotlight-game-image {
+                width: 200px;
+                height: 280px;
+            }
+            
+            .trending-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .games-list {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Large Screen Styles */
+        @media (min-width: 1200px) {
+            .midrap {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            
+            .box img {
+                height: 220px;
+            }
+
+            .trending-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .news-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }

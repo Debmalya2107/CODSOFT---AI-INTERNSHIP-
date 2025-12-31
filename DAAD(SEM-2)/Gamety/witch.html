@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Witcher 3: Wild Hunt - Complete Documentation</title>
+    
+    <!-- External Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./css/witch.css">
+</head>
+<body>
+    
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero-3d">
+        <div class="hero-content">
+            <h1 class="title-3d witcher-font">THE WITCHER 3</h1>
+            <h2 class="text-3xl mb-8 text-yellow-400 witcher-font">Wild Hunt</h2>
+            <p class="text-xl max-w-2xl mx-auto mb-8 leading-relaxed">
+                Experience the award-winning fantasy RPG that redefined open-world gaming. 
+                Follow Geralt of Rivia on his final quest to find the Child of Prophecy.
+            </p>
+            <button class="btn-3d">
+                <i class="fas fa-play mr-2"></i>Explore Documentation
+            </button>
+        </div>
+    </section>
+
+    <!-- Game Overview -->
+    <section id="overview" class="parallax-section py-20">
+        <div class="parallax-bg"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold text-center mb-16 witcher-font text-yellow-400">Game Overview</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="card-3d">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3 class="text-2xl font-bold mb-4 text-yellow-400 witcher-font">
+                                <i class="fas fa-book-open mr-3"></i>Story & Setting
+                            </h3>
+                            <p class="text-gray-300 leading-relaxed">
+                                Set in the fantasy world of the Continent, follow Geralt's search for his adopted daughter Ciri, 
+                                who is being pursued by the otherworldly Wild Hunt.
+                            </p>
+                            <div class="mt-6">
+                                <div class="flex items-center mb-2">
+                                    <span class="text-yellow-400 font-semibold">Release Year:</span>
+                                    <span class="ml-2">2015</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-yellow-400 font-semibold">Developer:</span>
+                                    <span class="ml-2">CD Projekt RED</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-2xl font-bold mb-4 text-yellow-400 witcher-font">Key Features</h3>
+                            <ul class="space-y-3 text-gray-300">
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Open-world exploration spanning multiple regions</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Branching storylines with meaningful choices</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Advanced combat system with signs and swordsmanship</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Alchemy and crafting systems</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>150+ side quests and contracts</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3 class="text-2xl font-bold mb-4 text-yellow-400 witcher-font">
+                                <i class="fas fa-trophy mr-3"></i>Awards & Recognition
+                            </h3>
+                            <p class="text-gray-300 leading-relaxed mb-6">
+                                The Witcher 3 has received numerous accolades and is considered one of the greatest RPGs ever made.
+                            </p>
+                            <div class="space-y-2">
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>Game of the Year 2015</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="fas fa-star text-yellow-400 mr-2"></i>
+                                    <span>250+ Game Awards</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-2xl font-bold mb-4 text-yellow-400 witcher-font">Critical Reception</h3>
+                            <div class="space-y-4">
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold text-yellow-400 mb-2">96/100</div>
+                                    <div class="text-sm text-gray-400">Metacritic Score</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-4xl font-bold text-yellow-400 mb-2">50M+</div>
+                                    <div class="text-sm text-gray-400">Copies Sold</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Characters Section -->
+    <section id="characters" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 witcher-font text-yellow-400">Main Characters</h2>
+            
+            <div class="character-grid">
+                <div class="character-card hover-lift">
+                    <div class="character-image" data-char="G"></div>
+                    <div class="p-6 bg-gray-800 rounded-b-lg">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-400 witcher-font">Geralt of Rivia</h3>
+                        <p class="text-gray-300 text-sm mb-4">Professional monster hunter and witcher, searching for Ciri while navigating political intrigue.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Swordsmanship</span>
+                                <span class="text-yellow-400">95%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 95%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Signs Magic</span>
+                                <span class="text-yellow-400">88%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 88%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Alchemy</span>
+                                <span class="text-yellow-400">92%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 92%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card hover-lift">
+                    <div class="character-image" data-char="C"></div>
+                    <div class="p-6 bg-gray-800 rounded-b-lg">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-400 witcher-font">Ciri</h3>
+                        <p class="text-gray-300 text-sm mb-4">Princess of Cintra with Elder Blood, capable of traveling between worlds and wielding immense magical power.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Elder Blood Magic</span>
+                                <span class="text-yellow-400">98%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 98%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Swordsmanship</span>
+                                <span class="text-yellow-400">85%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 85%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Destiny</span>
+                                <span class="text-yellow-400">100%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card hover-lift">
+                    <div class="character-image" data-char="Y"></div>
+                    <div class="p-6 bg-gray-800 rounded-b-lg">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-400 witcher-font">Yennefer</h3>
+                        <p class="text-gray-300 text-sm mb-4">Powerful sorceress and Geralt's love interest, skilled in magic and politics with a complex past.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Magic Mastery</span>
+                                <span class="text-yellow-400">96%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 96%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Intelligence</span>
+                                <span class="text-yellow-400">94%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 94%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Determination</span>
+                                <span class="text-yellow-400">100%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card hover-lift">
+                    <div class="character-image" data-char="T"></div>
+                    <div class="p-6 bg-gray-800 rounded-b-lg">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-400 witcher-font">Triss Merigold</h3>
+                        <p class="text-gray-300 text-sm mb-4">Talented sorceress and Geralt's former lover, expert in healing magic and herbalism.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Healing Magic</span>
+                                <span class="text-yellow-400">93%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 93%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Compassion</span>
+                                <span class="text-yellow-400">97%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 97%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Loyalty</span>
+                                <span class="text-yellow-400">95%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 95%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card hover-lift">
+                    <div class="character-image" data-char="D"></div>
+                    <div class="p-6 bg-gray-800 rounded-b-lg">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-400 witcher-font">Dandelion</h3>
+                        <p class="text-gray-300 text-sm mb-4">Geralt's best friend, a charismatic bard and poet known for his romantic escapades and storytelling.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Charisma</span>
+                                <span class="text-yellow-400">99%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 99%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Musical Talent</span>
+                                <span class="text-yellow-400">92%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 92%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Trouble Magnet</span>
+                                <span class="text-yellow-400">100%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="character-card hover-lift">
+                    <div class="character-image" data-char="E"></div>
+                    <div class="p-6 bg-gray-800 rounded-b-lg">
+                        <h3 class="text-xl font-bold mb-2 text-yellow-400 witcher-font">Eredin</h3>
+                        <p class="text-gray-300 text-sm mb-4">King of the Wild Hunt, an otherworldly rider leading spectral warriors in pursuit of Ciri.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm">
+                                <span>Dark Magic</span>
+                                <span class="text-yellow-400">97%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 97%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Leadership</span>
+                                <span class="text-yellow-400">95%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 95%;"></div>
+                            </div>
+                            
+                            <div class="flex justify-between text-sm">
+                                <span>Menace</span>
+                                <span class="text-yellow-400">100%</span>
+                            </div>
+                            <div class="stat-bar">
+                                <div class="stat-fill" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quests Section -->
+    <section id="quests" class="py-20 bg-gradient-to-b from-black to-gray-900">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 witcher-font text-yellow-400">Quest System</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="hover-lift">
+                    <div class="bg-gradient-to-br from-red-900 to-red-700 p-8 rounded-lg border border-yellow-400">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-scroll text-6xl text-yellow-400 floating"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center witcher-font">Main Story</h3>
+                        <p class="text-gray-200 mb-4 text-center">Follow Geralt's journey to find Ciri and confront the Wild Hunt in this epic narrative.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Act I: Lilac and Gooseberries</li>
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Act II: No Place Like Home</li>
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Act III: The Final Age</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hover-lift">
+                    <div class="bg-gradient-to-br from-blue-900 to-blue-700 p-8 rounded-lg border border-yellow-400">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-users text-6xl text-yellow-400 floating" style="animation-delay: 0.5s;"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center witcher-font">Side Quests</h3>
+                        <p class="text-gray-200 mb-4 text-center">Engage in meaningful side stories that shape the world around you.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Character Development Stories</li>
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Political Intrigue Plots</li>
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Romance Questlines</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="hover-lift">
+                    <div class="bg-gradient-to-br from-green-900 to-green-700 p-8 rounded-lg border border-yellow-400">
+                        <div class="text-center mb-6">
+                            <i class="fas fa-dragon text-6xl text-yellow-400 floating" style="animation-delay: 1s;"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4 text-center witcher-font">Witcher Contracts</h3>
+                        <p class="text-gray-200 mb-4 text-center">Hunt monsters for coin and experience in classic witcher fashion.</p>
+                        <ul class="space-y-2 text-sm">
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Beast Hunting</li>
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Monster Investigation</li>
+                            <li><i class="fas fa-chevron-right text-yellow-400 mr-2"></i>Reward Collection</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16">
+                <div class="card-3d max-w-4xl mx-auto">
+                    <div class="card-inner" style="height: 250px;">
+                        <div class="card-front">
+                            <h3 class="text-3xl font-bold mb-6 text-center text-yellow-400 witcher-font">
+                                <i class="fas fa-map-marked-alt mr-3"></i>Quest Statistics
+                            </h3>
+                            <div class="grid grid-cols-3 gap-8 text-center">
+                                <div>
+                                    <div class="text-4xl font-bold text-yellow-400 mb-2">36</div>
+                                    <div class="text-gray-300">Main Quests</div>
+                                </div>
+                                <div>
+                                    <div class="text-4xl font-bold text-yellow-400 mb-2">150+</div>
+                                    <div class="text-gray-300">Side Quests</div>
+                                </div>
+                                <div>
+                                    <div class="text-4xl font-bold text-yellow-400 mb-2">26</div>
+                                    <div class="text-gray-300">Contracts</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-3xl font-bold mb-6 text-center text-yellow-400 witcher-font">Quest Features</h3>
+                            <ul class="space-y-3 text-center">
+                                <li><i class="fas fa-star text-yellow-400 mr-2"></i>Multiple branching storylines</li>
+                                <li><i class="fas fa-star text-yellow-400 mr-2"></i>Meaningful choices and consequences</li>
+                                <li><i class="fas fa-star text-yellow-400 mr-2"></i>Rich character development</li>
+                                <li><i class="fas fa-star text-yellow-400 mr-2"></i>Dynamic world reactions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Combat System -->
+    <section id="combat" class="py-20 parallax-section">
+        <div class="parallax-bg"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold text-center mb-16 witcher-font text-yellow-400">Combat System</h2>
+            
+            <div class="combat-grid">
+                <div class="combat-item">
+                    <i class="fas fa-sword text-5xl text-yellow-400 mb-4 glowing"></i>
+                    <h3 class="text-xl font-bold mb-3 witcher-font">Swordsmanship</h3>
+                    <p class="text-gray-300 text-sm">Fast and strong attacks with silver and steel swords. Master timing and positioning for maximum effectiveness.</p>
+                </div>
+
+                <div class="combat-item">
+                    <i class="fas fa-hand-sparkles text-5xl text-yellow-400 mb-4 glowing"></i>
+                    <h3 class="text-xl font-bold mb-3 witcher-font">Signs Magic</h3>
+                    <p class="text-gray-300 text-sm">Five magical signs: Igni (fire), Quen (shield), Aard (telekinetic blast), Yrden (trap), and Axii (mind control).</p>
+                </div>
+
+                <div class="combat-item">
+                    <i class="fas fa-flask text-5xl text-yellow-400 mb-4 glowing"></i>
+                    <h3 class="text-xl font-bold mb-3 witcher-font">Alchemy</h3>
+                    <p class="text-gray-300 text-sm">Brew potions, oils, and bombs to enhance combat effectiveness and exploit monster weaknesses.</p>
+                </div>
+
+                <div class="combat-item">
+                    <i class="fas fa-shield-alt text-5xl text-yellow-400 mb-4 glowing"></i>
+                    <h3 class="text-xl font-bold mb-3 witcher-font">Defense</h3>
+                    <p class="text-gray-300 text-sm">Dodge, roll, and parry enemy attacks. Use Quen sign for magical protection and damage absorption.</p>
+                </div>
+
+                <div class="combat-item">
+                    <i class="fas fa-crosshairs text-5xl text-yellow-400 mb-4 glowing"></i>
+                    <h3 class="text-xl font-bold mb-3 witcher-font">Crossbow</h3>
+                    <p class="text-gray-300 text-sm">Ranged combat option effective against flying enemies and underwater creatures. Various bolt types available.</p>
+                </div>
+
+                <div class="combat-item">
+                    <i class="fas fa-bolt text-5xl text-yellow-400 mb-4 glowing"></i>
+                    <h3 class="text-xl font-bold mb-3 witcher-font">Mutations</h3>
+                    <p class="text-gray-300 text-sm">Advanced character mutations that enhance combat abilities and unlock new tactical possibilities.</p>
+                </div>
+            </div>
+
+            <div class="mt-16 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-gray-800 to-gray-700 p-8 rounded-lg border border-yellow-400 hover-lift">
+                    <h3 class="text-2xl font-bold mb-6 text-center text-yellow-400 witcher-font">
+                        <i class="fas fa-chart-line mr-3"></i>Combat Mechanics
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div>
+                            <h4 class="text-lg font-bold mb-3 text-yellow-400">Damage Types</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li><i class="fas fa-circle text-red-400 mr-2"></i>Slashing (Fast attacks)</li>
+                                <li><i class="fas fa-circle text-blue-400 mr-2"></i>Bludgeoning (Strong attacks)</li>
+                                <li><i class="fas fa-circle text-yellow-400 mr-2"></i>Piercing (Crossbow)</li>
+                                <li><i class="fas fa-circle text-purple-400 mr-2"></i>Elemental (Signs & Bombs)</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-3 text-yellow-400">Enemy Weaknesses</h4>
+                            <ul class="space-y-2 text-sm text-gray-300">
+                                <li><i class="fas fa-fire text-red-400 mr-2"></i>Necrophages vs Igni</li>
+                                <li><i class="fas fa-bolt text-blue-400 mr-2"></i>Wraiths vs Yrden</li>
+                                <li><i class="fas fa-brain text-purple-400 mr-2"></i>Humans vs Axii</li>
+                                <li><i class="fas fa-shield text-gray-400 mr-2"></i>Monsters vs Silver</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- World Exploration -->
+    <section id="world" class="py-20 bg-gradient-to-b from-gray-900 to-black">
+        <div class="container mx-auto px-6">
+            <h2 class="text-5xl font-bold text-center mb-16 witcher-font text-yellow-400">World of the Continent</h2>
+            
+            <div class="world-grid">
+                <div class="world-region">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 witcher-font">Velen</h3>
+                    <p class="text-gray-300 text-sm mb-4">The Bloody Baron's war-torn realm, filled with swamps, forests, and desperate folk struggling to survive.</p>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-map-marker-alt mr-1"></i>Southern Realm
+                    </div>
+                </div>
+
+                <div class="world-region">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 witcher-font">Novigrad</h3>
+                    <p class="text-gray-300 text-sm mb-4">The Free City, largest settlement on the Continent, center of trade, politics, and intrigue.</p>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-city mr-1"></i>Major City
+                    </div>
+                </div>
+
+                <div class="world-region">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 witcher-font">Skellige</h3>
+                    <p class="text-gray-300 text-sm mb-4">Viking-inspired islands with fierce warriors, ancient traditions, and treacherous seas.</p>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-ship mr-1"></i>Island Chain
+                    </div>
+                </div>
+
+                <div class="world-region">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 witcher-font">Oxenfurt</h3>
+                    <p class="text-gray-300 text-sm mb-4">University town known for learning and scholarship, home to the famous Academy.</p>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-graduation-cap mr-1"></i>Academic Center
+                    </div>
+                </div>
+
+                <div class="world-region">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 witcher-font">Kaer Morhen</h3>
+                    <p class="text-gray-300 text-sm mb-4">Ancient witcher stronghold in the mountains, Geralt's childhood home and training ground.</p>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-mountain mr-1"></i>Witcher Keep
+                    </div>
+                </div>
+
+                <div class="world-region">
+                    <h3 class="text-xl font-bold mb-3 text-yellow-400 witcher-font">Toussaint</h3>
+                    <p class="text-gray-300 text-sm mb-4">Fairy-tale duchy of knights, romance, and chivalry. Featured in Blood and Wine expansion.</p>
+                    <div class="text-xs text-gray-400">
+                        <i class="fas fa-crown mr-1"></i>Duchy (DLC)
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 max-w-6xl mx-auto">
+                <div class="card-3d">
+                    <div class="card-inner" style="height: 300px;">
+                        <div class="card-front">
+                            <h3 class="text-3xl font-bold mb-6 text-center text-yellow-400 witcher-font">
+                                <i class="fas fa-globe-americas mr-3"></i>World Statistics
+                            </h3>
+                            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+                                <div>
+                                    <div class="text-3xl font-bold text-yellow-400 mb-2">136</div>
+                                    <div class="text-gray-300 text-sm">Square Kilometers</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-yellow-400 mb-2">100+</div>
+                                    <div class="text-gray-300 text-sm">Locations</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-yellow-400 mb-2">400+</div>
+                                    <div class="text-gray-300 text-sm">Points of Interest</div>
+                                </div>
+                                <div>
+                                    <div class="text-3xl font-bold text-yellow-400 mb-2">15+</div>
+                                    <div class="text-gray-300 text-sm">Major Regions</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-back">
+                            <h3 class="text-3xl font-bold mb-6 text-center text-yellow-400 witcher-font">Exploration Features</h3>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <ul class="space-y-2 text-sm">
+                                    <li><i class="fas fa-treasure-chest text-yellow-400 mr-2"></i>Hidden Treasures</li>
+                                    <li><i class="fas fa-dungeon text-yellow-400 mr-2"></i>Monster Nests</li>
+                                    <li><i class="fas fa-monument text-yellow-400 mr-2"></i>Ancient Ruins</li>
+                                </ul>
+                                <ul class="space-y-2 text-sm">
+                                    <li><i class="fas fa-horse text-yellow-400 mr-2"></i>Roach Travel</li>
+                                    <li><i class="fas fa-ship text-yellow-400 mr-2"></i>Naval Exploration</li>
+                                    <li><i class="fas fa-magic text-yellow-400 mr-2"></i>Fast Travel Points</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Specifications -->
+    <section id="specs" class="py-20 parallax-section">
+        <div class="parallax-bg"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <h2 class="text-5xl font-bold text-center mb-16 witcher-font text-yellow-400">Technical Specifications</h2>
+            
+            <div class="specs-grid">
+                <div class="spec-category">
+                    <h3 class="text-2xl font-bold mb-6 text-yellow-400 witcher-font">
+                        <i class="fas fa-desktop mr-3"></i>Minimum Requirements
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="font-semibold text-gray-300">OS:</span>
+                            <span class="text-gray-400 ml-2">Windows 7 64-bit</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">CPU:</span>
+                            <span class="text-gray-400 ml-2">Intel Core i5-2500K 3.3GHz</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">Memory:</span>
+                            <span class="text-gray-400 ml-2">6 GB RAM</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">Graphics:</span>
+                            <span class="text-gray-400 ml-2">NVIDIA GeForce GTX 660</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">DirectX:</span>
+                            <span class="text-gray-400 ml-2">Version 11</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">Storage:</span>
+                            <span class="text-gray-400 ml-2">35 GB available space</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3 class="text-2xl font-bold mb-6 text-yellow-400 witcher-font">
+                        <i class="fas fa-rocket mr-3"></i>Recommended Requirements
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="font-semibold text-gray-300">OS:</span>
+                            <span class="text-gray-400 ml-2">Windows 10 64-bit</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">CPU:</span>
+                            <span class="text-gray-400 ml-2">Intel Core i7-3770 3.4GHz</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">Memory:</span>
+                            <span class="text-gray-400 ml-2">8 GB RAM</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">Graphics:</span>
+                            <span class="text-gray-400 ml-2">NVIDIA GeForce GTX 770</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">DirectX:</span>
+                            <span class="text-gray-400 ml-2">Version 11</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-gray-300">Storage:</span>
+                            <span class="text-gray-400 ml-2">35 GB available space</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3 class="text-2xl font-bold mb-6 text-yellow-400 witcher-font">
+                        <i class="fas fa-gamepad mr-3"></i>Platform Availability
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fab fa-windows text-blue-400 mr-3"></i>
+                            <span>PC (Windows)</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-playstation text-blue-600 mr-3"></i>
+                            <span>PlayStation 4 & 5</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-xbox text-green-500 mr-3"></i>
+                            <span>Xbox One & Series X/S</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-mobile-alt text-red-500 mr-3"></i>
+                            <span>Nintendo Switch</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-steam text-gray-400 mr-3"></i>
+                            <span>Steam Deck (Verified)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spec-category">
+                    <h3 class="text-2xl font-bold mb-6 text-yellow-400 witcher-font">
+                        <i class="fas fa-download mr-3"></i>DLC & Expansions
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <span class="font-semibold text-yellow-400">Hearts of Stone</span>
+                            <p class="text-gray-400 text-sm mt-1">10+ hours of additional content</p>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-yellow-400">Blood and Wine</span>
+                            <p class="text-gray-400 text-sm mt-1">30+ hours in new Toussaint region</p>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-yellow-400">Free DLCs</span>
+                            <p class="text-gray-400 text-sm mt-1">16 free content packs available</p>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-yellow-400">GOTY Edition</span>
+                            <p class="text-gray-400 text-sm mt-1">Complete edition with all content</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 max-w-4xl mx-auto">
+                <div class="bg-gradient-to-r from-yellow-900 to-yellow-800 p-8 rounded-lg border-2 border-yellow-400 hover-lift">
+                    <h3 class="text-2xl font-bold mb-6 text-center witcher-font text-yellow-400">
+                        <i class="fas fa-award mr-3"></i>Game Awards & Recognition
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="text-4xl mb-4">🏆</div>
+                            <div class="font-bold text-yellow-400 mb-2">Game of the Year</div>
+                            <div class="text-sm text-gray-300">The Game Awards 2015</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-4">⭐</div>
+                            <div class="font-bold text-yellow-400 mb-2">250+ Awards</div>
+                            <div class="text-sm text-gray-300">Including multiple GOTY awards</div>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-4">🎮</div>
+                            <div class="font-bold text-yellow-400 mb-2">Best RPG</div>
+                            <div class="text-sm text-gray-300">Multiple gaming publications</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-16 bg-black">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold witcher-font text-yellow-400 mb-4">The Witcher 3: Wild Hunt</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    Experience one of the greatest RPGs ever made. Join Geralt on his final adventure 
+                    in this massive open-world fantasy epic.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-yellow-400 mb-3">Developer</h4>
+                    <p class="text-gray-400">CD Projekt RED</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-yellow-400 mb-3">Release Date</h4>
+                    <p class="text-gray-400">May 19, 2015</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-yellow-400 mb-3">Genre</h4>
+                    <p class="text-gray-400">Action RPG</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-gray-500 text-sm">
+                 Gamety presents The Witcher 3: Wild Hunt. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

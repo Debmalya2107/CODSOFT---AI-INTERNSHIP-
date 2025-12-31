@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=fnifp11
+comment1.params=
+comment1.target=void\ input()
+comment2.params=age\ dis
+comment2.target=double\ display1(double,\ double)
+numComments=3

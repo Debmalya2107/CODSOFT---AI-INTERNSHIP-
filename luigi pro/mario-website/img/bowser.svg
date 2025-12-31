@@ -1,0 +1,37 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="100" height="100" fill="#8B4513"/>
+  
+  <!-- Bowser Head -->
+  <ellipse cx="50" cy="40" rx="35" ry="30" fill="#FFA500"/>
+  
+  <!-- Bowser Horns -->
+  <polygon points="20,25 25,10 30,25" fill="#FFFF00"/>
+  <polygon points="70,25 75,10 80,25" fill="#FFFF00"/>
+  
+  <!-- Bowser Eyes -->
+  <rect x="30" y="35" width="12" height="12" fill="red" rx="2"/>
+  <rect x="58" y="35" width="12" height="12" fill="red" rx="2"/>
+  <rect x="33" y="38" width="6" height="6" fill="black"/>
+  <rect x="61" y="38" width="6" height="6" fill="black"/>
+  
+  <!-- Bowser Snout -->
+  <ellipse cx="50" cy="50" rx="20" ry="15" fill="#FF8C00"/>
+  <ellipse cx="40" cy="50" rx="8" ry="6" fill="#000000"/>
+  <ellipse cx="60" cy="50" rx="8" ry="6" fill="#000000"/>
+  
+  <!-- Bowser Mouth -->
+  <path d="M 30 55 Q 50 65 70 55" stroke="#8B0000" stroke-width="3" fill="none"/>
+  
+  <!-- Bowser Body -->
+  <rect x="15" y="65" width="70" height="30" fill="#8B4513" rx="5"/>
+  <rect x="20" y="70" width="60" height="20" fill="#A0522D" rx="3"/>
+  
+  <!-- Spikes -->
+  <polygon points="25,65 30,55 35,65" fill="#FFFF00"/>
+  <polygon points="45,65 50,55 55,65" fill="#FFFF00"/>
+  <polygon points="65,65 70,55 75,65" fill="#FFFF00"/>
+  
+  <!-- Logo Text -->
+  <text x="50" y="95" font-family="Arial" font-size="8" fill="white" text-anchor="middle">BOWSER</text>
+</svg>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matri Hardwares</title>
+    <style>
+      /* Global Styles */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: white;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        background-color: white;
+        padding: 1rem 2rem;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+      }
+
+      .navbar-content {
+        display: flex;
+        justify-content: left;
+        align-items: left;
+      }
+
+      .company-name {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+
+      .company-name .white {
+        color: rgb(22, 21, 21);
+        background-color: #fdfcfc; /* To make white text visible on white bg, but adjust if needed */
+        padding: 0.2rem 0.5rem;
+      }
+
+      .company-name .yellow {
+        color: #ffd700; /* Yellow color */
+      }
+
+      /* Hero Section */
+      .hero {
+        height: 100vh; /* full viewport height */
+        background-image: url("./imgs/bgproban.webp");
+        background-size: cover; /* cover entire container */
+        background-position: center;
+        background-repeat: no-repeat; /* avoid tiling on small screens */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-top: 70px; /* offset for fixed navbar */
+        padding: 0 20px; /* small padding for mobile devices */
+      }
+
+      /* Text inside hero (optional example) */
+      .hero h1 {
+        font-size: 3rem;
+        color: #000; /* black text for visibility */
+        margin: 0;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        color: #000;
+      }
+
+      /* Responsive adjustments */
+      @media screen and (max-width: 1024px) {
+        .hero h1 {
+          font-size: 2.5rem;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .hero {
+          margin-top: 60px; /* reduce offset on smaller screens */
+        }
+        .hero h1 {
+          font-size: 2rem;
+        }
+        .hero p {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media screen and (max-width: 480px) {
+        .hero {
+          margin-top: 50px;
+        }
+        .hero h1 {
+          font-size: 1.5rem;
+        }
+        .hero p {
+          font-size: 0.8rem;
+        }
+      }
+
+      .explore-btn {
+        background-color: #ffd700;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        cursor: pointer;
+        border-radius: 80px;
+        transition: background-color 0.3s;
+      }
+
+      .explore-btn:hover {
+        background-color: #e6c200;
+      }
+
+      /* Products Section */
+      .products-section {
+        display: flex;
+        min-height: 80vh;
+        padding: 2rem;
+        background-color: white;
+        gap: 2rem;
+      }
+
+      /* Filters - Left Side */
+      .filters {
+        flex: 1;
+        max-width: 300px;
+        background-color: #f9f9f9;
+        padding: 1.5rem;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .filter-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .filter-group h3 {
+        color: #ffd700;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+      }
+
+      .filter-option {
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .filter-option input[type="checkbox"] {
+        margin-right: 0.5rem;
+      }
+
+      /* Products Grid - Right Side */
+      .products-grid {
+        flex: 3;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .product-card {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 1rem;
+        text-align: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .product-card img {
+        width: 100%;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-card h4 {
+        color: #333;
+        margin-bottom: 0.5rem;
+      }
+
+      .product-card p {
+        color: #666;
+        font-size: 0.9rem;
+      }
+
+      .product-price {
+        color: #ffd700;
+        font-weight: bold;
+        font-size: 1.1rem;
+        margin-top: 0.5rem;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .products-section {
+          flex-direction: column;
+          padding: 1rem;
+        }
+
+        .filters {
+          max-width: 100%;
+          order: 2; /* Filters below products on mobile */
+        }
+
+        .products-grid {
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          order: 1;
+        }
+
+        .company-name {
+          font-size: 1.5rem;
+        }
+
+        nav {
+          padding: 1rem;
+        }
+
+        .hero {
+          margin-top: 60px;
+          padding: 0 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .explore-btn {
+          padding: 0.8rem 1.5rem;
+          font-size: 1rem;
+        }
+      }
+     .buy-btn {
+  background-color: #FFD700;
+  color: #000;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  margin-top: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  text-decoration: none; /* removes underline if using <a> */
+  display: inline-block; /* for <a> to look like a button */
+  transition: 0.3s;
+}
+
+.buy-btn:hover {
+  background-color: #e6c200;
+}
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="navbar-content">
+        <div class="company-name">
+          <span class="white">Matri</span><span class="yellow"> Hardwares</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <!---- <h1
+        style="
+          color: rgb(3, 3, 3);
+          font-size: 3rem;
+          margin-bottom: 1rem;
+          text-shadow: 4px 4px 4px rgba(8, 212, 248, 0.5);
+        "
+      >
+        BERGER - PRODUCTS
+      </h1>
+      <p
+        style="
+          color: rgb(32, 28, 28);
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+          text-shadow: 1px 1px 2px rgba(145, 206, 230, 0.5);
+        "
+      >
+        List Of All Berger Products
+      </p> >--->
+      <button class="explore-btn" onclick="scrollToProducts()">
+        <span style="color: black">Explore Products</span>
+      </button>
+    </section>
+
+    
+      <a
+      href="https://wa.me/9831353556?text=hi"
+      class="whatsapp-float"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+        alt="WhatsApp"
+      />
+    </a>
+
+    <style>
+      /* Floating WhatsApp Button Styles */
+      .whatsapp-float {
+        position: fixed;
+        width: 60px;
+        height: 60px;
+        bottom: 40px;
+        right: 40px;
+        background-color: #25d366;
+        color: #fff;
+        border-radius: 50%;
+        text-align: center;
+        font-size: 30px;
+        box-shadow: 2px 2px 5px #999;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s;
+      }
+
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+      }
+
+      .whatsapp-float img {
+        width: 35px;
+        height: 35px;
+      }
+    </style>
+
+    <script
+      src="https://kit.fontawesome.com/a076d05399.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <a
+      href="berger.html"
+      style="
+        position: fixed;
+        bottom: 120px;
+        right: 25px;
+        background-color: #ffcc00;
+        color: black;
+        font-weight: 600;
+        text-decoration: none;
+        padding: 14px 26px;
+        border-radius: 50px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        font-family: Arial, sans-serif;
+        z-index: 1000;
+      "
+      onmouseover="this.style.backgroundColor='#ffd633'; this.style.transform='scale(1.05)';"
+      onmouseout="this.style.backgroundColor='#ffcc00'; this.style.transform='scale(1)';"
+    >
+      Back
+    </a>
+    <!-- ✅ Font Awesome (must be placed once anywhere in <head> or before buttons) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- 🟡 Floating Home Button -->
+    <a
+      href="index.html"
+      style="
+        position: fixed;
+        bottom: 200px; /* 👈 above the 'Click Me' button */
+        right: 25px;
+        background-color: #ffcc00;
+        color: black;
+        text-decoration: none;
+        padding: 14px 18px;
+        border-radius: 50%;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: all 0.3s ease;
+        font-family: Arial, sans-serif;
+        z-index: 1001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+      "
+      onmouseover="this.style.backgroundColor='#ffd633'; this.style.transform='scale(1.1)';"
+      onmouseout="this.style.backgroundColor='#ffcc00'; this.style.transform='scale(1)';"
+    >
+      <i class="fa-solid fa-house"></i>
+    </a>
+
+
+
+    <!-- Products Section -->
+    <section id="products" class="products-section">
+
+      <!-- Filter One -->
+      <aside class="filters">
+        <div class="filter-group">
+          <h3>Industry</h3>
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              value="consumer"
+              onchange="applyFilters()"
+            />
+            Consumer</label
+          >
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              value="business"
+              onchange="applyFilters()"
+            />
+            Business</label>          
+        </div>
+
+
+
+          <!-- Filter Two -->
+        <div class="filter-group">
+          <h3>Category</h3>
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              value="Interior wall coating"
+              onchange="applyFilters()"
+            />
+            Interior wall coating</label
+            >
+          <label class="filter-option"
+            ><input
+              type="checkbox"
+              value="Exterior wall coating"
+              onchange="applyFilters()"
+            />
+            Exterior wall coating</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="putty & cement paint" 
+            onchange="applyFilters()" />
+            Putty & Cement Paint</label
+          >
+            <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="primers" 
+            onchange="applyFilters()" />
+            Primers</label
+          >
+            <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="waterproofing" 
+            onchange="applyFilters()" />
+            Waterproofing</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="wood finishes" 
+            onchange="applyFilters()" />
+            Wood Finishes</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="enamels" 
+            onchange="applyFilters()" />
+            Enamels</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="diy" 
+            onchange="applyFilters()" />
+            DIY (Do It Yourself)</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="sealants" 
+            onchange="applyFilters()" />
+            Sealants</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="tilingsolution" 
+            onchange="applyFilters()" />
+            Tiling Solution</label
+          >
+        </div>
+
+
+
+          <!-- Filter Three -->
+        <div class="filter-group">
+          <h3>Product Type</h3>
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="luxury interior emulsion" 
+            onchange="applyFilters()" />
+            Luxury Interior Emulsion</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="premium interior emulsion" 
+            onchange="applyFilters()" />
+            Premium Interior Emulsion</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="designer finishes" 
+            onchange="applyFilters()" />
+            Designer Finishes</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="economy interior emulsion" 
+            onchange="applyFilters()" />
+            Economy Interior Emulsion</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="ceiling paint" 
+            onchange="applyFilters()" />
+            Ceiling Paint</label
+          >
+        </div>
+
+
+
+          <!-- Filter Four -->
+        <div class="filter-group">
+          <h3>Brand</h3>
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="silk" 
+            onchange="applyFilters()" />
+            Silk</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="easy clean" 
+            onchange="applyFilters()" />
+            Easy Clean</label
+          >
+          <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="silk glamart" 
+            onchange="applyFilters()" />
+            Silk Glamart</label
+          >
+           <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="bison" 
+            onchange="applyFilters()" />
+            Bison</label
+          >
+           <label class="filter-option"
+            ><input 
+            type="checkbox" 
+            value="rangoli" 
+            onchange="applyFilters()" />
+            Rangoli</label
+          >
+        </div>
+
+        
+        <button
+          onclick="clearFilters()"
+          style="
+            background-color: #ffd700;
+            color: rgb(10, 9, 9);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+          "
+        >
+          Clear Filters
+        </button>
+      </aside>
+
+      <!-- Products Grid -->
+      <main class="products-grid" id="productsGrid">
+        <!-- Products will be populated by JS -->
+      </main>
+    </section>
+
+<script>
+  // Sample Product Data
+  const products = [
+    {
+      id: 1,
+      name: "Silk Glamor High Sheen",
+      industry: "consumer",
+      category: "interior wall coating",
+      product: "Luxury Interior Emulsion",
+      brand: "Silk",
+      price: "$10.99",
+      img: "./imgs/Silk Glamor High Sheen.webp",
+    },
+    {
+      id: 2,
+      name: "Premium Wall Finish",
+      industry: "business",
+      category: "exterior wall coating",
+      product: "Premium Interior Emulsion",
+      brand: "Easy Clean",
+      price: "$12.99",
+      img: "./imgs/Premium Wall Finish.webp",
+    },
+    // Add more products here
+  ];
+
+  // Function to scroll to products
+  function scrollToProducts() {
+    document.getElementById("products").scrollIntoView({ behavior: "smooth" });
+  }
+
+  // Function to render products
+  function renderProducts(filteredProducts) {
+    const grid = document.getElementById("productsGrid");
+    grid.innerHTML = "";
+    filteredProducts.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "product-card";
+      card.innerHTML = `
+        <img src="${product.img}" alt="${product.name}">
+        <h4>${product.name}</h4>
+        <p>Category: ${product.category} | Type: ${product.product} | Brand: ${product.brand}</p>
+        <div class="product-price">${product.price}</div>
+        <a href="buy.html" class="buy-btn">Buy Now 🛒</a>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Function to apply filters
+  function applyFilters() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    const selectedValues = Array.from(checkboxes).map(cb => cb.value.toLowerCase());
+
+    const Industry = selectedValues.filter(val => ["consumer","business"].includes(val));
+    const Category = selectedValues.filter(val => ["interior wall coating","exterior wall coating","putty & cement paint","primers","waterproofing","wood finishes","enamels","diy","sealants","tilingsolution"].includes(val));
+    const ProductType = selectedValues.filter(val => ["luxury interior emulsion","premium interior emulsion","designer finishes","economy interior emulsion","ceiling paint"].includes(val));
+    const Brand = selectedValues.filter(val => ["silk","easy clean","silk glamart","bison","rangoli"].includes(val));
+
+    let filtered = products.filter(p => {
+      const matchIndustry = Industry.length === 0 || Industry.includes(p.industry.toLowerCase());
+      const matchCategory = Category.length === 0 || Category.includes(p.category.toLowerCase());
+      const matchProductType = ProductType.length === 0 || ProductType.includes(p.product.toLowerCase());
+      const matchBrand = Brand.length === 0 || Brand.includes(p.brand.toLowerCase());
+
+      return matchIndustry && matchCategory && matchProductType && matchBrand;
+    });
+
+    if (checkboxes.length === 0) filtered = products; // Show all if no filters
+
+    renderProducts(filtered);
+  }
+
+  // Function to clear filters
+  function clearFilters() {
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    renderProducts(products);
+  }
+
+  // Initial render
+  renderProducts(products);
+</script>
+
+  </body>
+</html>

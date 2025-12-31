@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elden Ring - Complete Game Documentation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/er.css">
+</head>
+<body class="bg-gray-900">
+      <!-- Navigation -->
+          <nav style="
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 24px;
+    padding: 12px 24px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    animation: slideDown 0.6s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Inter', sans-serif;
+    color: rgba(255, 255, 255, 0.9);
+">
+    <!-- Logo Section -->
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="
+            width: 48px;
+            height: 48px;
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+        ">
+            <img src="./images/logo.png" alt="Gamety Logo" width="48" height="48" style="border-radius: 50%;">
+        </div>
+        <span style="font-size: 18px; font-weight: 600; color: rgba(255, 255, 255, 0.9);">Gamety</span>
+    </div>
+
+    <!-- Navigation Items -->
+    <div style="display: flex; align-items: center; gap: 8px;">
+        <a href="index.html" style="
+              padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Home</a>
+        <a href="about.html" style="
+        padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">About</a>
+        <a href="gallery.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Gallery</a>
+        <a href="contact.html" style="
+            padding: 10px 20px;
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 500;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        ">Contact</a>
+    </div>
+</nav>
+    <!-- Hero Section -->
+    <header class="relative min-h-screen flex items-center justify-center section-bg">
+        <div class="absolute inset-0 overflow-hidden">
+            <div class="absolute top-20 left-20 text-6xl text-yellow-400 opacity-20 rotate-slow">
+                <i class="fas fa-star"></i>
+            </div>
+            <div class="absolute top-40 right-32 text-4xl text-yellow-400 opacity-30 rotate-reverse">
+                <i class="fas fa-cross"></i>
+            </div>
+            <div class="absolute bottom-32 left-1/4 text-5xl text-yellow-400 opacity-25 floating">
+                <i class="fas fa-gem"></i>
+            </div>
+            <div class="absolute bottom-20 right-20 text-6xl text-yellow-400 opacity-20 rotate-slow">
+                <i class="fas fa-shield-alt"></i>
+            </div>
+        </div>
+
+        <div class="text-center z-10 px-8 max-w-4xl">
+            <h1 class="title-font text-8xl md:text-9xl font-bold mb-6 hero-title hero-text">
+                ELDEN RING
+            </h1>
+            <p class="text-2xl md:text-3xl text-yellow-200 mb-12 hero-text">
+                Complete Game Documentation & Guide
+            </p>
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="#overview" class="btn-3d px-8 py-4 text-lg font-semibold rounded-lg nav-3d">
+                    <i class="fas fa-book-open mr-3"></i>Overview
+                </a>
+                <a href="#classes" class="btn-3d px-8 py-4 text-lg font-semibold rounded-lg nav-3d">
+                    <i class="fas fa-user-warrior mr-3"></i>Classes
+                </a>
+                <a href="#bosses" class="btn-3d px-8 py-4 text-lg font-semibold rounded-lg nav-3d">
+                    <i class="fas fa-dragon mr-3"></i>Bosses
+                </a>
+                <a href="#locations" class="btn-3d px-8 py-4 text-lg font-semibold rounded-lg nav-3d">
+                    <i class="fas fa-map mr-3"></i>Locations
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-gray-900 bg-opacity-95 backdrop-blur-sm border-b border-yellow-600 border-opacity-30">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="title-font text-2xl font-bold text-yellow-400">ELDEN RING</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#overview" class="nav-3d text-lg hover:text-yellow-400 transition-colors"><i class="fas fa-scroll mr-2"></i>Overview</a>
+                    <a href="#classes" class="nav-3d text-lg hover:text-yellow-400 transition-colors"><i class="fas fa-users mr-2"></i>Classes</a>
+                    <a href="#bosses" class="nav-3d text-lg hover:text-yellow-400 transition-colors"><i class="fas fa-skull mr-2"></i>Bosses</a>
+                    <a href="#locations" class="nav-3d text-lg hover:text-yellow-400 transition-colors"><i class="fas fa-compass mr-2"></i>Locations</a>
+                    <a href="#equipment" class="nav-3d text-lg hover:text-yellow-400 transition-colors"><i class="fas fa-sword mr-2"></i>Equipment</a>
+                    <a href="#lore" class="nav-3d text-lg hover:text-yellow-400 transition-colors"><i class="fas fa-feather mr-2"></i>Lore</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-6 py-12 space-y-20">
+        <!-- Game Overview -->
+        <section id="overview" class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-yellow-400 mb-6 ornate-text glow-effect">Game Overview</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Elden Ring is an action RPG developed by FromSoftware, combining the challenging gameplay mechanics 
+                    of the Dark Souls series with an open-world structure co-created with George R.R. Martin.
+                </p>
+            </div>
+
+            <div class="grid-responsive">
+                <div class="card-3d bg-gray-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <div class="card-inner">
+                        <h3 class="title-font text-2xl font-bold text-yellow-400 mb-4">
+                            <i class="fas fa-gamepad mr-3"></i>Gameplay
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Explore the vast Lands Between, an open world filled with mysteries, dungeons, and formidable foes. 
+                            Master combat mechanics including dodging, blocking, parrying, and magic casting. Customize your 
+                            character through extensive leveling and equipment systems.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <div class="card-inner">
+                        <h3 class="title-font text-2xl font-bold text-yellow-400 mb-4">
+                            <i class="fas fa-globe mr-3"></i>World Design
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            The Lands Between feature diverse environments from lush forests to desolate wastelands. 
+                            Discover hidden areas, underground cities, and towering castles. Each location tells a story 
+                            through environmental storytelling and intricate level design.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <div class="card-inner">
+                        <h3 class="title-font text-2xl font-bold text-yellow-400 mb-4">
+                            <i class="fas fa-users mr-3"></i>Multiplayer
+                        </h3>
+                        <p class="text-gray-300 leading-relaxed">
+                            Engage in cooperative and competitive multiplayer experiences. Summon allies to aid in battles, 
+                            leave messages for other players, or invade their worlds for PvP combat. The multiplayer system 
+                            seamlessly integrates with the single-player experience.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Character Classes -->
+        <section id="classes" class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-yellow-400 mb-6 ornate-text floating">Character Classes</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Choose your starting class to define your initial stats, equipment, and playstyle approach to the Lands Between.
+                </p>
+            </div>
+
+            <div class="grid-responsive">
+                <div class="flip-card pulse-hover">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gray-800 border-2 border-yellow-600 border-opacity-30">
+                            <i class="fas fa-sword text-6xl text-yellow-400 mb-4"></i>
+                            <h3 class="title-font text-2xl font-bold text-yellow-400">Vagabond</h3>
+                            <p class="text-gray-300 mt-2">Balanced warrior class</p>
+                        </div>
+                        <div class="flip-card-back border-2 border-yellow-600 border-opacity-50">
+                            <h3 class="title-font text-xl font-bold text-yellow-400 mb-3">Vagabond Stats</h3>
+                            <div class="text-sm text-gray-300 space-y-1">
+                                <div>Level: 9 | Vigor: 15</div>
+                                <div>Mind: 10 | Endurance: 11</div>
+                                <div>Strength: 14 | Dexterity: 13</div>
+                                <div>Intelligence: 9 | Faith: 9</div>
+                                <div>Arcane: 7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card pulse-hover">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gray-800 border-2 border-blue-600 border-opacity-30">
+                            <i class="fas fa-magic text-6xl text-blue-400 mb-4"></i>
+                            <h3 class="title-font text-2xl font-bold text-blue-400">Astrologer</h3>
+                            <p class="text-gray-300 mt-2">Intelligence-based spellcaster</p>
+                        </div>
+                        <div class="flip-card-back border-2 border-blue-600 border-opacity-50">
+                            <h3 class="title-font text-xl font-bold text-blue-400 mb-3">Astrologer Stats</h3>
+                            <div class="text-sm text-gray-300 space-y-1">
+                                <div>Level: 6 | Vigor: 9</div>
+                                <div>Mind: 15 | Endurance: 9</div>
+                                <div>Strength: 8 | Dexterity: 12</div>
+                                <div>Intelligence: 16 | Faith: 7</div>
+                                <div>Arcane: 9</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card pulse-hover">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gray-800 border-2 border-red-600 border-opacity-30">
+                            <i class="fas fa-fist-raised text-6xl text-red-400 mb-4"></i>
+                            <h3 class="title-font text-2xl font-bold text-red-400">Samurai</h3>
+                            <p class="text-gray-300 mt-2">Dexterity-focused warrior</p>
+                        </div>
+                        <div class="flip-card-back border-2 border-red-600 border-opacity-50">
+                            <h3 class="title-font text-xl font-bold text-red-400 mb-3">Samurai Stats</h3>
+                            <div class="text-sm text-gray-300 space-y-1">
+                                <div>Level: 9 | Vigor: 12</div>
+                                <div>Mind: 11 | Endurance: 13</div>
+                                <div>Strength: 12 | Dexterity: 15</div>
+                                <div>Intelligence: 9 | Faith: 8</div>
+                                <div>Arcane: 8</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card pulse-hover">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front bg-gray-800 border-2 border-purple-600 border-opacity-30">
+                            <i class="fas fa-cross text-6xl text-purple-400 mb-4"></i>
+                            <h3 class="title-font text-2xl font-bold text-purple-400">Prophet</h3>
+                            <p class="text-gray-300 mt-2">Faith-based divine caster</p>
+                        </div>
+                        <div class="flip-card-back border-2 border-purple-600 border-opacity-50">
+                            <h3 class="title-font text-xl font-bold text-purple-400 mb-3">Prophet Stats</h3>
+                            <div class="text-sm text-gray-300 space-y-1">
+                                <div>Level: 7 | Vigor: 10</div>
+                                <div>Mind: 14 | Endurance: 8</div>
+                                <div>Strength: 11 | Dexterity: 10</div>
+                                <div>Intelligence: 7 | Faith: 16</div>
+                                <div>Arcane: 10</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Boss Encounters -->
+        <section id="bosses" class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-red-400 mb-6 ornate-text glow-effect">Major Bosses</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Face legendary foes and demigods in epic battles that will test your skill, patience, and determination.
+                </p>
+            </div>
+
+            <div class="grid-responsive">
+                <div class="card-3d bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-red-600 border-opacity-30 depth-shadow shimmer">
+                    <div class="text-center">
+                        <i class="fas fa-crown text-5xl text-red-400 mb-4 floating"></i>
+                        <h3 class="title-font text-2xl font-bold text-red-400 mb-4">Margit, the Fell Omen</h3>
+                        <p class="text-gray-300 mb-4">
+                            The first major boss blocking your path to Stormveil Castle. Margit is a formidable opponent 
+                            who serves as a skill check for new players entering the Lands Between.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 text-sm">
+                            <h4 class="text-yellow-400 font-bold mb-2">Strategy Tips:</h4>
+                            <ul class="text-gray-300 space-y-1 text-left">
+                                <li>• Use the Margit's Shackle item for easier phase transitions</li>
+                                <li>• Attack during his long wind-up animations</li>
+                                <li>• Watch for his delayed hammer attacks</li>
+                                <li>• Summon Sorcerer Rogier for assistance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-yellow-600 border-opacity-30 depth-shadow shimmer">
+                    <div class="text-center">
+                        <i class="fas fa-dragon text-5xl text-yellow-400 mb-4 floating"></i>
+                        <h3 class="title-font text-2xl font-bold text-yellow-400 mb-4">Godrick the Grafted</h3>
+                        <p class="text-gray-300 mb-4">
+                            Lord of Stormveil Castle, Godrick is a demigod who grafts limbs from fallen warriors 
+                            to increase his power. He possesses a Great Rune essential to your journey.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 text-sm">
+                            <h4 class="text-yellow-400 font-bold mb-2">Strategy Tips:</h4>
+                            <ul class="text-gray-300 space-y-1 text-left">
+                                <li>• Focus on his ankles in the first phase</li>
+                                <li>• Beware of his dragon arm in phase two</li>
+                                <li>• Use fire damage for extra effectiveness</li>
+                                <li>• Summon Nepheli Loux for help</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-green-600 border-opacity-30 depth-shadow shimmer">
+                    <div class="text-center">
+                        <i class="fas fa-moon text-5xl text-green-400 mb-4 floating"></i>
+                        <h3 class="title-font text-2xl font-bold text-green-400 mb-4">Rennala, Queen of the Full Moon</h3>
+                        <p class="text-gray-300 mb-4">
+                            The former queen of the Carian Royal Family and master of the Academy of Raya Lucaria. 
+                            She commands powerful sorceries and cosmic magic.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 text-sm">
+                            <h4 class="text-yellow-400 font-bold mb-2">Strategy Tips:</h4>
+                            <ul class="text-gray-300 space-y-1 text-left">
+                                <li>• Target glowing students in phase one</li>
+                                <li>• Stay close in phase two to avoid most spells</li>
+                                <li>• Dodge roll through her moon beam attack</li>
+                                <li>• Magic resistance gear helps significantly</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-purple-600 border-opacity-30 depth-shadow shimmer">
+                    <div class="text-center">
+                        <i class="fas fa-meteor text-5xl text-purple-400 mb-4 floating"></i>
+                        <h3 class="title-font text-2xl font-bold text-purple-400 mb-4">Starscourge Radahn</h3>
+                        <p class="text-gray-300 mb-4">
+                            The legendary demigod general who conquered the stars themselves. Despite being afflicted 
+                            by scarlet rot, he remains one of the most formidable warriors in the Lands Between.
+                        </p>
+                        <div class="bg-gray-900 rounded-lg p-4 text-sm">
+                            <h4 class="text-yellow-400 font-bold mb-2">Strategy Tips:</h4>
+                            <ul class="text-gray-300 space-y-1 text-left">
+                                <li>• Participate in the festival battle</li>
+                                <li>• Resummon fallen allies throughout the fight</li>
+                                <li>• Use Torrent for mobility and escaping gravity attacks</li>
+                                <li>• Attack his feet when he's distracted</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Locations -->
+        <section id="locations" class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-blue-400 mb-6 ornate-text rotate-slow">Major Locations</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Explore diverse regions filled with secrets, challenges, and breathtaking vistas across the Lands Between.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="card-3d bg-gradient-to-br from-green-900 to-green-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-green-300 mb-4">
+                        <i class="fas fa-tree mr-3"></i>Limgrave
+                    </h3>
+                    <p class="text-green-100 mb-4">
+                        The starting region and tutorial area of the Lands Between. This lush, rolling landscape 
+                        contains Stormveil Castle and serves as your introduction to the open world.
+                    </p>
+                    <div class="bg-green-800 bg-opacity-50 rounded-lg p-4">
+                        <h4 class="text-green-200 font-bold mb-2">Key Features:</h4>
+                        <ul class="text-green-100 space-y-1">
+                            <li>• Gatefront Ruins - Tutorial area</li>
+                            <li>• Stormveil Castle - First legacy dungeon</li>
+                            <li>• Mistwood - Mysterious forest region</li>
+                            <li>• Summonwater Village - Cooperative area</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-br from-blue-900 to-blue-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-blue-300 mb-4">
+                        <i class="fas fa-university mr-3"></i>Raya Lucaria
+                    </h3>
+                    <p class="text-blue-100 mb-4">
+                        The Academy of Raya Lucaria, a center of magical learning in Liurnia of the Lakes. 
+                        This region is dominated by sorcery and scholarly pursuits.
+                    </p>
+                    <div class="bg-blue-800 bg-opacity-50 rounded-lg p-4">
+                        <h4 class="text-blue-200 font-bold mb-2">Key Features:</h4>
+                        <ul class="text-blue-100 space-y-1">
+                            <li>• Academy Gate Town - Approach to the academy</li>
+                            <li>• Grand Library - Rennala's domain</li>
+                            <li>• Debate Parlor - Magical research area</li>
+                            <li>• Schoolhouse Classroom - Learning chambers</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-br from-red-900 to-red-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-red-300 mb-4">
+                        <i class="fas fa-fire mr-3"></i>Caelid
+                    </h3>
+                    <p class="text-red-100 mb-4">
+                        A hellish landscape consumed by scarlet rot, this dangerous region challenges even 
+                        experienced players with its hostile environment and powerful enemies.
+                    </p>
+                    <div class="bg-red-800 bg-opacity-50 rounded-lg p-4">
+                        <h4 class="text-red-200 font-bold mb-2">Key Features:</h4>
+                        <ul class="text-red-100 space-y-1">
+                            <li>• Redmane Castle - Festival grounds</li>
+                            <li>• Swamp of Aeonia - Scarlet rot epicenter</li>
+                            <li>• Dragonbarrow - Ancient dragon territory</li>
+                            <li>• Sellia Crystal Tunnel - Underground passage</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-br from-yellow-900 to-yellow-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-yellow-300 mb-4">
+                        <i class="fas fa-mountain mr-3"></i>Leyndell
+                    </h3>
+                    <p class="text-yellow-100 mb-4">
+                        The Royal Capital and seat of power in the Lands Between. This majestic city represents 
+                        the height of civilization before the Shattering.
+                    </p>
+                    <div class="bg-yellow-800 bg-opacity-50 rounded-lg p-4">
+                        <h4 class="text-yellow-200 font-bold mb-2">Key Features:</h4>
+                        <ul class="text-yellow-100 space-y-1">
+                            <li>• Erdtree Sanctuary - Sacred chamber</li>
+                            <li>• Royal Capital Ramparts - Defensive walls</li>
+                            <li>• Divine Bridge - Mystical crossing</li>
+                            <li>• Elden Throne - Seat of power</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Equipment & Weapons -->
+        <section id="equipment" class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-purple-400 mb-6 ornate-text pulse-hover">Equipment & Weapons</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Discover powerful weapons, protective armor, and mystical items to customize your build and playstyle.
+                </p>
+            </div>
+
+            <div class="grid-responsive">
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 border-l-4 border-yellow-400 depth-shadow shimmer">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-sword text-3xl text-yellow-400 mr-4"></i>
+                        <h3 class="title-font text-xl font-bold text-yellow-400">Melee Weapons</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-yellow-300 font-bold">Uchigatana</h4>
+                            <p class="text-sm text-gray-300">Versatile katana with excellent reach and bleed buildup</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-yellow-300 font-bold">Bloodhound's Fang</h4>
+                            <p class="text-sm text-gray-300">Curved greatsword with unique skill and high damage</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-yellow-300 font-bold">Grafted Blade Greatsword</h4>
+                            <p class="text-sm text-gray-300">Colossal sword with incredible strength requirements</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 border-l-4 border-blue-400 depth-shadow shimmer">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-magic text-3xl text-blue-400 mr-4"></i>
+                        <h3 class="title-font text-xl font-bold text-blue-400">Sorceries</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-blue-300 font-bold">Glintstone Pebble</h4>
+                            <p class="text-sm text-gray-300">Basic but efficient sorcery for consistent damage</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-blue-300 font-bold">Comet Azur</h4>
+                            <p class="text-sm text-gray-300">Legendary sorcery with devastating beam attack</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-blue-300 font-bold">Stars of Ruin</h4>
+                            <p class="text-sm text-gray-300">Homing projectiles that track enemies relentlessly</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 border-l-4 border-purple-400 depth-shadow shimmer">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-shield-alt text-3xl text-purple-400 mr-4"></i>
+                        <h3 class="title-font text-xl font-bold text-purple-400">Armor Sets</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-purple-300 font-bold">Knight Set</h4>
+                            <p class="text-sm text-gray-300">Balanced protection with good poise and defense</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-purple-300 font-bold">Black Knife Set</h4>
+                            <p class="text-sm text-gray-300">Lightweight armor enhancing stealth and mobility</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-purple-300 font-bold">Radahn's Set</h4>
+                            <p class="text-sm text-gray-300">Heavy armor providing maximum defense and presence</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 border-l-4 border-green-400 depth-shadow shimmer">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bow-arrow text-3xl text-green-400 mr-4"></i>
+                        <h3 class="title-font text-xl font-bold text-green-400">Ranged Weapons</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-green-300 font-bold">Longbow</h4>
+                            <p class="text-sm text-gray-300">Reliable bow for long-distance engagements</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-green-300 font-bold">Pulley Crossbow</h4>
+                            <p class="text-sm text-gray-300">Multi-shot crossbow with explosive potential</p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-3">
+                            <h4 class="text-green-300 font-bold">Hand Ballista</h4>
+                            <p class="text-sm text-gray-300">Heavy crossbow dealing massive single-target damage</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lore & Story -->
+        <section id="lore" class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-orange-400 mb-6 ornate-text glow-effect">Lore & Story</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Uncover the rich narrative tapestry woven by Hidetaka Miyazaki and George R.R. Martin, 
+                    exploring themes of power, corruption, and the cycle of civilizations.
+                </p>
+            </div>
+
+            <div class="space-y-12">
+                <div class="card-3d bg-gradient-to-r from-gray-800 to-gray-700 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-orange-400 mb-6 flex items-center">
+                        <i class="fas fa-tree mr-4"></i>The Golden Order
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                The Golden Order represents the divine rule established by the Greater Will through the Erdtree. 
+                                This cosmic force brought order and prosperity to the Lands Between, establishing a hierarchy 
+                                of gods, demigods, and mortals bound by fate and divine law.
+                            </p>
+                            <p class="text-gray-300 leading-relaxed">
+                                Queen Marika the Eternal served as the vessel for this divine power, ruling over the lands 
+                                with the support of her consort Radagon and their demigod children who each possessed 
+                                fragments of the Elden Ring.
+                            </p>
+                        </div>
+                        <div class="bg-gray-900 rounded-lg p-6">
+                            <h4 class="text-orange-300 font-bold mb-3">Key Figures</h4>
+                            <ul class="text-gray-300 space-y-2">
+                                <li><strong>Queen Marika:</strong> The eternal ruler and vessel of the Elden Ring</li>
+                                <li><strong>Radagon:</strong> Marika's consort and alter ego</li>
+                                <li><strong>Godfrey:</strong> First Elden Lord and warrior king</li>
+                                <li><strong>The Two Fingers:</strong> Envoys of the Greater Will</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-r from-gray-700 to-gray-800 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-red-400 mb-6 flex items-center">
+                        <i class="fas fa-crown-broken mr-4"></i>The Shattering
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-900 rounded-lg p-6">
+                            <h4 class="text-red-300 font-bold mb-3">The Great Runes</h4>
+                            <ul class="text-gray-300 space-y-2">
+                                <li><strong>Godrick's Rune:</strong> Power of grafting and growth</li>
+                                <li><strong>Rennala's Rune:</strong> Rebirth and transformation</li>
+                                <li><strong>Radahn's Rune:</strong> Strength and gravity magic</li>
+                                <li><strong>Rykard's Rune:</strong> Blasphemous power and consumption</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <p class="text-gray-300 leading-relaxed mb-4">
+                                The Shattering was a catastrophic war that erupted when Queen Marika shattered the Elden Ring, 
+                                breaking the divine order and plunging the Lands Between into chaos. The demigod children 
+                                claimed fragments called Great Runes, leading to endless conflict.
+                            </p>
+                            <p class="text-gray-300 leading-relaxed">
+                                This war corrupted the land and its inhabitants, creating the desolate world that the 
+                                Tarnished must navigate. Each demigod's pursuit of power led to their own corruption 
+                                and the suffering of their domains.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gradient-to-r from-gray-800 to-gray-700 rounded-2xl p-8 depth-shadow shimmer">
+                    <h3 class="title-font text-3xl font-bold text-yellow-400 mb-6 flex items-center">
+                        <i class="fas fa-user-crown mr-4"></i>The Tarnished
+                    </h3>
+                    <div class="text-center max-w-4xl mx-auto">
+                        <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                            You are among the Tarnished, exiled warriors who lost the grace of gold and were banished 
+                            from the Lands Between. Now called back by grace after countless ages, the Tarnished 
+                            represent the last hope for restoring order to the shattered realm.
+                        </p>
+                        <p class="text-gray-300 text-lg leading-relaxed">
+                            Your journey is one of choice and consequence, with multiple possible endings that reflect 
+                            different philosophies about power, order, and the nature of existence itself. Will you 
+                            restore the Golden Order, embrace chaos, or forge an entirely new path for the world?
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Game Mechanics -->
+        <section class="section-bg py-16">
+            <div class="text-center mb-16">
+                <h2 class="title-font text-6xl font-bold text-cyan-400 mb-6 ornate-text floating">Core Mechanics</h2>
+                <p class="text-xl text-gray-300 max-w-4xl mx-auto">
+                    Master the fundamental systems that govern combat, character progression, and exploration.
+                </p>
+            </div>
+
+            <div class="grid-responsive">
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 depth-shadow shimmer">
+                    <h3 class="title-font text-2xl font-bold text-cyan-400 mb-4">
+                        <i class="fas fa-heart mr-3"></i>Stats & Leveling
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div><strong>Vigor:</strong> Health points and resistances</div>
+                        <div><strong>Mind:</strong> FP (mana) for spells and skills</div>
+                        <div><strong>Endurance:</strong> Stamina and equipment load</div>
+                        <div><strong>Strength:</strong> Physical damage scaling</div>
+                        <div><strong>Dexterity:</strong> Weapon speed and casting</div>
+                        <div><strong>Intelligence:</strong> Sorcery scaling</div>
+                        <div><strong>Faith:</strong> Incantation scaling</div>
+                        <div><strong>Arcane:</strong> Item discovery and bleed</div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 depth-shadow shimmer">
+                    <h3 class="title-font text-2xl font-bold text-cyan-400 mb-4">
+                        <i class="fas fa-fist-raised mr-3"></i>Combat System
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <div>• <strong>Light/Heavy Attacks:</strong> Basic combat options</div>
+                        <div>• <strong>Guard Counter:</strong> Counterattack after blocking</div>
+                        <div>• <strong>Critical Hits:</strong> Massive damage opportunities</div>
+                        <div>• <strong>Status Effects:</strong> Bleed, poison, frostbite</div>
+                        <div>• <strong>Weapon Skills:</strong> Unique abilities per weapon</div>
+                        <div>• <strong>Dodge Rolling:</strong> I-frames for evasion</div>
+                        <div>• <strong>Parrying:</strong> Timing-based defense</div>
+                    </div>
+                </div>
+
+                <div class="card-3d bg-gray-800 rounded-2xl p-6 depth-shadow shimmer">
+                    <h3 class="title-font text-2xl font-bold text-cyan-400 mb-4">
+                        <i class="fas fa-horse mr-3"></i>Torrent & Exploration
+                    </h3>
+                    <div class="space-y-2 text-sm">
+                        <div>• <strong>Mounted Combat:</strong> Fight from horseback</div>
+                        <div>• <strong>Double Jump:</strong> Enhanced mobility</div>
+                        <div>• <strong>Spirit Springs:</strong> Vertical traversal</div>
+                        <div>• <strong>Stakes of Marika:</strong> Boss respawn points</div>
+                        <div>• <strong>Sites of Grace:</strong> Save points and guidance</div>
+                        <div>• <strong>Map Fragments:</strong> Reveal area details</div>
+                        <div>• <strong>Fast Travel:</strong> Instant transportation</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-yellow-600 border-opacity-30 py-12">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h3 class="title-font text-3xl font-bold text-yellow-400 mb-4 glow-effect">
+                Arise, Tarnished
+            </h3>
+            <p class="text-xl text-gray-300 mb-8">
+                "The fallen leaves tell a story of how a Tarnished became Elden Lord."
+            </p>
+            <div class="flex justify-center space-x-8 text-3xl">
+                <i class="fas fa-ring text-yellow-400 floating"></i>
+                <i class="fas fa-sword text-yellow-400 rotate-slow"></i>
+                <i class="fas fa-crown text-yellow-400 pulse-hover"></i>
+                <i class="fas fa-shield-alt text-yellow-400 rotate-reverse"></i>
+                <i class="fas fa-gem text-yellow-400 floating"></i>
+            </div>
+            <div class="mt-8 text-gray-500">
+                <p>© Gamety 2025. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
